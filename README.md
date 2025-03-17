@@ -22,7 +22,7 @@ The following disclaimer is present in the source PDFs:
 - [ ] Create Containerfile to execute using a container runtime (use `uv` + install `camelot` prerequisites)
 - Refactor code
   - [ ] Availability PDF URL should be a parameter
-  - [ ] Separate functionality of downloading and parsing
+  - [X] Separate functionality of downloading and parsing
   - [ ] Make parsing more bulletproof: handle different timezones in string, clear occasional possible leading/trailing whitespace
 - [ ] Automatically execute every day (GitHub Actions?)
 - [ ] Choose license(s), possibly different license for the data

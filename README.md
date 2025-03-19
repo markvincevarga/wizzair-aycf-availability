@@ -37,12 +37,19 @@ To locally update the data with the current day's PDF, run the `main.py` script 
 uv run main.py
 ```
 
+OR use the provided container to run wizz-aycf-data. The following command will mount your current working directory in the container.
+
+```bash
+docker build . -f Containerfile -t wizz-aycf-data
+docker run -v "${PWD}:/app" wizz-aycf-data
+```
+
 ## Goals
 
-- [ ] Create Containerfile to execute using a container runtime (use `uv` + install `camelot` prerequisites)
+- [x] Create Containerfile to execute using a container runtime (use `uv` + install `camelot` prerequisites)
 - Refactor code
   - [ ] Availability PDF URL should be a parameter
-  - [X] Separate functionality of downloading and parsing
+  - [x] Separate functionality of downloading and parsing
   - [ ] Make parsing more bulletproof: handle different timezones in string, clear occasional possible leading/trailing whitespace
 - [ ] Automatically execute every day (GitHub Actions?)
 - [ ] Choose license(s), possibly different license for the data

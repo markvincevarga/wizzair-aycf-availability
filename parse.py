@@ -30,6 +30,7 @@ def get_data(pdf_path: Path) -> pd.DataFrame:
     dataframes = map(lambda table: table.df[1:], tables)  # remove headers
     df = pd.concat(dataframes)
     df.columns = ["departure_from", "departure_to"]
+    df.sort_values(["departure_from", "departure_to"], inplace=True)
     return df
 
 

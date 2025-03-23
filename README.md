@@ -52,4 +52,4 @@ docker run -v "${PWD}:/app" wizz-aycf-data
   - [x] Separate functionality of downloading and parsing
   - [ ] Make parsing more bulletproof: handle different timezones in string, clear occasional possible leading/trailing whitespace
 - [ ] Automatically execute every day (GitHub Actions?)
-- [ ] Choose license(s), possibly different license for the data
+- [x] Choose license(s), possibly different license for the data

@@ -10,4 +10,5 @@ dependencies = [
     "pandas>=2.2.3",
     "pip>=25.0.1",
     "requests>=2.32.3",
+    "typer>=0.15.2",
 ]

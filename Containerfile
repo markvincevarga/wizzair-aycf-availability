@@ -5,4 +5,4 @@ RUN apt-get update && \
     curl ghostscript ca-certificates && \
     curl -LsSf https://astral.sh/uv/install.sh | sh
 
-CMD ["bash", "-c", "cd /app && /root/.local/bin/uv run main.py"]
+CMD ["bash", "-c", "cd /app && /root/.local/bin/uv run main.py fetch-and-parse"]

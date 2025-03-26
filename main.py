@@ -13,7 +13,8 @@ app = typer.Typer()
 
 
 def _parse(pdf_path: str, data_dir: str) -> tuple[str, datetime]:
-    """Parse PDF without printing
+    """
+    Parse PDF without printing
 
     Returns:
         (data_file, data_generated_at)
@@ -34,9 +35,7 @@ def _parse(pdf_path: str, data_dir: str) -> tuple[str, datetime]:
 
 @app.command()
 def fetch(url: str = DEFAULT_AVAILABILITY_URL, pdf_dir: str = "pdfs"):
-    """
-    Fetch today's availability PDF and store it in the given directory
-    """
+    """Fetch today's availability PDF and store it in the given directory"""
     fetched = fetchlib.download_current_pdf(url, Path(pdf_dir))
     print(f"Currently published PDF downloaded and stored in {fetched}")
 

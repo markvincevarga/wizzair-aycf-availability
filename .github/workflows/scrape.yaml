@@ -1,0 +1,45 @@
+name: scrape
+
+on:
+  schedule:
+    - cron: "5 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-availabilities:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set Up Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends curl ghostscript ca-certificates
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+
+      - name: Run Scrape
+        run: |
+          uv run main.py fetch-and-parse
+          echo Done fetching and parsing
+          echo Doing self-check: only one file must exist
+          git ls-files data --others --exclude-standard
+          [ $(git ls-files data --others --exclude-standard | wc -l) = 1 ] || exit 1
+
+      - name: Setup Git Config
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit New File and Push
+        run: |
+          # Stage the file, commit and push
+          file_path=$(git ls-files data --others --exclude-standard)
+          timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
+          git add ${file_path}
+          git commit -m "add availabilities for ${timestamp}"
+          git --no-pager log -n 1
+          git push origin main

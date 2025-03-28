@@ -12,17 +12,16 @@ DEFAULT_AVAILABILITY_URL = "https://multipass.wizzair.com/aycf-availability.pdf"
 app = typer.Typer()
 
 
-def _parse(pdf_path: str, data_dir: str) -> tuple[str, datetime]:
+def _parse(pdf_path: Path, data_dir: Path) -> tuple[str, datetime]:
     """
     Parse PDF without printing
 
     Returns:
         (data_file, data_generated_at)
     """
-    unparsed = Path(pdf_path)
-    metadata = parselib.get_metadata(unparsed)
+    metadata = parselib.get_metadata(pdf_path)
     data_generated_at = metadata[1]
-    data = parselib.get_data(unparsed)
+    data = parselib.get_data(pdf_path)
     parselib.add_metadata(data, metadata)
 
     # Write to file
@@ -34,14 +33,14 @@ def _parse(pdf_path: str, data_dir: str) -> tuple[str, datetime]:
 
 
 @app.command()
-def fetch(url: str = DEFAULT_AVAILABILITY_URL, pdf_dir: str = "pdfs"):
+def fetch(url: str = DEFAULT_AVAILABILITY_URL, pdf_dir: Path = Path("pdfs")):
     """Fetch today's availability PDF and store it in the given directory"""
     fetched = fetchlib.download_current_pdf(url, Path(pdf_dir))
     print(f"Currently published PDF downloaded and stored in {fetched}")
 
 
 @app.command()
-def parse(pdf_path: str, data_dir: str = "data") -> str:
+def parse(pdf_path: Path, data_dir: Path = Path("data")) -> str:
     """Parse the given PDF at `pdf_path`, and store the CSV data in the given `out_dir`"""
     data_file, _ = _parse(pdf_path, data_dir)
     print(f"PDF parsed and data stored in {data_file}")
@@ -49,7 +48,9 @@ def parse(pdf_path: str, data_dir: str = "data") -> str:
 
 @app.command()
 def fetch_and_parse(
-    url: str = DEFAULT_AVAILABILITY_URL, pdf_dir: str = "pdfs", data_dir: str = "data"
+    url: str = DEFAULT_AVAILABILITY_URL,
+    pdf_dir: Path = Path("pdfs"),
+    data_dir: Path = Path("data"),
 ):
     """Fetch today's availability PDF, parse it, and store both the source PDF and the data"""
     unparsed = fetchlib.download_current_pdf(url, Path(pdf_dir))

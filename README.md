@@ -44,8 +44,8 @@ $ uv run main.py fetch-and-parse --help
 ╭─ Options ────────────────────────────────────────────────────────────────────╮
 │ --url             TEXT  [default:                                            │
 │                         https://multipass.wizzair.com/aycf-availability.pdf] │
-│ --pdf-dir         TEXT  [default: pdfs]                                      │
-│ --data-dir        TEXT  [default: data]                                      │
+│ --pdf-dir         PATH  [default: pdfs]                                      │
+│ --data-dir        PATH  [default: data]                                      │
 │ --help                  Show this message and exit.                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯
 ```

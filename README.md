@@ -7,7 +7,7 @@ From the All You Can Fly **FAQ**:
 
 Flight availability data is published every day in the morning (Central European Time), and is publicly available in the PDF format at <https://multipass.wizzair.com/aycf-availability.pdf>
 
-This project aims to record the availability data in an accessible format, `csv`, for analysis. At this time, the earliest datapoint is from `2025-03-16`. If you have earlier data, get in touch with me by opening an issue, or send a toot my way on mastodon! (see my profile for username)
+This project aims to record the availability data in an accessible format, `csv`, for analysis. At this time, the earliest datapoint is from `2025-03-15`. If you have earlier data, get in touch with me by opening an issue, or send a toot my way on mastodon! (see my profile for username)
 
 ## Disclaimer
 

@@ -2,7 +2,7 @@ name: scrape
 
 on:
   schedule:
-    - cron: "5 8 * * *"
+    - cron: "15 6 * * *"
   workflow_dispatch:
 
 permissions:

@@ -26,7 +26,7 @@ jobs:
           uv run --link-mode=copy main.py fetch --pdf-dir pdfs
           echo Done fetching
           echo Doing self-check: only one file must exist
-          [ $(ls pdfs | wc -l) = 1 ] || exit 1
+          [ $(ls pdfs | wc -l) = 1 ] && echo "Success" || { echo "Failure"; ls data; exit 1; }
           mkdir artifacts
           cp pdfs/$(ls pdfs) artifacts/availability.pdf
 
@@ -39,8 +39,13 @@ jobs:
         run: |
           uv run --link-mode=copy main.py parse --data-dir data artifacts/availability.pdf
           echo Doing self-check: only one file must exist
-          git ls-files data --others --exclude-standard
-          [ $(git ls-files data --others --exclude-standard | wc -l) = 1 ] || exit 1
+          if [ $(git ls-files data --others --exclude-standard | wc -l) = 1 ]; then
+              echo "Success" 
+          else
+              echo "Failure"
+              git ls-files data --others --exclude-standard
+              exit 1
+          fi
 
       - name: Setup Git Config
         run: |

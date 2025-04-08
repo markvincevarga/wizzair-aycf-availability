@@ -23,8 +23,21 @@ jobs:
 
       - name: Run Scrape
         run: |
-          uv run main.py fetch-and-parse
-          echo Done fetching and parsing
+          uv run --link-mode=copy main.py fetch --pdf-dir pdfs
+          echo Done fetching
+          echo Doing self-check: only one file must exist
+          [ $(ls pdfs | wc -l) = 1 ] || exit 1
+          mkdir artifacts
+          cp pdfs/$(ls pdfs) artifacts/availability.pdf
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: availability-pdf
+          path: artifacts/availability.pdf
+
+      - name: Run Parse
+        run: |
+          uv run --link-mode=copy main.py parse --data-dir data artifacts/availability.pdf
           echo Doing self-check: only one file must exist
           git ls-files data --others --exclude-standard
           [ $(git ls-files data --others --exclude-standard | wc -l) = 1 ] || exit 1

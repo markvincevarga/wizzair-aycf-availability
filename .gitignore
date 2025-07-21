@@ -8,6 +8,3 @@ wheels/
 
 # Virtual environments
 .venv
-
-# Data files I do not have a right to share
-pdfs/

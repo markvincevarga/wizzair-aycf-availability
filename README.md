@@ -35,16 +35,17 @@ To locally update the data with the current day's PDF, run the `main.py` script 
 
 ```bash
 $ uv run main.py fetch-and-parse --help
-                                                                                
- Usage: main.py fetch-and-parse [OPTIONS]                                       
-                                                                                
- Fetch today’s availability PDF, parse it, and store both the source PDF and    
- the data                                                                       
-                                                                                
+
+ Usage: main.py fetch-and-parse [OPTIONS]
+
+ Fetch today’s availability PDF, parse it, and store both the source PDF and
+ the data
+ If pdf_dir is also defined, the source pdf is retained in the specified directory.
+
 ╭─ Options ────────────────────────────────────────────────────────────────────╮
 │ --url             TEXT  [default:                                            │
 │                         https://multipass.wizzair.com/aycf-availability.pdf] │
-│ --pdf-dir         PATH  [default: pdfs]                                      │
+│ --pdf-dir         PATH  [default: None]                                      │
 │ --data-dir        PATH  [default: data]                                      │
 │ --help                  Show this message and exit.                          │
 ╰──────────────────────────────────────────────────────────────────────────────╯

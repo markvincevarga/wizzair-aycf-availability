@@ -3,8 +3,8 @@
 from datetime import datetime
 from pathlib import Path
 
-import camelot
 import pandas as pd
+from camelot.io import read_pdf as parse_pdf
 
 
 def parse_timestamp(raw: str) -> datetime:
@@ -13,7 +13,7 @@ def parse_timestamp(raw: str) -> datetime:
 
 
 def get_metadata(pdf_path: Path) -> tuple[tuple[datetime, datetime], datetime]:
-    headers = camelot.read_pdf(pdf_path, pages="1", flavor="stream")
+    headers = parse_pdf(pdf_path, pages="1", flavor="stream")
     # Get time strings
     avail_start_s, avail_end_s = headers[0].df[1][1].split(" - ")
     data_generated_s = headers[0].df[3][1]
@@ -26,7 +26,7 @@ def get_metadata(pdf_path: Path) -> tuple[tuple[datetime, datetime], datetime]:
 
 
 def get_data(pdf_path: Path) -> pd.DataFrame:
-    tables = camelot.read_pdf(pdf_path, pages="all", flavor="lattice")
+    tables = parse_pdf(pdf_path, pages="all", flavor="lattice")
     dataframes = map(lambda table: table.df[1:], tables)  # remove headers
     df = pd.concat(dataframes)
     df.columns = ["departure_from", "departure_to"]

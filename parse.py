@@ -30,8 +30,8 @@ def get_data(pdf_path: Path) -> pd.DataFrame:
     dataframes = map(lambda table: table.df[1:], tables)  # remove headers
     df = pd.concat(dataframes)
     df.columns = ["departure_from", "departure_to"]
-    df.sort_values(["departure_from", "departure_to"], inplace=True)
-    return df
+    sorted_df = df.sort_values(by=["departure_from", "departure_to"])  # type: ignore
+    return sorted_df.reset_index(drop=True)
 
 
 def add_metadata(

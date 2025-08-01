@@ -36,7 +36,7 @@ def _parse(pdf_path: Path, data_dir: Path) -> tuple[str, datetime]:
     parselib.add_metadata(data, metadata)
 
     # Write to file
-    data_name = Path(f"{data_generated_at.isoformat()}.csv")
+    data_name = Path(f"{data_generated_at.isoformat().replace(':', '_')}.csv")
     data_file = data_dir / data_name
     data.to_csv(data_file, index=False)
 
@@ -74,7 +74,7 @@ def fetch_and_parse(
 
         # In case all operations were successful, we reach this point.
         # Mark PDF as parsed, rename to data_generated_at timestamp
-        parsed = pdf_workdir / Path(f"{data_generated_at.isoformat()}.pdf")
+        parsed = pdf_workdir / Path(f"{data_generated_at.isoformat().replace(':', '_')}.pdf")
         unparsed.rename(parsed)
         print("Currently published availability PDF fetched and parsed.")
         if pdf_dir is not None:

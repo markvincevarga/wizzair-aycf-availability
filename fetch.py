@@ -15,7 +15,7 @@ def download_current_pdf(url: str, pdf_dir: Path) -> Path:
     response.raise_for_status()
 
     pdf_dir.mkdir(exist_ok=True)
-    pdf_name = Path(f"{current_time.isoformat()}_unparsed.pdf")
+    pdf_name = Path(f"{current_time.isoformat().replace(':', '_')}_unparsed.pdf")
     pdf_path = pdf_dir / pdf_name
 
     with pdf_path.open("wb") as file:

@@ -52,12 +52,18 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Commit New File and Push
-        run: |
-          # Stage the file, commit and push
-          file_path=$(git ls-files data --others --exclude-standard)
-          timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
-          git add ${file_path}
-          git commit -m "add availabilities for ${timestamp}"
-          git --no-pager log -n 1
-          git push origin main
+       - name: Generate Dashboard Data
+         run: |
+           uv run --link-mode=copy docs/generate_data.py
+           echo "Dashboard data generated successfully"
+
+       - name: Commit New Files and Push
+         run: |
+           # Stage the CSV file and generated JSON, commit and push
+           file_path=$(git ls-files data --others --exclude-standard)
+           timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
+           git add ${file_path}
+           git add docs/dashboard_data.json
+           git commit -m "add availabilities for ${timestamp} and update dashboard data"
+           git --no-pager log -n 1
+           git push origin main

@@ -1,0 +1,6580 @@
+{
+  "generated_at": "2025-10-19T23:51:03.163831",
+  "summary": {
+    "totalDays": 218,
+    "avgDailyFlights": 805,
+    "dateRange": "2025-03-15 - 2025-10-19"
+  },
+  "weekdayStats": {
+    "Thursday": {
+      "average": 743,
+      "stdDev": 115.17499541954614,
+      "count": 31,
+      "flights": [
+        676,
+        625,
+        679,
+        836,
+        525,
+        397,
+        873,
+        859,
+        873,
+        799,
+        741,
+        821,
+        766,
+        923,
+        880,
+        810,
+        815,
+        681,
+        646,
+        818,
+        716,
+        691,
+        708,
+        857,
+        824,
+        631,
+        658,
+        655,
+        734,
+        680,
+        827
+      ]
+    },
+    "Sunday": {
+      "average": 853,
+      "stdDev": 103.03635730857023,
+      "count": 32,
+      "flights": [
+        811,
+        942,
+        910,
+        796,
+        913,
+        808,
+        777,
+        695,
+        865,
+        922,
+        839,
+        908,
+        931,
+        944,
+        883,
+        965,
+        915,
+        816,
+        818,
+        854,
+        840,
+        815,
+        973,
+        940,
+        994,
+        939,
+        740,
+        764,
+        705,
+        493,
+        957,
+        835
+      ]
+    },
+    "Wednesday": {
+      "average": 798,
+      "stdDev": 108.41238472282733,
+      "count": 31,
+      "flights": [
+        672,
+        850,
+        888,
+        696,
+        553,
+        612,
+        909,
+        952,
+        853,
+        747,
+        880,
+        858,
+        858,
+        760,
+        793,
+        723,
+        775,
+        767,
+        767,
+        990,
+        857,
+        889,
+        764,
+        601,
+        674,
+        784,
+        692,
+        895,
+        874,
+        889,
+        928
+      ]
+    },
+    "Friday": {
+      "average": 760,
+      "stdDev": 137.3692692309028,
+      "count": 31,
+      "flights": [
+        784,
+        810,
+        707,
+        692,
+        474,
+        705,
+        879,
+        962,
+        891,
+        878,
+        757,
+        879,
+        681,
+        708,
+        905,
+        809,
+        657,
+        784,
+        736,
+        508,
+        395,
+        832,
+        862,
+        684,
+        762,
+        970,
+        805,
+        661,
+        945,
+        634,
+        808
+      ]
+    },
+    "Monday": {
+      "average": 872,
+      "stdDev": 95.43249598707236,
+      "count": 31,
+      "flights": [
+        914,
+        886,
+        763,
+        776,
+        860,
+        800,
+        886,
+        969,
+        791,
+        739,
+        959,
+        862,
+        726,
+        914,
+        740,
+        939,
+        964,
+        965,
+        1000,
+        946,
+        969,
+        906,
+        932,
+        980,
+        1012,
+        749,
+        949,
+        678,
+        874,
+        754,
+        836
+      ]
+    },
+    "Saturday": {
+      "average": 806,
+      "stdDev": 120.34009266751379,
+      "count": 32,
+      "flights": [
+        782,
+        740,
+        755,
+        878,
+        858,
+        887,
+        928,
+        586,
+        972,
+        899,
+        601,
+        921,
+        742,
+        795,
+        778,
+        888,
+        866,
+        761,
+        789,
+        809,
+        765,
+        928,
+        747,
+        427,
+        832,
+        762,
+        831,
+        701,
+        730,
+        965,
+        875,
+        1008
+      ]
+    },
+    "Tuesday": {
+      "average": 801,
+      "stdDev": 119.6925947641679,
+      "count": 30,
+      "flights": [
+        783,
+        761,
+        940,
+        720,
+        904,
+        707,
+        746,
+        716,
+        822,
+        782,
+        820,
+        741,
+        466,
+        928,
+        976,
+        925,
+        806,
+        736,
+        665,
+        992,
+        920,
+        830,
+        813,
+        756,
+        784,
+        903,
+        899,
+        604,
+        933,
+        640
+      ]
+    }
+  },
+  "topRoutes": [
+    {
+      "cities": [
+        "Bari",
+        "Bucharest"
+      ],
+      "count": 406,
+      "routeKey": "Bari - Bucharest"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Yerevan"
+      ],
+      "count": 402,
+      "routeKey": "Larnaca - Yerevan"
+    },
+    {
+      "cities": [
+        "Poznan",
+        "Rome"
+      ],
+      "count": 393,
+      "routeKey": "Poznan - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Venice"
+      ],
+      "count": 391,
+      "routeKey": "Budapest - Venice"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Larnaca"
+      ],
+      "count": 389,
+      "routeKey": "Kutaisi - Larnaca"
+    },
+    {
+      "cities": [
+        "Alghero",
+        "Bucharest"
+      ],
+      "count": 383,
+      "routeKey": "Alghero - Bucharest"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Budapest"
+      ],
+      "count": 382,
+      "routeKey": "Bucharest - Budapest"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "London"
+      ],
+      "count": 382,
+      "routeKey": "Bucharest - London"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "London"
+      ],
+      "count": 380,
+      "routeKey": "Budapest - London"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Genoa"
+      ],
+      "count": 377,
+      "routeKey": "Budapest - Genoa"
+    },
+    {
+      "cities": [
+        "London",
+        "Prague"
+      ],
+      "count": 374,
+      "routeKey": "London - Prague"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Vienna"
+      ],
+      "count": 372,
+      "routeKey": "Barcelona - Vienna"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Timisoara"
+      ],
+      "count": 371,
+      "routeKey": "Bari - Timisoara"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Sarajevo"
+      ],
+      "count": 371,
+      "routeKey": "Rome - Sarajevo"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Stockholm"
+      ],
+      "count": 371,
+      "routeKey": "Gdansk - Stockholm"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "London"
+      ],
+      "count": 369,
+      "routeKey": "Larnaca - London"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Chisinau"
+      ],
+      "count": 367,
+      "routeKey": "Bucharest - Chisinau"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Oslo"
+      ],
+      "count": 366,
+      "routeKey": "Gdansk - Oslo"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Larnaca"
+      ],
+      "count": 365,
+      "routeKey": "Bucharest - Larnaca"
+    },
+    {
+      "cities": [
+        "London",
+        "Varna"
+      ],
+      "count": 365,
+      "routeKey": "London - Varna"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Catania"
+      ],
+      "count": 364,
+      "routeKey": "Bucharest - Catania"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Warsaw"
+      ],
+      "count": 363,
+      "routeKey": "Milan - Warsaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Milan"
+      ],
+      "count": 362,
+      "routeKey": "Bucharest - Milan"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Milan"
+      ],
+      "count": 361,
+      "routeKey": "Budapest - Milan"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Gothenburg"
+      ],
+      "count": 361,
+      "routeKey": "Gdansk - Gothenburg"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Memmingen"
+      ],
+      "count": 360,
+      "routeKey": "Bucharest - Memmingen"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Rome"
+      ],
+      "count": 359,
+      "routeKey": "Budapest - Rome"
+    },
+    {
+      "cities": [
+        "Copenhagen",
+        "Gdansk"
+      ],
+      "count": 357,
+      "routeKey": "Copenhagen - Gdansk"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Malmo"
+      ],
+      "count": 357,
+      "routeKey": "Iasi - Malmo"
+    },
+    {
+      "cities": [
+        "London",
+        "Wroclaw"
+      ],
+      "count": 357,
+      "routeKey": "London - Wroclaw"
+    },
+    {
+      "cities": [
+        "Antalya",
+        "London"
+      ],
+      "count": 356,
+      "routeKey": "Antalya - London"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Kutaisi"
+      ],
+      "count": 356,
+      "routeKey": "Athens - Kutaisi"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Rome"
+      ],
+      "count": 356,
+      "routeKey": "Gdansk - Rome"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Venice"
+      ],
+      "count": 356,
+      "routeKey": "Iasi - Venice"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "London"
+      ],
+      "count": 356,
+      "routeKey": "Krakow - London"
+    },
+    {
+      "cities": [
+        "London",
+        "Warsaw"
+      ],
+      "count": 356,
+      "routeKey": "London - Warsaw"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Zaragoza"
+      ],
+      "count": 356,
+      "routeKey": "Rome - Zaragoza"
+    },
+    {
+      "cities": [
+        "Jeddah",
+        "Vienna"
+      ],
+      "count": 355,
+      "routeKey": "Jeddah - Vienna"
+    },
+    {
+      "cities": [
+        "Banja Luka",
+        "Basel/Mulhouse"
+      ],
+      "count": 354,
+      "routeKey": "Banja Luka - Basel/Mulhouse"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Budapest"
+      ],
+      "count": 353,
+      "routeKey": "Bari - Budapest"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Haugesund"
+      ],
+      "count": 353,
+      "routeKey": "Gdansk - Haugesund"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Wroclaw"
+      ],
+      "count": 351,
+      "routeKey": "Bari - Wroclaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Venice"
+      ],
+      "count": 351,
+      "routeKey": "Bucharest - Venice"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Gdansk"
+      ],
+      "count": 351,
+      "routeKey": "Dortmund - Gdansk"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Cluj"
+      ],
+      "count": 350,
+      "routeKey": "Bari - Cluj"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Madeira"
+      ],
+      "count": 350,
+      "routeKey": "Gdansk - Madeira"
+    },
+    {
+      "cities": [
+        "Madeira",
+        "Warsaw"
+      ],
+      "count": 349,
+      "routeKey": "Madeira - Warsaw"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Vienna"
+      ],
+      "count": 348,
+      "routeKey": "Chisinau - Vienna"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Katowice"
+      ],
+      "count": 348,
+      "routeKey": "Dortmund - Katowice"
+    },
+    {
+      "cities": [
+        "Jeddah",
+        "Rome"
+      ],
+      "count": 348,
+      "routeKey": "Jeddah - Rome"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Milan"
+      ],
+      "count": 347,
+      "routeKey": "Barcelona - Milan"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Rome"
+      ],
+      "count": 347,
+      "routeKey": "Chisinau - Rome"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Warsaw"
+      ],
+      "count": 347,
+      "routeKey": "Rome - Warsaw"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Liverpool"
+      ],
+      "count": 346,
+      "routeKey": "Gdansk - Liverpool"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Rzeszow"
+      ],
+      "count": 345,
+      "routeKey": "Milan - Rzeszow"
+    },
+    {
+      "cities": [
+        "Faro",
+        "London"
+      ],
+      "count": 344,
+      "routeKey": "Faro - London"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Milan"
+      ],
+      "count": 344,
+      "routeKey": "Gdansk - Milan"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Tirana"
+      ],
+      "count": 344,
+      "routeKey": "Memmingen - Tirana"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Valencia"
+      ],
+      "count": 344,
+      "routeKey": "Rome - Valencia"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Rome"
+      ],
+      "count": 343,
+      "routeKey": "Katowice - Rome"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Rome"
+      ],
+      "count": 341,
+      "routeKey": "Krakow - Rome"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Rome"
+      ],
+      "count": 339,
+      "routeKey": "Cluj - Rome"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Sofia"
+      ],
+      "count": 339,
+      "routeKey": "Bari - Sofia"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Bucharest"
+      ],
+      "count": 338,
+      "routeKey": "Athens - Bucharest"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Madrid"
+      ],
+      "count": 338,
+      "routeKey": "Bucharest - Madrid"
+    },
+    {
+      "cities": [
+        "Madeira",
+        "Vienna"
+      ],
+      "count": 338,
+      "routeKey": "Madeira - Vienna"
+    },
+    {
+      "cities": [
+        "London",
+        "Vilnius"
+      ],
+      "count": 338,
+      "routeKey": "London - Vilnius"
+    },
+    {
+      "cities": [
+        "Dalaman",
+        "London"
+      ],
+      "count": 337,
+      "routeKey": "Dalaman - London"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Thessaloniki"
+      ],
+      "count": 337,
+      "routeKey": "Kutaisi - Thessaloniki"
+    },
+    {
+      "cities": [
+        "Pescara",
+        "Tirana"
+      ],
+      "count": 337,
+      "routeKey": "Pescara - Tirana"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Tromso"
+      ],
+      "count": 337,
+      "routeKey": "Gdansk - Tromso"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Milan"
+      ],
+      "count": 336,
+      "routeKey": "Iasi - Milan"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Krakow"
+      ],
+      "count": 336,
+      "routeKey": "Bologna - Krakow"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Nice"
+      ],
+      "count": 336,
+      "routeKey": "Budapest - Nice"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Krakow"
+      ],
+      "count": 335,
+      "routeKey": "Bucharest - Krakow"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Turku"
+      ],
+      "count": 334,
+      "routeKey": "Gdansk - Turku"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Ohrid"
+      ],
+      "count": 334,
+      "routeKey": "Memmingen - Ohrid"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Larnaca"
+      ],
+      "count": 333,
+      "routeKey": "Athens - Larnaca"
+    },
+    {
+      "cities": [
+        "Stockholm",
+        "Warsaw"
+      ],
+      "count": 333,
+      "routeKey": "Stockholm - Warsaw"
+    },
+    {
+      "cities": [
+        "Pisa",
+        "Warsaw"
+      ],
+      "count": 332,
+      "routeKey": "Pisa - Warsaw"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Memmingen"
+      ],
+      "count": 331,
+      "routeKey": "Budapest - Memmingen"
+    },
+    {
+      "cities": [
+        "Bergen",
+        "Gdansk"
+      ],
+      "count": 330,
+      "routeKey": "Bergen - Gdansk"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Bucharest"
+      ],
+      "count": 330,
+      "routeKey": "Barcelona - Bucharest"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Bucharest"
+      ],
+      "count": 330,
+      "routeKey": "Bologna - Bucharest"
+    },
+    {
+      "cities": [
+        "London",
+        "Malaga"
+      ],
+      "count": 330,
+      "routeKey": "London - Malaga"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Milan"
+      ],
+      "count": 328,
+      "routeKey": "Krakow - Milan"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Venice"
+      ],
+      "count": 328,
+      "routeKey": "Madrid - Venice"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Naples"
+      ],
+      "count": 327,
+      "routeKey": "Budapest - Naples"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Bucharest"
+      ],
+      "count": 326,
+      "routeKey": "Brussels - Bucharest"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Madeira"
+      ],
+      "count": 326,
+      "routeKey": "Katowice - Madeira"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Rome"
+      ],
+      "count": 325,
+      "routeKey": "Kutaisi - Rome"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Paris"
+      ],
+      "count": 325,
+      "routeKey": "Milan - Paris"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Stavanger"
+      ],
+      "count": 325,
+      "routeKey": "Gdansk - Stavanger"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Memmingen"
+      ],
+      "count": 324,
+      "routeKey": "Belgrade - Memmingen"
+    },
+    {
+      "cities": [
+        "Aberdeen",
+        "Gdansk"
+      ],
+      "count": 324,
+      "routeKey": "Aberdeen - Gdansk"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Prague"
+      ],
+      "count": 324,
+      "routeKey": "Larnaca - Prague"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Targu-Mures"
+      ],
+      "count": 324,
+      "routeKey": "Budapest - Targu-Mures"
+    },
+    {
+      "cities": [
+        "Nice",
+        "Sofia"
+      ],
+      "count": 323,
+      "routeKey": "Nice - Sofia"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Bucharest"
+      ],
+      "count": 323,
+      "routeKey": "Basel/Mulhouse - Bucharest"
+    },
+    {
+      "cities": [
+        "Tenerife",
+        "Venice"
+      ],
+      "count": 322,
+      "routeKey": "Tenerife - Venice"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Catania"
+      ],
+      "count": 322,
+      "routeKey": "Budapest - Catania"
+    },
+    {
+      "cities": [
+        "Perugia",
+        "Tirana"
+      ],
+      "count": 321,
+      "routeKey": "Perugia - Tirana"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Split"
+      ],
+      "count": 320,
+      "routeKey": "Katowice - Split"
+    },
+    {
+      "cities": [
+        "London",
+        "Milan"
+      ],
+      "count": 320,
+      "routeKey": "London - Milan"
+    },
+    {
+      "cities": [
+        "London",
+        "Vienna"
+      ],
+      "count": 319,
+      "routeKey": "London - Vienna"
+    },
+    {
+      "cities": [
+        "Bratislava",
+        "London"
+      ],
+      "count": 318,
+      "routeKey": "Bratislava - London"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Cluj"
+      ],
+      "count": 318,
+      "routeKey": "Bologna - Cluj"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Rome"
+      ],
+      "count": 318,
+      "routeKey": "Barcelona - Rome"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Bucharest"
+      ],
+      "count": 317,
+      "routeKey": "Abu Dhabi - Bucharest"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Belgrade"
+      ],
+      "count": 317,
+      "routeKey": "Basel/Mulhouse - Belgrade"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Lyon"
+      ],
+      "count": 317,
+      "routeKey": "Bucharest - Lyon"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Nice"
+      ],
+      "count": 317,
+      "routeKey": "Bucharest - Nice"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Leeds/Bradford"
+      ],
+      "count": 317,
+      "routeKey": "Gdansk - Leeds/Bradford"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Reykjavik"
+      ],
+      "count": 317,
+      "routeKey": "Gdansk - Reykjavik"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Cluj"
+      ],
+      "count": 316,
+      "routeKey": "Catania - Cluj"
+    },
+    {
+      "cities": [
+        "Jeddah",
+        "Milan"
+      ],
+      "count": 316,
+      "routeKey": "Jeddah - Milan"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "London"
+      ],
+      "count": 316,
+      "routeKey": "Katowice - London"
+    },
+    {
+      "cities": [
+        "Athens",
+        "London"
+      ],
+      "count": 314,
+      "routeKey": "Athens - London"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Salerno"
+      ],
+      "count": 314,
+      "routeKey": "Bucharest - Salerno"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Budapest"
+      ],
+      "count": 314,
+      "routeKey": "Barcelona - Budapest"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Warsaw"
+      ],
+      "count": 314,
+      "routeKey": "Barcelona - Warsaw"
+    },
+    {
+      "cities": [
+        "Gran Canaria",
+        "Rome"
+      ],
+      "count": 313,
+      "routeKey": "Gran Canaria - Rome"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Podgorica"
+      ],
+      "count": 313,
+      "routeKey": "Memmingen - Podgorica"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Dammam"
+      ],
+      "count": 312,
+      "routeKey": "Abu Dhabi - Dammam"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "London"
+      ],
+      "count": 312,
+      "routeKey": "Gdansk - London"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Nuremberg"
+      ],
+      "count": 311,
+      "routeKey": "Bucharest - Nuremberg"
+    },
+    {
+      "cities": [
+        "Lyon",
+        "Sofia"
+      ],
+      "count": 310,
+      "routeKey": "Lyon - Sofia"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Warsaw"
+      ],
+      "count": 310,
+      "routeKey": "Brussels - Warsaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Rome"
+      ],
+      "count": 309,
+      "routeKey": "Bucharest - Rome"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Malta"
+      ],
+      "count": 309,
+      "routeKey": "Katowice - Malta"
+    },
+    {
+      "cities": [
+        "London",
+        "Rome"
+      ],
+      "count": 309,
+      "routeKey": "London - Rome"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Larnaca"
+      ],
+      "count": 308,
+      "routeKey": "Abu Dhabi - Larnaca"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Warsaw"
+      ],
+      "count": 308,
+      "routeKey": "Kutaisi - Warsaw"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Trondheim"
+      ],
+      "count": 306,
+      "routeKey": "Gdansk - Trondheim"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "London"
+      ],
+      "count": 305,
+      "routeKey": "Iasi - London"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Krakow"
+      ],
+      "count": 305,
+      "routeKey": "Barcelona - Krakow"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Milan"
+      ],
+      "count": 305,
+      "routeKey": "Malaga - Milan"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Tirana"
+      ],
+      "count": 305,
+      "routeKey": "Dortmund - Tirana"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Wroclaw"
+      ],
+      "count": 305,
+      "routeKey": "Barcelona - Wroclaw"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Skopje"
+      ],
+      "count": 304,
+      "routeKey": "Basel/Mulhouse - Skopje"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Valencia"
+      ],
+      "count": 304,
+      "routeKey": "Bucharest - Valencia"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Vienna"
+      ],
+      "count": 304,
+      "routeKey": "Kutaisi - Vienna"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Larnaca"
+      ],
+      "count": 304,
+      "routeKey": "Iasi - Larnaca"
+    },
+    {
+      "cities": [
+        "Malta",
+        "Warsaw"
+      ],
+      "count": 304,
+      "routeKey": "Malta - Warsaw"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Larnaca"
+      ],
+      "count": 303,
+      "routeKey": "Belgrade - Larnaca"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Rome"
+      ],
+      "count": 303,
+      "routeKey": "Iasi - Rome"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Malta"
+      ],
+      "count": 303,
+      "routeKey": "Bucharest - Malta"
+    },
+    {
+      "cities": [
+        "Sofia",
+        "Stuttgart"
+      ],
+      "count": 303,
+      "routeKey": "Sofia - Stuttgart"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Yerevan"
+      ],
+      "count": 302,
+      "routeKey": "Abu Dhabi - Yerevan"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Gdansk"
+      ],
+      "count": 301,
+      "routeKey": "Barcelona - Gdansk"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Stockholm"
+      ],
+      "count": 301,
+      "routeKey": "Bucharest - Stockholm"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Tirana"
+      ],
+      "count": 301,
+      "routeKey": "Brussels - Tirana"
+    },
+    {
+      "cities": [
+        "Venice",
+        "Warsaw"
+      ],
+      "count": 300,
+      "routeKey": "Venice - Warsaw"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Yerevan"
+      ],
+      "count": 300,
+      "routeKey": "Rome - Yerevan"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Eindhoven"
+      ],
+      "count": 299,
+      "routeKey": "Bucharest - Eindhoven"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Girona"
+      ],
+      "count": 299,
+      "routeKey": "Budapest - Girona"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Tirana"
+      ],
+      "count": 299,
+      "routeKey": "Bari - Tirana"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "London"
+      ],
+      "count": 298,
+      "routeKey": "Belgrade - London"
+    },
+    {
+      "cities": [
+        "Berlin",
+        "Budapest"
+      ],
+      "count": 298,
+      "routeKey": "Berlin - Budapest"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Malta"
+      ],
+      "count": 298,
+      "routeKey": "Budapest - Malta"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Rome"
+      ],
+      "count": 298,
+      "routeKey": "Malaga - Rome"
+    },
+    {
+      "cities": [
+        "Reykjavik",
+        "Warsaw"
+      ],
+      "count": 298,
+      "routeKey": "Reykjavik - Warsaw"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Tel Aviv"
+      ],
+      "count": 298,
+      "routeKey": "Larnaca - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Dortmund"
+      ],
+      "count": 297,
+      "routeKey": "Bucharest - Dortmund"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Iasi"
+      ],
+      "count": 297,
+      "routeKey": "Bologna - Iasi"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Madinah"
+      ],
+      "count": 296,
+      "routeKey": "Abu Dhabi - Madinah"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Valencia"
+      ],
+      "count": 295,
+      "routeKey": "Budapest - Valencia"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Tirana"
+      ],
+      "count": 295,
+      "routeKey": "Barcelona - Tirana"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Warsaw"
+      ],
+      "count": 295,
+      "routeKey": "Naples - Warsaw"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Tenerife"
+      ],
+      "count": 294,
+      "routeKey": "Budapest - Tenerife"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Paris"
+      ],
+      "count": 293,
+      "routeKey": "Bucharest - Paris"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Hamburg"
+      ],
+      "count": 293,
+      "routeKey": "Bucharest - Hamburg"
+    },
+    {
+      "cities": [
+        "Bilbao",
+        "Rome"
+      ],
+      "count": 293,
+      "routeKey": "Bilbao - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Eindhoven"
+      ],
+      "count": 292,
+      "routeKey": "Budapest - Eindhoven"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Thessaloniki"
+      ],
+      "count": 292,
+      "routeKey": "Larnaca - Thessaloniki"
+    },
+    {
+      "cities": [
+        "Sofia",
+        "Yerevan"
+      ],
+      "count": 292,
+      "routeKey": "Sofia - Yerevan"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Malaga"
+      ],
+      "count": 291,
+      "routeKey": "Bucharest - Malaga"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Copenhagen"
+      ],
+      "count": 290,
+      "routeKey": "Budapest - Copenhagen"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Iasi"
+      ],
+      "count": 290,
+      "routeKey": "Catania - Iasi"
+    },
+    {
+      "cities": [
+        "Prague",
+        "Rome"
+      ],
+      "count": 290,
+      "routeKey": "Prague - Rome"
+    },
+    {
+      "cities": [
+        "Ancona",
+        "Tirana"
+      ],
+      "count": 290,
+      "routeKey": "Ancona - Tirana"
+    },
+    {
+      "cities": [
+        "Aalesund",
+        "Gdansk"
+      ],
+      "count": 289,
+      "routeKey": "Aalesund - Gdansk"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Milan"
+      ],
+      "count": 289,
+      "routeKey": "Belgrade - Milan"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Lisbon"
+      ],
+      "count": 289,
+      "routeKey": "Cluj - Lisbon"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Liverpool"
+      ],
+      "count": 289,
+      "routeKey": "Katowice - Liverpool"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Tirana"
+      ],
+      "count": 289,
+      "routeKey": "Milan - Tirana"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Hamburg"
+      ],
+      "count": 288,
+      "routeKey": "Gdansk - Hamburg"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Kutaisi"
+      ],
+      "count": 288,
+      "routeKey": "Barcelona - Kutaisi"
+    },
+    {
+      "cities": [
+        "Sharm el-Sheikh",
+        "Venice"
+      ],
+      "count": 288,
+      "routeKey": "Sharm el-Sheikh - Venice"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Turin"
+      ],
+      "count": 288,
+      "routeKey": "Tirana - Turin"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Sofia"
+      ],
+      "count": 288,
+      "routeKey": "Larnaca - Sofia"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Almaty"
+      ],
+      "count": 287,
+      "routeKey": "Abu Dhabi - Almaty"
+    },
+    {
+      "cities": [
+        "Birmingham",
+        "Bucharest"
+      ],
+      "count": 287,
+      "routeKey": "Birmingham - Bucharest"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Budapest"
+      ],
+      "count": 287,
+      "routeKey": "Brussels - Budapest"
+    },
+    {
+      "cities": [
+        "Istanbul",
+        "London"
+      ],
+      "count": 287,
+      "routeKey": "Istanbul - London"
+    },
+    {
+      "cities": [
+        "Oslo",
+        "Warsaw"
+      ],
+      "count": 287,
+      "routeKey": "Oslo - Warsaw"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Vilnius"
+      ],
+      "count": 287,
+      "routeKey": "Milan - Vilnius"
+    },
+    {
+      "cities": [
+        "Billund",
+        "Bucharest"
+      ],
+      "count": 286,
+      "routeKey": "Billund - Bucharest"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Prague"
+      ],
+      "count": 286,
+      "routeKey": "Kutaisi - Prague"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Bishkek"
+      ],
+      "count": 285,
+      "routeKey": "Abu Dhabi - Bishkek"
+    },
+    {
+      "cities": [
+        "Salerno",
+        "Tirana"
+      ],
+      "count": 285,
+      "routeKey": "Salerno - Tirana"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Milan"
+      ],
+      "count": 285,
+      "routeKey": "Cluj - Milan"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Chisinau"
+      ],
+      "count": 284,
+      "routeKey": "Abu Dhabi - Chisinau"
+    },
+    {
+      "cities": [
+        "Pristina",
+        "Vienna"
+      ],
+      "count": 284,
+      "routeKey": "Pristina - Vienna"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Tirana"
+      ],
+      "count": 284,
+      "routeKey": "Budapest - Tirana"
+    },
+    {
+      "cities": [
+        "Lyon",
+        "Tirana"
+      ],
+      "count": 284,
+      "routeKey": "Lyon - Tirana"
+    },
+    {
+      "cities": [
+        "Nuremberg",
+        "Tirana"
+      ],
+      "count": 284,
+      "routeKey": "Nuremberg - Tirana"
+    },
+    {
+      "cities": [
+        "London",
+        "Poznan"
+      ],
+      "count": 283,
+      "routeKey": "London - Poznan"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Stockholm"
+      ],
+      "count": 283,
+      "routeKey": "Belgrade - Stockholm"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Bucharest"
+      ],
+      "count": 282,
+      "routeKey": "Alicante - Bucharest"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Milan"
+      ],
+      "count": 282,
+      "routeKey": "Kutaisi - Milan"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Sofia"
+      ],
+      "count": 281,
+      "routeKey": "Rome - Sofia"
+    },
+    {
+      "cities": [
+        "Prague",
+        "Tirana"
+      ],
+      "count": 281,
+      "routeKey": "Prague - Tirana"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Dortmund"
+      ],
+      "count": 281,
+      "routeKey": "Belgrade - Dortmund"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Kutaisi"
+      ],
+      "count": 280,
+      "routeKey": "Abu Dhabi - Kutaisi"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Warsaw"
+      ],
+      "count": 280,
+      "routeKey": "Bari - Warsaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Naples"
+      ],
+      "count": 280,
+      "routeKey": "Bucharest - Naples"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Tirana"
+      ],
+      "count": 280,
+      "routeKey": "Basel/Mulhouse - Tirana"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Sarajevo"
+      ],
+      "count": 279,
+      "routeKey": "Abu Dhabi - Sarajevo"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Timisoara"
+      ],
+      "count": 279,
+      "routeKey": "Barcelona - Timisoara"
+    },
+    {
+      "cities": [
+        "Marsa Alam",
+        "Rome"
+      ],
+      "count": 278,
+      "routeKey": "Marsa Alam - Rome"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Warsaw"
+      ],
+      "count": 278,
+      "routeKey": "Bologna - Warsaw"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Tuzla"
+      ],
+      "count": 277,
+      "routeKey": "Basel/Mulhouse - Tuzla"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Cluj"
+      ],
+      "count": 277,
+      "routeKey": "Barcelona - Cluj"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Warsaw"
+      ],
+      "count": 277,
+      "routeKey": "Larnaca - Warsaw"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Malmo"
+      ],
+      "count": 277,
+      "routeKey": "Belgrade - Malmo"
+    },
+    {
+      "cities": [
+        "Porto",
+        "Rome"
+      ],
+      "count": 277,
+      "routeKey": "Porto - Rome"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Tirana"
+      ],
+      "count": 277,
+      "routeKey": "Bologna - Tirana"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Katowice"
+      ],
+      "count": 277,
+      "routeKey": "Catania - Katowice"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Madrid"
+      ],
+      "count": 276,
+      "routeKey": "Budapest - Madrid"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Giza"
+      ],
+      "count": 275,
+      "routeKey": "Abu Dhabi - Giza"
+    },
+    {
+      "cities": [
+        "Bacau",
+        "Rome"
+      ],
+      "count": 275,
+      "routeKey": "Bacau - Rome"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Belgrade"
+      ],
+      "count": 275,
+      "routeKey": "Barcelona - Belgrade"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Naples"
+      ],
+      "count": 275,
+      "routeKey": "Katowice - Naples"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Timisoara"
+      ],
+      "count": 275,
+      "routeKey": "Memmingen - Timisoara"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Memmingen"
+      ],
+      "count": 274,
+      "routeKey": "Cluj - Memmingen"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Nice"
+      ],
+      "count": 274,
+      "routeKey": "Krakow - Nice"
+    },
+    {
+      "cities": [
+        "Berlin",
+        "Varna"
+      ],
+      "count": 274,
+      "routeKey": "Berlin - Varna"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Budapest"
+      ],
+      "count": 273,
+      "routeKey": "Alicante - Budapest"
+    },
+    {
+      "cities": [
+        "Craiova",
+        "Rome"
+      ],
+      "count": 273,
+      "routeKey": "Craiova - Rome"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Tirana"
+      ],
+      "count": 273,
+      "routeKey": "Hamburg - Tirana"
+    },
+    {
+      "cities": [
+        "Bacau",
+        "London"
+      ],
+      "count": 272,
+      "routeKey": "Bacau - London"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Pisa"
+      ],
+      "count": 272,
+      "routeKey": "Bucharest - Pisa"
+    },
+    {
+      "cities": [
+        "Jeddah",
+        "London"
+      ],
+      "count": 272,
+      "routeKey": "Jeddah - London"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Tuzla"
+      ],
+      "count": 272,
+      "routeKey": "Dortmund - Tuzla"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Vilnius"
+      ],
+      "count": 272,
+      "routeKey": "Dortmund - Vilnius"
+    },
+    {
+      "cities": [
+        "Kaunas",
+        "London"
+      ],
+      "count": 271,
+      "routeKey": "Kaunas - London"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Rome"
+      ],
+      "count": 270,
+      "routeKey": "Belgrade - Rome"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Copenhagen"
+      ],
+      "count": 270,
+      "routeKey": "Belgrade - Copenhagen"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Sofia"
+      ],
+      "count": 270,
+      "routeKey": "Dortmund - Sofia"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Sofia"
+      ],
+      "count": 270,
+      "routeKey": "Frankfurt - Sofia"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Tirana"
+      ],
+      "count": 270,
+      "routeKey": "Rome - Tirana"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Thessaloniki"
+      ],
+      "count": 270,
+      "routeKey": "Budapest - Thessaloniki"
+    },
+    {
+      "cities": [
+        "London",
+        "Tirana"
+      ],
+      "count": 269,
+      "routeKey": "London - Tirana"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Sharm el-Sheikh"
+      ],
+      "count": 269,
+      "routeKey": "Rome - Sharm el-Sheikh"
+    },
+    {
+      "cities": [
+        "Karlsruhe/Baden-Baden",
+        "Skopje"
+      ],
+      "count": 269,
+      "routeKey": "Karlsruhe/Baden-Baden - Skopje"
+    },
+    {
+      "cities": [
+        "Bergen",
+        "Vilnius"
+      ],
+      "count": 267,
+      "routeKey": "Bergen - Vilnius"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Malmo"
+      ],
+      "count": 266,
+      "routeKey": "Bucharest - Malmo"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Paris"
+      ],
+      "count": 266,
+      "routeKey": "Budapest - Paris"
+    },
+    {
+      "cities": [
+        "Nuremberg",
+        "Sibiu"
+      ],
+      "count": 266,
+      "routeKey": "Nuremberg - Sibiu"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Sofia"
+      ],
+      "count": 266,
+      "routeKey": "Eindhoven - Sofia"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Ohrid"
+      ],
+      "count": 266,
+      "routeKey": "Dortmund - Ohrid"
+    },
+    {
+      "cities": [
+        "Karlsruhe/Baden-Baden",
+        "Tirana"
+      ],
+      "count": 265,
+      "routeKey": "Karlsruhe/Baden-Baden - Tirana"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Castellon"
+      ],
+      "count": 264,
+      "routeKey": "Bucharest - Castellon"
+    },
+    {
+      "cities": [
+        "Copenhagen",
+        "Warsaw"
+      ],
+      "count": 264,
+      "routeKey": "Copenhagen - Warsaw"
+    },
+    {
+      "cities": [
+        "Debrecen",
+        "Larnaca"
+      ],
+      "count": 264,
+      "routeKey": "Debrecen - Larnaca"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Poznan"
+      ],
+      "count": 264,
+      "routeKey": "Kutaisi - Poznan"
+    },
+    {
+      "cities": [
+        "Lisbon",
+        "Rome"
+      ],
+      "count": 262,
+      "routeKey": "Lisbon - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Dortmund"
+      ],
+      "count": 262,
+      "routeKey": "Budapest - Dortmund"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Skopje"
+      ],
+      "count": 262,
+      "routeKey": "Dortmund - Skopje"
+    },
+    {
+      "cities": [
+        "Fuerteventura",
+        "Katowice"
+      ],
+      "count": 261,
+      "routeKey": "Fuerteventura - Katowice"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Kutaisi"
+      ],
+      "count": 261,
+      "routeKey": "Dortmund - Kutaisi"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Tenerife"
+      ],
+      "count": 261,
+      "routeKey": "Rome - Tenerife"
+    },
+    {
+      "cities": [
+        "London",
+        "Timisoara"
+      ],
+      "count": 261,
+      "routeKey": "London - Timisoara"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Venice"
+      ],
+      "count": 261,
+      "routeKey": "Cluj - Venice"
+    },
+    {
+      "cities": [
+        "Liverpool",
+        "Warsaw"
+      ],
+      "count": 261,
+      "routeKey": "Liverpool - Warsaw"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Podgorica"
+      ],
+      "count": 261,
+      "routeKey": "Budapest - Podgorica"
+    },
+    {
+      "cities": [
+        "Baku",
+        "Rome"
+      ],
+      "count": 261,
+      "routeKey": "Baku - Rome"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Paris"
+      ],
+      "count": 260,
+      "routeKey": "Gdansk - Paris"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Skopje"
+      ],
+      "count": 260,
+      "routeKey": "Memmingen - Skopje"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Amman"
+      ],
+      "count": 259,
+      "routeKey": "Abu Dhabi - Amman"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Paris"
+      ],
+      "count": 259,
+      "routeKey": "Belgrade - Paris"
+    },
+    {
+      "cities": [
+        "Bilbao",
+        "Warsaw"
+      ],
+      "count": 259,
+      "routeKey": "Bilbao - Warsaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Liverpool"
+      ],
+      "count": 259,
+      "routeKey": "Bucharest - Liverpool"
+    },
+    {
+      "cities": [
+        "Nice",
+        "Rome"
+      ],
+      "count": 259,
+      "routeKey": "Nice - Rome"
+    },
+    {
+      "cities": [
+        "London",
+        "Skopje"
+      ],
+      "count": 259,
+      "routeKey": "London - Skopje"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Stuttgart"
+      ],
+      "count": 259,
+      "routeKey": "Bucharest - Stuttgart"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Tenerife"
+      ],
+      "count": 259,
+      "routeKey": "Katowice - Tenerife"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Warsaw"
+      ],
+      "count": 258,
+      "routeKey": "Budapest - Warsaw"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Katowice"
+      ],
+      "count": 258,
+      "routeKey": "Barcelona - Katowice"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Tuzla"
+      ],
+      "count": 258,
+      "routeKey": "Memmingen - Tuzla"
+    },
+    {
+      "cities": [
+        "Bilbao",
+        "Vienna"
+      ],
+      "count": 258,
+      "routeKey": "Bilbao - Vienna"
+    },
+    {
+      "cities": [
+        "Genoa",
+        "Warsaw"
+      ],
+      "count": 257,
+      "routeKey": "Genoa - Warsaw"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Valencia"
+      ],
+      "count": 257,
+      "routeKey": "Milan - Valencia"
+    },
+    {
+      "cities": [
+        "Oslo",
+        "Szczecin"
+      ],
+      "count": 256,
+      "routeKey": "Oslo - Szczecin"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Sofia"
+      ],
+      "count": 256,
+      "routeKey": "Milan - Sofia"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Rzeszow"
+      ],
+      "count": 256,
+      "routeKey": "Rome - Rzeszow"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Tel Aviv"
+      ],
+      "count": 256,
+      "routeKey": "Budapest - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Tenerife",
+        "Vienna"
+      ],
+      "count": 255,
+      "routeKey": "Tenerife - Vienna"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Madeira"
+      ],
+      "count": 255,
+      "routeKey": "Budapest - Madeira"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Nice"
+      ],
+      "count": 255,
+      "routeKey": "Belgrade - Nice"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Tel Aviv"
+      ],
+      "count": 255,
+      "routeKey": "Rome - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Gran Canaria"
+      ],
+      "count": 255,
+      "routeKey": "Budapest - Gran Canaria"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Stuttgart"
+      ],
+      "count": 254,
+      "routeKey": "Budapest - Stuttgart"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Malmo"
+      ],
+      "count": 254,
+      "routeKey": "Cluj - Malmo"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Reykjavik"
+      ],
+      "count": 254,
+      "routeKey": "Katowice - Reykjavik"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Verona"
+      ],
+      "count": 254,
+      "routeKey": "Tirana - Verona"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Berlin"
+      ],
+      "count": 253,
+      "routeKey": "Belgrade - Berlin"
+    },
+    {
+      "cities": [
+        "Gothenburg",
+        "Skopje"
+      ],
+      "count": 253,
+      "routeKey": "Gothenburg - Skopje"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Rome"
+      ],
+      "count": 253,
+      "routeKey": "Madrid - Rome"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Pristina"
+      ],
+      "count": 253,
+      "routeKey": "Memmingen - Pristina"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Sevilla"
+      ],
+      "count": 253,
+      "routeKey": "Rome - Sevilla"
+    },
+    {
+      "cities": [
+        "Genoa",
+        "Tirana"
+      ],
+      "count": 253,
+      "routeKey": "Genoa - Tirana"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Lyon"
+      ],
+      "count": 253,
+      "routeKey": "Krakow - Lyon"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Varna"
+      ],
+      "count": 252,
+      "routeKey": "Hamburg - Varna"
+    },
+    {
+      "cities": [
+        "London",
+        "Sofia"
+      ],
+      "count": 252,
+      "routeKey": "London - Sofia"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Tirana"
+      ],
+      "count": 252,
+      "routeKey": "Eindhoven - Tirana"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Vilnius"
+      ],
+      "count": 252,
+      "routeKey": "Barcelona - Vilnius"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Budapest"
+      ],
+      "count": 252,
+      "routeKey": "Basel/Mulhouse - Budapest"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Naples"
+      ],
+      "count": 251,
+      "routeKey": "Cluj - Naples"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Memmingen"
+      ],
+      "count": 251,
+      "routeKey": "Iasi - Memmingen"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Kutaisi"
+      ],
+      "count": 251,
+      "routeKey": "Frankfurt - Kutaisi"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Venice"
+      ],
+      "count": 251,
+      "routeKey": "Tirana - Venice"
+    },
+    {
+      "cities": [
+        "Oslo",
+        "Skopje"
+      ],
+      "count": 251,
+      "routeKey": "Oslo - Skopje"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Stockholm"
+      ],
+      "count": 251,
+      "routeKey": "Budapest - Stockholm"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "London"
+      ],
+      "count": 250,
+      "routeKey": "Chisinau - London"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "London"
+      ],
+      "count": 250,
+      "routeKey": "Cluj - London"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Timisoara"
+      ],
+      "count": 250,
+      "routeKey": "Rome - Timisoara"
+    },
+    {
+      "cities": [
+        "Pisa",
+        "Tirana"
+      ],
+      "count": 250,
+      "routeKey": "Pisa - Tirana"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Skopje"
+      ],
+      "count": 250,
+      "routeKey": "Brussels - Skopje"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Venice"
+      ],
+      "count": 249,
+      "routeKey": "Barcelona - Venice"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Madrid"
+      ],
+      "count": 249,
+      "routeKey": "Cluj - Madrid"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Katowice"
+      ],
+      "count": 249,
+      "routeKey": "Eindhoven - Katowice"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Memmingen"
+      ],
+      "count": 249,
+      "routeKey": "Kutaisi - Memmingen"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Budapest"
+      ],
+      "count": 248,
+      "routeKey": "Athens - Budapest"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Valencia"
+      ],
+      "count": 248,
+      "routeKey": "Tirana - Valencia"
+    },
+    {
+      "cities": [
+        "Nuremberg",
+        "Varna"
+      ],
+      "count": 248,
+      "routeKey": "Nuremberg - Varna"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Tenerife"
+      ],
+      "count": 248,
+      "routeKey": "Bucharest - Tenerife"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Paris"
+      ],
+      "count": 248,
+      "routeKey": "Iasi - Paris"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Venice"
+      ],
+      "count": 247,
+      "routeKey": "Athens - Venice"
+    },
+    {
+      "cities": [
+        "Podgorica",
+        "Vienna"
+      ],
+      "count": 247,
+      "routeKey": "Podgorica - Vienna"
+    },
+    {
+      "cities": [
+        "Rimini",
+        "Tirana"
+      ],
+      "count": 247,
+      "routeKey": "Rimini - Tirana"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Vienna"
+      ],
+      "count": 247,
+      "routeKey": "Tirana - Vienna"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Varna"
+      ],
+      "count": 247,
+      "routeKey": "Memmingen - Varna"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Alexandria"
+      ],
+      "count": 246,
+      "routeKey": "Abu Dhabi - Alexandria"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Baku"
+      ],
+      "count": 246,
+      "routeKey": "Abu Dhabi - Baku"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Pristina"
+      ],
+      "count": 246,
+      "routeKey": "Dortmund - Pristina"
+    },
+    {
+      "cities": [
+        "Stuttgart",
+        "Tirana"
+      ],
+      "count": 246,
+      "routeKey": "Stuttgart - Tirana"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Varna"
+      ],
+      "count": 246,
+      "routeKey": "Dortmund - Varna"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Tenerife"
+      ],
+      "count": 246,
+      "routeKey": "Gdansk - Tenerife"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Turin"
+      ],
+      "count": 245,
+      "routeKey": "Bucharest - Turin"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Cluj"
+      ],
+      "count": 245,
+      "routeKey": "Basel/Mulhouse - Cluj"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Skopje"
+      ],
+      "count": 245,
+      "routeKey": "Hamburg - Skopje"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Craiova"
+      ],
+      "count": 244,
+      "routeKey": "Bologna - Craiova"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Tenerife"
+      ],
+      "count": 244,
+      "routeKey": "Milan - Tenerife"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Tirana"
+      ],
+      "count": 244,
+      "routeKey": "Paris - Tirana"
+    },
+    {
+      "cities": [
+        "Karlsruhe/Baden-Baden",
+        "Sibiu"
+      ],
+      "count": 244,
+      "routeKey": "Karlsruhe/Baden-Baden - Sibiu"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Kutaisi"
+      ],
+      "count": 244,
+      "routeKey": "Katowice - Kutaisi"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Jeddah"
+      ],
+      "count": 243,
+      "routeKey": "Budapest - Jeddah"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Paris"
+      ],
+      "count": 243,
+      "routeKey": "Kutaisi - Paris"
+    },
+    {
+      "cities": [
+        "Berlin",
+        "Tirana"
+      ],
+      "count": 243,
+      "routeKey": "Berlin - Tirana"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Warsaw"
+      ],
+      "count": 243,
+      "routeKey": "Paris - Warsaw"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Skopje"
+      ],
+      "count": 243,
+      "routeKey": "Frankfurt - Skopje"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Lyon"
+      ],
+      "count": 242,
+      "routeKey": "Cluj - Lyon"
+    },
+    {
+      "cities": [
+        "Craiova",
+        "London"
+      ],
+      "count": 242,
+      "routeKey": "Craiova - London"
+    },
+    {
+      "cities": [
+        "Giza",
+        "Larnaca"
+      ],
+      "count": 242,
+      "routeKey": "Giza - Larnaca"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Larnaca"
+      ],
+      "count": 242,
+      "routeKey": "Krakow - Larnaca"
+    },
+    {
+      "cities": [
+        "Bratislava",
+        "Skopje"
+      ],
+      "count": 242,
+      "routeKey": "Bratislava - Skopje"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Sofia"
+      ],
+      "count": 242,
+      "routeKey": "Basel/Mulhouse - Sofia"
+    },
+    {
+      "cities": [
+        "Friedrichshafen",
+        "Skopje"
+      ],
+      "count": 242,
+      "routeKey": "Friedrichshafen - Skopje"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Warsaw"
+      ],
+      "count": 241,
+      "routeKey": "Basel/Mulhouse - Warsaw"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Istanbul"
+      ],
+      "count": 241,
+      "routeKey": "Budapest - Istanbul"
+    },
+    {
+      "cities": [
+        "London",
+        "Sibiu"
+      ],
+      "count": 241,
+      "routeKey": "London - Sibiu"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Sofia"
+      ],
+      "count": 241,
+      "routeKey": "Memmingen - Sofia"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Sofia"
+      ],
+      "count": 241,
+      "routeKey": "Paris - Sofia"
+    },
+    {
+      "cities": [
+        "Tel Aviv",
+        "Vienna"
+      ],
+      "count": 241,
+      "routeKey": "Tel Aviv - Vienna"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Vienna"
+      ],
+      "count": 241,
+      "routeKey": "Cluj - Vienna"
+    },
+    {
+      "cities": [
+        "Catania",
+        "London"
+      ],
+      "count": 240,
+      "routeKey": "Catania - London"
+    },
+    {
+      "cities": [
+        "Craiova",
+        "Memmingen"
+      ],
+      "count": 240,
+      "routeKey": "Craiova - Memmingen"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Dubai"
+      ],
+      "count": 240,
+      "routeKey": "Bucharest - Dubai"
+    },
+    {
+      "cities": [
+        "Lyon",
+        "Skopje"
+      ],
+      "count": 240,
+      "routeKey": "Lyon - Skopje"
+    },
+    {
+      "cities": [
+        "Malmo",
+        "Tirana"
+      ],
+      "count": 240,
+      "routeKey": "Malmo - Tirana"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Lisbon"
+      ],
+      "count": 240,
+      "routeKey": "Belgrade - Lisbon"
+    },
+    {
+      "cities": [
+        "Malmo",
+        "Skopje"
+      ],
+      "count": 240,
+      "routeKey": "Malmo - Skopje"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Warsaw"
+      ],
+      "count": 239,
+      "routeKey": "Catania - Warsaw"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Wroclaw"
+      ],
+      "count": 239,
+      "routeKey": "Malaga - Wroclaw"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Trieste"
+      ],
+      "count": 239,
+      "routeKey": "Tirana - Trieste"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Warsaw"
+      ],
+      "count": 239,
+      "routeKey": "Alicante - Warsaw"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Tel Aviv"
+      ],
+      "count": 239,
+      "routeKey": "Milan - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Vilnius"
+      ],
+      "count": 238,
+      "routeKey": "Kutaisi - Vilnius"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Wroclaw"
+      ],
+      "count": 238,
+      "routeKey": "Kutaisi - Wroclaw"
+    },
+    {
+      "cities": [
+        "Tenerife",
+        "Warsaw"
+      ],
+      "count": 238,
+      "routeKey": "Tenerife - Warsaw"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Podgorica"
+      ],
+      "count": 237,
+      "routeKey": "Milan - Podgorica"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Varna"
+      ],
+      "count": 237,
+      "routeKey": "Eindhoven - Varna"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Nis"
+      ],
+      "count": 236,
+      "routeKey": "Basel/Mulhouse - Nis"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Malta"
+      ],
+      "count": 236,
+      "routeKey": "Belgrade - Malta"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Turin"
+      ],
+      "count": 236,
+      "routeKey": "Iasi - Turin"
+    },
+    {
+      "cities": [
+        "Timisoara",
+        "Venice"
+      ],
+      "count": 236,
+      "routeKey": "Timisoara - Venice"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Heraklion"
+      ],
+      "count": 235,
+      "routeKey": "Bucharest - Heraklion"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Yerevan"
+      ],
+      "count": 235,
+      "routeKey": "Budapest - Yerevan"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Podgorica"
+      ],
+      "count": 235,
+      "routeKey": "Dortmund - Podgorica"
+    },
+    {
+      "cities": [
+        "London",
+        "Lublin"
+      ],
+      "count": 235,
+      "routeKey": "London - Lublin"
+    },
+    {
+      "cities": [
+        "Split",
+        "Warsaw"
+      ],
+      "count": 235,
+      "routeKey": "Split - Warsaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Lisbon"
+      ],
+      "count": 235,
+      "routeKey": "Bucharest - Lisbon"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Sofia"
+      ],
+      "count": 235,
+      "routeKey": "Naples - Sofia"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Tel Aviv"
+      ],
+      "count": 235,
+      "routeKey": "Bucharest - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Larnaca"
+      ],
+      "count": 234,
+      "routeKey": "Cluj - Larnaca"
+    },
+    {
+      "cities": [
+        "London",
+        "Sarajevo"
+      ],
+      "count": 234,
+      "routeKey": "London - Sarajevo"
+    },
+    {
+      "cities": [
+        "London",
+        "Suceava"
+      ],
+      "count": 234,
+      "routeKey": "London - Suceava"
+    },
+    {
+      "cities": [
+        "Valencia",
+        "Warsaw"
+      ],
+      "count": 234,
+      "routeKey": "Valencia - Warsaw"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Varna"
+      ],
+      "count": 234,
+      "routeKey": "Frankfurt - Varna"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Katowice"
+      ],
+      "count": 233,
+      "routeKey": "Chisinau - Katowice"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Larnaca"
+      ],
+      "count": 233,
+      "routeKey": "Budapest - Larnaca"
+    },
+    {
+      "cities": [
+        "Leeds/Bradford",
+        "Warsaw"
+      ],
+      "count": 233,
+      "routeKey": "Leeds/Bradford - Warsaw"
+    },
+    {
+      "cities": [
+        "Malta",
+        "Skopje"
+      ],
+      "count": 233,
+      "routeKey": "Malta - Skopje"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Kutaisi"
+      ],
+      "count": 232,
+      "routeKey": "Brussels - Kutaisi"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Sharm el-Sheikh"
+      ],
+      "count": 232,
+      "routeKey": "Milan - Sharm el-Sheikh"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Tirana"
+      ],
+      "count": 232,
+      "routeKey": "Frankfurt - Tirana"
+    },
+    {
+      "cities": [
+        "Palma De Mallorca",
+        "Warsaw"
+      ],
+      "count": 232,
+      "routeKey": "Palma De Mallorca - Warsaw"
+    },
+    {
+      "cities": [
+        "Sofia",
+        "Tel Aviv"
+      ],
+      "count": 232,
+      "routeKey": "Sofia - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Nuremberg"
+      ],
+      "count": 231,
+      "routeKey": "Chisinau - Nuremberg"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Gdansk"
+      ],
+      "count": 231,
+      "routeKey": "Eindhoven - Gdansk"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Vienna"
+      ],
+      "count": 231,
+      "routeKey": "Malaga - Vienna"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Sibiu"
+      ],
+      "count": 231,
+      "routeKey": "Dortmund - Sibiu"
+    },
+    {
+      "cities": [
+        "Berlin",
+        "Skopje"
+      ],
+      "count": 231,
+      "routeKey": "Berlin - Skopje"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Vilnius"
+      ],
+      "count": 231,
+      "routeKey": "Eindhoven - Vilnius"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Memmingen"
+      ],
+      "count": 230,
+      "routeKey": "Catania - Memmingen"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Warsaw"
+      ],
+      "count": 230,
+      "routeKey": "Chisinau - Warsaw"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Paris"
+      ],
+      "count": 230,
+      "routeKey": "Cluj - Paris"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Copenhagen"
+      ],
+      "count": 230,
+      "routeKey": "Bucharest - Copenhagen"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Tirana"
+      ],
+      "count": 230,
+      "routeKey": "Madrid - Tirana"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Varna"
+      ],
+      "count": 230,
+      "routeKey": "Brussels - Varna"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Zaragoza"
+      ],
+      "count": 229,
+      "routeKey": "Bucharest - Zaragoza"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Nuremberg"
+      ],
+      "count": 229,
+      "routeKey": "Cluj - Nuremberg"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Larnaca"
+      ],
+      "count": 229,
+      "routeKey": "Gdansk - Larnaca"
+    },
+    {
+      "cities": [
+        "London",
+        "Pristina"
+      ],
+      "count": 229,
+      "routeKey": "London - Pristina"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Yerevan"
+      ],
+      "count": 229,
+      "routeKey": "Dortmund - Yerevan"
+    },
+    {
+      "cities": [
+        "Tel Aviv",
+        "Warsaw"
+      ],
+      "count": 229,
+      "routeKey": "Tel Aviv - Warsaw"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Tirana"
+      ],
+      "count": 228,
+      "routeKey": "Athens - Tirana"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Belgrade"
+      ],
+      "count": 228,
+      "routeKey": "Abu Dhabi - Belgrade"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Gdansk"
+      ],
+      "count": 227,
+      "routeKey": "Alicante - Gdansk"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Sofia"
+      ],
+      "count": 227,
+      "routeKey": "Barcelona - Sofia"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Katowice"
+      ],
+      "count": 227,
+      "routeKey": "Alicante - Katowice"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Iasi"
+      ],
+      "count": 226,
+      "routeKey": "Basel/Mulhouse - Iasi"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Oslo"
+      ],
+      "count": 226,
+      "routeKey": "Bucharest - Oslo"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Skopje"
+      ],
+      "count": 226,
+      "routeKey": "Eindhoven - Skopje"
+    },
+    {
+      "cities": [
+        "Ljubljana",
+        "Skopje"
+      ],
+      "count": 226,
+      "routeKey": "Ljubljana - Skopje"
+    },
+    {
+      "cities": [
+        "London",
+        "Tallinn"
+      ],
+      "count": 226,
+      "routeKey": "London - Tallinn"
+    },
+    {
+      "cities": [
+        "Constanta",
+        "London"
+      ],
+      "count": 225,
+      "routeKey": "Constanta - London"
+    },
+    {
+      "cities": [
+        "London",
+        "Marrakech"
+      ],
+      "count": 225,
+      "routeKey": "London - Marrakech"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Skopje"
+      ],
+      "count": 225,
+      "routeKey": "Paris - Skopje"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Rome"
+      ],
+      "count": 224,
+      "routeKey": "Alicante - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Liverpool"
+      ],
+      "count": 224,
+      "routeKey": "Budapest - Liverpool"
+    },
+    {
+      "cities": [
+        "Berlin",
+        "Kutaisi"
+      ],
+      "count": 224,
+      "routeKey": "Berlin - Kutaisi"
+    },
+    {
+      "cities": [
+        "Craiova",
+        "Milan"
+      ],
+      "count": 223,
+      "routeKey": "Craiova - Milan"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Kutaisi"
+      ],
+      "count": 223,
+      "routeKey": "Hamburg - Kutaisi"
+    },
+    {
+      "cities": [
+        "Karlsruhe/Baden-Baden",
+        "Timisoara"
+      ],
+      "count": 223,
+      "routeKey": "Karlsruhe/Baden-Baden - Timisoara"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Friedrichshafen"
+      ],
+      "count": 222,
+      "routeKey": "Belgrade - Friedrichshafen"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Memmingen"
+      ],
+      "count": 222,
+      "routeKey": "Chisinau - Memmingen"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Iasi"
+      ],
+      "count": 222,
+      "routeKey": "Barcelona - Iasi"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Valencia"
+      ],
+      "count": 222,
+      "routeKey": "Krakow - Valencia"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Malaga"
+      ],
+      "count": 221,
+      "routeKey": "Budapest - Malaga"
+    },
+    {
+      "cities": [
+        "Billund",
+        "Iasi"
+      ],
+      "count": 220,
+      "routeKey": "Billund - Iasi"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Dortmund"
+      ],
+      "count": 220,
+      "routeKey": "Cluj - Dortmund"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Hurghada"
+      ],
+      "count": 220,
+      "routeKey": "Budapest - Hurghada"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Katowice"
+      ],
+      "count": 220,
+      "routeKey": "Athens - Katowice"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Tirana"
+      ],
+      "count": 220,
+      "routeKey": "Abu Dhabi - Tirana"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Cluj"
+      ],
+      "count": 219,
+      "routeKey": "Brussels - Cluj"
+    },
+    {
+      "cities": [
+        "London",
+        "Split"
+      ],
+      "count": 219,
+      "routeKey": "London - Split"
+    },
+    {
+      "cities": [
+        "Nice",
+        "Tirana"
+      ],
+      "count": 219,
+      "routeKey": "Nice - Tirana"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Prague"
+      ],
+      "count": 219,
+      "routeKey": "Catania - Prague"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Karlsruhe/Baden-Baden"
+      ],
+      "count": 219,
+      "routeKey": "Belgrade - Karlsruhe/Baden-Baden"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Nis"
+      ],
+      "count": 219,
+      "routeKey": "Memmingen - Nis"
+    },
+    {
+      "cities": [
+        "Alghero",
+        "Sofia"
+      ],
+      "count": 218,
+      "routeKey": "Alghero - Sofia"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Timisoara"
+      ],
+      "count": 218,
+      "routeKey": "Dortmund - Timisoara"
+    },
+    {
+      "cities": [
+        "Birmingham",
+        "Budapest"
+      ],
+      "count": 218,
+      "routeKey": "Birmingham - Budapest"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Cluj"
+      ],
+      "count": 217,
+      "routeKey": "Alicante - Cluj"
+    },
+    {
+      "cities": [
+        "Sevilla",
+        "Warsaw"
+      ],
+      "count": 217,
+      "routeKey": "Sevilla - Warsaw"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Warsaw"
+      ],
+      "count": 217,
+      "routeKey": "Madrid - Warsaw"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Lyon"
+      ],
+      "count": 216,
+      "routeKey": "Kutaisi - Lyon"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Yerevan"
+      ],
+      "count": 216,
+      "routeKey": "Milan - Yerevan"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Tirana"
+      ],
+      "count": 214,
+      "routeKey": "Naples - Tirana"
+    },
+    {
+      "cities": [
+        "London",
+        "Palma De Mallorca"
+      ],
+      "count": 213,
+      "routeKey": "London - Palma De Mallorca"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Skopje"
+      ],
+      "count": 213,
+      "routeKey": "Milan - Skopje"
+    },
+    {
+      "cities": [
+        "Timisoara",
+        "Valencia"
+      ],
+      "count": 213,
+      "routeKey": "Timisoara - Valencia"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Warsaw"
+      ],
+      "count": 213,
+      "routeKey": "Malaga - Warsaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Warsaw"
+      ],
+      "count": 212,
+      "routeKey": "Bucharest - Warsaw"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Oslo"
+      ],
+      "count": 212,
+      "routeKey": "Krakow - Oslo"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Skopje"
+      ],
+      "count": 212,
+      "routeKey": "Rome - Skopje"
+    },
+    {
+      "cities": [
+        "Nice",
+        "Warsaw"
+      ],
+      "count": 212,
+      "routeKey": "Nice - Warsaw"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Dortmund"
+      ],
+      "count": 211,
+      "routeKey": "Chisinau - Dortmund"
+    },
+    {
+      "cities": [
+        "Banja Luka",
+        "Dortmund"
+      ],
+      "count": 210,
+      "routeKey": "Banja Luka - Dortmund"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Stuttgart"
+      ],
+      "count": 210,
+      "routeKey": "Cluj - Stuttgart"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Marrakech"
+      ],
+      "count": 210,
+      "routeKey": "Budapest - Marrakech"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Suceava"
+      ],
+      "count": 210,
+      "routeKey": "Dortmund - Suceava"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Eindhoven"
+      ],
+      "count": 210,
+      "routeKey": "Cluj - Eindhoven"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Sibiu"
+      ],
+      "count": 210,
+      "routeKey": "Memmingen - Sibiu"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Chisinau"
+      ],
+      "count": 209,
+      "routeKey": "Bologna - Chisinau"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Warsaw"
+      ],
+      "count": 209,
+      "routeKey": "Eindhoven - Warsaw"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Rome"
+      ],
+      "count": 209,
+      "routeKey": "Paris - Rome"
+    },
+    {
+      "cities": [
+        "London",
+        "Satu Mare"
+      ],
+      "count": 209,
+      "routeKey": "London - Satu Mare"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Krakow"
+      ],
+      "count": 208,
+      "routeKey": "Eindhoven - Krakow"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Milan"
+      ],
+      "count": 208,
+      "routeKey": "Madrid - Milan"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Vilnius"
+      ],
+      "count": 208,
+      "routeKey": "Malaga - Vilnius"
+    },
+    {
+      "cities": [
+        "Berlin",
+        "Chisinau"
+      ],
+      "count": 207,
+      "routeKey": "Berlin - Chisinau"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Malaga"
+      ],
+      "count": 207,
+      "routeKey": "Krakow - Malaga"
+    },
+    {
+      "cities": [
+        "Marrakech",
+        "Rome"
+      ],
+      "count": 207,
+      "routeKey": "Marrakech - Rome"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Reykjavik"
+      ],
+      "count": 207,
+      "routeKey": "Milan - Reykjavik"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Sofia"
+      ],
+      "count": 207,
+      "routeKey": "Brussels - Sofia"
+    },
+    {
+      "cities": [
+        "Lisbon",
+        "Warsaw"
+      ],
+      "count": 207,
+      "routeKey": "Lisbon - Warsaw"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Giza"
+      ],
+      "count": 207,
+      "routeKey": "Budapest - Giza"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Glasgow"
+      ],
+      "count": 207,
+      "routeKey": "Budapest - Glasgow"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Chisinau"
+      ],
+      "count": 206,
+      "routeKey": "Budapest - Chisinau"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Wroclaw"
+      ],
+      "count": 206,
+      "routeKey": "Eindhoven - Wroclaw"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Kutaisi"
+      ],
+      "count": 206,
+      "routeKey": "Budapest - Kutaisi"
+    },
+    {
+      "cities": [
+        "Genoa",
+        "Krakow"
+      ],
+      "count": 205,
+      "routeKey": "Genoa - Krakow"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Eindhoven"
+      ],
+      "count": 204,
+      "routeKey": "Belgrade - Eindhoven"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Valencia"
+      ],
+      "count": 204,
+      "routeKey": "Cluj - Valencia"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Frankfurt"
+      ],
+      "count": 204,
+      "routeKey": "Cluj - Frankfurt"
+    },
+    {
+      "cities": [
+        "London",
+        "Podgorica"
+      ],
+      "count": 204,
+      "routeKey": "London - Podgorica"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Timisoara"
+      ],
+      "count": 204,
+      "routeKey": "Madrid - Timisoara"
+    },
+    {
+      "cities": [
+        "Nice",
+        "Vienna"
+      ],
+      "count": 203,
+      "routeKey": "Nice - Vienna"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Stavanger"
+      ],
+      "count": 203,
+      "routeKey": "Krakow - Stavanger"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Turkistan"
+      ],
+      "count": 203,
+      "routeKey": "Abu Dhabi - Turkistan"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Iasi"
+      ],
+      "count": 202,
+      "routeKey": "Dortmund - Iasi"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Malaga"
+      ],
+      "count": 202,
+      "routeKey": "Gdansk - Malaga"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Varna"
+      ],
+      "count": 202,
+      "routeKey": "Abu Dhabi - Varna"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Sofia"
+      ],
+      "count": 201,
+      "routeKey": "Hamburg - Sofia"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Lisbon"
+      ],
+      "count": 201,
+      "routeKey": "Budapest - Lisbon"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Venice"
+      ],
+      "count": 200,
+      "routeKey": "Chisinau - Venice"
+    },
+    {
+      "cities": [
+        "Giza",
+        "London"
+      ],
+      "count": 200,
+      "routeKey": "Giza - London"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Timisoara"
+      ],
+      "count": 199,
+      "routeKey": "Bologna - Timisoara"
+    },
+    {
+      "cities": [
+        "London",
+        "Tel Aviv"
+      ],
+      "count": 199,
+      "routeKey": "London - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Warsaw"
+      ],
+      "count": 199,
+      "routeKey": "Tirana - Warsaw"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Pisa"
+      ],
+      "count": 198,
+      "routeKey": "Katowice - Pisa"
+    },
+    {
+      "cities": [
+        "Leipzig/Halle",
+        "Tirana"
+      ],
+      "count": 198,
+      "routeKey": "Leipzig/Halle - Tirana"
+    },
+    {
+      "cities": [
+        "Tuzla",
+        "Vienna"
+      ],
+      "count": 198,
+      "routeKey": "Tuzla - Vienna"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Craiova"
+      ],
+      "count": 197,
+      "routeKey": "Brussels - Craiova"
+    },
+    {
+      "cities": [
+        "Porto",
+        "Warsaw"
+      ],
+      "count": 197,
+      "routeKey": "Porto - Warsaw"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Sofia"
+      ],
+      "count": 197,
+      "routeKey": "Madrid - Sofia"
+    },
+    {
+      "cities": [
+        "Malaga",
+        "Sofia"
+      ],
+      "count": 197,
+      "routeKey": "Malaga - Sofia"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Tel Aviv"
+      ],
+      "count": 197,
+      "routeKey": "Krakow - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Giza",
+        "Rome"
+      ],
+      "count": 196,
+      "routeKey": "Giza - Rome"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Madrid"
+      ],
+      "count": 196,
+      "routeKey": "Kutaisi - Madrid"
+    },
+    {
+      "cities": [
+        "Lublin",
+        "Split"
+      ],
+      "count": 196,
+      "routeKey": "Lublin - Split"
+    },
+    {
+      "cities": [
+        "Memmingen",
+        "Suceava"
+      ],
+      "count": 196,
+      "routeKey": "Memmingen - Suceava"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Iasi"
+      ],
+      "count": 196,
+      "routeKey": "Brussels - Iasi"
+    },
+    {
+      "cities": [
+        "Hurghada",
+        "Rome"
+      ],
+      "count": 195,
+      "routeKey": "Hurghada - Rome"
+    },
+    {
+      "cities": [
+        "Kosice",
+        "London"
+      ],
+      "count": 195,
+      "routeKey": "Kosice - London"
+    },
+    {
+      "cities": [
+        "Baku",
+        "Budapest"
+      ],
+      "count": 195,
+      "routeKey": "Baku - Budapest"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Sevilla"
+      ],
+      "count": 195,
+      "routeKey": "Bucharest - Sevilla"
+    },
+    {
+      "cities": [
+        "Birmingham",
+        "Rome"
+      ],
+      "count": 194,
+      "routeKey": "Birmingham - Rome"
+    },
+    {
+      "cities": [
+        "Athens",
+        "Tel Aviv"
+      ],
+      "count": 194,
+      "routeKey": "Athens - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Skopje"
+      ],
+      "count": 193,
+      "routeKey": "Bologna - Skopje"
+    },
+    {
+      "cities": [
+        "Split",
+        "Wroclaw"
+      ],
+      "count": 193,
+      "routeKey": "Split - Wroclaw"
+    },
+    {
+      "cities": [
+        "Leipzig/Halle",
+        "Varna"
+      ],
+      "count": 193,
+      "routeKey": "Leipzig/Halle - Varna"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Timisoara"
+      ],
+      "count": 192,
+      "routeKey": "Milan - Timisoara"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Verona"
+      ],
+      "count": 191,
+      "routeKey": "Chisinau - Verona"
+    },
+    {
+      "cities": [
+        "Oslo",
+        "Tirana"
+      ],
+      "count": 191,
+      "routeKey": "Oslo - Tirana"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Reykjavik"
+      ],
+      "count": 191,
+      "routeKey": "Budapest - Reykjavik"
+    },
+    {
+      "cities": [
+        "Ohrid",
+        "Vienna"
+      ],
+      "count": 189,
+      "routeKey": "Ohrid - Vienna"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Liverpool"
+      ],
+      "count": 188,
+      "routeKey": "Iasi - Liverpool"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Skopje"
+      ],
+      "count": 188,
+      "routeKey": "Barcelona - Skopje"
+    },
+    {
+      "cities": [
+        "Tel Aviv",
+        "Vilnius"
+      ],
+      "count": 188,
+      "routeKey": "Tel Aviv - Vilnius"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Zaragoza"
+      ],
+      "count": 187,
+      "routeKey": "Cluj - Zaragoza"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Krakow"
+      ],
+      "count": 187,
+      "routeKey": "Abu Dhabi - Krakow"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Gothenburg"
+      ],
+      "count": 186,
+      "routeKey": "Belgrade - Gothenburg"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Istanbul"
+      ],
+      "count": 186,
+      "routeKey": "Iasi - Istanbul"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Trieste"
+      ],
+      "count": 186,
+      "routeKey": "Bucharest - Trieste"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Wroclaw"
+      ],
+      "count": 185,
+      "routeKey": "Bucharest - Wroclaw"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Vilnius"
+      ],
+      "count": 185,
+      "routeKey": "Catania - Vilnius"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Suceava"
+      ],
+      "count": 185,
+      "routeKey": "Rome - Suceava"
+    },
+    {
+      "cities": [
+        "Burgas",
+        "London"
+      ],
+      "count": 184,
+      "routeKey": "Burgas - London"
+    },
+    {
+      "cities": [
+        "Skopje",
+        "Venice"
+      ],
+      "count": 184,
+      "routeKey": "Skopje - Venice"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Leipzig/Halle"
+      ],
+      "count": 183,
+      "routeKey": "Bucharest - Leipzig/Halle"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Milan"
+      ],
+      "count": 182,
+      "routeKey": "Chisinau - Milan"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Hamburg"
+      ],
+      "count": 182,
+      "routeKey": "Belgrade - Hamburg"
+    },
+    {
+      "cities": [
+        "Marrakech",
+        "Milan"
+      ],
+      "count": 182,
+      "routeKey": "Marrakech - Milan"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Wroclaw"
+      ],
+      "count": 181,
+      "routeKey": "Budapest - Wroclaw"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Warsaw"
+      ],
+      "count": 181,
+      "routeKey": "Dortmund - Warsaw"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Krakow"
+      ],
+      "count": 179,
+      "routeKey": "Basel/Mulhouse - Krakow"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Nur-Sultan"
+      ],
+      "count": 179,
+      "routeKey": "Abu Dhabi - Nur-Sultan"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Tel Aviv"
+      ],
+      "count": 179,
+      "routeKey": "Abu Dhabi - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Vienna",
+        "Yerevan"
+      ],
+      "count": 178,
+      "routeKey": "Vienna - Yerevan"
+    },
+    {
+      "cities": [
+        "Castellon",
+        "Cluj"
+      ],
+      "count": 178,
+      "routeKey": "Castellon - Cluj"
+    },
+    {
+      "cities": [
+        "Birmingham",
+        "Craiova"
+      ],
+      "count": 177,
+      "routeKey": "Birmingham - Craiova"
+    },
+    {
+      "cities": [
+        "Debrecen",
+        "London"
+      ],
+      "count": 177,
+      "routeKey": "Debrecen - London"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Rome"
+      ],
+      "count": 176,
+      "routeKey": "Larnaca - Rome"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Iasi"
+      ],
+      "count": 174,
+      "routeKey": "Eindhoven - Iasi"
+    },
+    {
+      "cities": [
+        "Nuremberg",
+        "Skopje"
+      ],
+      "count": 174,
+      "routeKey": "Nuremberg - Skopje"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Larnaca"
+      ],
+      "count": 172,
+      "routeKey": "Katowice - Larnaca"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Wroclaw"
+      ],
+      "count": 172,
+      "routeKey": "Larnaca - Wroclaw"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Leeds/Bradford"
+      ],
+      "count": 171,
+      "routeKey": "Cluj - Leeds/Bradford"
+    },
+    {
+      "cities": [
+        "Venice",
+        "Yerevan"
+      ],
+      "count": 171,
+      "routeKey": "Venice - Yerevan"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Vilnius"
+      ],
+      "count": 170,
+      "routeKey": "Larnaca - Vilnius"
+    },
+    {
+      "cities": [
+        "Sofia",
+        "Valencia"
+      ],
+      "count": 170,
+      "routeKey": "Sofia - Valencia"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Paris"
+      ],
+      "count": 170,
+      "routeKey": "Chisinau - Paris"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Leeds/Bradford"
+      ],
+      "count": 169,
+      "routeKey": "Bucharest - Leeds/Bradford"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Suceava"
+      ],
+      "count": 168,
+      "routeKey": "Milan - Suceava"
+    },
+    {
+      "cities": [
+        "Vienna",
+        "Zakinthos Island"
+      ],
+      "count": 167,
+      "routeKey": "Vienna - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Bergen",
+        "Krakow"
+      ],
+      "count": 166,
+      "routeKey": "Bergen - Krakow"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Budapest"
+      ],
+      "count": 166,
+      "routeKey": "Abu Dhabi - Budapest"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Madrid"
+      ],
+      "count": 165,
+      "routeKey": "Iasi - Madrid"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Sohag"
+      ],
+      "count": 165,
+      "routeKey": "Abu Dhabi - Sohag"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Tashkent"
+      ],
+      "count": 164,
+      "routeKey": "Abu Dhabi - Tashkent"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Samarkand"
+      ],
+      "count": 163,
+      "routeKey": "Abu Dhabi - Samarkand"
+    },
+    {
+      "cities": [
+        "Bari",
+        "Craiova"
+      ],
+      "count": 162,
+      "routeKey": "Bari - Craiova"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Podgorica"
+      ],
+      "count": 162,
+      "routeKey": "Katowice - Podgorica"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Skiathos"
+      ],
+      "count": 159,
+      "routeKey": "Milan - Skiathos"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Wroclaw"
+      ],
+      "count": 159,
+      "routeKey": "Basel/Mulhouse - Wroclaw"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Pristina"
+      ],
+      "count": 158,
+      "routeKey": "Milan - Pristina"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Malaga"
+      ],
+      "count": 158,
+      "routeKey": "Katowice - Malaga"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Chisinau"
+      ],
+      "count": 157,
+      "routeKey": "Brussels - Chisinau"
+    },
+    {
+      "cities": [
+        "Bilbao",
+        "Budapest"
+      ],
+      "count": 157,
+      "routeKey": "Bilbao - Budapest"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Heraklion"
+      ],
+      "count": 157,
+      "routeKey": "Gdansk - Heraklion"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Sofia"
+      ],
+      "count": 157,
+      "routeKey": "Abu Dhabi - Sofia"
+    },
+    {
+      "cities": [
+        "Billund",
+        "Gdansk"
+      ],
+      "count": 155,
+      "routeKey": "Billund - Gdansk"
+    },
+    {
+      "cities": [
+        "Alicante",
+        "Belgrade"
+      ],
+      "count": 153,
+      "routeKey": "Alicante - Belgrade"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Gran Canaria"
+      ],
+      "count": 153,
+      "routeKey": "Bucharest - Gran Canaria"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Milan"
+      ],
+      "count": 153,
+      "routeKey": "Larnaca - Milan"
+    },
+    {
+      "cities": [
+        "Tirana",
+        "Wroclaw"
+      ],
+      "count": 153,
+      "routeKey": "Tirana - Wroclaw"
+    },
+    {
+      "cities": [
+        "Heraklion",
+        "Warsaw"
+      ],
+      "count": 152,
+      "routeKey": "Heraklion - Warsaw"
+    },
+    {
+      "cities": [
+        "London",
+        "Plovdiv"
+      ],
+      "count": 152,
+      "routeKey": "London - Plovdiv"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Radom"
+      ],
+      "count": 151,
+      "routeKey": "Larnaca - Radom"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Gdansk"
+      ],
+      "count": 151,
+      "routeKey": "Budapest - Gdansk"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Zakinthos Island"
+      ],
+      "count": 150,
+      "routeKey": "Bucharest - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Tel Aviv",
+        "Varna"
+      ],
+      "count": 150,
+      "routeKey": "Tel Aviv - Varna"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Tirana"
+      ],
+      "count": 148,
+      "routeKey": "Gdansk - Tirana"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Zakinthos Island"
+      ],
+      "count": 147,
+      "routeKey": "Cluj - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Kerkyra"
+      ],
+      "count": 146,
+      "routeKey": "Budapest - Kerkyra"
+    },
+    {
+      "cities": [
+        "Burgas",
+        "Katowice"
+      ],
+      "count": 146,
+      "routeKey": "Burgas - Katowice"
+    },
+    {
+      "cities": [
+        "Chania",
+        "Vienna"
+      ],
+      "count": 146,
+      "routeKey": "Chania - Vienna"
+    },
+    {
+      "cities": [
+        "Craiova",
+        "Dortmund"
+      ],
+      "count": 146,
+      "routeKey": "Craiova - Dortmund"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Madrid"
+      ],
+      "count": 146,
+      "routeKey": "Katowice - Madrid"
+    },
+    {
+      "cities": [
+        "Brasov",
+        "Budapest"
+      ],
+      "count": 146,
+      "routeKey": "Brasov - Budapest"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Kerkyra"
+      ],
+      "count": 145,
+      "routeKey": "Bucharest - Kerkyra"
+    },
+    {
+      "cities": [
+        "Kutaisi",
+        "Riga"
+      ],
+      "count": 145,
+      "routeKey": "Kutaisi - Riga"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Palma De Mallorca"
+      ],
+      "count": 143,
+      "routeKey": "Budapest - Palma De Mallorca"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Timisoara"
+      ],
+      "count": 142,
+      "routeKey": "Paris - Timisoara"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Dubai"
+      ],
+      "count": 142,
+      "routeKey": "Budapest - Dubai"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Sofia"
+      ],
+      "count": 141,
+      "routeKey": "Krakow - Sofia"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Beirut"
+      ],
+      "count": 140,
+      "routeKey": "Abu Dhabi - Beirut"
+    },
+    {
+      "cities": [
+        "London",
+        "Madinah"
+      ],
+      "count": 140,
+      "routeKey": "London - Madinah"
+    },
+    {
+      "cities": [
+        "Amman",
+        "Budapest"
+      ],
+      "count": 138,
+      "routeKey": "Amman - Budapest"
+    },
+    {
+      "cities": [
+        "Podgorica",
+        "Warsaw"
+      ],
+      "count": 137,
+      "routeKey": "Podgorica - Warsaw"
+    },
+    {
+      "cities": [
+        "Brussels",
+        "Timisoara"
+      ],
+      "count": 137,
+      "routeKey": "Brussels - Timisoara"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Malaga"
+      ],
+      "count": 136,
+      "routeKey": "Cluj - Malaga"
+    },
+    {
+      "cities": [
+        "Sibiu",
+        "Vienna"
+      ],
+      "count": 136,
+      "routeKey": "Sibiu - Vienna"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Vienna"
+      ],
+      "count": 136,
+      "routeKey": "Abu Dhabi - Vienna"
+    },
+    {
+      "cities": [
+        "Heraklion",
+        "Milan"
+      ],
+      "count": 134,
+      "routeKey": "Heraklion - Milan"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Kerkyra"
+      ],
+      "count": 134,
+      "routeKey": "Katowice - Kerkyra"
+    },
+    {
+      "cities": [
+        "Nice",
+        "Wroclaw"
+      ],
+      "count": 134,
+      "routeKey": "Nice - Wroclaw"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Marrakech"
+      ],
+      "count": 134,
+      "routeKey": "Bucharest - Marrakech"
+    },
+    {
+      "cities": [
+        "Alghero",
+        "Budapest"
+      ],
+      "count": 133,
+      "routeKey": "Alghero - Budapest"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Zakinthos Island"
+      ],
+      "count": 133,
+      "routeKey": "Milan - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Brasov",
+        "Dortmund"
+      ],
+      "count": 133,
+      "routeKey": "Brasov - Dortmund"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Split"
+      ],
+      "count": 133,
+      "routeKey": "Krakow - Split"
+    },
+    {
+      "cities": [
+        "London",
+        "Poprad/Tatry"
+      ],
+      "count": 133,
+      "routeKey": "London - Poprad/Tatry"
+    },
+    {
+      "cities": [
+        "Burgas",
+        "Lublin"
+      ],
+      "count": 133,
+      "routeKey": "Burgas - Lublin"
+    },
+    {
+      "cities": [
+        "Antalya",
+        "Bucharest"
+      ],
+      "count": 132,
+      "routeKey": "Antalya - Bucharest"
+    },
+    {
+      "cities": [
+        "Craiova",
+        "Madrid"
+      ],
+      "count": 132,
+      "routeKey": "Craiova - Madrid"
+    },
+    {
+      "cities": [
+        "Rhodes",
+        "Warsaw"
+      ],
+      "count": 130,
+      "routeKey": "Rhodes - Warsaw"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Sibiu"
+      ],
+      "count": 130,
+      "routeKey": "Hamburg - Sibiu"
+    },
+    {
+      "cities": [
+        "Warsaw",
+        "Zakinthos Island"
+      ],
+      "count": 129,
+      "routeKey": "Warsaw - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Santorini"
+      ],
+      "count": 129,
+      "routeKey": "Bucharest - Santorini"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Vienna"
+      ],
+      "count": 126,
+      "routeKey": "Larnaca - Vienna"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Santorini"
+      ],
+      "count": 126,
+      "routeKey": "Budapest - Santorini"
+    },
+    {
+      "cities": [
+        "Kerkyra",
+        "Milan"
+      ],
+      "count": 126,
+      "routeKey": "Kerkyra - Milan"
+    },
+    {
+      "cities": [
+        "Iasi",
+        "Tel Aviv"
+      ],
+      "count": 125,
+      "routeKey": "Iasi - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Kerkyra",
+        "Vienna"
+      ],
+      "count": 124,
+      "routeKey": "Kerkyra - Vienna"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Sibiu"
+      ],
+      "count": 123,
+      "routeKey": "Basel/Mulhouse - Sibiu"
+    },
+    {
+      "cities": [
+        "Heraklion",
+        "Krakow"
+      ],
+      "count": 123,
+      "routeKey": "Heraklion - Krakow"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Palma De Mallorca"
+      ],
+      "count": 120,
+      "routeKey": "Bucharest - Palma De Mallorca"
+    },
+    {
+      "cities": [
+        "Kerkyra",
+        "Warsaw"
+      ],
+      "count": 119,
+      "routeKey": "Kerkyra - Warsaw"
+    },
+    {
+      "cities": [
+        "Billund",
+        "Vilnius"
+      ],
+      "count": 118,
+      "routeKey": "Billund - Vilnius"
+    },
+    {
+      "cities": [
+        "Palma De Mallorca",
+        "Rome"
+      ],
+      "count": 118,
+      "routeKey": "Palma De Mallorca - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Rhodes"
+      ],
+      "count": 118,
+      "routeKey": "Budapest - Rhodes"
+    },
+    {
+      "cities": [
+        "Dubrovnik",
+        "Warsaw"
+      ],
+      "count": 117,
+      "routeKey": "Dubrovnik - Warsaw"
+    },
+    {
+      "cities": [
+        "Brasov",
+        "London"
+      ],
+      "count": 117,
+      "routeKey": "Brasov - London"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Asyut"
+      ],
+      "count": 116,
+      "routeKey": "Abu Dhabi - Asyut"
+    },
+    {
+      "cities": [
+        "Ibiza",
+        "Rome"
+      ],
+      "count": 116,
+      "routeKey": "Ibiza - Rome"
+    },
+    {
+      "cities": [
+        "Heraklion",
+        "Rome"
+      ],
+      "count": 114,
+      "routeKey": "Heraklion - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Burgas"
+      ],
+      "count": 114,
+      "routeKey": "Budapest - Burgas"
+    },
+    {
+      "cities": [
+        "Olbia",
+        "Warsaw"
+      ],
+      "count": 113,
+      "routeKey": "Olbia - Warsaw"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Split"
+      ],
+      "count": 113,
+      "routeKey": "Gdansk - Split"
+    },
+    {
+      "cities": [
+        "Comiso",
+        "Tirana"
+      ],
+      "count": 113,
+      "routeKey": "Comiso - Tirana"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Gabala"
+      ],
+      "count": 112,
+      "routeKey": "Abu Dhabi - Gabala"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Skiathos"
+      ],
+      "count": 110,
+      "routeKey": "Rome - Skiathos"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Zakinthos Island"
+      ],
+      "count": 110,
+      "routeKey": "Rome - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Belgrade",
+        "Heraklion"
+      ],
+      "count": 110,
+      "routeKey": "Belgrade - Heraklion"
+    },
+    {
+      "cities": [
+        "Poznan",
+        "Tirana"
+      ],
+      "count": 110,
+      "routeKey": "Poznan - Tirana"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Mykonos"
+      ],
+      "count": 109,
+      "routeKey": "Bucharest - Mykonos"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Kerkyra"
+      ],
+      "count": 109,
+      "routeKey": "Cluj - Kerkyra"
+    },
+    {
+      "cities": [
+        "Mykonos",
+        "Rome"
+      ],
+      "count": 108,
+      "routeKey": "Mykonos - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Zakinthos Island"
+      ],
+      "count": 108,
+      "routeKey": "Budapest - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Amman",
+        "Vienna"
+      ],
+      "count": 106,
+      "routeKey": "Amman - Vienna"
+    },
+    {
+      "cities": [
+        "Santorini",
+        "Warsaw"
+      ],
+      "count": 102,
+      "routeKey": "Santorini - Warsaw"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Santorini"
+      ],
+      "count": 101,
+      "routeKey": "Rome - Santorini"
+    },
+    {
+      "cities": [
+        "Burgas",
+        "Vienna"
+      ],
+      "count": 99,
+      "routeKey": "Burgas - Vienna"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Heraklion"
+      ],
+      "count": 99,
+      "routeKey": "Cluj - Heraklion"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Salalah"
+      ],
+      "count": 99,
+      "routeKey": "Abu Dhabi - Salalah"
+    },
+    {
+      "cities": [
+        "Katowice",
+        "Tirana"
+      ],
+      "count": 99,
+      "routeKey": "Katowice - Tirana"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Wroclaw"
+      ],
+      "count": 99,
+      "routeKey": "Madrid - Wroclaw"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Sibiu"
+      ],
+      "count": 98,
+      "routeKey": "Rome - Sibiu"
+    },
+    {
+      "cities": [
+        "Antalya",
+        "Budapest"
+      ],
+      "count": 97,
+      "routeKey": "Antalya - Budapest"
+    },
+    {
+      "cities": [
+        "Krakow",
+        "Tirana"
+      ],
+      "count": 97,
+      "routeKey": "Krakow - Tirana"
+    },
+    {
+      "cities": [
+        "Kerkyra",
+        "Rome"
+      ],
+      "count": 96,
+      "routeKey": "Kerkyra - Rome"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Heraklion"
+      ],
+      "count": 95,
+      "routeKey": "Budapest - Heraklion"
+    },
+    {
+      "cities": [
+        "Amman",
+        "Milan"
+      ],
+      "count": 93,
+      "routeKey": "Amman - Milan"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Vilnius"
+      ],
+      "count": 91,
+      "routeKey": "Paris - Vilnius"
+    },
+    {
+      "cities": [
+        "Chania",
+        "Warsaw"
+      ],
+      "count": 86,
+      "routeKey": "Chania - Warsaw"
+    },
+    {
+      "cities": [
+        "Amman",
+        "London"
+      ],
+      "count": 85,
+      "routeKey": "Amman - London"
+    },
+    {
+      "cities": [
+        "Burgas",
+        "Warsaw"
+      ],
+      "count": 84,
+      "routeKey": "Burgas - Warsaw"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Vilnius"
+      ],
+      "count": 83,
+      "routeKey": "Rome - Vilnius"
+    },
+    {
+      "cities": [
+        "Burgas",
+        "Gdansk"
+      ],
+      "count": 80,
+      "routeKey": "Burgas - Gdansk"
+    },
+    {
+      "cities": [
+        "Rhodes",
+        "Tel Aviv"
+      ],
+      "count": 80,
+      "routeKey": "Rhodes - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Frankfurt"
+      ],
+      "count": 79,
+      "routeKey": "Bucharest - Frankfurt"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Vilnius"
+      ],
+      "count": 75,
+      "routeKey": "Budapest - Vilnius"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Sibiu"
+      ],
+      "count": 75,
+      "routeKey": "Frankfurt - Sibiu"
+    },
+    {
+      "cities": [
+        "Amman",
+        "Rome"
+      ],
+      "count": 74,
+      "routeKey": "Amman - Rome"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Sofia"
+      ],
+      "count": 73,
+      "routeKey": "Catania - Sofia"
+    },
+    {
+      "cities": [
+        "Heraklion",
+        "Tel Aviv"
+      ],
+      "count": 69,
+      "routeKey": "Heraklion - Tel Aviv"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Wroclaw"
+      ],
+      "count": 66,
+      "routeKey": "Chisinau - Wroclaw"
+    },
+    {
+      "cities": [
+        "Lyon",
+        "Rome"
+      ],
+      "count": 66,
+      "routeKey": "Lyon - Rome"
+    },
+    {
+      "cities": [
+        "Timisoara",
+        "Zakinthos Island"
+      ],
+      "count": 65,
+      "routeKey": "Timisoara - Zakinthos Island"
+    },
+    {
+      "cities": [
+        "Madrid",
+        "Sibiu"
+      ],
+      "count": 65,
+      "routeKey": "Madrid - Sibiu"
+    },
+    {
+      "cities": [
+        "Bologna",
+        "Sofia"
+      ],
+      "count": 65,
+      "routeKey": "Bologna - Sofia"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Prague"
+      ],
+      "count": 63,
+      "routeKey": "Milan - Prague"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Larnaca"
+      ],
+      "count": 62,
+      "routeKey": "Chisinau - Larnaca"
+    },
+    {
+      "cities": [
+        "Cluj",
+        "Palma De Mallorca"
+      ],
+      "count": 59,
+      "routeKey": "Cluj - Palma De Mallorca"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Sharm el-Sheikh"
+      ],
+      "count": 57,
+      "routeKey": "Naples - Sharm el-Sheikh"
+    },
+    {
+      "cities": [
+        "Barcelona",
+        "Chisinau"
+      ],
+      "count": 55,
+      "routeKey": "Barcelona - Chisinau"
+    },
+    {
+      "cities": [
+        "Marsa Alam",
+        "Milan"
+      ],
+      "count": 53,
+      "routeKey": "Marsa Alam - Milan"
+    },
+    {
+      "cities": [
+        "Hurghada",
+        "Milan"
+      ],
+      "count": 52,
+      "routeKey": "Hurghada - Milan"
+    },
+    {
+      "cities": [
+        "Chisinau",
+        "Naples"
+      ],
+      "count": 46,
+      "routeKey": "Chisinau - Naples"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Male"
+      ],
+      "count": 44,
+      "routeKey": "Abu Dhabi - Male"
+    },
+    {
+      "cities": [
+        "Milan",
+        "Varna"
+      ],
+      "count": 43,
+      "routeKey": "Milan - Varna"
+    },
+    {
+      "cities": [
+        "Gyumri",
+        "Larnaca"
+      ],
+      "count": 42,
+      "routeKey": "Gyumri - Larnaca"
+    },
+    {
+      "cities": [
+        "Suceava",
+        "Vienna"
+      ],
+      "count": 40,
+      "routeKey": "Suceava - Vienna"
+    },
+    {
+      "cities": [
+        "Hurghada",
+        "Vienna"
+      ],
+      "count": 39,
+      "routeKey": "Hurghada - Vienna"
+    },
+    {
+      "cities": [
+        "Giza",
+        "Milan"
+      ],
+      "count": 38,
+      "routeKey": "Giza - Milan"
+    },
+    {
+      "cities": [
+        "Paphos",
+        "Yerevan"
+      ],
+      "count": 35,
+      "routeKey": "Paphos - Yerevan"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Tirana"
+      ],
+      "count": 31,
+      "routeKey": "Larnaca - Tirana"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Riyadh"
+      ],
+      "count": 30,
+      "routeKey": "Budapest - Riyadh"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Sharm el-Sheikh"
+      ],
+      "count": 30,
+      "routeKey": "Catania - Sharm el-Sheikh"
+    },
+    {
+      "cities": [
+        "London",
+        "Lyon"
+      ],
+      "count": 30,
+      "routeKey": "London - Lyon"
+    },
+    {
+      "cities": [
+        "London",
+        "Sharm el-Sheikh"
+      ],
+      "count": 30,
+      "routeKey": "London - Sharm el-Sheikh"
+    },
+    {
+      "cities": [
+        "London",
+        "Tromso"
+      ],
+      "count": 30,
+      "routeKey": "London - Tromso"
+    },
+    {
+      "cities": [
+        "Fuerteventura",
+        "Warsaw"
+      ],
+      "count": 29,
+      "routeKey": "Fuerteventura - Warsaw"
+    },
+    {
+      "cities": [
+        "Hurghada",
+        "London"
+      ],
+      "count": 28,
+      "routeKey": "Hurghada - London"
+    },
+    {
+      "cities": [
+        "London",
+        "Salzburg"
+      ],
+      "count": 28,
+      "routeKey": "London - Salzburg"
+    },
+    {
+      "cities": [
+        "Riyadh",
+        "Vienna"
+      ],
+      "count": 28,
+      "routeKey": "Riyadh - Vienna"
+    },
+    {
+      "cities": [
+        "Agadir",
+        "London"
+      ],
+      "count": 27,
+      "routeKey": "Agadir - London"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Yerevan"
+      ],
+      "count": 26,
+      "routeKey": "Naples - Yerevan"
+    },
+    {
+      "cities": [
+        "Budapest",
+        "Sharm el-Sheikh"
+      ],
+      "count": 26,
+      "routeKey": "Budapest - Sharm el-Sheikh"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Katowice"
+      ],
+      "count": 25,
+      "routeKey": "Abu Dhabi - Katowice"
+    },
+    {
+      "cities": [
+        "Malta",
+        "Tirana"
+      ],
+      "count": 24,
+      "routeKey": "Malta - Tirana"
+    },
+    {
+      "cities": [
+        "London",
+        "Targu-Mures"
+      ],
+      "count": 24,
+      "routeKey": "London - Targu-Mures"
+    },
+    {
+      "cities": [
+        "Prague",
+        "Yerevan"
+      ],
+      "count": 23,
+      "routeKey": "Prague - Yerevan"
+    },
+    {
+      "cities": [
+        "Catania",
+        "Tirana"
+      ],
+      "count": 23,
+      "routeKey": "Catania - Tirana"
+    },
+    {
+      "cities": [
+        "Reykjavik",
+        "Vienna"
+      ],
+      "count": 23,
+      "routeKey": "Reykjavik - Vienna"
+    },
+    {
+      "cities": [
+        "Brasov",
+        "Naples"
+      ],
+      "count": 22,
+      "routeKey": "Brasov - Naples"
+    },
+    {
+      "cities": [
+        "London",
+        "Naples"
+      ],
+      "count": 22,
+      "routeKey": "London - Naples"
+    },
+    {
+      "cities": [
+        "Hamburg",
+        "Yerevan"
+      ],
+      "count": 21,
+      "routeKey": "Hamburg - Yerevan"
+    },
+    {
+      "cities": [
+        "Dortmund",
+        "Rome"
+      ],
+      "count": 21,
+      "routeKey": "Dortmund - Rome"
+    },
+    {
+      "cities": [
+        "Rome",
+        "Vienna"
+      ],
+      "count": 21,
+      "routeKey": "Rome - Vienna"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Cluj"
+      ],
+      "count": 20,
+      "routeKey": "Abu Dhabi - Cluj"
+    },
+    {
+      "cities": [
+        "Abu Dhabi",
+        "Athens"
+      ],
+      "count": 20,
+      "routeKey": "Abu Dhabi - Athens"
+    },
+    {
+      "cities": [
+        "Bucharest",
+        "Jeddah"
+      ],
+      "count": 19,
+      "routeKey": "Bucharest - Jeddah"
+    },
+    {
+      "cities": [
+        "Basel/Mulhouse",
+        "Timisoara"
+      ],
+      "count": 18,
+      "routeKey": "Basel/Mulhouse - Timisoara"
+    },
+    {
+      "cities": [
+        "Paris",
+        "Yerevan"
+      ],
+      "count": 18,
+      "routeKey": "Paris - Yerevan"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Timisoara"
+      ],
+      "count": 17,
+      "routeKey": "Naples - Timisoara"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Verona"
+      ],
+      "count": 16,
+      "routeKey": "Gdansk - Verona"
+    },
+    {
+      "cities": [
+        "Verona",
+        "Warsaw"
+      ],
+      "count": 16,
+      "routeKey": "Verona - Warsaw"
+    },
+    {
+      "cities": [
+        "Marrakech",
+        "Warsaw"
+      ],
+      "count": 16,
+      "routeKey": "Marrakech - Warsaw"
+    },
+    {
+      "cities": [
+        "Lyon",
+        "Vilnius"
+      ],
+      "count": 15,
+      "routeKey": "Lyon - Vilnius"
+    },
+    {
+      "cities": [
+        "Eindhoven",
+        "Rome"
+      ],
+      "count": 15,
+      "routeKey": "Eindhoven - Rome"
+    },
+    {
+      "cities": [
+        "Nuremberg",
+        "Timisoara"
+      ],
+      "count": 14,
+      "routeKey": "Nuremberg - Timisoara"
+    },
+    {
+      "cities": [
+        "Frankfurt",
+        "Timisoara"
+      ],
+      "count": 13,
+      "routeKey": "Frankfurt - Timisoara"
+    },
+    {
+      "cities": [
+        "Larnaca",
+        "Timisoara"
+      ],
+      "count": 12,
+      "routeKey": "Larnaca - Timisoara"
+    },
+    {
+      "cities": [
+        "Skopje",
+        "Stuttgart"
+      ],
+      "count": 11,
+      "routeKey": "Skopje - Stuttgart"
+    },
+    {
+      "cities": [
+        "Dubai",
+        "Vienna"
+      ],
+      "count": 11,
+      "routeKey": "Dubai - Vienna"
+    },
+    {
+      "cities": [
+        "Brasov",
+        "Nuremberg"
+      ],
+      "count": 10,
+      "routeKey": "Brasov - Nuremberg"
+    },
+    {
+      "cities": [
+        "Lyon",
+        "Warsaw"
+      ],
+      "count": 9,
+      "routeKey": "Lyon - Warsaw"
+    },
+    {
+      "cities": [
+        "Turin",
+        "Warsaw"
+      ],
+      "count": 4,
+      "routeKey": "Turin - Warsaw"
+    },
+    {
+      "cities": [
+        "Naples",
+        "Vienna"
+      ],
+      "count": 3,
+      "routeKey": "Naples - Vienna"
+    },
+    {
+      "cities": [
+        "Gdansk",
+        "Valencia"
+      ],
+      "count": 2,
+      "routeKey": "Gdansk - Valencia"
+    }
+  ],
+  "metadata": {
+    "totalFiles": 218,
+    "totalRoutes": 787,
+    "topRoutesShown": 787
+  }
+}

@@ -32,6 +32,7 @@ def process_csv_files(data_dir: Path) -> Dict[str, Any]:
     """Process all CSV files and return aggregated data."""
     weekday_data = defaultdict(list)
     route_counts = defaultdict(int)
+    route_days = defaultdict(set)  # Track which days each route appears
     all_files = []
     
     csv_files = list(data_dir.glob("*.csv"))
@@ -52,7 +53,8 @@ def process_csv_files(data_dir: Path) -> Dict[str, Any]:
             weekday_data[weekday].append(len(flights))
             all_files.append(csv_file.name)
             
-            # Count routes
+            # Track routes and days they appear
+            daily_routes = set()  # Routes seen on this day
             for flight in flights:
                 departure_from = flight.get('departure_from', '').strip()
                 departure_to = flight.get('departure_to', '').strip()
@@ -61,6 +63,11 @@ def process_csv_files(data_dir: Path) -> Dict[str, Any]:
                     # Create normalized route key (alphabetically sorted)
                     route_key = ' - '.join(sorted([departure_from, departure_to]))
                     route_counts[route_key] += 1
+                    daily_routes.add(route_key)
+            
+            # Add this day to all routes that appeared
+            for route_key in daily_routes:
+                route_days[route_key].add(date.strftime('%Y-%m-%d'))
                     
         except Exception as e:
             print(f"Error processing {csv_file.name}: {e}")
@@ -69,6 +76,8 @@ def process_csv_files(data_dir: Path) -> Dict[str, Any]:
     return {
         'weekday_data': dict(weekday_data),
         'route_counts': dict(route_counts),
+        'route_days': {route: len(days) for route, days in route_days.items()},  # Convert to day counts
+        'total_days': len(all_files),
         'processed_files': all_files
     }
 
@@ -121,7 +130,7 @@ def calculate_summary_stats(weekday_stats: Dict[str, Any], processed_files: List
     }
 
 
-def prepare_route_data(route_counts: Dict[str, int], top_n: int | None = None) -> List[Dict[str, Any]]:
+def prepare_route_data(route_counts: Dict[str, int], route_days: Dict[str, int], top_n: int | None = None) -> List[Dict[str, Any]]:
     """Prepare route data for visualization, returning all routes or top N routes."""
     # Sort routes by count and take all or top N
     sorted_routes = sorted(route_counts.items(), key=lambda x: x[1], reverse=True)
@@ -134,6 +143,7 @@ def prepare_route_data(route_counts: Dict[str, int], top_n: int | None = None) -
             route_data.append({
                 'cities': cities,
                 'count': count,
+                'dayCount': route_days.get(route_key, 0),  # Number of days this route appeared
                 'routeKey': route_key
             })
     
@@ -164,7 +174,7 @@ def main():
     # Calculate statistics
     weekday_stats = calculate_weekday_stats(raw_data['weekday_data'])
     summary_stats = calculate_summary_stats(weekday_stats, raw_data['processed_files'])
-    route_data = prepare_route_data(raw_data['route_counts'])  # Use all routes instead of top 50
+    route_data = prepare_route_data(raw_data['route_counts'], raw_data['route_days'])  # Use all routes instead of top 50
     
     # Prepare final data structure
     dashboard_data = {
@@ -174,6 +184,7 @@ def main():
         'topRoutes': route_data,
         'metadata': {
             'totalFiles': len(raw_data['processed_files']),
+            'totalDays': raw_data['total_days'],
             'totalRoutes': len(raw_data['route_counts']),
             'topRoutesShown': len(route_data)
         }

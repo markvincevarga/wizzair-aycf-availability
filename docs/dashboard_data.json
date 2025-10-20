@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-19T23:51:03.163831",
+  "generated_at": "2025-10-20T08:48:55.777003",
   "summary": {
     "totalDays": 218,
     "avgDailyFlights": 805,
@@ -281,6 +281,7 @@
         "Bucharest"
       ],
       "count": 406,
+      "dayCount": 217,
       "routeKey": "Bari - Bucharest"
     },
     {
@@ -289,6 +290,7 @@
         "Yerevan"
       ],
       "count": 402,
+      "dayCount": 218,
       "routeKey": "Larnaca - Yerevan"
     },
     {
@@ -297,6 +299,7 @@
         "Rome"
       ],
       "count": 393,
+      "dayCount": 218,
       "routeKey": "Poznan - Rome"
     },
     {
@@ -305,6 +308,7 @@
         "Venice"
       ],
       "count": 391,
+      "dayCount": 215,
       "routeKey": "Budapest - Venice"
     },
     {
@@ -313,6 +317,7 @@
         "Larnaca"
       ],
       "count": 389,
+      "dayCount": 217,
       "routeKey": "Kutaisi - Larnaca"
     },
     {
@@ -321,6 +326,7 @@
         "Bucharest"
       ],
       "count": 383,
+      "dayCount": 204,
       "routeKey": "Alghero - Bucharest"
     },
     {
@@ -329,6 +335,7 @@
         "Budapest"
       ],
       "count": 382,
+      "dayCount": 215,
       "routeKey": "Bucharest - Budapest"
     },
     {
@@ -337,6 +344,7 @@
         "London"
       ],
       "count": 382,
+      "dayCount": 218,
       "routeKey": "Bucharest - London"
     },
     {
@@ -345,6 +353,7 @@
         "London"
       ],
       "count": 380,
+      "dayCount": 218,
       "routeKey": "Budapest - London"
     },
     {
@@ -353,6 +362,7 @@
         "Genoa"
       ],
       "count": 377,
+      "dayCount": 213,
       "routeKey": "Budapest - Genoa"
     },
     {
@@ -361,6 +371,7 @@
         "Prague"
       ],
       "count": 374,
+      "dayCount": 217,
       "routeKey": "London - Prague"
     },
     {
@@ -369,6 +380,7 @@
         "Vienna"
       ],
       "count": 372,
+      "dayCount": 214,
       "routeKey": "Barcelona - Vienna"
     },
     {
@@ -377,6 +389,7 @@
         "Timisoara"
       ],
       "count": 371,
+      "dayCount": 212,
       "routeKey": "Bari - Timisoara"
     },
     {
@@ -385,6 +398,7 @@
         "Sarajevo"
       ],
       "count": 371,
+      "dayCount": 216,
       "routeKey": "Rome - Sarajevo"
     },
     {
@@ -393,6 +407,7 @@
         "Stockholm"
       ],
       "count": 371,
+      "dayCount": 218,
       "routeKey": "Gdansk - Stockholm"
     },
     {
@@ -401,6 +416,7 @@
         "London"
       ],
       "count": 369,
+      "dayCount": 218,
       "routeKey": "Larnaca - London"
     },
     {
@@ -409,6 +425,7 @@
         "Chisinau"
       ],
       "count": 367,
+      "dayCount": 200,
       "routeKey": "Bucharest - Chisinau"
     },
     {
@@ -417,6 +434,7 @@
         "Oslo"
       ],
       "count": 366,
+      "dayCount": 216,
       "routeKey": "Gdansk - Oslo"
     },
     {
@@ -425,6 +443,7 @@
         "Larnaca"
       ],
       "count": 365,
+      "dayCount": 217,
       "routeKey": "Bucharest - Larnaca"
     },
     {
@@ -433,6 +452,7 @@
         "Varna"
       ],
       "count": 365,
+      "dayCount": 218,
       "routeKey": "London - Varna"
     },
     {
@@ -441,6 +461,7 @@
         "Catania"
       ],
       "count": 364,
+      "dayCount": 216,
       "routeKey": "Bucharest - Catania"
     },
     {
@@ -449,6 +470,7 @@
         "Warsaw"
       ],
       "count": 363,
+      "dayCount": 218,
       "routeKey": "Milan - Warsaw"
     },
     {
@@ -457,6 +479,7 @@
         "Milan"
       ],
       "count": 362,
+      "dayCount": 217,
       "routeKey": "Bucharest - Milan"
     },
     {
@@ -465,6 +488,7 @@
         "Milan"
       ],
       "count": 361,
+      "dayCount": 218,
       "routeKey": "Budapest - Milan"
     },
     {
@@ -473,6 +497,7 @@
         "Gothenburg"
       ],
       "count": 361,
+      "dayCount": 217,
       "routeKey": "Gdansk - Gothenburg"
     },
     {
@@ -481,6 +506,7 @@
         "Memmingen"
       ],
       "count": 360,
+      "dayCount": 217,
       "routeKey": "Bucharest - Memmingen"
     },
     {
@@ -489,6 +515,7 @@
         "Rome"
       ],
       "count": 359,
+      "dayCount": 213,
       "routeKey": "Budapest - Rome"
     },
     {
@@ -497,6 +524,7 @@
         "Gdansk"
       ],
       "count": 357,
+      "dayCount": 218,
       "routeKey": "Copenhagen - Gdansk"
     },
     {
@@ -505,6 +533,7 @@
         "Malmo"
       ],
       "count": 357,
+      "dayCount": 213,
       "routeKey": "Iasi - Malmo"
     },
     {
@@ -513,6 +542,7 @@
         "Wroclaw"
       ],
       "count": 357,
+      "dayCount": 216,
       "routeKey": "London - Wroclaw"
     },
     {
@@ -521,6 +551,7 @@
         "London"
       ],
       "count": 356,
+      "dayCount": 218,
       "routeKey": "Antalya - London"
     },
     {
@@ -529,6 +560,7 @@
         "Kutaisi"
       ],
       "count": 356,
+      "dayCount": 211,
       "routeKey": "Athens - Kutaisi"
     },
     {
@@ -537,6 +569,7 @@
         "Rome"
       ],
       "count": 356,
+      "dayCount": 208,
       "routeKey": "Gdansk - Rome"
     },
     {
@@ -545,6 +578,7 @@
         "Venice"
       ],
       "count": 356,
+      "dayCount": 214,
       "routeKey": "Iasi - Venice"
     },
     {
@@ -553,6 +587,7 @@
         "London"
       ],
       "count": 356,
+      "dayCount": 216,
       "routeKey": "Krakow - London"
     },
     {
@@ -561,6 +596,7 @@
         "Warsaw"
       ],
       "count": 356,
+      "dayCount": 214,
       "routeKey": "London - Warsaw"
     },
     {
@@ -569,6 +605,7 @@
         "Zaragoza"
       ],
       "count": 356,
+      "dayCount": 200,
       "routeKey": "Rome - Zaragoza"
     },
     {
@@ -577,6 +614,7 @@
         "Vienna"
       ],
       "count": 355,
+      "dayCount": 215,
       "routeKey": "Jeddah - Vienna"
     },
     {
@@ -585,6 +623,7 @@
         "Basel/Mulhouse"
       ],
       "count": 354,
+      "dayCount": 215,
       "routeKey": "Banja Luka - Basel/Mulhouse"
     },
     {
@@ -593,6 +632,7 @@
         "Budapest"
       ],
       "count": 353,
+      "dayCount": 212,
       "routeKey": "Bari - Budapest"
     },
     {
@@ -601,6 +641,7 @@
         "Haugesund"
       ],
       "count": 353,
+      "dayCount": 216,
       "routeKey": "Gdansk - Haugesund"
     },
     {
@@ -609,6 +650,7 @@
         "Wroclaw"
       ],
       "count": 351,
+      "dayCount": 208,
       "routeKey": "Bari - Wroclaw"
     },
     {
@@ -617,6 +659,7 @@
         "Venice"
       ],
       "count": 351,
+      "dayCount": 214,
       "routeKey": "Bucharest - Venice"
     },
     {
@@ -625,6 +668,7 @@
         "Gdansk"
       ],
       "count": 351,
+      "dayCount": 215,
       "routeKey": "Dortmund - Gdansk"
     },
     {
@@ -633,6 +677,7 @@
         "Cluj"
       ],
       "count": 350,
+      "dayCount": 201,
       "routeKey": "Bari - Cluj"
     },
     {
@@ -641,6 +686,7 @@
         "Madeira"
       ],
       "count": 350,
+      "dayCount": 208,
       "routeKey": "Gdansk - Madeira"
     },
     {
@@ -649,6 +695,7 @@
         "Warsaw"
       ],
       "count": 349,
+      "dayCount": 206,
       "routeKey": "Madeira - Warsaw"
     },
     {
@@ -657,6 +704,7 @@
         "Vienna"
       ],
       "count": 348,
+      "dayCount": 211,
       "routeKey": "Chisinau - Vienna"
     },
     {
@@ -665,6 +713,7 @@
         "Katowice"
       ],
       "count": 348,
+      "dayCount": 211,
       "routeKey": "Dortmund - Katowice"
     },
     {
@@ -673,6 +722,7 @@
         "Rome"
       ],
       "count": 348,
+      "dayCount": 213,
       "routeKey": "Jeddah - Rome"
     },
     {
@@ -681,6 +731,7 @@
         "Milan"
       ],
       "count": 347,
+      "dayCount": 214,
       "routeKey": "Barcelona - Milan"
     },
     {
@@ -689,6 +740,7 @@
         "Rome"
       ],
       "count": 347,
+      "dayCount": 216,
       "routeKey": "Chisinau - Rome"
     },
     {
@@ -697,6 +749,7 @@
         "Warsaw"
       ],
       "count": 347,
+      "dayCount": 215,
       "routeKey": "Rome - Warsaw"
     },
     {
@@ -705,6 +758,7 @@
         "Liverpool"
       ],
       "count": 346,
+      "dayCount": 210,
       "routeKey": "Gdansk - Liverpool"
     },
     {
@@ -713,6 +767,7 @@
         "Rzeszow"
       ],
       "count": 345,
+      "dayCount": 205,
       "routeKey": "Milan - Rzeszow"
     },
     {
@@ -721,6 +776,7 @@
         "London"
       ],
       "count": 344,
+      "dayCount": 205,
       "routeKey": "Faro - London"
     },
     {
@@ -729,6 +785,7 @@
         "Milan"
       ],
       "count": 344,
+      "dayCount": 218,
       "routeKey": "Gdansk - Milan"
     },
     {
@@ -737,6 +794,7 @@
         "Tirana"
       ],
       "count": 344,
+      "dayCount": 214,
       "routeKey": "Memmingen - Tirana"
     },
     {
@@ -745,6 +803,7 @@
         "Valencia"
       ],
       "count": 344,
+      "dayCount": 213,
       "routeKey": "Rome - Valencia"
     },
     {
@@ -753,6 +812,7 @@
         "Rome"
       ],
       "count": 343,
+      "dayCount": 212,
       "routeKey": "Katowice - Rome"
     },
     {
@@ -761,6 +821,7 @@
         "Rome"
       ],
       "count": 341,
+      "dayCount": 211,
       "routeKey": "Krakow - Rome"
     },
     {
@@ -769,6 +830,7 @@
         "Rome"
       ],
       "count": 339,
+      "dayCount": 214,
       "routeKey": "Cluj - Rome"
     },
     {
@@ -777,6 +839,7 @@
         "Sofia"
       ],
       "count": 339,
+      "dayCount": 213,
       "routeKey": "Bari - Sofia"
     },
     {
@@ -785,6 +848,7 @@
         "Bucharest"
       ],
       "count": 338,
+      "dayCount": 207,
       "routeKey": "Athens - Bucharest"
     },
     {
@@ -793,6 +857,7 @@
         "Madrid"
       ],
       "count": 338,
+      "dayCount": 215,
       "routeKey": "Bucharest - Madrid"
     },
     {
@@ -801,6 +866,7 @@
         "Vienna"
       ],
       "count": 338,
+      "dayCount": 210,
       "routeKey": "Madeira - Vienna"
     },
     {
@@ -809,6 +875,7 @@
         "Vilnius"
       ],
       "count": 338,
+      "dayCount": 216,
       "routeKey": "London - Vilnius"
     },
     {
@@ -817,6 +884,7 @@
         "London"
       ],
       "count": 337,
+      "dayCount": 201,
       "routeKey": "Dalaman - London"
     },
     {
@@ -825,6 +893,7 @@
         "Thessaloniki"
       ],
       "count": 337,
+      "dayCount": 211,
       "routeKey": "Kutaisi - Thessaloniki"
     },
     {
@@ -833,6 +902,7 @@
         "Tirana"
       ],
       "count": 337,
+      "dayCount": 217,
       "routeKey": "Pescara - Tirana"
     },
     {
@@ -841,6 +911,7 @@
         "Tromso"
       ],
       "count": 337,
+      "dayCount": 211,
       "routeKey": "Gdansk - Tromso"
     },
     {
@@ -849,6 +920,7 @@
         "Milan"
       ],
       "count": 336,
+      "dayCount": 217,
       "routeKey": "Iasi - Milan"
     },
     {
@@ -857,6 +929,7 @@
         "Krakow"
       ],
       "count": 336,
+      "dayCount": 211,
       "routeKey": "Bologna - Krakow"
     },
     {
@@ -865,6 +938,7 @@
         "Nice"
       ],
       "count": 336,
+      "dayCount": 204,
       "routeKey": "Budapest - Nice"
     },
     {
@@ -873,6 +947,7 @@
         "Krakow"
       ],
       "count": 335,
+      "dayCount": 203,
       "routeKey": "Bucharest - Krakow"
     },
     {
@@ -881,6 +956,7 @@
         "Turku"
       ],
       "count": 334,
+      "dayCount": 204,
       "routeKey": "Gdansk - Turku"
     },
     {
@@ -889,6 +965,7 @@
         "Ohrid"
       ],
       "count": 334,
+      "dayCount": 206,
       "routeKey": "Memmingen - Ohrid"
     },
     {
@@ -897,6 +974,7 @@
         "Larnaca"
       ],
       "count": 333,
+      "dayCount": 205,
       "routeKey": "Athens - Larnaca"
     },
     {
@@ -905,6 +983,7 @@
         "Warsaw"
       ],
       "count": 333,
+      "dayCount": 212,
       "routeKey": "Stockholm - Warsaw"
     },
     {
@@ -913,6 +992,7 @@
         "Warsaw"
       ],
       "count": 332,
+      "dayCount": 194,
       "routeKey": "Pisa - Warsaw"
     },
     {
@@ -921,6 +1001,7 @@
         "Memmingen"
       ],
       "count": 331,
+      "dayCount": 195,
       "routeKey": "Budapest - Memmingen"
     },
     {
@@ -929,6 +1010,7 @@
         "Gdansk"
       ],
       "count": 330,
+      "dayCount": 215,
       "routeKey": "Bergen - Gdansk"
     },
     {
@@ -937,6 +1019,7 @@
         "Bucharest"
       ],
       "count": 330,
+      "dayCount": 217,
       "routeKey": "Barcelona - Bucharest"
     },
     {
@@ -945,6 +1028,7 @@
         "Bucharest"
       ],
       "count": 330,
+      "dayCount": 216,
       "routeKey": "Bologna - Bucharest"
     },
     {
@@ -953,6 +1037,7 @@
         "Malaga"
       ],
       "count": 330,
+      "dayCount": 211,
       "routeKey": "London - Malaga"
     },
     {
@@ -961,6 +1046,7 @@
         "Milan"
       ],
       "count": 328,
+      "dayCount": 216,
       "routeKey": "Krakow - Milan"
     },
     {
@@ -969,6 +1055,7 @@
         "Venice"
       ],
       "count": 328,
+      "dayCount": 201,
       "routeKey": "Madrid - Venice"
     },
     {
@@ -977,6 +1064,7 @@
         "Naples"
       ],
       "count": 327,
+      "dayCount": 215,
       "routeKey": "Budapest - Naples"
     },
     {
@@ -985,6 +1073,7 @@
         "Bucharest"
       ],
       "count": 326,
+      "dayCount": 214,
       "routeKey": "Brussels - Bucharest"
     },
     {
@@ -993,6 +1082,7 @@
         "Madeira"
       ],
       "count": 326,
+      "dayCount": 198,
       "routeKey": "Katowice - Madeira"
     },
     {
@@ -1001,6 +1091,7 @@
         "Rome"
       ],
       "count": 325,
+      "dayCount": 208,
       "routeKey": "Kutaisi - Rome"
     },
     {
@@ -1009,6 +1100,7 @@
         "Paris"
       ],
       "count": 325,
+      "dayCount": 210,
       "routeKey": "Milan - Paris"
     },
     {
@@ -1017,6 +1109,7 @@
         "Stavanger"
       ],
       "count": 325,
+      "dayCount": 218,
       "routeKey": "Gdansk - Stavanger"
     },
     {
@@ -1025,6 +1118,7 @@
         "Memmingen"
       ],
       "count": 324,
+      "dayCount": 215,
       "routeKey": "Belgrade - Memmingen"
     },
     {
@@ -1033,6 +1127,7 @@
         "Gdansk"
       ],
       "count": 324,
+      "dayCount": 207,
       "routeKey": "Aberdeen - Gdansk"
     },
     {
@@ -1041,6 +1136,7 @@
         "Prague"
       ],
       "count": 324,
+      "dayCount": 201,
       "routeKey": "Larnaca - Prague"
     },
     {
@@ -1049,6 +1145,7 @@
         "Targu-Mures"
       ],
       "count": 324,
+      "dayCount": 198,
       "routeKey": "Budapest - Targu-Mures"
     },
     {
@@ -1057,6 +1154,7 @@
         "Sofia"
       ],
       "count": 323,
+      "dayCount": 201,
       "routeKey": "Nice - Sofia"
     },
     {
@@ -1065,6 +1163,7 @@
         "Bucharest"
       ],
       "count": 323,
+      "dayCount": 209,
       "routeKey": "Basel/Mulhouse - Bucharest"
     },
     {
@@ -1073,6 +1172,7 @@
         "Venice"
       ],
       "count": 322,
+      "dayCount": 209,
       "routeKey": "Tenerife - Venice"
     },
     {
@@ -1081,6 +1181,7 @@
         "Catania"
       ],
       "count": 322,
+      "dayCount": 191,
       "routeKey": "Budapest - Catania"
     },
     {
@@ -1089,6 +1190,7 @@
         "Tirana"
       ],
       "count": 321,
+      "dayCount": 213,
       "routeKey": "Perugia - Tirana"
     },
     {
@@ -1097,6 +1199,7 @@
         "Split"
       ],
       "count": 320,
+      "dayCount": 194,
       "routeKey": "Katowice - Split"
     },
     {
@@ -1105,6 +1208,7 @@
         "Milan"
       ],
       "count": 320,
+      "dayCount": 213,
       "routeKey": "London - Milan"
     },
     {
@@ -1113,6 +1217,7 @@
         "Vienna"
       ],
       "count": 319,
+      "dayCount": 214,
       "routeKey": "London - Vienna"
     },
     {
@@ -1121,6 +1226,7 @@
         "London"
       ],
       "count": 318,
+      "dayCount": 206,
       "routeKey": "Bratislava - London"
     },
     {
@@ -1129,6 +1235,7 @@
         "Cluj"
       ],
       "count": 318,
+      "dayCount": 208,
       "routeKey": "Bologna - Cluj"
     },
     {
@@ -1137,6 +1244,7 @@
         "Rome"
       ],
       "count": 318,
+      "dayCount": 207,
       "routeKey": "Barcelona - Rome"
     },
     {
@@ -1145,6 +1253,7 @@
         "Bucharest"
       ],
       "count": 317,
+      "dayCount": 165,
       "routeKey": "Abu Dhabi - Bucharest"
     },
     {
@@ -1153,6 +1262,7 @@
         "Belgrade"
       ],
       "count": 317,
+      "dayCount": 213,
       "routeKey": "Basel/Mulhouse - Belgrade"
     },
     {
@@ -1161,6 +1271,7 @@
         "Lyon"
       ],
       "count": 317,
+      "dayCount": 215,
       "routeKey": "Bucharest - Lyon"
     },
     {
@@ -1169,6 +1280,7 @@
         "Nice"
       ],
       "count": 317,
+      "dayCount": 202,
       "routeKey": "Bucharest - Nice"
     },
     {
@@ -1177,6 +1289,7 @@
         "Leeds/Bradford"
       ],
       "count": 317,
+      "dayCount": 207,
       "routeKey": "Gdansk - Leeds/Bradford"
     },
     {
@@ -1185,6 +1298,7 @@
         "Reykjavik"
       ],
       "count": 317,
+      "dayCount": 199,
       "routeKey": "Gdansk - Reykjavik"
     },
     {
@@ -1193,6 +1307,7 @@
         "Cluj"
       ],
       "count": 316,
+      "dayCount": 195,
       "routeKey": "Catania - Cluj"
     },
     {
@@ -1201,6 +1316,7 @@
         "Milan"
       ],
       "count": 316,
+      "dayCount": 215,
       "routeKey": "Jeddah - Milan"
     },
     {
@@ -1209,6 +1325,7 @@
         "London"
       ],
       "count": 316,
+      "dayCount": 213,
       "routeKey": "Katowice - London"
     },
     {
@@ -1217,6 +1334,7 @@
         "London"
       ],
       "count": 314,
+      "dayCount": 210,
       "routeKey": "Athens - London"
     },
     {
@@ -1225,6 +1343,7 @@
         "Salerno"
       ],
       "count": 314,
+      "dayCount": 199,
       "routeKey": "Bucharest - Salerno"
     },
     {
@@ -1233,6 +1352,7 @@
         "Budapest"
       ],
       "count": 314,
+      "dayCount": 211,
       "routeKey": "Barcelona - Budapest"
     },
     {
@@ -1241,6 +1361,7 @@
         "Warsaw"
       ],
       "count": 314,
+      "dayCount": 213,
       "routeKey": "Barcelona - Warsaw"
     },
     {
@@ -1249,6 +1370,7 @@
         "Rome"
       ],
       "count": 313,
+      "dayCount": 213,
       "routeKey": "Gran Canaria - Rome"
     },
     {
@@ -1257,6 +1379,7 @@
         "Podgorica"
       ],
       "count": 313,
+      "dayCount": 202,
       "routeKey": "Memmingen - Podgorica"
     },
     {
@@ -1265,6 +1388,7 @@
         "Dammam"
       ],
       "count": 312,
+      "dayCount": 161,
       "routeKey": "Abu Dhabi - Dammam"
     },
     {
@@ -1273,6 +1397,7 @@
         "London"
       ],
       "count": 312,
+      "dayCount": 214,
       "routeKey": "Gdansk - London"
     },
     {
@@ -1281,6 +1406,7 @@
         "Nuremberg"
       ],
       "count": 311,
+      "dayCount": 214,
       "routeKey": "Bucharest - Nuremberg"
     },
     {
@@ -1289,6 +1415,7 @@
         "Sofia"
       ],
       "count": 310,
+      "dayCount": 209,
       "routeKey": "Lyon - Sofia"
     },
     {
@@ -1297,6 +1424,7 @@
         "Warsaw"
       ],
       "count": 310,
+      "dayCount": 211,
       "routeKey": "Brussels - Warsaw"
     },
     {
@@ -1305,6 +1433,7 @@
         "Rome"
       ],
       "count": 309,
+      "dayCount": 212,
       "routeKey": "Bucharest - Rome"
     },
     {
@@ -1313,6 +1442,7 @@
         "Malta"
       ],
       "count": 309,
+      "dayCount": 190,
       "routeKey": "Katowice - Malta"
     },
     {
@@ -1321,6 +1451,7 @@
         "Rome"
       ],
       "count": 309,
+      "dayCount": 215,
       "routeKey": "London - Rome"
     },
     {
@@ -1329,6 +1460,7 @@
         "Larnaca"
       ],
       "count": 308,
+      "dayCount": 168,
       "routeKey": "Abu Dhabi - Larnaca"
     },
     {
@@ -1337,6 +1469,7 @@
         "Warsaw"
       ],
       "count": 308,
+      "dayCount": 204,
       "routeKey": "Kutaisi - Warsaw"
     },
     {
@@ -1345,6 +1478,7 @@
         "Trondheim"
       ],
       "count": 306,
+      "dayCount": 209,
       "routeKey": "Gdansk - Trondheim"
     },
     {
@@ -1353,6 +1487,7 @@
         "London"
       ],
       "count": 305,
+      "dayCount": 216,
       "routeKey": "Iasi - London"
     },
     {
@@ -1361,6 +1496,7 @@
         "Krakow"
       ],
       "count": 305,
+      "dayCount": 206,
       "routeKey": "Barcelona - Krakow"
     },
     {
@@ -1369,6 +1505,7 @@
         "Milan"
       ],
       "count": 305,
+      "dayCount": 211,
       "routeKey": "Malaga - Milan"
     },
     {
@@ -1377,6 +1514,7 @@
         "Tirana"
       ],
       "count": 305,
+      "dayCount": 214,
       "routeKey": "Dortmund - Tirana"
     },
     {
@@ -1385,6 +1523,7 @@
         "Wroclaw"
       ],
       "count": 305,
+      "dayCount": 207,
       "routeKey": "Barcelona - Wroclaw"
     },
     {
@@ -1393,6 +1532,7 @@
         "Skopje"
       ],
       "count": 304,
+      "dayCount": 213,
       "routeKey": "Basel/Mulhouse - Skopje"
     },
     {
@@ -1401,6 +1541,7 @@
         "Valencia"
       ],
       "count": 304,
+      "dayCount": 215,
       "routeKey": "Bucharest - Valencia"
     },
     {
@@ -1409,6 +1550,7 @@
         "Vienna"
       ],
       "count": 304,
+      "dayCount": 206,
       "routeKey": "Kutaisi - Vienna"
     },
     {
@@ -1417,6 +1559,7 @@
         "Larnaca"
       ],
       "count": 304,
+      "dayCount": 201,
       "routeKey": "Iasi - Larnaca"
     },
     {
@@ -1425,6 +1568,7 @@
         "Warsaw"
       ],
       "count": 304,
+      "dayCount": 205,
       "routeKey": "Malta - Warsaw"
     },
     {
@@ -1433,6 +1577,7 @@
         "Larnaca"
       ],
       "count": 303,
+      "dayCount": 213,
       "routeKey": "Belgrade - Larnaca"
     },
     {
@@ -1441,6 +1586,7 @@
         "Rome"
       ],
       "count": 303,
+      "dayCount": 216,
       "routeKey": "Iasi - Rome"
     },
     {
@@ -1449,6 +1595,7 @@
         "Malta"
       ],
       "count": 303,
+      "dayCount": 197,
       "routeKey": "Bucharest - Malta"
     },
     {
@@ -1457,6 +1604,7 @@
         "Stuttgart"
       ],
       "count": 303,
+      "dayCount": 209,
       "routeKey": "Sofia - Stuttgart"
     },
     {
@@ -1465,6 +1613,7 @@
         "Yerevan"
       ],
       "count": 302,
+      "dayCount": 162,
       "routeKey": "Abu Dhabi - Yerevan"
     },
     {
@@ -1473,6 +1622,7 @@
         "Gdansk"
       ],
       "count": 301,
+      "dayCount": 202,
       "routeKey": "Barcelona - Gdansk"
     },
     {
@@ -1481,6 +1631,7 @@
         "Stockholm"
       ],
       "count": 301,
+      "dayCount": 210,
       "routeKey": "Bucharest - Stockholm"
     },
     {
@@ -1489,6 +1640,7 @@
         "Tirana"
       ],
       "count": 301,
+      "dayCount": 214,
       "routeKey": "Brussels - Tirana"
     },
     {
@@ -1497,6 +1649,7 @@
         "Warsaw"
       ],
       "count": 300,
+      "dayCount": 209,
       "routeKey": "Venice - Warsaw"
     },
     {
@@ -1505,6 +1658,7 @@
         "Yerevan"
       ],
       "count": 300,
+      "dayCount": 212,
       "routeKey": "Rome - Yerevan"
     },
     {
@@ -1513,6 +1667,7 @@
         "Eindhoven"
       ],
       "count": 299,
+      "dayCount": 207,
       "routeKey": "Bucharest - Eindhoven"
     },
     {
@@ -1521,6 +1676,7 @@
         "Girona"
       ],
       "count": 299,
+      "dayCount": 161,
       "routeKey": "Budapest - Girona"
     },
     {
@@ -1529,6 +1685,7 @@
         "Tirana"
       ],
       "count": 299,
+      "dayCount": 213,
       "routeKey": "Bari - Tirana"
     },
     {
@@ -1537,6 +1694,7 @@
         "London"
       ],
       "count": 298,
+      "dayCount": 211,
       "routeKey": "Belgrade - London"
     },
     {
@@ -1545,6 +1703,7 @@
         "Budapest"
       ],
       "count": 298,
+      "dayCount": 200,
       "routeKey": "Berlin - Budapest"
     },
     {
@@ -1553,6 +1712,7 @@
         "Malta"
       ],
       "count": 298,
+      "dayCount": 202,
       "routeKey": "Budapest - Malta"
     },
     {
@@ -1561,6 +1721,7 @@
         "Rome"
       ],
       "count": 298,
+      "dayCount": 209,
       "routeKey": "Malaga - Rome"
     },
     {
@@ -1569,6 +1730,7 @@
         "Warsaw"
       ],
       "count": 298,
+      "dayCount": 197,
       "routeKey": "Reykjavik - Warsaw"
     },
     {
@@ -1577,6 +1739,7 @@
         "Tel Aviv"
       ],
       "count": 298,
+      "dayCount": 162,
       "routeKey": "Larnaca - Tel Aviv"
     },
     {
@@ -1585,6 +1748,7 @@
         "Dortmund"
       ],
       "count": 297,
+      "dayCount": 212,
       "routeKey": "Bucharest - Dortmund"
     },
     {
@@ -1593,6 +1757,7 @@
         "Iasi"
       ],
       "count": 297,
+      "dayCount": 213,
       "routeKey": "Bologna - Iasi"
     },
     {
@@ -1601,6 +1766,7 @@
         "Madinah"
       ],
       "count": 296,
+      "dayCount": 161,
       "routeKey": "Abu Dhabi - Madinah"
     },
     {
@@ -1609,6 +1775,7 @@
         "Valencia"
       ],
       "count": 295,
+      "dayCount": 195,
       "routeKey": "Budapest - Valencia"
     },
     {
@@ -1617,6 +1784,7 @@
         "Tirana"
       ],
       "count": 295,
+      "dayCount": 218,
       "routeKey": "Barcelona - Tirana"
     },
     {
@@ -1625,6 +1793,7 @@
         "Warsaw"
       ],
       "count": 295,
+      "dayCount": 212,
       "routeKey": "Naples - Warsaw"
     },
     {
@@ -1633,6 +1802,7 @@
         "Tenerife"
       ],
       "count": 294,
+      "dayCount": 201,
       "routeKey": "Budapest - Tenerife"
     },
     {
@@ -1641,6 +1811,7 @@
         "Paris"
       ],
       "count": 293,
+      "dayCount": 213,
       "routeKey": "Bucharest - Paris"
     },
     {
@@ -1649,6 +1820,7 @@
         "Hamburg"
       ],
       "count": 293,
+      "dayCount": 212,
       "routeKey": "Bucharest - Hamburg"
     },
     {
@@ -1657,6 +1829,7 @@
         "Rome"
       ],
       "count": 293,
+      "dayCount": 188,
       "routeKey": "Bilbao - Rome"
     },
     {
@@ -1665,6 +1838,7 @@
         "Eindhoven"
       ],
       "count": 292,
+      "dayCount": 206,
       "routeKey": "Budapest - Eindhoven"
     },
     {
@@ -1673,6 +1847,7 @@
         "Thessaloniki"
       ],
       "count": 292,
+      "dayCount": 214,
       "routeKey": "Larnaca - Thessaloniki"
     },
     {
@@ -1681,6 +1856,7 @@
         "Yerevan"
       ],
       "count": 292,
+      "dayCount": 195,
       "routeKey": "Sofia - Yerevan"
     },
     {
@@ -1689,6 +1865,7 @@
         "Malaga"
       ],
       "count": 291,
+      "dayCount": 212,
       "routeKey": "Bucharest - Malaga"
     },
     {
@@ -1697,6 +1874,7 @@
         "Copenhagen"
       ],
       "count": 290,
+      "dayCount": 201,
       "routeKey": "Budapest - Copenhagen"
     },
     {
@@ -1705,6 +1883,7 @@
         "Iasi"
       ],
       "count": 290,
+      "dayCount": 194,
       "routeKey": "Catania - Iasi"
     },
     {
@@ -1713,6 +1892,7 @@
         "Rome"
       ],
       "count": 290,
+      "dayCount": 207,
       "routeKey": "Prague - Rome"
     },
     {
@@ -1721,6 +1901,7 @@
         "Tirana"
       ],
       "count": 290,
+      "dayCount": 201,
       "routeKey": "Ancona - Tirana"
     },
     {
@@ -1729,6 +1910,7 @@
         "Gdansk"
       ],
       "count": 289,
+      "dayCount": 208,
       "routeKey": "Aalesund - Gdansk"
     },
     {
@@ -1737,6 +1919,7 @@
         "Milan"
       ],
       "count": 289,
+      "dayCount": 215,
       "routeKey": "Belgrade - Milan"
     },
     {
@@ -1745,6 +1928,7 @@
         "Lisbon"
       ],
       "count": 289,
+      "dayCount": 203,
       "routeKey": "Cluj - Lisbon"
     },
     {
@@ -1753,6 +1937,7 @@
         "Liverpool"
       ],
       "count": 289,
+      "dayCount": 196,
       "routeKey": "Katowice - Liverpool"
     },
     {
@@ -1761,6 +1946,7 @@
         "Tirana"
       ],
       "count": 289,
+      "dayCount": 217,
       "routeKey": "Milan - Tirana"
     },
     {
@@ -1769,6 +1955,7 @@
         "Hamburg"
       ],
       "count": 288,
+      "dayCount": 207,
       "routeKey": "Gdansk - Hamburg"
     },
     {
@@ -1777,6 +1964,7 @@
         "Kutaisi"
       ],
       "count": 288,
+      "dayCount": 200,
       "routeKey": "Barcelona - Kutaisi"
     },
     {
@@ -1785,6 +1973,7 @@
         "Venice"
       ],
       "count": 288,
+      "dayCount": 195,
       "routeKey": "Sharm el-Sheikh - Venice"
     },
     {
@@ -1793,6 +1982,7 @@
         "Turin"
       ],
       "count": 288,
+      "dayCount": 216,
       "routeKey": "Tirana - Turin"
     },
     {
@@ -1801,6 +1991,7 @@
         "Sofia"
       ],
       "count": 288,
+      "dayCount": 202,
       "routeKey": "Larnaca - Sofia"
     },
     {
@@ -1809,6 +2000,7 @@
         "Almaty"
       ],
       "count": 287,
+      "dayCount": 161,
       "routeKey": "Abu Dhabi - Almaty"
     },
     {
@@ -1817,6 +2009,7 @@
         "Bucharest"
       ],
       "count": 287,
+      "dayCount": 208,
       "routeKey": "Birmingham - Bucharest"
     },
     {
@@ -1825,6 +2018,7 @@
         "Budapest"
       ],
       "count": 287,
+      "dayCount": 198,
       "routeKey": "Brussels - Budapest"
     },
     {
@@ -1833,6 +2027,7 @@
         "London"
       ],
       "count": 287,
+      "dayCount": 213,
       "routeKey": "Istanbul - London"
     },
     {
@@ -1841,6 +2036,7 @@
         "Warsaw"
       ],
       "count": 287,
+      "dayCount": 209,
       "routeKey": "Oslo - Warsaw"
     },
     {
@@ -1849,6 +2045,7 @@
         "Vilnius"
       ],
       "count": 287,
+      "dayCount": 196,
       "routeKey": "Milan - Vilnius"
     },
     {
@@ -1857,6 +2054,7 @@
         "Bucharest"
       ],
       "count": 286,
+      "dayCount": 204,
       "routeKey": "Billund - Bucharest"
     },
     {
@@ -1865,6 +2063,7 @@
         "Prague"
       ],
       "count": 286,
+      "dayCount": 202,
       "routeKey": "Kutaisi - Prague"
     },
     {
@@ -1873,6 +2072,7 @@
         "Bishkek"
       ],
       "count": 285,
+      "dayCount": 161,
       "routeKey": "Abu Dhabi - Bishkek"
     },
     {
@@ -1881,6 +2081,7 @@
         "Tirana"
       ],
       "count": 285,
+      "dayCount": 195,
       "routeKey": "Salerno - Tirana"
     },
     {
@@ -1889,6 +2090,7 @@
         "Milan"
       ],
       "count": 285,
+      "dayCount": 212,
       "routeKey": "Cluj - Milan"
     },
     {
@@ -1897,6 +2099,7 @@
         "Chisinau"
       ],
       "count": 284,
+      "dayCount": 165,
       "routeKey": "Abu Dhabi - Chisinau"
     },
     {
@@ -1905,6 +2108,7 @@
         "Vienna"
       ],
       "count": 284,
+      "dayCount": 197,
       "routeKey": "Pristina - Vienna"
     },
     {
@@ -1913,6 +2117,7 @@
         "Tirana"
       ],
       "count": 284,
+      "dayCount": 204,
       "routeKey": "Budapest - Tirana"
     },
     {
@@ -1921,6 +2126,7 @@
         "Tirana"
       ],
       "count": 284,
+      "dayCount": 211,
       "routeKey": "Lyon - Tirana"
     },
     {
@@ -1929,6 +2135,7 @@
         "Tirana"
       ],
       "count": 284,
+      "dayCount": 208,
       "routeKey": "Nuremberg - Tirana"
     },
     {
@@ -1937,6 +2144,7 @@
         "Poznan"
       ],
       "count": 283,
+      "dayCount": 199,
       "routeKey": "London - Poznan"
     },
     {
@@ -1945,6 +2153,7 @@
         "Stockholm"
       ],
       "count": 283,
+      "dayCount": 198,
       "routeKey": "Belgrade - Stockholm"
     },
     {
@@ -1953,6 +2162,7 @@
         "Bucharest"
       ],
       "count": 282,
+      "dayCount": 204,
       "routeKey": "Alicante - Bucharest"
     },
     {
@@ -1961,6 +2171,7 @@
         "Milan"
       ],
       "count": 282,
+      "dayCount": 205,
       "routeKey": "Kutaisi - Milan"
     },
     {
@@ -1969,6 +2180,7 @@
         "Sofia"
       ],
       "count": 281,
+      "dayCount": 204,
       "routeKey": "Rome - Sofia"
     },
     {
@@ -1977,6 +2189,7 @@
         "Tirana"
       ],
       "count": 281,
+      "dayCount": 203,
       "routeKey": "Prague - Tirana"
     },
     {
@@ -1985,6 +2198,7 @@
         "Dortmund"
       ],
       "count": 281,
+      "dayCount": 204,
       "routeKey": "Belgrade - Dortmund"
     },
     {
@@ -1993,6 +2207,7 @@
         "Kutaisi"
       ],
       "count": 280,
+      "dayCount": 158,
       "routeKey": "Abu Dhabi - Kutaisi"
     },
     {
@@ -2001,6 +2216,7 @@
         "Warsaw"
       ],
       "count": 280,
+      "dayCount": 202,
       "routeKey": "Bari - Warsaw"
     },
     {
@@ -2009,6 +2225,7 @@
         "Naples"
       ],
       "count": 280,
+      "dayCount": 206,
       "routeKey": "Bucharest - Naples"
     },
     {
@@ -2017,6 +2234,7 @@
         "Tirana"
       ],
       "count": 280,
+      "dayCount": 203,
       "routeKey": "Basel/Mulhouse - Tirana"
     },
     {
@@ -2025,6 +2243,7 @@
         "Sarajevo"
       ],
       "count": 279,
+      "dayCount": 154,
       "routeKey": "Abu Dhabi - Sarajevo"
     },
     {
@@ -2033,6 +2252,7 @@
         "Timisoara"
       ],
       "count": 279,
+      "dayCount": 200,
       "routeKey": "Barcelona - Timisoara"
     },
     {
@@ -2041,6 +2261,7 @@
         "Rome"
       ],
       "count": 278,
+      "dayCount": 177,
       "routeKey": "Marsa Alam - Rome"
     },
     {
@@ -2049,6 +2270,7 @@
         "Warsaw"
       ],
       "count": 278,
+      "dayCount": 202,
       "routeKey": "Bologna - Warsaw"
     },
     {
@@ -2057,6 +2279,7 @@
         "Tuzla"
       ],
       "count": 277,
+      "dayCount": 205,
       "routeKey": "Basel/Mulhouse - Tuzla"
     },
     {
@@ -2065,6 +2288,7 @@
         "Cluj"
       ],
       "count": 277,
+      "dayCount": 205,
       "routeKey": "Barcelona - Cluj"
     },
     {
@@ -2073,6 +2297,7 @@
         "Warsaw"
       ],
       "count": 277,
+      "dayCount": 201,
       "routeKey": "Larnaca - Warsaw"
     },
     {
@@ -2081,6 +2306,7 @@
         "Malmo"
       ],
       "count": 277,
+      "dayCount": 208,
       "routeKey": "Belgrade - Malmo"
     },
     {
@@ -2089,6 +2315,7 @@
         "Rome"
       ],
       "count": 277,
+      "dayCount": 202,
       "routeKey": "Porto - Rome"
     },
     {
@@ -2097,6 +2324,7 @@
         "Tirana"
       ],
       "count": 277,
+      "dayCount": 211,
       "routeKey": "Bologna - Tirana"
     },
     {
@@ -2105,6 +2333,7 @@
         "Katowice"
       ],
       "count": 277,
+      "dayCount": 169,
       "routeKey": "Catania - Katowice"
     },
     {
@@ -2113,6 +2342,7 @@
         "Madrid"
       ],
       "count": 276,
+      "dayCount": 208,
       "routeKey": "Budapest - Madrid"
     },
     {
@@ -2121,6 +2351,7 @@
         "Giza"
       ],
       "count": 275,
+      "dayCount": 166,
       "routeKey": "Abu Dhabi - Giza"
     },
     {
@@ -2129,6 +2360,7 @@
         "Rome"
       ],
       "count": 275,
+      "dayCount": 195,
       "routeKey": "Bacau - Rome"
     },
     {
@@ -2137,6 +2369,7 @@
         "Belgrade"
       ],
       "count": 275,
+      "dayCount": 211,
       "routeKey": "Barcelona - Belgrade"
     },
     {
@@ -2145,6 +2378,7 @@
         "Naples"
       ],
       "count": 275,
+      "dayCount": 184,
       "routeKey": "Katowice - Naples"
     },
     {
@@ -2153,6 +2387,7 @@
         "Timisoara"
       ],
       "count": 275,
+      "dayCount": 208,
       "routeKey": "Memmingen - Timisoara"
     },
     {
@@ -2161,6 +2396,7 @@
         "Memmingen"
       ],
       "count": 274,
+      "dayCount": 204,
       "routeKey": "Cluj - Memmingen"
     },
     {
@@ -2169,6 +2405,7 @@
         "Nice"
       ],
       "count": 274,
+      "dayCount": 186,
       "routeKey": "Krakow - Nice"
     },
     {
@@ -2177,6 +2414,7 @@
         "Varna"
       ],
       "count": 274,
+      "dayCount": 206,
       "routeKey": "Berlin - Varna"
     },
     {
@@ -2185,6 +2423,7 @@
         "Budapest"
       ],
       "count": 273,
+      "dayCount": 198,
       "routeKey": "Alicante - Budapest"
     },
     {
@@ -2193,6 +2432,7 @@
         "Rome"
       ],
       "count": 273,
+      "dayCount": 203,
       "routeKey": "Craiova - Rome"
     },
     {
@@ -2201,6 +2441,7 @@
         "Tirana"
       ],
       "count": 273,
+      "dayCount": 210,
       "routeKey": "Hamburg - Tirana"
     },
     {
@@ -2209,6 +2450,7 @@
         "London"
       ],
       "count": 272,
+      "dayCount": 198,
       "routeKey": "Bacau - London"
     },
     {
@@ -2217,6 +2459,7 @@
         "Pisa"
       ],
       "count": 272,
+      "dayCount": 207,
       "routeKey": "Bucharest - Pisa"
     },
     {
@@ -2225,6 +2468,7 @@
         "London"
       ],
       "count": 272,
+      "dayCount": 188,
       "routeKey": "Jeddah - London"
     },
     {
@@ -2233,6 +2477,7 @@
         "Tuzla"
       ],
       "count": 272,
+      "dayCount": 211,
       "routeKey": "Dortmund - Tuzla"
     },
     {
@@ -2241,6 +2486,7 @@
         "Vilnius"
       ],
       "count": 272,
+      "dayCount": 188,
       "routeKey": "Dortmund - Vilnius"
     },
     {
@@ -2249,6 +2495,7 @@
         "London"
       ],
       "count": 271,
+      "dayCount": 200,
       "routeKey": "Kaunas - London"
     },
     {
@@ -2257,6 +2504,7 @@
         "Rome"
       ],
       "count": 270,
+      "dayCount": 208,
       "routeKey": "Belgrade - Rome"
     },
     {
@@ -2265,6 +2513,7 @@
         "Copenhagen"
       ],
       "count": 270,
+      "dayCount": 201,
       "routeKey": "Belgrade - Copenhagen"
     },
     {
@@ -2273,6 +2522,7 @@
         "Sofia"
       ],
       "count": 270,
+      "dayCount": 204,
       "routeKey": "Dortmund - Sofia"
     },
     {
@@ -2281,6 +2531,7 @@
         "Sofia"
       ],
       "count": 270,
+      "dayCount": 194,
       "routeKey": "Frankfurt - Sofia"
     },
     {
@@ -2289,6 +2540,7 @@
         "Tirana"
       ],
       "count": 270,
+      "dayCount": 210,
       "routeKey": "Rome - Tirana"
     },
     {
@@ -2297,6 +2549,7 @@
         "Thessaloniki"
       ],
       "count": 270,
+      "dayCount": 191,
       "routeKey": "Budapest - Thessaloniki"
     },
     {
@@ -2305,6 +2558,7 @@
         "Tirana"
       ],
       "count": 269,
+      "dayCount": 214,
       "routeKey": "London - Tirana"
     },
     {
@@ -2313,6 +2567,7 @@
         "Sharm el-Sheikh"
       ],
       "count": 269,
+      "dayCount": 198,
       "routeKey": "Rome - Sharm el-Sheikh"
     },
     {
@@ -2321,6 +2576,7 @@
         "Skopje"
       ],
       "count": 269,
+      "dayCount": 199,
       "routeKey": "Karlsruhe/Baden-Baden - Skopje"
     },
     {
@@ -2329,6 +2585,7 @@
         "Vilnius"
       ],
       "count": 267,
+      "dayCount": 167,
       "routeKey": "Bergen - Vilnius"
     },
     {
@@ -2337,6 +2594,7 @@
         "Malmo"
       ],
       "count": 266,
+      "dayCount": 188,
       "routeKey": "Bucharest - Malmo"
     },
     {
@@ -2345,6 +2603,7 @@
         "Paris"
       ],
       "count": 266,
+      "dayCount": 196,
       "routeKey": "Budapest - Paris"
     },
     {
@@ -2353,6 +2612,7 @@
         "Sibiu"
       ],
       "count": 266,
+      "dayCount": 205,
       "routeKey": "Nuremberg - Sibiu"
     },
     {
@@ -2361,6 +2621,7 @@
         "Sofia"
       ],
       "count": 266,
+      "dayCount": 209,
       "routeKey": "Eindhoven - Sofia"
     },
     {
@@ -2369,6 +2630,7 @@
         "Ohrid"
       ],
       "count": 266,
+      "dayCount": 191,
       "routeKey": "Dortmund - Ohrid"
     },
     {
@@ -2377,6 +2639,7 @@
         "Tirana"
       ],
       "count": 265,
+      "dayCount": 206,
       "routeKey": "Karlsruhe/Baden-Baden - Tirana"
     },
     {
@@ -2385,6 +2648,7 @@
         "Castellon"
       ],
       "count": 264,
+      "dayCount": 202,
       "routeKey": "Bucharest - Castellon"
     },
     {
@@ -2393,6 +2657,7 @@
         "Warsaw"
       ],
       "count": 264,
+      "dayCount": 197,
       "routeKey": "Copenhagen - Warsaw"
     },
     {
@@ -2401,6 +2666,7 @@
         "Larnaca"
       ],
       "count": 264,
+      "dayCount": 179,
       "routeKey": "Debrecen - Larnaca"
     },
     {
@@ -2409,6 +2675,7 @@
         "Poznan"
       ],
       "count": 264,
+      "dayCount": 194,
       "routeKey": "Kutaisi - Poznan"
     },
     {
@@ -2417,6 +2684,7 @@
         "Rome"
       ],
       "count": 262,
+      "dayCount": 207,
       "routeKey": "Lisbon - Rome"
     },
     {
@@ -2425,6 +2693,7 @@
         "Dortmund"
       ],
       "count": 262,
+      "dayCount": 176,
       "routeKey": "Budapest - Dortmund"
     },
     {
@@ -2433,6 +2702,7 @@
         "Skopje"
       ],
       "count": 262,
+      "dayCount": 205,
       "routeKey": "Dortmund - Skopje"
     },
     {
@@ -2441,6 +2711,7 @@
         "Katowice"
       ],
       "count": 261,
+      "dayCount": 190,
       "routeKey": "Fuerteventura - Katowice"
     },
     {
@@ -2449,6 +2720,7 @@
         "Kutaisi"
       ],
       "count": 261,
+      "dayCount": 193,
       "routeKey": "Dortmund - Kutaisi"
     },
     {
@@ -2457,6 +2729,7 @@
         "Tenerife"
       ],
       "count": 261,
+      "dayCount": 204,
       "routeKey": "Rome - Tenerife"
     },
     {
@@ -2465,6 +2738,7 @@
         "Timisoara"
       ],
       "count": 261,
+      "dayCount": 202,
       "routeKey": "London - Timisoara"
     },
     {
@@ -2473,6 +2747,7 @@
         "Venice"
       ],
       "count": 261,
+      "dayCount": 190,
       "routeKey": "Cluj - Venice"
     },
     {
@@ -2481,6 +2756,7 @@
         "Warsaw"
       ],
       "count": 261,
+      "dayCount": 190,
       "routeKey": "Liverpool - Warsaw"
     },
     {
@@ -2489,6 +2765,7 @@
         "Podgorica"
       ],
       "count": 261,
+      "dayCount": 183,
       "routeKey": "Budapest - Podgorica"
     },
     {
@@ -2497,6 +2774,7 @@
         "Rome"
       ],
       "count": 261,
+      "dayCount": 185,
       "routeKey": "Baku - Rome"
     },
     {
@@ -2505,6 +2783,7 @@
         "Paris"
       ],
       "count": 260,
+      "dayCount": 187,
       "routeKey": "Gdansk - Paris"
     },
     {
@@ -2513,6 +2792,7 @@
         "Skopje"
       ],
       "count": 260,
+      "dayCount": 198,
       "routeKey": "Memmingen - Skopje"
     },
     {
@@ -2521,6 +2801,7 @@
         "Amman"
       ],
       "count": 259,
+      "dayCount": 159,
       "routeKey": "Abu Dhabi - Amman"
     },
     {
@@ -2529,6 +2810,7 @@
         "Paris"
       ],
       "count": 259,
+      "dayCount": 207,
       "routeKey": "Belgrade - Paris"
     },
     {
@@ -2537,6 +2819,7 @@
         "Warsaw"
       ],
       "count": 259,
+      "dayCount": 172,
       "routeKey": "Bilbao - Warsaw"
     },
     {
@@ -2545,6 +2828,7 @@
         "Liverpool"
       ],
       "count": 259,
+      "dayCount": 190,
       "routeKey": "Bucharest - Liverpool"
     },
     {
@@ -2553,6 +2837,7 @@
         "Rome"
       ],
       "count": 259,
+      "dayCount": 191,
       "routeKey": "Nice - Rome"
     },
     {
@@ -2561,6 +2846,7 @@
         "Skopje"
       ],
       "count": 259,
+      "dayCount": 196,
       "routeKey": "London - Skopje"
     },
     {
@@ -2569,6 +2855,7 @@
         "Stuttgart"
       ],
       "count": 259,
+      "dayCount": 201,
       "routeKey": "Bucharest - Stuttgart"
     },
     {
@@ -2577,6 +2864,7 @@
         "Tenerife"
       ],
       "count": 259,
+      "dayCount": 178,
       "routeKey": "Katowice - Tenerife"
     },
     {
@@ -2585,6 +2873,7 @@
         "Warsaw"
       ],
       "count": 258,
+      "dayCount": 185,
       "routeKey": "Budapest - Warsaw"
     },
     {
@@ -2593,6 +2882,7 @@
         "Katowice"
       ],
       "count": 258,
+      "dayCount": 186,
       "routeKey": "Barcelona - Katowice"
     },
     {
@@ -2601,6 +2891,7 @@
         "Tuzla"
       ],
       "count": 258,
+      "dayCount": 204,
       "routeKey": "Memmingen - Tuzla"
     },
     {
@@ -2609,6 +2900,7 @@
         "Vienna"
       ],
       "count": 258,
+      "dayCount": 188,
       "routeKey": "Bilbao - Vienna"
     },
     {
@@ -2617,6 +2909,7 @@
         "Warsaw"
       ],
       "count": 257,
+      "dayCount": 162,
       "routeKey": "Genoa - Warsaw"
     },
     {
@@ -2625,6 +2918,7 @@
         "Valencia"
       ],
       "count": 257,
+      "dayCount": 181,
       "routeKey": "Milan - Valencia"
     },
     {
@@ -2633,6 +2927,7 @@
         "Szczecin"
       ],
       "count": 256,
+      "dayCount": 196,
       "routeKey": "Oslo - Szczecin"
     },
     {
@@ -2641,6 +2936,7 @@
         "Sofia"
       ],
       "count": 256,
+      "dayCount": 206,
       "routeKey": "Milan - Sofia"
     },
     {
@@ -2649,6 +2945,7 @@
         "Rzeszow"
       ],
       "count": 256,
+      "dayCount": 173,
       "routeKey": "Rome - Rzeszow"
     },
     {
@@ -2657,6 +2954,7 @@
         "Tel Aviv"
       ],
       "count": 256,
+      "dayCount": 155,
       "routeKey": "Budapest - Tel Aviv"
     },
     {
@@ -2665,6 +2963,7 @@
         "Vienna"
       ],
       "count": 255,
+      "dayCount": 190,
       "routeKey": "Tenerife - Vienna"
     },
     {
@@ -2673,6 +2972,7 @@
         "Madeira"
       ],
       "count": 255,
+      "dayCount": 172,
       "routeKey": "Budapest - Madeira"
     },
     {
@@ -2681,6 +2981,7 @@
         "Nice"
       ],
       "count": 255,
+      "dayCount": 194,
       "routeKey": "Belgrade - Nice"
     },
     {
@@ -2689,6 +2990,7 @@
         "Tel Aviv"
       ],
       "count": 255,
+      "dayCount": 137,
       "routeKey": "Rome - Tel Aviv"
     },
     {
@@ -2697,6 +2999,7 @@
         "Gran Canaria"
       ],
       "count": 255,
+      "dayCount": 164,
       "routeKey": "Budapest - Gran Canaria"
     },
     {
@@ -2705,6 +3008,7 @@
         "Stuttgart"
       ],
       "count": 254,
+      "dayCount": 188,
       "routeKey": "Budapest - Stuttgart"
     },
     {
@@ -2713,6 +3017,7 @@
         "Malmo"
       ],
       "count": 254,
+      "dayCount": 192,
       "routeKey": "Cluj - Malmo"
     },
     {
@@ -2721,6 +3026,7 @@
         "Reykjavik"
       ],
       "count": 254,
+      "dayCount": 183,
       "routeKey": "Katowice - Reykjavik"
     },
     {
@@ -2729,6 +3035,7 @@
         "Verona"
       ],
       "count": 254,
+      "dayCount": 215,
       "routeKey": "Tirana - Verona"
     },
     {
@@ -2737,6 +3044,7 @@
         "Berlin"
       ],
       "count": 253,
+      "dayCount": 202,
       "routeKey": "Belgrade - Berlin"
     },
     {
@@ -2745,6 +3053,7 @@
         "Skopje"
       ],
       "count": 253,
+      "dayCount": 208,
       "routeKey": "Gothenburg - Skopje"
     },
     {
@@ -2753,6 +3062,7 @@
         "Rome"
       ],
       "count": 253,
+      "dayCount": 201,
       "routeKey": "Madrid - Rome"
     },
     {
@@ -2761,6 +3071,7 @@
         "Pristina"
       ],
       "count": 253,
+      "dayCount": 213,
       "routeKey": "Memmingen - Pristina"
     },
     {
@@ -2769,6 +3080,7 @@
         "Sevilla"
       ],
       "count": 253,
+      "dayCount": 202,
       "routeKey": "Rome - Sevilla"
     },
     {
@@ -2777,6 +3089,7 @@
         "Tirana"
       ],
       "count": 253,
+      "dayCount": 213,
       "routeKey": "Genoa - Tirana"
     },
     {
@@ -2785,6 +3098,7 @@
         "Lyon"
       ],
       "count": 253,
+      "dayCount": 179,
       "routeKey": "Krakow - Lyon"
     },
     {
@@ -2793,6 +3107,7 @@
         "Varna"
       ],
       "count": 252,
+      "dayCount": 208,
       "routeKey": "Hamburg - Varna"
     },
     {
@@ -2801,6 +3116,7 @@
         "Sofia"
       ],
       "count": 252,
+      "dayCount": 202,
       "routeKey": "London - Sofia"
     },
     {
@@ -2809,6 +3125,7 @@
         "Tirana"
       ],
       "count": 252,
+      "dayCount": 204,
       "routeKey": "Eindhoven - Tirana"
     },
     {
@@ -2817,6 +3134,7 @@
         "Vilnius"
       ],
       "count": 252,
+      "dayCount": 187,
       "routeKey": "Barcelona - Vilnius"
     },
     {
@@ -2825,6 +3143,7 @@
         "Budapest"
       ],
       "count": 252,
+      "dayCount": 187,
       "routeKey": "Basel/Mulhouse - Budapest"
     },
     {
@@ -2833,6 +3152,7 @@
         "Naples"
       ],
       "count": 251,
+      "dayCount": 169,
       "routeKey": "Cluj - Naples"
     },
     {
@@ -2841,6 +3161,7 @@
         "Memmingen"
       ],
       "count": 251,
+      "dayCount": 188,
       "routeKey": "Iasi - Memmingen"
     },
     {
@@ -2849,6 +3170,7 @@
         "Kutaisi"
       ],
       "count": 251,
+      "dayCount": 184,
       "routeKey": "Frankfurt - Kutaisi"
     },
     {
@@ -2857,6 +3179,7 @@
         "Venice"
       ],
       "count": 251,
+      "dayCount": 208,
       "routeKey": "Tirana - Venice"
     },
     {
@@ -2865,6 +3188,7 @@
         "Skopje"
       ],
       "count": 251,
+      "dayCount": 190,
       "routeKey": "Oslo - Skopje"
     },
     {
@@ -2873,6 +3197,7 @@
         "Stockholm"
       ],
       "count": 251,
+      "dayCount": 182,
       "routeKey": "Budapest - Stockholm"
     },
     {
@@ -2881,6 +3206,7 @@
         "London"
       ],
       "count": 250,
+      "dayCount": 189,
       "routeKey": "Chisinau - London"
     },
     {
@@ -2889,6 +3215,7 @@
         "London"
       ],
       "count": 250,
+      "dayCount": 212,
       "routeKey": "Cluj - London"
     },
     {
@@ -2897,6 +3224,7 @@
         "Timisoara"
       ],
       "count": 250,
+      "dayCount": 192,
       "routeKey": "Rome - Timisoara"
     },
     {
@@ -2905,6 +3233,7 @@
         "Tirana"
       ],
       "count": 250,
+      "dayCount": 218,
       "routeKey": "Pisa - Tirana"
     },
     {
@@ -2913,6 +3242,7 @@
         "Skopje"
       ],
       "count": 250,
+      "dayCount": 188,
       "routeKey": "Brussels - Skopje"
     },
     {
@@ -2921,6 +3251,7 @@
         "Venice"
       ],
       "count": 249,
+      "dayCount": 187,
       "routeKey": "Barcelona - Venice"
     },
     {
@@ -2929,6 +3260,7 @@
         "Madrid"
       ],
       "count": 249,
+      "dayCount": 206,
       "routeKey": "Cluj - Madrid"
     },
     {
@@ -2937,6 +3269,7 @@
         "Katowice"
       ],
       "count": 249,
+      "dayCount": 181,
       "routeKey": "Eindhoven - Katowice"
     },
     {
@@ -2945,6 +3278,7 @@
         "Memmingen"
       ],
       "count": 249,
+      "dayCount": 183,
       "routeKey": "Kutaisi - Memmingen"
     },
     {
@@ -2953,6 +3287,7 @@
         "Budapest"
       ],
       "count": 248,
+      "dayCount": 201,
       "routeKey": "Athens - Budapest"
     },
     {
@@ -2961,6 +3296,7 @@
         "Valencia"
       ],
       "count": 248,
+      "dayCount": 194,
       "routeKey": "Tirana - Valencia"
     },
     {
@@ -2969,6 +3305,7 @@
         "Varna"
       ],
       "count": 248,
+      "dayCount": 182,
       "routeKey": "Nuremberg - Varna"
     },
     {
@@ -2977,6 +3314,7 @@
         "Tenerife"
       ],
       "count": 248,
+      "dayCount": 167,
       "routeKey": "Bucharest - Tenerife"
     },
     {
@@ -2985,6 +3323,7 @@
         "Paris"
       ],
       "count": 248,
+      "dayCount": 203,
       "routeKey": "Iasi - Paris"
     },
     {
@@ -2993,6 +3332,7 @@
         "Venice"
       ],
       "count": 247,
+      "dayCount": 193,
       "routeKey": "Athens - Venice"
     },
     {
@@ -3001,6 +3341,7 @@
         "Vienna"
       ],
       "count": 247,
+      "dayCount": 181,
       "routeKey": "Podgorica - Vienna"
     },
     {
@@ -3009,6 +3350,7 @@
         "Tirana"
       ],
       "count": 247,
+      "dayCount": 206,
       "routeKey": "Rimini - Tirana"
     },
     {
@@ -3017,6 +3359,7 @@
         "Vienna"
       ],
       "count": 247,
+      "dayCount": 202,
       "routeKey": "Tirana - Vienna"
     },
     {
@@ -3025,6 +3368,7 @@
         "Varna"
       ],
       "count": 247,
+      "dayCount": 199,
       "routeKey": "Memmingen - Varna"
     },
     {
@@ -3033,6 +3377,7 @@
         "Alexandria"
       ],
       "count": 246,
+      "dayCount": 166,
       "routeKey": "Abu Dhabi - Alexandria"
     },
     {
@@ -3041,6 +3386,7 @@
         "Baku"
       ],
       "count": 246,
+      "dayCount": 157,
       "routeKey": "Abu Dhabi - Baku"
     },
     {
@@ -3049,6 +3395,7 @@
         "Pristina"
       ],
       "count": 246,
+      "dayCount": 204,
       "routeKey": "Dortmund - Pristina"
     },
     {
@@ -3057,6 +3404,7 @@
         "Tirana"
       ],
       "count": 246,
+      "dayCount": 200,
       "routeKey": "Stuttgart - Tirana"
     },
     {
@@ -3065,6 +3413,7 @@
         "Varna"
       ],
       "count": 246,
+      "dayCount": 207,
       "routeKey": "Dortmund - Varna"
     },
     {
@@ -3073,6 +3422,7 @@
         "Tenerife"
       ],
       "count": 246,
+      "dayCount": 170,
       "routeKey": "Gdansk - Tenerife"
     },
     {
@@ -3081,6 +3431,7 @@
         "Turin"
       ],
       "count": 245,
+      "dayCount": 197,
       "routeKey": "Bucharest - Turin"
     },
     {
@@ -3089,6 +3440,7 @@
         "Cluj"
       ],
       "count": 245,
+      "dayCount": 191,
       "routeKey": "Basel/Mulhouse - Cluj"
     },
     {
@@ -3097,6 +3449,7 @@
         "Skopje"
       ],
       "count": 245,
+      "dayCount": 188,
       "routeKey": "Hamburg - Skopje"
     },
     {
@@ -3105,6 +3458,7 @@
         "Craiova"
       ],
       "count": 244,
+      "dayCount": 200,
       "routeKey": "Bologna - Craiova"
     },
     {
@@ -3113,6 +3467,7 @@
         "Tenerife"
       ],
       "count": 244,
+      "dayCount": 201,
       "routeKey": "Milan - Tenerife"
     },
     {
@@ -3121,6 +3476,7 @@
         "Tirana"
       ],
       "count": 244,
+      "dayCount": 209,
       "routeKey": "Paris - Tirana"
     },
     {
@@ -3129,6 +3485,7 @@
         "Sibiu"
       ],
       "count": 244,
+      "dayCount": 199,
       "routeKey": "Karlsruhe/Baden-Baden - Sibiu"
     },
     {
@@ -3137,6 +3494,7 @@
         "Kutaisi"
       ],
       "count": 244,
+      "dayCount": 168,
       "routeKey": "Katowice - Kutaisi"
     },
     {
@@ -3145,6 +3503,7 @@
         "Jeddah"
       ],
       "count": 243,
+      "dayCount": 176,
       "routeKey": "Budapest - Jeddah"
     },
     {
@@ -3153,6 +3512,7 @@
         "Paris"
       ],
       "count": 243,
+      "dayCount": 187,
       "routeKey": "Kutaisi - Paris"
     },
     {
@@ -3161,6 +3521,7 @@
         "Tirana"
       ],
       "count": 243,
+      "dayCount": 196,
       "routeKey": "Berlin - Tirana"
     },
     {
@@ -3169,6 +3530,7 @@
         "Warsaw"
       ],
       "count": 243,
+      "dayCount": 198,
       "routeKey": "Paris - Warsaw"
     },
     {
@@ -3177,6 +3539,7 @@
         "Skopje"
       ],
       "count": 243,
+      "dayCount": 201,
       "routeKey": "Frankfurt - Skopje"
     },
     {
@@ -3185,6 +3548,7 @@
         "Lyon"
       ],
       "count": 242,
+      "dayCount": 182,
       "routeKey": "Cluj - Lyon"
     },
     {
@@ -3193,6 +3557,7 @@
         "London"
       ],
       "count": 242,
+      "dayCount": 208,
       "routeKey": "Craiova - London"
     },
     {
@@ -3201,6 +3566,7 @@
         "Larnaca"
       ],
       "count": 242,
+      "dayCount": 125,
       "routeKey": "Giza - Larnaca"
     },
     {
@@ -3209,6 +3575,7 @@
         "Larnaca"
       ],
       "count": 242,
+      "dayCount": 166,
       "routeKey": "Krakow - Larnaca"
     },
     {
@@ -3217,6 +3584,7 @@
         "Skopje"
       ],
       "count": 242,
+      "dayCount": 194,
       "routeKey": "Bratislava - Skopje"
     },
     {
@@ -3225,6 +3593,7 @@
         "Sofia"
       ],
       "count": 242,
+      "dayCount": 185,
       "routeKey": "Basel/Mulhouse - Sofia"
     },
     {
@@ -3233,6 +3602,7 @@
         "Skopje"
       ],
       "count": 242,
+      "dayCount": 182,
       "routeKey": "Friedrichshafen - Skopje"
     },
     {
@@ -3241,6 +3611,7 @@
         "Warsaw"
       ],
       "count": 241,
+      "dayCount": 192,
       "routeKey": "Basel/Mulhouse - Warsaw"
     },
     {
@@ -3249,6 +3620,7 @@
         "Istanbul"
       ],
       "count": 241,
+      "dayCount": 202,
       "routeKey": "Budapest - Istanbul"
     },
     {
@@ -3257,6 +3629,7 @@
         "Sibiu"
       ],
       "count": 241,
+      "dayCount": 202,
       "routeKey": "London - Sibiu"
     },
     {
@@ -3265,6 +3638,7 @@
         "Sofia"
       ],
       "count": 241,
+      "dayCount": 198,
       "routeKey": "Memmingen - Sofia"
     },
     {
@@ -3273,6 +3647,7 @@
         "Sofia"
       ],
       "count": 241,
+      "dayCount": 184,
       "routeKey": "Paris - Sofia"
     },
     {
@@ -3281,6 +3656,7 @@
         "Vienna"
       ],
       "count": 241,
+      "dayCount": 134,
       "routeKey": "Tel Aviv - Vienna"
     },
     {
@@ -3289,6 +3665,7 @@
         "Vienna"
       ],
       "count": 241,
+      "dayCount": 192,
       "routeKey": "Cluj - Vienna"
     },
     {
@@ -3297,6 +3674,7 @@
         "London"
       ],
       "count": 240,
+      "dayCount": 154,
       "routeKey": "Catania - London"
     },
     {
@@ -3305,6 +3683,7 @@
         "Memmingen"
       ],
       "count": 240,
+      "dayCount": 142,
       "routeKey": "Craiova - Memmingen"
     },
     {
@@ -3313,6 +3692,7 @@
         "Dubai"
       ],
       "count": 240,
+      "dayCount": 176,
       "routeKey": "Bucharest - Dubai"
     },
     {
@@ -3321,6 +3701,7 @@
         "Skopje"
       ],
       "count": 240,
+      "dayCount": 166,
       "routeKey": "Lyon - Skopje"
     },
     {
@@ -3329,6 +3710,7 @@
         "Tirana"
       ],
       "count": 240,
+      "dayCount": 201,
       "routeKey": "Malmo - Tirana"
     },
     {
@@ -3337,6 +3719,7 @@
         "Lisbon"
       ],
       "count": 240,
+      "dayCount": 187,
       "routeKey": "Belgrade - Lisbon"
     },
     {
@@ -3345,6 +3728,7 @@
         "Skopje"
       ],
       "count": 240,
+      "dayCount": 186,
       "routeKey": "Malmo - Skopje"
     },
     {
@@ -3353,6 +3737,7 @@
         "Warsaw"
       ],
       "count": 239,
+      "dayCount": 188,
       "routeKey": "Catania - Warsaw"
     },
     {
@@ -3361,6 +3746,7 @@
         "Wroclaw"
       ],
       "count": 239,
+      "dayCount": 182,
       "routeKey": "Malaga - Wroclaw"
     },
     {
@@ -3369,6 +3755,7 @@
         "Trieste"
       ],
       "count": 239,
+      "dayCount": 204,
       "routeKey": "Tirana - Trieste"
     },
     {
@@ -3377,6 +3764,7 @@
         "Warsaw"
       ],
       "count": 239,
+      "dayCount": 185,
       "routeKey": "Alicante - Warsaw"
     },
     {
@@ -3385,6 +3773,7 @@
         "Tel Aviv"
       ],
       "count": 239,
+      "dayCount": 134,
       "routeKey": "Milan - Tel Aviv"
     },
     {
@@ -3393,6 +3782,7 @@
         "Vilnius"
       ],
       "count": 238,
+      "dayCount": 170,
       "routeKey": "Kutaisi - Vilnius"
     },
     {
@@ -3401,6 +3791,7 @@
         "Wroclaw"
       ],
       "count": 238,
+      "dayCount": 183,
       "routeKey": "Kutaisi - Wroclaw"
     },
     {
@@ -3409,6 +3800,7 @@
         "Warsaw"
       ],
       "count": 238,
+      "dayCount": 178,
       "routeKey": "Tenerife - Warsaw"
     },
     {
@@ -3417,6 +3809,7 @@
         "Podgorica"
       ],
       "count": 237,
+      "dayCount": 187,
       "routeKey": "Milan - Podgorica"
     },
     {
@@ -3425,6 +3818,7 @@
         "Varna"
       ],
       "count": 237,
+      "dayCount": 194,
       "routeKey": "Eindhoven - Varna"
     },
     {
@@ -3433,6 +3827,7 @@
         "Nis"
       ],
       "count": 236,
+      "dayCount": 194,
       "routeKey": "Basel/Mulhouse - Nis"
     },
     {
@@ -3441,6 +3836,7 @@
         "Malta"
       ],
       "count": 236,
+      "dayCount": 202,
       "routeKey": "Belgrade - Malta"
     },
     {
@@ -3449,6 +3845,7 @@
         "Turin"
       ],
       "count": 236,
+      "dayCount": 189,
       "routeKey": "Iasi - Turin"
     },
     {
@@ -3457,6 +3854,7 @@
         "Venice"
       ],
       "count": 236,
+      "dayCount": 173,
       "routeKey": "Timisoara - Venice"
     },
     {
@@ -3465,6 +3863,7 @@
         "Heraklion"
       ],
       "count": 235,
+      "dayCount": 127,
       "routeKey": "Bucharest - Heraklion"
     },
     {
@@ -3473,6 +3872,7 @@
         "Yerevan"
       ],
       "count": 235,
+      "dayCount": 183,
       "routeKey": "Budapest - Yerevan"
     },
     {
@@ -3481,6 +3881,7 @@
         "Podgorica"
       ],
       "count": 235,
+      "dayCount": 196,
       "routeKey": "Dortmund - Podgorica"
     },
     {
@@ -3489,6 +3890,7 @@
         "Lublin"
       ],
       "count": 235,
+      "dayCount": 188,
       "routeKey": "London - Lublin"
     },
     {
@@ -3497,6 +3899,7 @@
         "Warsaw"
       ],
       "count": 235,
+      "dayCount": 169,
       "routeKey": "Split - Warsaw"
     },
     {
@@ -3505,6 +3908,7 @@
         "Lisbon"
       ],
       "count": 235,
+      "dayCount": 185,
       "routeKey": "Bucharest - Lisbon"
     },
     {
@@ -3513,6 +3917,7 @@
         "Sofia"
       ],
       "count": 235,
+      "dayCount": 166,
       "routeKey": "Naples - Sofia"
     },
     {
@@ -3521,6 +3926,7 @@
         "Tel Aviv"
       ],
       "count": 235,
+      "dayCount": 137,
       "routeKey": "Bucharest - Tel Aviv"
     },
     {
@@ -3529,6 +3935,7 @@
         "Larnaca"
       ],
       "count": 234,
+      "dayCount": 162,
       "routeKey": "Cluj - Larnaca"
     },
     {
@@ -3537,6 +3944,7 @@
         "Sarajevo"
       ],
       "count": 234,
+      "dayCount": 166,
       "routeKey": "London - Sarajevo"
     },
     {
@@ -3545,6 +3953,7 @@
         "Suceava"
       ],
       "count": 234,
+      "dayCount": 191,
       "routeKey": "London - Suceava"
     },
     {
@@ -3553,6 +3962,7 @@
         "Warsaw"
       ],
       "count": 234,
+      "dayCount": 195,
       "routeKey": "Valencia - Warsaw"
     },
     {
@@ -3561,6 +3971,7 @@
         "Varna"
       ],
       "count": 234,
+      "dayCount": 179,
       "routeKey": "Frankfurt - Varna"
     },
     {
@@ -3569,6 +3980,7 @@
         "Katowice"
       ],
       "count": 233,
+      "dayCount": 135,
       "routeKey": "Chisinau - Katowice"
     },
     {
@@ -3577,6 +3989,7 @@
         "Larnaca"
       ],
       "count": 233,
+      "dayCount": 167,
       "routeKey": "Budapest - Larnaca"
     },
     {
@@ -3585,6 +3998,7 @@
         "Warsaw"
       ],
       "count": 233,
+      "dayCount": 181,
       "routeKey": "Leeds/Bradford - Warsaw"
     },
     {
@@ -3593,6 +4007,7 @@
         "Skopje"
       ],
       "count": 233,
+      "dayCount": 177,
       "routeKey": "Malta - Skopje"
     },
     {
@@ -3601,6 +4016,7 @@
         "Kutaisi"
       ],
       "count": 232,
+      "dayCount": 194,
       "routeKey": "Brussels - Kutaisi"
     },
     {
@@ -3609,6 +4025,7 @@
         "Sharm el-Sheikh"
       ],
       "count": 232,
+      "dayCount": 187,
       "routeKey": "Milan - Sharm el-Sheikh"
     },
     {
@@ -3617,6 +4034,7 @@
         "Tirana"
       ],
       "count": 232,
+      "dayCount": 198,
       "routeKey": "Frankfurt - Tirana"
     },
     {
@@ -3625,6 +4043,7 @@
         "Warsaw"
       ],
       "count": 232,
+      "dayCount": 177,
       "routeKey": "Palma De Mallorca - Warsaw"
     },
     {
@@ -3633,6 +4052,7 @@
         "Tel Aviv"
       ],
       "count": 232,
+      "dayCount": 133,
       "routeKey": "Sofia - Tel Aviv"
     },
     {
@@ -3641,6 +4061,7 @@
         "Nuremberg"
       ],
       "count": 231,
+      "dayCount": 199,
       "routeKey": "Chisinau - Nuremberg"
     },
     {
@@ -3649,6 +4070,7 @@
         "Gdansk"
       ],
       "count": 231,
+      "dayCount": 180,
       "routeKey": "Eindhoven - Gdansk"
     },
     {
@@ -3657,6 +4079,7 @@
         "Vienna"
       ],
       "count": 231,
+      "dayCount": 186,
       "routeKey": "Malaga - Vienna"
     },
     {
@@ -3665,6 +4088,7 @@
         "Sibiu"
       ],
       "count": 231,
+      "dayCount": 198,
       "routeKey": "Dortmund - Sibiu"
     },
     {
@@ -3673,6 +4097,7 @@
         "Skopje"
       ],
       "count": 231,
+      "dayCount": 196,
       "routeKey": "Berlin - Skopje"
     },
     {
@@ -3681,6 +4106,7 @@
         "Vilnius"
       ],
       "count": 231,
+      "dayCount": 184,
       "routeKey": "Eindhoven - Vilnius"
     },
     {
@@ -3689,6 +4115,7 @@
         "Memmingen"
       ],
       "count": 230,
+      "dayCount": 191,
       "routeKey": "Catania - Memmingen"
     },
     {
@@ -3697,6 +4124,7 @@
         "Warsaw"
       ],
       "count": 230,
+      "dayCount": 181,
       "routeKey": "Chisinau - Warsaw"
     },
     {
@@ -3705,6 +4133,7 @@
         "Paris"
       ],
       "count": 230,
+      "dayCount": 194,
       "routeKey": "Cluj - Paris"
     },
     {
@@ -3713,6 +4142,7 @@
         "Copenhagen"
       ],
       "count": 230,
+      "dayCount": 176,
       "routeKey": "Bucharest - Copenhagen"
     },
     {
@@ -3721,6 +4151,7 @@
         "Tirana"
       ],
       "count": 230,
+      "dayCount": 195,
       "routeKey": "Madrid - Tirana"
     },
     {
@@ -3729,6 +4160,7 @@
         "Varna"
       ],
       "count": 230,
+      "dayCount": 191,
       "routeKey": "Brussels - Varna"
     },
     {
@@ -3737,6 +4169,7 @@
         "Zaragoza"
       ],
       "count": 229,
+      "dayCount": 187,
       "routeKey": "Bucharest - Zaragoza"
     },
     {
@@ -3745,6 +4178,7 @@
         "Nuremberg"
       ],
       "count": 229,
+      "dayCount": 182,
       "routeKey": "Cluj - Nuremberg"
     },
     {
@@ -3753,6 +4187,7 @@
         "Larnaca"
       ],
       "count": 229,
+      "dayCount": 173,
       "routeKey": "Gdansk - Larnaca"
     },
     {
@@ -3761,6 +4196,7 @@
         "Pristina"
       ],
       "count": 229,
+      "dayCount": 193,
       "routeKey": "London - Pristina"
     },
     {
@@ -3769,6 +4205,7 @@
         "Yerevan"
       ],
       "count": 229,
+      "dayCount": 187,
       "routeKey": "Dortmund - Yerevan"
     },
     {
@@ -3777,6 +4214,7 @@
         "Warsaw"
       ],
       "count": 229,
+      "dayCount": 123,
       "routeKey": "Tel Aviv - Warsaw"
     },
     {
@@ -3785,6 +4223,7 @@
         "Tirana"
       ],
       "count": 228,
+      "dayCount": 190,
       "routeKey": "Athens - Tirana"
     },
     {
@@ -3793,6 +4232,7 @@
         "Belgrade"
       ],
       "count": 228,
+      "dayCount": 125,
       "routeKey": "Abu Dhabi - Belgrade"
     },
     {
@@ -3801,6 +4241,7 @@
         "Gdansk"
       ],
       "count": 227,
+      "dayCount": 179,
       "routeKey": "Alicante - Gdansk"
     },
     {
@@ -3809,6 +4250,7 @@
         "Sofia"
       ],
       "count": 227,
+      "dayCount": 202,
       "routeKey": "Barcelona - Sofia"
     },
     {
@@ -3817,6 +4259,7 @@
         "Katowice"
       ],
       "count": 227,
+      "dayCount": 190,
       "routeKey": "Alicante - Katowice"
     },
     {
@@ -3825,6 +4268,7 @@
         "Iasi"
       ],
       "count": 226,
+      "dayCount": 178,
       "routeKey": "Basel/Mulhouse - Iasi"
     },
     {
@@ -3833,6 +4277,7 @@
         "Oslo"
       ],
       "count": 226,
+      "dayCount": 180,
       "routeKey": "Bucharest - Oslo"
     },
     {
@@ -3841,6 +4286,7 @@
         "Skopje"
       ],
       "count": 226,
+      "dayCount": 192,
       "routeKey": "Eindhoven - Skopje"
     },
     {
@@ -3849,6 +4295,7 @@
         "Skopje"
       ],
       "count": 226,
+      "dayCount": 189,
       "routeKey": "Ljubljana - Skopje"
     },
     {
@@ -3857,6 +4304,7 @@
         "Tallinn"
       ],
       "count": 226,
+      "dayCount": 178,
       "routeKey": "London - Tallinn"
     },
     {
@@ -3865,6 +4313,7 @@
         "London"
       ],
       "count": 225,
+      "dayCount": 174,
       "routeKey": "Constanta - London"
     },
     {
@@ -3873,6 +4322,7 @@
         "Marrakech"
       ],
       "count": 225,
+      "dayCount": 168,
       "routeKey": "London - Marrakech"
     },
     {
@@ -3881,6 +4331,7 @@
         "Skopje"
       ],
       "count": 225,
+      "dayCount": 191,
       "routeKey": "Paris - Skopje"
     },
     {
@@ -3889,6 +4340,7 @@
         "Rome"
       ],
       "count": 224,
+      "dayCount": 183,
       "routeKey": "Alicante - Rome"
     },
     {
@@ -3897,6 +4349,7 @@
         "Liverpool"
       ],
       "count": 224,
+      "dayCount": 158,
       "routeKey": "Budapest - Liverpool"
     },
     {
@@ -3905,6 +4358,7 @@
         "Kutaisi"
       ],
       "count": 224,
+      "dayCount": 180,
       "routeKey": "Berlin - Kutaisi"
     },
     {
@@ -3913,6 +4367,7 @@
         "Milan"
       ],
       "count": 223,
+      "dayCount": 197,
       "routeKey": "Craiova - Milan"
     },
     {
@@ -3921,6 +4376,7 @@
         "Kutaisi"
       ],
       "count": 223,
+      "dayCount": 165,
       "routeKey": "Hamburg - Kutaisi"
     },
     {
@@ -3929,6 +4385,7 @@
         "Timisoara"
       ],
       "count": 223,
+      "dayCount": 182,
       "routeKey": "Karlsruhe/Baden-Baden - Timisoara"
     },
     {
@@ -3937,6 +4394,7 @@
         "Friedrichshafen"
       ],
       "count": 222,
+      "dayCount": 136,
       "routeKey": "Belgrade - Friedrichshafen"
     },
     {
@@ -3945,6 +4403,7 @@
         "Memmingen"
       ],
       "count": 222,
+      "dayCount": 183,
       "routeKey": "Chisinau - Memmingen"
     },
     {
@@ -3953,6 +4412,7 @@
         "Iasi"
       ],
       "count": 222,
+      "dayCount": 184,
       "routeKey": "Barcelona - Iasi"
     },
     {
@@ -3961,6 +4421,7 @@
         "Valencia"
       ],
       "count": 222,
+      "dayCount": 176,
       "routeKey": "Krakow - Valencia"
     },
     {
@@ -3969,6 +4430,7 @@
         "Malaga"
       ],
       "count": 221,
+      "dayCount": 153,
       "routeKey": "Budapest - Malaga"
     },
     {
@@ -3977,6 +4439,7 @@
         "Iasi"
       ],
       "count": 220,
+      "dayCount": 186,
       "routeKey": "Billund - Iasi"
     },
     {
@@ -3985,6 +4448,7 @@
         "Dortmund"
       ],
       "count": 220,
+      "dayCount": 196,
       "routeKey": "Cluj - Dortmund"
     },
     {
@@ -3993,6 +4457,7 @@
         "Hurghada"
       ],
       "count": 220,
+      "dayCount": 175,
       "routeKey": "Budapest - Hurghada"
     },
     {
@@ -4001,6 +4466,7 @@
         "Katowice"
       ],
       "count": 220,
+      "dayCount": 177,
       "routeKey": "Athens - Katowice"
     },
     {
@@ -4009,6 +4475,7 @@
         "Tirana"
       ],
       "count": 220,
+      "dayCount": 123,
       "routeKey": "Abu Dhabi - Tirana"
     },
     {
@@ -4017,6 +4484,7 @@
         "Cluj"
       ],
       "count": 219,
+      "dayCount": 185,
       "routeKey": "Brussels - Cluj"
     },
     {
@@ -4025,6 +4493,7 @@
         "Split"
       ],
       "count": 219,
+      "dayCount": 136,
       "routeKey": "London - Split"
     },
     {
@@ -4033,6 +4502,7 @@
         "Tirana"
       ],
       "count": 219,
+      "dayCount": 182,
       "routeKey": "Nice - Tirana"
     },
     {
@@ -4041,6 +4511,7 @@
         "Prague"
       ],
       "count": 219,
+      "dayCount": 169,
       "routeKey": "Catania - Prague"
     },
     {
@@ -4049,6 +4520,7 @@
         "Karlsruhe/Baden-Baden"
       ],
       "count": 219,
+      "dayCount": 186,
       "routeKey": "Belgrade - Karlsruhe/Baden-Baden"
     },
     {
@@ -4057,6 +4529,7 @@
         "Nis"
       ],
       "count": 219,
+      "dayCount": 177,
       "routeKey": "Memmingen - Nis"
     },
     {
@@ -4065,6 +4538,7 @@
         "Sofia"
       ],
       "count": 218,
+      "dayCount": 118,
       "routeKey": "Alghero - Sofia"
     },
     {
@@ -4073,6 +4547,7 @@
         "Timisoara"
       ],
       "count": 218,
+      "dayCount": 186,
       "routeKey": "Dortmund - Timisoara"
     },
     {
@@ -4081,6 +4556,7 @@
         "Budapest"
       ],
       "count": 218,
+      "dayCount": 168,
       "routeKey": "Birmingham - Budapest"
     },
     {
@@ -4089,6 +4565,7 @@
         "Cluj"
       ],
       "count": 217,
+      "dayCount": 187,
       "routeKey": "Alicante - Cluj"
     },
     {
@@ -4097,6 +4574,7 @@
         "Warsaw"
       ],
       "count": 217,
+      "dayCount": 173,
       "routeKey": "Sevilla - Warsaw"
     },
     {
@@ -4105,6 +4583,7 @@
         "Warsaw"
       ],
       "count": 217,
+      "dayCount": 184,
       "routeKey": "Madrid - Warsaw"
     },
     {
@@ -4113,6 +4592,7 @@
         "Lyon"
       ],
       "count": 216,
+      "dayCount": 139,
       "routeKey": "Kutaisi - Lyon"
     },
     {
@@ -4121,6 +4601,7 @@
         "Yerevan"
       ],
       "count": 216,
+      "dayCount": 180,
       "routeKey": "Milan - Yerevan"
     },
     {
@@ -4129,6 +4610,7 @@
         "Tirana"
       ],
       "count": 214,
+      "dayCount": 188,
       "routeKey": "Naples - Tirana"
     },
     {
@@ -4137,6 +4619,7 @@
         "Palma De Mallorca"
       ],
       "count": 213,
+      "dayCount": 132,
       "routeKey": "London - Palma De Mallorca"
     },
     {
@@ -4145,6 +4628,7 @@
         "Skopje"
       ],
       "count": 213,
+      "dayCount": 186,
       "routeKey": "Milan - Skopje"
     },
     {
@@ -4153,6 +4637,7 @@
         "Valencia"
       ],
       "count": 213,
+      "dayCount": 172,
       "routeKey": "Timisoara - Valencia"
     },
     {
@@ -4161,6 +4646,7 @@
         "Warsaw"
       ],
       "count": 213,
+      "dayCount": 183,
       "routeKey": "Malaga - Warsaw"
     },
     {
@@ -4169,6 +4655,7 @@
         "Warsaw"
       ],
       "count": 212,
+      "dayCount": 126,
       "routeKey": "Bucharest - Warsaw"
     },
     {
@@ -4177,6 +4664,7 @@
         "Oslo"
       ],
       "count": 212,
+      "dayCount": 182,
       "routeKey": "Krakow - Oslo"
     },
     {
@@ -4185,6 +4673,7 @@
         "Skopje"
       ],
       "count": 212,
+      "dayCount": 173,
       "routeKey": "Rome - Skopje"
     },
     {
@@ -4193,6 +4682,7 @@
         "Warsaw"
       ],
       "count": 212,
+      "dayCount": 170,
       "routeKey": "Nice - Warsaw"
     },
     {
@@ -4201,6 +4691,7 @@
         "Dortmund"
       ],
       "count": 211,
+      "dayCount": 191,
       "routeKey": "Chisinau - Dortmund"
     },
     {
@@ -4209,6 +4700,7 @@
         "Dortmund"
       ],
       "count": 210,
+      "dayCount": 187,
       "routeKey": "Banja Luka - Dortmund"
     },
     {
@@ -4217,6 +4709,7 @@
         "Stuttgart"
       ],
       "count": 210,
+      "dayCount": 173,
       "routeKey": "Cluj - Stuttgart"
     },
     {
@@ -4225,6 +4718,7 @@
         "Marrakech"
       ],
       "count": 210,
+      "dayCount": 161,
       "routeKey": "Budapest - Marrakech"
     },
     {
@@ -4233,6 +4727,7 @@
         "Suceava"
       ],
       "count": 210,
+      "dayCount": 171,
       "routeKey": "Dortmund - Suceava"
     },
     {
@@ -4241,6 +4736,7 @@
         "Eindhoven"
       ],
       "count": 210,
+      "dayCount": 166,
       "routeKey": "Cluj - Eindhoven"
     },
     {
@@ -4249,6 +4745,7 @@
         "Sibiu"
       ],
       "count": 210,
+      "dayCount": 179,
       "routeKey": "Memmingen - Sibiu"
     },
     {
@@ -4257,6 +4754,7 @@
         "Chisinau"
       ],
       "count": 209,
+      "dayCount": 187,
       "routeKey": "Bologna - Chisinau"
     },
     {
@@ -4265,6 +4763,7 @@
         "Warsaw"
       ],
       "count": 209,
+      "dayCount": 178,
       "routeKey": "Eindhoven - Warsaw"
     },
     {
@@ -4273,6 +4772,7 @@
         "Rome"
       ],
       "count": 209,
+      "dayCount": 187,
       "routeKey": "Paris - Rome"
     },
     {
@@ -4281,6 +4781,7 @@
         "Satu Mare"
       ],
       "count": 209,
+      "dayCount": 178,
       "routeKey": "London - Satu Mare"
     },
     {
@@ -4289,6 +4790,7 @@
         "Krakow"
       ],
       "count": 208,
+      "dayCount": 180,
       "routeKey": "Eindhoven - Krakow"
     },
     {
@@ -4297,6 +4799,7 @@
         "Milan"
       ],
       "count": 208,
+      "dayCount": 186,
       "routeKey": "Madrid - Milan"
     },
     {
@@ -4305,6 +4808,7 @@
         "Vilnius"
       ],
       "count": 208,
+      "dayCount": 162,
       "routeKey": "Malaga - Vilnius"
     },
     {
@@ -4313,6 +4817,7 @@
         "Chisinau"
       ],
       "count": 207,
+      "dayCount": 183,
       "routeKey": "Berlin - Chisinau"
     },
     {
@@ -4321,6 +4826,7 @@
         "Malaga"
       ],
       "count": 207,
+      "dayCount": 155,
       "routeKey": "Krakow - Malaga"
     },
     {
@@ -4329,6 +4835,7 @@
         "Rome"
       ],
       "count": 207,
+      "dayCount": 183,
       "routeKey": "Marrakech - Rome"
     },
     {
@@ -4337,6 +4844,7 @@
         "Reykjavik"
       ],
       "count": 207,
+      "dayCount": 168,
       "routeKey": "Milan - Reykjavik"
     },
     {
@@ -4345,6 +4853,7 @@
         "Sofia"
       ],
       "count": 207,
+      "dayCount": 182,
       "routeKey": "Brussels - Sofia"
     },
     {
@@ -4353,6 +4862,7 @@
         "Warsaw"
       ],
       "count": 207,
+      "dayCount": 173,
       "routeKey": "Lisbon - Warsaw"
     },
     {
@@ -4361,6 +4871,7 @@
         "Giza"
       ],
       "count": 207,
+      "dayCount": 158,
       "routeKey": "Budapest - Giza"
     },
     {
@@ -4369,6 +4880,7 @@
         "Glasgow"
       ],
       "count": 207,
+      "dayCount": 158,
       "routeKey": "Budapest - Glasgow"
     },
     {
@@ -4377,6 +4889,7 @@
         "Chisinau"
       ],
       "count": 206,
+      "dayCount": 163,
       "routeKey": "Budapest - Chisinau"
     },
     {
@@ -4385,6 +4898,7 @@
         "Wroclaw"
       ],
       "count": 206,
+      "dayCount": 162,
       "routeKey": "Eindhoven - Wroclaw"
     },
     {
@@ -4393,6 +4907,7 @@
         "Kutaisi"
       ],
       "count": 206,
+      "dayCount": 163,
       "routeKey": "Budapest - Kutaisi"
     },
     {
@@ -4401,6 +4916,7 @@
         "Krakow"
       ],
       "count": 205,
+      "dayCount": 121,
       "routeKey": "Genoa - Krakow"
     },
     {
@@ -4409,6 +4925,7 @@
         "Eindhoven"
       ],
       "count": 204,
+      "dayCount": 194,
       "routeKey": "Belgrade - Eindhoven"
     },
     {
@@ -4417,6 +4934,7 @@
         "Valencia"
       ],
       "count": 204,
+      "dayCount": 175,
       "routeKey": "Cluj - Valencia"
     },
     {
@@ -4425,6 +4943,7 @@
         "Frankfurt"
       ],
       "count": 204,
+      "dayCount": 172,
       "routeKey": "Cluj - Frankfurt"
     },
     {
@@ -4433,6 +4952,7 @@
         "Podgorica"
       ],
       "count": 204,
+      "dayCount": 173,
       "routeKey": "London - Podgorica"
     },
     {
@@ -4441,6 +4961,7 @@
         "Timisoara"
       ],
       "count": 204,
+      "dayCount": 178,
       "routeKey": "Madrid - Timisoara"
     },
     {
@@ -4449,6 +4970,7 @@
         "Vienna"
       ],
       "count": 203,
+      "dayCount": 167,
       "routeKey": "Nice - Vienna"
     },
     {
@@ -4457,6 +4979,7 @@
         "Stavanger"
       ],
       "count": 203,
+      "dayCount": 179,
       "routeKey": "Krakow - Stavanger"
     },
     {
@@ -4465,6 +4988,7 @@
         "Turkistan"
       ],
       "count": 203,
+      "dayCount": 109,
       "routeKey": "Abu Dhabi - Turkistan"
     },
     {
@@ -4473,6 +4997,7 @@
         "Iasi"
       ],
       "count": 202,
+      "dayCount": 183,
       "routeKey": "Dortmund - Iasi"
     },
     {
@@ -4481,6 +5006,7 @@
         "Malaga"
       ],
       "count": 202,
+      "dayCount": 163,
       "routeKey": "Gdansk - Malaga"
     },
     {
@@ -4489,6 +5015,7 @@
         "Varna"
       ],
       "count": 202,
+      "dayCount": 105,
       "routeKey": "Abu Dhabi - Varna"
     },
     {
@@ -4497,6 +5024,7 @@
         "Sofia"
       ],
       "count": 201,
+      "dayCount": 185,
       "routeKey": "Hamburg - Sofia"
     },
     {
@@ -4505,6 +5033,7 @@
         "Lisbon"
       ],
       "count": 201,
+      "dayCount": 151,
       "routeKey": "Budapest - Lisbon"
     },
     {
@@ -4513,6 +5042,7 @@
         "Venice"
       ],
       "count": 200,
+      "dayCount": 189,
       "routeKey": "Chisinau - Venice"
     },
     {
@@ -4521,6 +5051,7 @@
         "London"
       ],
       "count": 200,
+      "dayCount": 153,
       "routeKey": "Giza - London"
     },
     {
@@ -4529,6 +5060,7 @@
         "Timisoara"
       ],
       "count": 199,
+      "dayCount": 173,
       "routeKey": "Bologna - Timisoara"
     },
     {
@@ -4537,6 +5069,7 @@
         "Tel Aviv"
       ],
       "count": 199,
+      "dayCount": 133,
       "routeKey": "London - Tel Aviv"
     },
     {
@@ -4545,6 +5078,7 @@
         "Warsaw"
       ],
       "count": 199,
+      "dayCount": 140,
       "routeKey": "Tirana - Warsaw"
     },
     {
@@ -4553,6 +5087,7 @@
         "Pisa"
       ],
       "count": 198,
+      "dayCount": 130,
       "routeKey": "Katowice - Pisa"
     },
     {
@@ -4561,6 +5096,7 @@
         "Tirana"
       ],
       "count": 198,
+      "dayCount": 164,
       "routeKey": "Leipzig/Halle - Tirana"
     },
     {
@@ -4569,6 +5105,7 @@
         "Vienna"
       ],
       "count": 198,
+      "dayCount": 119,
       "routeKey": "Tuzla - Vienna"
     },
     {
@@ -4577,6 +5114,7 @@
         "Craiova"
       ],
       "count": 197,
+      "dayCount": 176,
       "routeKey": "Brussels - Craiova"
     },
     {
@@ -4585,6 +5123,7 @@
         "Warsaw"
       ],
       "count": 197,
+      "dayCount": 164,
       "routeKey": "Porto - Warsaw"
     },
     {
@@ -4593,6 +5132,7 @@
         "Sofia"
       ],
       "count": 197,
+      "dayCount": 186,
       "routeKey": "Madrid - Sofia"
     },
     {
@@ -4601,6 +5141,7 @@
         "Sofia"
       ],
       "count": 197,
+      "dayCount": 173,
       "routeKey": "Malaga - Sofia"
     },
     {
@@ -4609,6 +5150,7 @@
         "Tel Aviv"
       ],
       "count": 197,
+      "dayCount": 114,
       "routeKey": "Krakow - Tel Aviv"
     },
     {
@@ -4617,6 +5159,7 @@
         "Rome"
       ],
       "count": 196,
+      "dayCount": 182,
       "routeKey": "Giza - Rome"
     },
     {
@@ -4625,6 +5168,7 @@
         "Madrid"
       ],
       "count": 196,
+      "dayCount": 158,
       "routeKey": "Kutaisi - Madrid"
     },
     {
@@ -4633,6 +5177,7 @@
         "Split"
       ],
       "count": 196,
+      "dayCount": 110,
       "routeKey": "Lublin - Split"
     },
     {
@@ -4641,6 +5186,7 @@
         "Suceava"
       ],
       "count": 196,
+      "dayCount": 166,
       "routeKey": "Memmingen - Suceava"
     },
     {
@@ -4649,6 +5195,7 @@
         "Iasi"
       ],
       "count": 196,
+      "dayCount": 172,
       "routeKey": "Brussels - Iasi"
     },
     {
@@ -4657,6 +5204,7 @@
         "Rome"
       ],
       "count": 195,
+      "dayCount": 127,
       "routeKey": "Hurghada - Rome"
     },
     {
@@ -4665,6 +5213,7 @@
         "London"
       ],
       "count": 195,
+      "dayCount": 166,
       "routeKey": "Kosice - London"
     },
     {
@@ -4673,6 +5222,7 @@
         "Budapest"
       ],
       "count": 195,
+      "dayCount": 146,
       "routeKey": "Baku - Budapest"
     },
     {
@@ -4681,6 +5231,7 @@
         "Sevilla"
       ],
       "count": 195,
+      "dayCount": 173,
       "routeKey": "Bucharest - Sevilla"
     },
     {
@@ -4689,6 +5240,7 @@
         "Rome"
       ],
       "count": 194,
+      "dayCount": 125,
       "routeKey": "Birmingham - Rome"
     },
     {
@@ -4697,6 +5249,7 @@
         "Tel Aviv"
       ],
       "count": 194,
+      "dayCount": 121,
       "routeKey": "Athens - Tel Aviv"
     },
     {
@@ -4705,6 +5258,7 @@
         "Skopje"
       ],
       "count": 193,
+      "dayCount": 172,
       "routeKey": "Bologna - Skopje"
     },
     {
@@ -4713,6 +5267,7 @@
         "Wroclaw"
       ],
       "count": 193,
+      "dayCount": 120,
       "routeKey": "Split - Wroclaw"
     },
     {
@@ -4721,6 +5276,7 @@
         "Varna"
       ],
       "count": 193,
+      "dayCount": 134,
       "routeKey": "Leipzig/Halle - Varna"
     },
     {
@@ -4729,6 +5285,7 @@
         "Timisoara"
       ],
       "count": 192,
+      "dayCount": 174,
       "routeKey": "Milan - Timisoara"
     },
     {
@@ -4737,6 +5294,7 @@
         "Verona"
       ],
       "count": 191,
+      "dayCount": 179,
       "routeKey": "Chisinau - Verona"
     },
     {
@@ -4745,6 +5303,7 @@
         "Tirana"
       ],
       "count": 191,
+      "dayCount": 146,
       "routeKey": "Oslo - Tirana"
     },
     {
@@ -4753,6 +5312,7 @@
         "Reykjavik"
       ],
       "count": 191,
+      "dayCount": 138,
       "routeKey": "Budapest - Reykjavik"
     },
     {
@@ -4761,6 +5321,7 @@
         "Vienna"
       ],
       "count": 189,
+      "dayCount": 165,
       "routeKey": "Ohrid - Vienna"
     },
     {
@@ -4769,6 +5330,7 @@
         "Liverpool"
       ],
       "count": 188,
+      "dayCount": 171,
       "routeKey": "Iasi - Liverpool"
     },
     {
@@ -4777,6 +5339,7 @@
         "Skopje"
       ],
       "count": 188,
+      "dayCount": 137,
       "routeKey": "Barcelona - Skopje"
     },
     {
@@ -4785,6 +5348,7 @@
         "Vilnius"
       ],
       "count": 188,
+      "dayCount": 118,
       "routeKey": "Tel Aviv - Vilnius"
     },
     {
@@ -4793,6 +5357,7 @@
         "Zaragoza"
       ],
       "count": 187,
+      "dayCount": 170,
       "routeKey": "Cluj - Zaragoza"
     },
     {
@@ -4801,6 +5366,7 @@
         "Krakow"
       ],
       "count": 187,
+      "dayCount": 135,
       "routeKey": "Abu Dhabi - Krakow"
     },
     {
@@ -4809,6 +5375,7 @@
         "Gothenburg"
       ],
       "count": 186,
+      "dayCount": 171,
       "routeKey": "Belgrade - Gothenburg"
     },
     {
@@ -4817,6 +5384,7 @@
         "Istanbul"
       ],
       "count": 186,
+      "dayCount": 160,
       "routeKey": "Iasi - Istanbul"
     },
     {
@@ -4825,6 +5393,7 @@
         "Trieste"
       ],
       "count": 186,
+      "dayCount": 100,
       "routeKey": "Bucharest - Trieste"
     },
     {
@@ -4833,6 +5402,7 @@
         "Wroclaw"
       ],
       "count": 185,
+      "dayCount": 96,
       "routeKey": "Bucharest - Wroclaw"
     },
     {
@@ -4841,6 +5411,7 @@
         "Vilnius"
       ],
       "count": 185,
+      "dayCount": 138,
       "routeKey": "Catania - Vilnius"
     },
     {
@@ -4849,6 +5420,7 @@
         "Suceava"
       ],
       "count": 185,
+      "dayCount": 166,
       "routeKey": "Rome - Suceava"
     },
     {
@@ -4857,6 +5429,7 @@
         "London"
       ],
       "count": 184,
+      "dayCount": 163,
       "routeKey": "Burgas - London"
     },
     {
@@ -4865,6 +5438,7 @@
         "Venice"
       ],
       "count": 184,
+      "dayCount": 161,
       "routeKey": "Skopje - Venice"
     },
     {
@@ -4873,6 +5447,7 @@
         "Leipzig/Halle"
       ],
       "count": 183,
+      "dayCount": 148,
       "routeKey": "Bucharest - Leipzig/Halle"
     },
     {
@@ -4881,6 +5456,7 @@
         "Milan"
       ],
       "count": 182,
+      "dayCount": 178,
       "routeKey": "Chisinau - Milan"
     },
     {
@@ -4889,6 +5465,7 @@
         "Hamburg"
       ],
       "count": 182,
+      "dayCount": 174,
       "routeKey": "Belgrade - Hamburg"
     },
     {
@@ -4897,6 +5474,7 @@
         "Milan"
       ],
       "count": 182,
+      "dayCount": 168,
       "routeKey": "Marrakech - Milan"
     },
     {
@@ -4905,6 +5483,7 @@
         "Wroclaw"
       ],
       "count": 181,
+      "dayCount": 106,
       "routeKey": "Budapest - Wroclaw"
     },
     {
@@ -4913,6 +5492,7 @@
         "Warsaw"
       ],
       "count": 181,
+      "dayCount": 118,
       "routeKey": "Dortmund - Warsaw"
     },
     {
@@ -4921,6 +5501,7 @@
         "Krakow"
       ],
       "count": 179,
+      "dayCount": 116,
       "routeKey": "Basel/Mulhouse - Krakow"
     },
     {
@@ -4929,6 +5510,7 @@
         "Nur-Sultan"
       ],
       "count": 179,
+      "dayCount": 95,
       "routeKey": "Abu Dhabi - Nur-Sultan"
     },
     {
@@ -4937,6 +5519,7 @@
         "Tel Aviv"
       ],
       "count": 179,
+      "dayCount": 104,
       "routeKey": "Abu Dhabi - Tel Aviv"
     },
     {
@@ -4945,6 +5528,7 @@
         "Yerevan"
       ],
       "count": 178,
+      "dayCount": 159,
       "routeKey": "Vienna - Yerevan"
     },
     {
@@ -4953,6 +5537,7 @@
         "Cluj"
       ],
       "count": 178,
+      "dayCount": 158,
       "routeKey": "Castellon - Cluj"
     },
     {
@@ -4961,6 +5546,7 @@
         "Craiova"
       ],
       "count": 177,
+      "dayCount": 168,
       "routeKey": "Birmingham - Craiova"
     },
     {
@@ -4969,6 +5555,7 @@
         "London"
       ],
       "count": 177,
+      "dayCount": 144,
       "routeKey": "Debrecen - London"
     },
     {
@@ -4977,6 +5564,7 @@
         "Rome"
       ],
       "count": 176,
+      "dayCount": 154,
       "routeKey": "Larnaca - Rome"
     },
     {
@@ -4985,6 +5573,7 @@
         "Iasi"
       ],
       "count": 174,
+      "dayCount": 157,
       "routeKey": "Eindhoven - Iasi"
     },
     {
@@ -4993,6 +5582,7 @@
         "Skopje"
       ],
       "count": 174,
+      "dayCount": 167,
       "routeKey": "Nuremberg - Skopje"
     },
     {
@@ -5001,6 +5591,7 @@
         "Larnaca"
       ],
       "count": 172,
+      "dayCount": 140,
       "routeKey": "Katowice - Larnaca"
     },
     {
@@ -5009,6 +5600,7 @@
         "Wroclaw"
       ],
       "count": 172,
+      "dayCount": 131,
       "routeKey": "Larnaca - Wroclaw"
     },
     {
@@ -5017,6 +5609,7 @@
         "Leeds/Bradford"
       ],
       "count": 171,
+      "dayCount": 163,
       "routeKey": "Cluj - Leeds/Bradford"
     },
     {
@@ -5025,6 +5618,7 @@
         "Yerevan"
       ],
       "count": 171,
+      "dayCount": 147,
       "routeKey": "Venice - Yerevan"
     },
     {
@@ -5033,6 +5627,7 @@
         "Vilnius"
       ],
       "count": 170,
+      "dayCount": 130,
       "routeKey": "Larnaca - Vilnius"
     },
     {
@@ -5041,6 +5636,7 @@
         "Valencia"
       ],
       "count": 170,
+      "dayCount": 159,
       "routeKey": "Sofia - Valencia"
     },
     {
@@ -5049,6 +5645,7 @@
         "Paris"
       ],
       "count": 170,
+      "dayCount": 164,
       "routeKey": "Chisinau - Paris"
     },
     {
@@ -5057,6 +5654,7 @@
         "Leeds/Bradford"
       ],
       "count": 169,
+      "dayCount": 164,
       "routeKey": "Bucharest - Leeds/Bradford"
     },
     {
@@ -5065,6 +5663,7 @@
         "Suceava"
       ],
       "count": 168,
+      "dayCount": 159,
       "routeKey": "Milan - Suceava"
     },
     {
@@ -5073,6 +5672,7 @@
         "Zakinthos Island"
       ],
       "count": 167,
+      "dayCount": 102,
       "routeKey": "Vienna - Zakinthos Island"
     },
     {
@@ -5081,6 +5681,7 @@
         "Krakow"
       ],
       "count": 166,
+      "dayCount": 117,
       "routeKey": "Bergen - Krakow"
     },
     {
@@ -5089,6 +5690,7 @@
         "Budapest"
       ],
       "count": 166,
+      "dayCount": 108,
       "routeKey": "Abu Dhabi - Budapest"
     },
     {
@@ -5097,6 +5699,7 @@
         "Madrid"
       ],
       "count": 165,
+      "dayCount": 154,
       "routeKey": "Iasi - Madrid"
     },
     {
@@ -5105,6 +5708,7 @@
         "Sohag"
       ],
       "count": 165,
+      "dayCount": 101,
       "routeKey": "Abu Dhabi - Sohag"
     },
     {
@@ -5113,6 +5717,7 @@
         "Tashkent"
       ],
       "count": 164,
+      "dayCount": 102,
       "routeKey": "Abu Dhabi - Tashkent"
     },
     {
@@ -5121,6 +5726,7 @@
         "Samarkand"
       ],
       "count": 163,
+      "dayCount": 91,
       "routeKey": "Abu Dhabi - Samarkand"
     },
     {
@@ -5129,6 +5735,7 @@
         "Craiova"
       ],
       "count": 162,
+      "dayCount": 130,
       "routeKey": "Bari - Craiova"
     },
     {
@@ -5137,6 +5744,7 @@
         "Podgorica"
       ],
       "count": 162,
+      "dayCount": 109,
       "routeKey": "Katowice - Podgorica"
     },
     {
@@ -5145,6 +5753,7 @@
         "Skiathos"
       ],
       "count": 159,
+      "dayCount": 94,
       "routeKey": "Milan - Skiathos"
     },
     {
@@ -5153,6 +5762,7 @@
         "Wroclaw"
       ],
       "count": 159,
+      "dayCount": 92,
       "routeKey": "Basel/Mulhouse - Wroclaw"
     },
     {
@@ -5161,6 +5771,7 @@
         "Pristina"
       ],
       "count": 158,
+      "dayCount": 138,
       "routeKey": "Milan - Pristina"
     },
     {
@@ -5169,6 +5780,7 @@
         "Malaga"
       ],
       "count": 158,
+      "dayCount": 141,
       "routeKey": "Katowice - Malaga"
     },
     {
@@ -5177,6 +5789,7 @@
         "Chisinau"
       ],
       "count": 157,
+      "dayCount": 149,
       "routeKey": "Brussels - Chisinau"
     },
     {
@@ -5185,6 +5798,7 @@
         "Budapest"
       ],
       "count": 157,
+      "dayCount": 94,
       "routeKey": "Bilbao - Budapest"
     },
     {
@@ -5193,6 +5807,7 @@
         "Heraklion"
       ],
       "count": 157,
+      "dayCount": 113,
       "routeKey": "Gdansk - Heraklion"
     },
     {
@@ -5201,6 +5816,7 @@
         "Sofia"
       ],
       "count": 157,
+      "dayCount": 91,
       "routeKey": "Abu Dhabi - Sofia"
     },
     {
@@ -5209,6 +5825,7 @@
         "Gdansk"
       ],
       "count": 155,
+      "dayCount": 104,
       "routeKey": "Billund - Gdansk"
     },
     {
@@ -5217,6 +5834,7 @@
         "Belgrade"
       ],
       "count": 153,
+      "dayCount": 130,
       "routeKey": "Alicante - Belgrade"
     },
     {
@@ -5225,6 +5843,7 @@
         "Gran Canaria"
       ],
       "count": 153,
+      "dayCount": 103,
       "routeKey": "Bucharest - Gran Canaria"
     },
     {
@@ -5233,6 +5852,7 @@
         "Milan"
       ],
       "count": 153,
+      "dayCount": 135,
       "routeKey": "Larnaca - Milan"
     },
     {
@@ -5241,6 +5861,7 @@
         "Wroclaw"
       ],
       "count": 153,
+      "dayCount": 93,
       "routeKey": "Tirana - Wroclaw"
     },
     {
@@ -5249,6 +5870,7 @@
         "Warsaw"
       ],
       "count": 152,
+      "dayCount": 105,
       "routeKey": "Heraklion - Warsaw"
     },
     {
@@ -5257,6 +5879,7 @@
         "Plovdiv"
       ],
       "count": 152,
+      "dayCount": 135,
       "routeKey": "London - Plovdiv"
     },
     {
@@ -5265,6 +5888,7 @@
         "Radom"
       ],
       "count": 151,
+      "dayCount": 110,
       "routeKey": "Larnaca - Radom"
     },
     {
@@ -5273,6 +5897,7 @@
         "Gdansk"
       ],
       "count": 151,
+      "dayCount": 101,
       "routeKey": "Budapest - Gdansk"
     },
     {
@@ -5281,6 +5906,7 @@
         "Zakinthos Island"
       ],
       "count": 150,
+      "dayCount": 99,
       "routeKey": "Bucharest - Zakinthos Island"
     },
     {
@@ -5289,6 +5915,7 @@
         "Varna"
       ],
       "count": 150,
+      "dayCount": 92,
       "routeKey": "Tel Aviv - Varna"
     },
     {
@@ -5297,6 +5924,7 @@
         "Tirana"
       ],
       "count": 148,
+      "dayCount": 111,
       "routeKey": "Gdansk - Tirana"
     },
     {
@@ -5305,6 +5933,7 @@
         "Zakinthos Island"
       ],
       "count": 147,
+      "dayCount": 100,
       "routeKey": "Cluj - Zakinthos Island"
     },
     {
@@ -5313,6 +5942,7 @@
         "Kerkyra"
       ],
       "count": 146,
+      "dayCount": 108,
       "routeKey": "Budapest - Kerkyra"
     },
     {
@@ -5321,6 +5951,7 @@
         "Katowice"
       ],
       "count": 146,
+      "dayCount": 109,
       "routeKey": "Burgas - Katowice"
     },
     {
@@ -5329,6 +5960,7 @@
         "Vienna"
       ],
       "count": 146,
+      "dayCount": 98,
       "routeKey": "Chania - Vienna"
     },
     {
@@ -5337,6 +5969,7 @@
         "Dortmund"
       ],
       "count": 146,
+      "dayCount": 117,
       "routeKey": "Craiova - Dortmund"
     },
     {
@@ -5345,6 +5978,7 @@
         "Madrid"
       ],
       "count": 146,
+      "dayCount": 120,
       "routeKey": "Katowice - Madrid"
     },
     {
@@ -5353,6 +5987,7 @@
         "Budapest"
       ],
       "count": 146,
+      "dayCount": 146,
       "routeKey": "Brasov - Budapest"
     },
     {
@@ -5361,6 +5996,7 @@
         "Kerkyra"
       ],
       "count": 145,
+      "dayCount": 96,
       "routeKey": "Bucharest - Kerkyra"
     },
     {
@@ -5369,6 +6005,7 @@
         "Riga"
       ],
       "count": 145,
+      "dayCount": 78,
       "routeKey": "Kutaisi - Riga"
     },
     {
@@ -5377,6 +6014,7 @@
         "Palma De Mallorca"
       ],
       "count": 143,
+      "dayCount": 105,
       "routeKey": "Budapest - Palma De Mallorca"
     },
     {
@@ -5385,6 +6023,7 @@
         "Timisoara"
       ],
       "count": 142,
+      "dayCount": 139,
       "routeKey": "Paris - Timisoara"
     },
     {
@@ -5393,6 +6032,7 @@
         "Dubai"
       ],
       "count": 142,
+      "dayCount": 105,
       "routeKey": "Budapest - Dubai"
     },
     {
@@ -5401,6 +6041,7 @@
         "Sofia"
       ],
       "count": 141,
+      "dayCount": 120,
       "routeKey": "Krakow - Sofia"
     },
     {
@@ -5409,6 +6050,7 @@
         "Beirut"
       ],
       "count": 140,
+      "dayCount": 80,
       "routeKey": "Abu Dhabi - Beirut"
     },
     {
@@ -5417,6 +6059,7 @@
         "Madinah"
       ],
       "count": 140,
+      "dayCount": 81,
       "routeKey": "London - Madinah"
     },
     {
@@ -5425,6 +6068,7 @@
         "Budapest"
       ],
       "count": 138,
+      "dayCount": 107,
       "routeKey": "Amman - Budapest"
     },
     {
@@ -5433,6 +6077,7 @@
         "Warsaw"
       ],
       "count": 137,
+      "dayCount": 107,
       "routeKey": "Podgorica - Warsaw"
     },
     {
@@ -5441,6 +6086,7 @@
         "Timisoara"
       ],
       "count": 137,
+      "dayCount": 121,
       "routeKey": "Brussels - Timisoara"
     },
     {
@@ -5449,6 +6095,7 @@
         "Malaga"
       ],
       "count": 136,
+      "dayCount": 128,
       "routeKey": "Cluj - Malaga"
     },
     {
@@ -5457,6 +6104,7 @@
         "Vienna"
       ],
       "count": 136,
+      "dayCount": 77,
       "routeKey": "Sibiu - Vienna"
     },
     {
@@ -5465,6 +6113,7 @@
         "Vienna"
       ],
       "count": 136,
+      "dayCount": 85,
       "routeKey": "Abu Dhabi - Vienna"
     },
     {
@@ -5473,6 +6122,7 @@
         "Milan"
       ],
       "count": 134,
+      "dayCount": 97,
       "routeKey": "Heraklion - Milan"
     },
     {
@@ -5481,6 +6131,7 @@
         "Kerkyra"
       ],
       "count": 134,
+      "dayCount": 99,
       "routeKey": "Katowice - Kerkyra"
     },
     {
@@ -5489,6 +6140,7 @@
         "Wroclaw"
       ],
       "count": 134,
+      "dayCount": 87,
       "routeKey": "Nice - Wroclaw"
     },
     {
@@ -5497,6 +6149,7 @@
         "Marrakech"
       ],
       "count": 134,
+      "dayCount": 93,
       "routeKey": "Bucharest - Marrakech"
     },
     {
@@ -5505,6 +6158,7 @@
         "Budapest"
       ],
       "count": 133,
+      "dayCount": 92,
       "routeKey": "Alghero - Budapest"
     },
     {
@@ -5513,6 +6167,7 @@
         "Zakinthos Island"
       ],
       "count": 133,
+      "dayCount": 98,
       "routeKey": "Milan - Zakinthos Island"
     },
     {
@@ -5521,6 +6176,7 @@
         "Dortmund"
       ],
       "count": 133,
+      "dayCount": 133,
       "routeKey": "Brasov - Dortmund"
     },
     {
@@ -5529,6 +6185,7 @@
         "Split"
       ],
       "count": 133,
+      "dayCount": 97,
       "routeKey": "Krakow - Split"
     },
     {
@@ -5537,6 +6194,7 @@
         "Poprad/Tatry"
       ],
       "count": 133,
+      "dayCount": 113,
       "routeKey": "London - Poprad/Tatry"
     },
     {
@@ -5545,6 +6203,7 @@
         "Lublin"
       ],
       "count": 133,
+      "dayCount": 101,
       "routeKey": "Burgas - Lublin"
     },
     {
@@ -5553,6 +6212,7 @@
         "Bucharest"
       ],
       "count": 132,
+      "dayCount": 100,
       "routeKey": "Antalya - Bucharest"
     },
     {
@@ -5561,6 +6221,7 @@
         "Madrid"
       ],
       "count": 132,
+      "dayCount": 118,
       "routeKey": "Craiova - Madrid"
     },
     {
@@ -5569,6 +6230,7 @@
         "Warsaw"
       ],
       "count": 130,
+      "dayCount": 92,
       "routeKey": "Rhodes - Warsaw"
     },
     {
@@ -5577,6 +6239,7 @@
         "Sibiu"
       ],
       "count": 130,
+      "dayCount": 83,
       "routeKey": "Hamburg - Sibiu"
     },
     {
@@ -5585,6 +6248,7 @@
         "Zakinthos Island"
       ],
       "count": 129,
+      "dayCount": 93,
       "routeKey": "Warsaw - Zakinthos Island"
     },
     {
@@ -5593,6 +6257,7 @@
         "Santorini"
       ],
       "count": 129,
+      "dayCount": 94,
       "routeKey": "Bucharest - Santorini"
     },
     {
@@ -5601,6 +6266,7 @@
         "Vienna"
       ],
       "count": 126,
+      "dayCount": 113,
       "routeKey": "Larnaca - Vienna"
     },
     {
@@ -5609,6 +6275,7 @@
         "Santorini"
       ],
       "count": 126,
+      "dayCount": 91,
       "routeKey": "Budapest - Santorini"
     },
     {
@@ -5617,6 +6284,7 @@
         "Milan"
       ],
       "count": 126,
+      "dayCount": 83,
       "routeKey": "Kerkyra - Milan"
     },
     {
@@ -5625,6 +6293,7 @@
         "Tel Aviv"
       ],
       "count": 125,
+      "dayCount": 93,
       "routeKey": "Iasi - Tel Aviv"
     },
     {
@@ -5633,6 +6302,7 @@
         "Vienna"
       ],
       "count": 124,
+      "dayCount": 91,
       "routeKey": "Kerkyra - Vienna"
     },
     {
@@ -5641,6 +6311,7 @@
         "Sibiu"
       ],
       "count": 123,
+      "dayCount": 74,
       "routeKey": "Basel/Mulhouse - Sibiu"
     },
     {
@@ -5649,6 +6320,7 @@
         "Krakow"
       ],
       "count": 123,
+      "dayCount": 94,
       "routeKey": "Heraklion - Krakow"
     },
     {
@@ -5657,6 +6329,7 @@
         "Palma De Mallorca"
       ],
       "count": 120,
+      "dayCount": 99,
       "routeKey": "Bucharest - Palma De Mallorca"
     },
     {
@@ -5665,6 +6338,7 @@
         "Warsaw"
       ],
       "count": 119,
+      "dayCount": 98,
       "routeKey": "Kerkyra - Warsaw"
     },
     {
@@ -5673,6 +6347,7 @@
         "Vilnius"
       ],
       "count": 118,
+      "dayCount": 93,
       "routeKey": "Billund - Vilnius"
     },
     {
@@ -5681,6 +6356,7 @@
         "Rome"
       ],
       "count": 118,
+      "dayCount": 71,
       "routeKey": "Palma De Mallorca - Rome"
     },
     {
@@ -5689,6 +6365,7 @@
         "Rhodes"
       ],
       "count": 118,
+      "dayCount": 90,
       "routeKey": "Budapest - Rhodes"
     },
     {
@@ -5697,6 +6374,7 @@
         "Warsaw"
       ],
       "count": 117,
+      "dayCount": 93,
       "routeKey": "Dubrovnik - Warsaw"
     },
     {
@@ -5705,6 +6383,7 @@
         "London"
       ],
       "count": 117,
+      "dayCount": 117,
       "routeKey": "Brasov - London"
     },
     {
@@ -5713,6 +6392,7 @@
         "Asyut"
       ],
       "count": 116,
+      "dayCount": 60,
       "routeKey": "Abu Dhabi - Asyut"
     },
     {
@@ -5721,6 +6401,7 @@
         "Rome"
       ],
       "count": 116,
+      "dayCount": 72,
       "routeKey": "Ibiza - Rome"
     },
     {
@@ -5729,6 +6410,7 @@
         "Rome"
       ],
       "count": 114,
+      "dayCount": 71,
       "routeKey": "Heraklion - Rome"
     },
     {
@@ -5737,6 +6419,7 @@
         "Burgas"
       ],
       "count": 114,
+      "dayCount": 93,
       "routeKey": "Budapest - Burgas"
     },
     {
@@ -5745,6 +6428,7 @@
         "Warsaw"
       ],
       "count": 113,
+      "dayCount": 78,
       "routeKey": "Olbia - Warsaw"
     },
     {
@@ -5753,6 +6437,7 @@
         "Split"
       ],
       "count": 113,
+      "dayCount": 94,
       "routeKey": "Gdansk - Split"
     },
     {
@@ -5761,6 +6446,7 @@
         "Tirana"
       ],
       "count": 113,
+      "dayCount": 98,
       "routeKey": "Comiso - Tirana"
     },
     {
@@ -5769,6 +6455,7 @@
         "Gabala"
       ],
       "count": 112,
+      "dayCount": 63,
       "routeKey": "Abu Dhabi - Gabala"
     },
     {
@@ -5777,6 +6464,7 @@
         "Skiathos"
       ],
       "count": 110,
+      "dayCount": 66,
       "routeKey": "Rome - Skiathos"
     },
     {
@@ -5785,6 +6473,7 @@
         "Zakinthos Island"
       ],
       "count": 110,
+      "dayCount": 71,
       "routeKey": "Rome - Zakinthos Island"
     },
     {
@@ -5793,6 +6482,7 @@
         "Heraklion"
       ],
       "count": 110,
+      "dayCount": 88,
       "routeKey": "Belgrade - Heraklion"
     },
     {
@@ -5801,6 +6491,7 @@
         "Tirana"
       ],
       "count": 110,
+      "dayCount": 89,
       "routeKey": "Poznan - Tirana"
     },
     {
@@ -5809,6 +6500,7 @@
         "Mykonos"
       ],
       "count": 109,
+      "dayCount": 80,
       "routeKey": "Bucharest - Mykonos"
     },
     {
@@ -5817,6 +6509,7 @@
         "Kerkyra"
       ],
       "count": 109,
+      "dayCount": 84,
       "routeKey": "Cluj - Kerkyra"
     },
     {
@@ -5825,6 +6518,7 @@
         "Rome"
       ],
       "count": 108,
+      "dayCount": 72,
       "routeKey": "Mykonos - Rome"
     },
     {
@@ -5833,6 +6527,7 @@
         "Zakinthos Island"
       ],
       "count": 108,
+      "dayCount": 83,
       "routeKey": "Budapest - Zakinthos Island"
     },
     {
@@ -5841,6 +6536,7 @@
         "Vienna"
       ],
       "count": 106,
+      "dayCount": 93,
       "routeKey": "Amman - Vienna"
     },
     {
@@ -5849,6 +6545,7 @@
         "Warsaw"
       ],
       "count": 102,
+      "dayCount": 71,
       "routeKey": "Santorini - Warsaw"
     },
     {
@@ -5857,6 +6554,7 @@
         "Santorini"
       ],
       "count": 101,
+      "dayCount": 70,
       "routeKey": "Rome - Santorini"
     },
     {
@@ -5865,6 +6563,7 @@
         "Vienna"
       ],
       "count": 99,
+      "dayCount": 91,
       "routeKey": "Burgas - Vienna"
     },
     {
@@ -5873,6 +6572,7 @@
         "Heraklion"
       ],
       "count": 99,
+      "dayCount": 73,
       "routeKey": "Cluj - Heraklion"
     },
     {
@@ -5881,6 +6581,7 @@
         "Salalah"
       ],
       "count": 99,
+      "dayCount": 61,
       "routeKey": "Abu Dhabi - Salalah"
     },
     {
@@ -5889,6 +6590,7 @@
         "Tirana"
       ],
       "count": 99,
+      "dayCount": 82,
       "routeKey": "Katowice - Tirana"
     },
     {
@@ -5897,6 +6599,7 @@
         "Wroclaw"
       ],
       "count": 99,
+      "dayCount": 89,
       "routeKey": "Madrid - Wroclaw"
     },
     {
@@ -5905,6 +6608,7 @@
         "Sibiu"
       ],
       "count": 98,
+      "dayCount": 77,
       "routeKey": "Rome - Sibiu"
     },
     {
@@ -5913,6 +6617,7 @@
         "Budapest"
       ],
       "count": 97,
+      "dayCount": 79,
       "routeKey": "Antalya - Budapest"
     },
     {
@@ -5921,6 +6626,7 @@
         "Tirana"
       ],
       "count": 97,
+      "dayCount": 85,
       "routeKey": "Krakow - Tirana"
     },
     {
@@ -5929,6 +6635,7 @@
         "Rome"
       ],
       "count": 96,
+      "dayCount": 72,
       "routeKey": "Kerkyra - Rome"
     },
     {
@@ -5937,6 +6644,7 @@
         "Heraklion"
       ],
       "count": 95,
+      "dayCount": 77,
       "routeKey": "Budapest - Heraklion"
     },
     {
@@ -5945,6 +6653,7 @@
         "Milan"
       ],
       "count": 93,
+      "dayCount": 81,
       "routeKey": "Amman - Milan"
     },
     {
@@ -5953,6 +6662,7 @@
         "Vilnius"
       ],
       "count": 91,
+      "dayCount": 48,
       "routeKey": "Paris - Vilnius"
     },
     {
@@ -5961,6 +6671,7 @@
         "Warsaw"
       ],
       "count": 86,
+      "dayCount": 75,
       "routeKey": "Chania - Warsaw"
     },
     {
@@ -5969,6 +6680,7 @@
         "London"
       ],
       "count": 85,
+      "dayCount": 74,
       "routeKey": "Amman - London"
     },
     {
@@ -5977,6 +6689,7 @@
         "Warsaw"
       ],
       "count": 84,
+      "dayCount": 77,
       "routeKey": "Burgas - Warsaw"
     },
     {
@@ -5985,6 +6698,7 @@
         "Vilnius"
       ],
       "count": 83,
+      "dayCount": 42,
       "routeKey": "Rome - Vilnius"
     },
     {
@@ -5993,6 +6707,7 @@
         "Gdansk"
       ],
       "count": 80,
+      "dayCount": 71,
       "routeKey": "Burgas - Gdansk"
     },
     {
@@ -6001,6 +6716,7 @@
         "Tel Aviv"
       ],
       "count": 80,
+      "dayCount": 42,
       "routeKey": "Rhodes - Tel Aviv"
     },
     {
@@ -6009,6 +6725,7 @@
         "Frankfurt"
       ],
       "count": 79,
+      "dayCount": 67,
       "routeKey": "Bucharest - Frankfurt"
     },
     {
@@ -6017,6 +6734,7 @@
         "Vilnius"
       ],
       "count": 75,
+      "dayCount": 63,
       "routeKey": "Budapest - Vilnius"
     },
     {
@@ -6025,6 +6743,7 @@
         "Sibiu"
       ],
       "count": 75,
+      "dayCount": 59,
       "routeKey": "Frankfurt - Sibiu"
     },
     {
@@ -6033,6 +6752,7 @@
         "Rome"
       ],
       "count": 74,
+      "dayCount": 60,
       "routeKey": "Amman - Rome"
     },
     {
@@ -6041,6 +6761,7 @@
         "Sofia"
       ],
       "count": 73,
+      "dayCount": 41,
       "routeKey": "Catania - Sofia"
     },
     {
@@ -6049,6 +6770,7 @@
         "Tel Aviv"
       ],
       "count": 69,
+      "dayCount": 36,
       "routeKey": "Heraklion - Tel Aviv"
     },
     {
@@ -6057,6 +6779,7 @@
         "Wroclaw"
       ],
       "count": 66,
+      "dayCount": 63,
       "routeKey": "Chisinau - Wroclaw"
     },
     {
@@ -6065,6 +6788,7 @@
         "Rome"
       ],
       "count": 66,
+      "dayCount": 43,
       "routeKey": "Lyon - Rome"
     },
     {
@@ -6073,6 +6797,7 @@
         "Zakinthos Island"
       ],
       "count": 65,
+      "dayCount": 51,
       "routeKey": "Timisoara - Zakinthos Island"
     },
     {
@@ -6081,6 +6806,7 @@
         "Sibiu"
       ],
       "count": 65,
+      "dayCount": 62,
       "routeKey": "Madrid - Sibiu"
     },
     {
@@ -6089,6 +6815,7 @@
         "Sofia"
       ],
       "count": 65,
+      "dayCount": 37,
       "routeKey": "Bologna - Sofia"
     },
     {
@@ -6097,6 +6824,7 @@
         "Prague"
       ],
       "count": 63,
+      "dayCount": 43,
       "routeKey": "Milan - Prague"
     },
     {
@@ -6105,6 +6833,7 @@
         "Larnaca"
       ],
       "count": 62,
+      "dayCount": 61,
       "routeKey": "Chisinau - Larnaca"
     },
     {
@@ -6113,6 +6842,7 @@
         "Palma De Mallorca"
       ],
       "count": 59,
+      "dayCount": 57,
       "routeKey": "Cluj - Palma De Mallorca"
     },
     {
@@ -6121,6 +6851,7 @@
         "Sharm el-Sheikh"
       ],
       "count": 57,
+      "dayCount": 34,
       "routeKey": "Naples - Sharm el-Sheikh"
     },
     {
@@ -6129,6 +6860,7 @@
         "Chisinau"
       ],
       "count": 55,
+      "dayCount": 53,
       "routeKey": "Barcelona - Chisinau"
     },
     {
@@ -6137,6 +6869,7 @@
         "Milan"
       ],
       "count": 53,
+      "dayCount": 35,
       "routeKey": "Marsa Alam - Milan"
     },
     {
@@ -6145,6 +6878,7 @@
         "Milan"
       ],
       "count": 52,
+      "dayCount": 47,
       "routeKey": "Hurghada - Milan"
     },
     {
@@ -6153,6 +6887,7 @@
         "Naples"
       ],
       "count": 46,
+      "dayCount": 24,
       "routeKey": "Chisinau - Naples"
     },
     {
@@ -6161,6 +6896,7 @@
         "Male"
       ],
       "count": 44,
+      "dayCount": 27,
       "routeKey": "Abu Dhabi - Male"
     },
     {
@@ -6169,6 +6905,7 @@
         "Varna"
       ],
       "count": 43,
+      "dayCount": 36,
       "routeKey": "Milan - Varna"
     },
     {
@@ -6177,6 +6914,7 @@
         "Larnaca"
       ],
       "count": 42,
+      "dayCount": 23,
       "routeKey": "Gyumri - Larnaca"
     },
     {
@@ -6185,6 +6923,7 @@
         "Vienna"
       ],
       "count": 40,
+      "dayCount": 23,
       "routeKey": "Suceava - Vienna"
     },
     {
@@ -6193,6 +6932,7 @@
         "Vienna"
       ],
       "count": 39,
+      "dayCount": 30,
       "routeKey": "Hurghada - Vienna"
     },
     {
@@ -6201,6 +6941,7 @@
         "Milan"
       ],
       "count": 38,
+      "dayCount": 36,
       "routeKey": "Giza - Milan"
     },
     {
@@ -6209,6 +6950,7 @@
         "Yerevan"
       ],
       "count": 35,
+      "dayCount": 21,
       "routeKey": "Paphos - Yerevan"
     },
     {
@@ -6217,6 +6959,7 @@
         "Tirana"
       ],
       "count": 31,
+      "dayCount": 19,
       "routeKey": "Larnaca - Tirana"
     },
     {
@@ -6225,6 +6968,7 @@
         "Riyadh"
       ],
       "count": 30,
+      "dayCount": 15,
       "routeKey": "Budapest - Riyadh"
     },
     {
@@ -6233,6 +6977,7 @@
         "Sharm el-Sheikh"
       ],
       "count": 30,
+      "dayCount": 15,
       "routeKey": "Catania - Sharm el-Sheikh"
     },
     {
@@ -6241,6 +6986,7 @@
         "Lyon"
       ],
       "count": 30,
+      "dayCount": 15,
       "routeKey": "London - Lyon"
     },
     {
@@ -6249,6 +6995,7 @@
         "Sharm el-Sheikh"
       ],
       "count": 30,
+      "dayCount": 15,
       "routeKey": "London - Sharm el-Sheikh"
     },
     {
@@ -6257,6 +7004,7 @@
         "Tromso"
       ],
       "count": 30,
+      "dayCount": 15,
       "routeKey": "London - Tromso"
     },
     {
@@ -6265,6 +7013,7 @@
         "Warsaw"
       ],
       "count": 29,
+      "dayCount": 15,
       "routeKey": "Fuerteventura - Warsaw"
     },
     {
@@ -6273,6 +7022,7 @@
         "London"
       ],
       "count": 28,
+      "dayCount": 15,
       "routeKey": "Hurghada - London"
     },
     {
@@ -6281,6 +7031,7 @@
         "Salzburg"
       ],
       "count": 28,
+      "dayCount": 14,
       "routeKey": "London - Salzburg"
     },
     {
@@ -6289,6 +7040,7 @@
         "Vienna"
       ],
       "count": 28,
+      "dayCount": 14,
       "routeKey": "Riyadh - Vienna"
     },
     {
@@ -6297,6 +7049,7 @@
         "London"
       ],
       "count": 27,
+      "dayCount": 14,
       "routeKey": "Agadir - London"
     },
     {
@@ -6305,6 +7058,7 @@
         "Yerevan"
       ],
       "count": 26,
+      "dayCount": 23,
       "routeKey": "Naples - Yerevan"
     },
     {
@@ -6313,6 +7067,7 @@
         "Sharm el-Sheikh"
       ],
       "count": 26,
+      "dayCount": 14,
       "routeKey": "Budapest - Sharm el-Sheikh"
     },
     {
@@ -6321,6 +7076,7 @@
         "Katowice"
       ],
       "count": 25,
+      "dayCount": 14,
       "routeKey": "Abu Dhabi - Katowice"
     },
     {
@@ -6329,6 +7085,7 @@
         "Tirana"
       ],
       "count": 24,
+      "dayCount": 20,
       "routeKey": "Malta - Tirana"
     },
     {
@@ -6337,6 +7094,7 @@
         "Targu-Mures"
       ],
       "count": 24,
+      "dayCount": 14,
       "routeKey": "London - Targu-Mures"
     },
     {
@@ -6345,6 +7103,7 @@
         "Yerevan"
       ],
       "count": 23,
+      "dayCount": 22,
       "routeKey": "Prague - Yerevan"
     },
     {
@@ -6353,6 +7112,7 @@
         "Tirana"
       ],
       "count": 23,
+      "dayCount": 15,
       "routeKey": "Catania - Tirana"
     },
     {
@@ -6361,6 +7121,7 @@
         "Vienna"
       ],
       "count": 23,
+      "dayCount": 14,
       "routeKey": "Reykjavik - Vienna"
     },
     {
@@ -6369,6 +7130,7 @@
         "Naples"
       ],
       "count": 22,
+      "dayCount": 22,
       "routeKey": "Brasov - Naples"
     },
     {
@@ -6377,6 +7139,7 @@
         "Naples"
       ],
       "count": 22,
+      "dayCount": 14,
       "routeKey": "London - Naples"
     },
     {
@@ -6385,6 +7148,7 @@
         "Yerevan"
       ],
       "count": 21,
+      "dayCount": 20,
       "routeKey": "Hamburg - Yerevan"
     },
     {
@@ -6393,6 +7157,7 @@
         "Rome"
       ],
       "count": 21,
+      "dayCount": 13,
       "routeKey": "Dortmund - Rome"
     },
     {
@@ -6401,6 +7166,7 @@
         "Vienna"
       ],
       "count": 21,
+      "dayCount": 15,
       "routeKey": "Rome - Vienna"
     },
     {
@@ -6409,6 +7175,7 @@
         "Cluj"
       ],
       "count": 20,
+      "dayCount": 13,
       "routeKey": "Abu Dhabi - Cluj"
     },
     {
@@ -6417,6 +7184,7 @@
         "Athens"
       ],
       "count": 20,
+      "dayCount": 13,
       "routeKey": "Abu Dhabi - Athens"
     },
     {
@@ -6425,6 +7193,7 @@
         "Jeddah"
       ],
       "count": 19,
+      "dayCount": 14,
       "routeKey": "Bucharest - Jeddah"
     },
     {
@@ -6433,6 +7202,7 @@
         "Timisoara"
       ],
       "count": 18,
+      "dayCount": 9,
       "routeKey": "Basel/Mulhouse - Timisoara"
     },
     {
@@ -6441,6 +7211,7 @@
         "Yerevan"
       ],
       "count": 18,
+      "dayCount": 18,
       "routeKey": "Paris - Yerevan"
     },
     {
@@ -6449,6 +7220,7 @@
         "Timisoara"
       ],
       "count": 17,
+      "dayCount": 9,
       "routeKey": "Naples - Timisoara"
     },
     {
@@ -6457,6 +7229,7 @@
         "Verona"
       ],
       "count": 16,
+      "dayCount": 9,
       "routeKey": "Gdansk - Verona"
     },
     {
@@ -6465,6 +7238,7 @@
         "Warsaw"
       ],
       "count": 16,
+      "dayCount": 9,
       "routeKey": "Verona - Warsaw"
     },
     {
@@ -6473,6 +7247,7 @@
         "Warsaw"
       ],
       "count": 16,
+      "dayCount": 13,
       "routeKey": "Marrakech - Warsaw"
     },
     {
@@ -6481,6 +7256,7 @@
         "Vilnius"
       ],
       "count": 15,
+      "dayCount": 9,
       "routeKey": "Lyon - Vilnius"
     },
     {
@@ -6489,6 +7265,7 @@
         "Rome"
       ],
       "count": 15,
+      "dayCount": 10,
       "routeKey": "Eindhoven - Rome"
     },
     {
@@ -6497,6 +7274,7 @@
         "Timisoara"
       ],
       "count": 14,
+      "dayCount": 8,
       "routeKey": "Nuremberg - Timisoara"
     },
     {
@@ -6505,6 +7283,7 @@
         "Timisoara"
       ],
       "count": 13,
+      "dayCount": 9,
       "routeKey": "Frankfurt - Timisoara"
     },
     {
@@ -6513,6 +7292,7 @@
         "Timisoara"
       ],
       "count": 12,
+      "dayCount": 10,
       "routeKey": "Larnaca - Timisoara"
     },
     {
@@ -6521,6 +7301,7 @@
         "Stuttgart"
       ],
       "count": 11,
+      "dayCount": 10,
       "routeKey": "Skopje - Stuttgart"
     },
     {
@@ -6529,6 +7310,7 @@
         "Vienna"
       ],
       "count": 11,
+      "dayCount": 9,
       "routeKey": "Dubai - Vienna"
     },
     {
@@ -6537,6 +7319,7 @@
         "Nuremberg"
       ],
       "count": 10,
+      "dayCount": 10,
       "routeKey": "Brasov - Nuremberg"
     },
     {
@@ -6545,6 +7328,7 @@
         "Warsaw"
       ],
       "count": 9,
+      "dayCount": 9,
       "routeKey": "Lyon - Warsaw"
     },
     {
@@ -6553,6 +7337,7 @@
         "Warsaw"
       ],
       "count": 4,
+      "dayCount": 4,
       "routeKey": "Turin - Warsaw"
     },
     {
@@ -6561,6 +7346,7 @@
         "Vienna"
       ],
       "count": 3,
+      "dayCount": 2,
       "routeKey": "Naples - Vienna"
     },
     {
@@ -6569,11 +7355,13 @@
         "Valencia"
       ],
       "count": 2,
+      "dayCount": 1,
       "routeKey": "Gdansk - Valencia"
     }
   ],
   "metadata": {
     "totalFiles": 218,
+    "totalDays": 218,
     "totalRoutes": 787,
     "topRoutesShown": 787
   }

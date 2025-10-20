@@ -121,15 +121,7 @@
             stroke-width: 2;
             cursor: pointer;
         }
-        .city-label {
-            transition: opacity 0.3s ease;
-            font-family: Arial, sans-serif;
-            font-size: 10px;
-            font-weight: bold;
-            fill: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
-            pointer-events: none;
-        }
+
         .tooltip {
             position: absolute;
             padding: 10px;
@@ -164,22 +156,33 @@
             stroke-width: 0.5;
         }
         .map-controls {
-            text-align: center;
-            margin: 10px 0;
-            font-size: 12px;
-            color: #666;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1000;
         }
         .zoom-button {
-            background: #a71c49;
+            background: rgba(167, 28, 73, 0.9);
             color: white;
             border: none;
-            padding: 5px 10px;
-            margin: 0 5px;
-            border-radius: 3px;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
         }
         .zoom-button:hover {
-            background: #8a1739;
+            background: rgba(138, 23, 57, 0.95);
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -210,7 +213,7 @@
         </div>
 
         <div class="chart-container">
-            <div id="route-map" style="display: none;"></div>
+            <div id="route-map" style="display: none; position: relative;"></div>
         </div>
         
         <div class="last-updated" id="last-updated"></div>
@@ -625,7 +628,8 @@
         }
 
         // Function to create route map using D3.js with real world map data
-        function createRouteMap(topRoutes) {
+        function createRouteMap(data) {
+            const topRoutes = data.topRoutes;
             console.log('Creating professional D3.js route map with real world data...');
             
             function draw() {
@@ -638,15 +642,14 @@
                     .attr('class', 'chart-title')
                     .html(`Wizz Air Complete Route Network<br/><span style="font-size: 12px; color: #666;">Showing all ${topRoutes.length} available routes</span>`);
 
-                // Add map controls
+                // Add map controls as overlay
                 d3.select('#route-map')
                     .append('div')
                     .attr('class', 'map-controls')
                     .html(`
-                        <button class="zoom-button" id="zoom-in">Zoom In</button>
-                        <button class="zoom-button" id="zoom-out">Zoom Out</button>
-                        <button class="zoom-button" id="reset-zoom">Reset View</button>
-                        <span style="margin-left: 20px;">Drag to pan • Scroll to zoom</span>
+                        <button class="zoom-button" id="zoom-in" title="Zoom In">+</button>
+                        <button class="zoom-button" id="zoom-out" title="Zoom Out">−</button>
+                        <button class="zoom-button" id="reset-zoom" title="Reset View">⌂</button>
                     `);
 
                 // Get container width for responsiveness
@@ -665,7 +668,9 @@
                     .style('margin', '0 auto')
                     .style('border', '1px solid #ddd')
                     .style('border-radius', '8px')
-                    .style('background-color', '#e6f3ff');
+                    .style('background-color', '#e6f3ff')
+                    .style('shape-rendering', 'geometricPrecision')
+                    .style('image-rendering', 'auto');
 
                 // Create projection centered on Europe with better coverage
                 const projection = d3.geoMercator()
@@ -675,7 +680,7 @@
 
                 const path = d3.geoPath().projection(projection);
 
-                // Create zoom behavior with smart scaling
+                // Create zoom behavior with better event handling
                 const zoom = d3.zoom()
                     .scaleExtent([0.5, 10])
                     .on('zoom', function(event) {
@@ -684,20 +689,16 @@
                         // Apply transform to zoomable elements
                         mapGroup.attr('transform', transform);
                         
-                        // Keep city circles and labels at consistent sizes
+                        // Keep city circles at consistent sizes
                         const scale = transform.k;
-                        const adjustedScale = Math.pow(scale, 0.8); // Much stronger scaling reduction
+                        const adjustedScale = Math.pow(scale, 0.8);
                         
                         svg.selectAll('.city-circle')
-                            .attr('r', d => Math.max(1, Math.sqrt(d.routeCount) * 0.8 / adjustedScale))
-                            .style('stroke-width', 2 / adjustedScale);
+                            .attr('r', 3 / adjustedScale)
+                            .style('stroke-width', Math.max(0.5, 2 / adjustedScale));
                             
-                        svg.selectAll('.city-label')
-                            .style('font-size', (11 / adjustedScale) + 'px');
-                            
-                        // Keep route lines at constant thickness - no scaling
                         svg.selectAll('.route-line')
-                            .style('stroke-width', d => Math.max(1.5, Math.log(d.count + 1) * 1.2) / scale);
+                            .style('stroke-width', d => Math.max(0.8, Math.log(d.count + 1) * 1.2) / scale);
                     });
 
                 svg.call(zoom);
@@ -749,6 +750,9 @@
                     // Create tooltip
                     const tooltip = d3.select('#tooltip');
 
+                    // Get total days for percentage calculation
+                    const totalDays = data.metadata.totalDays;
+
                     // Process routes and cities
                     const citySet = new Set();
                     const routeLines = [];
@@ -768,7 +772,8 @@
                                 source: proj1,
                                 target: proj2,
                                 cities: route.cities,
-                                count: route.count
+                                count: route.count,
+                                dayCount: route.dayCount
                             });
                         }
                     });
@@ -795,7 +800,7 @@
                             tooltip
                                 .style('opacity', 1)
                                 .html(`<strong>${d.cities[0]} ↔ ${d.cities[1]}</strong><br/>
-                                       Flights available: ${d.count} times`)
+                                       Available ${((d.dayCount / totalDays) * 100).toFixed(1)}% of days`)
                                 .style('left', (event.pageX + 10) + 'px')
                                 .style('top', (event.pageY - 10) + 'px');
                         })
@@ -825,7 +830,7 @@
                         .attr('class', 'city-circle')
                         .attr('cx', d => d.position[0])
                         .attr('cy', d => d.position[1])
-                        .attr('r', d => Math.max(2, Math.sqrt(d.routeCount) * 0.8))
+                        .attr('r', 3)
                         .style('fill', '#a71c49')
                         .style('stroke', 'white')
                         .style('stroke-width', 2)
@@ -871,17 +876,10 @@
                                     connectedCities.has(city.name) ? 1 : 0.5
                                 );
                             
-                            // Dim city labels that aren't connected
-                            mapGroup.selectAll('.city-label')
-                                .style('opacity', function(d) {
-                                    return connectedCities.has(d.name) ? 1 : 0.4;
-                                });
-                            
                             tooltip
                                 .style('opacity', 1)
                                 .html(`<strong>${d.name}</strong><br/>
-                                       ${d.routeCount} routes shown<br/>
-                                       ${connectedRoutes.length} routes highlighted`)
+                                       ${d.routeCount} routes`)
                                 .style('left', (event.pageX + 10) + 'px')
                                 .style('top', (event.pageY - 10) + 'px');
                         })
@@ -905,78 +903,27 @@
                                 .style('fill', '#a71c49')
                                 .style('stroke-opacity', 1);
                             
-                            // Reset all city labels
-                            mapGroup.selectAll('.city-label')
-                                .style('opacity', 1);
-                            
                             tooltip.style('opacity', 0);
                         });
-
-                    // Add city labels for major hubs - only show big hubs that aren't too close together
-                    const majorHubs = cityData.filter(d => d.routeCount >= 8);  // Only cities with 8+ routes
-                    
-                    // Sort by route count descending to prioritize biggest hubs
-                    majorHubs.sort((a, b) => b.routeCount - a.routeCount);
-                    
-                    // Filter out labels that are too close together using distance-based filtering
-                    const minDistance = 60; // Minimum pixel distance between labels
-                    const selectedHubs = [];
-                    
-                    for (const hub of majorHubs) {
-                        let tooClose = false;
-                        for (const selected of selectedHubs) {
-                            const dx = hub.position[0] - selected.position[0];
-                            const dy = hub.position[1] - selected.position[1];
-                            const distance = Math.sqrt(dx * dx + dy * dy);
-                            if (distance < minDistance) {
-                                tooClose = true;
-                                break;
-                            }
-                        }
-                        if (!tooClose) {
-                            selectedHubs.push(hub);
-                        }
-                    }
-                    
-                    console.log(`Showing ${selectedHubs.length} city labels out of ${majorHubs.length} major hubs`);
-                    
-                    mapGroup.selectAll('.city-label')
-                        .data(selectedHubs)
-                        .enter()
-                        .append('text')
-                        .attr('class', 'city-label')
-                        .attr('x', d => d.position[0])
-                        .attr('y', d => d.position[1] + 4)  // Center the text vertically on the circle
-                        .attr('text-anchor', 'middle')
-                        .style('font-size', '10px')
-                        .style('fill', 'white')
-                        .style('font-weight', 'bold')
-                        .style('pointer-events', 'none')
-                        .style('text-shadow', '1px 1px 2px rgba(0,0,0,0.8)')
-                        .text(d => {
-                            // Truncate long city names for better readability
-                            const name = d.name;
-                            if (name.length > 12) {
-                                return name.substring(0, 10) + '...';
-                            }
-                            return name;
-                        })
-                        .datum(d => d); // Store the full data for hover interactions
 
                     console.log(`Professional route map created with ${routeLines.length} routes and ${cityData.length} cities`);
                 }
 
-                // Zoom controls
-                d3.select('#zoom-in').on('click', () => {
-                    svg.transition().duration(300).call(zoom.scaleBy, 1.5);
+                // Zoom controls with direct zoom manipulation
+                d3.select('#zoom-in').on('click', function() {
+                    const currentTransform = d3.zoomTransform(svg.node());
+                    const newK = Math.min(currentTransform.k * 1.5, 10);
+                    svg.call(zoom.transform, d3.zoomIdentity.translate(currentTransform.x, currentTransform.y).scale(newK));
                 });
 
-                d3.select('#zoom-out').on('click', () => {
-                    svg.transition().duration(300).call(zoom.scaleBy, 1 / 1.5);
+                d3.select('#zoom-out').on('click', function() {
+                    const currentTransform = d3.zoomTransform(svg.node());
+                    const newK = Math.max(currentTransform.k / 1.5, 0.5);
+                    svg.call(zoom.transform, d3.zoomIdentity.translate(currentTransform.x, currentTransform.y).scale(newK));
                 });
 
-                d3.select('#reset-zoom').on('click', () => {
-                    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity);
+                d3.select('#reset-zoom').on('click', function() {
+                    svg.call(zoom.transform, d3.zoomIdentity);
                 });
             }
 
@@ -1014,7 +961,7 @@
                 // Create route map
                 if (data.topRoutes && data.topRoutes.length > 0) {
                     document.getElementById('route-map').style.display = 'block';
-                    createRouteMap(data.topRoutes);
+                    createRouteMap(data);
                 }
                 
                 // Update last updated timestamp

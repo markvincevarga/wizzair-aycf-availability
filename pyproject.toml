@@ -12,3 +12,8 @@ dependencies = [
     "requests>=2.32.3",
     "typer>=0.15.2",
 ]
+
+[tool.uv.workspace]
+members = [
+    "docs/flight-analytics",
+]

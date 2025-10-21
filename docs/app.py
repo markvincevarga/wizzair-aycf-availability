@@ -282,11 +282,6 @@ def main():
     else:
         st.warning("No data available for the selected filters.")
     
-    # Extensible section for future charts
-    st.markdown("---")
-    st.subheader("🔧 Additional Analytics")
-    st.info("This section is ready for additional charts and analysis. Future diagrams can be easily added here.")
-    
     # Data preview (filtered)
     with st.expander("📋 Data Preview"):
         filtered_data = analytics.filter_data(hub, destination)

@@ -174,11 +174,111 @@ class FlightAnalytics:
                 direction_data = daily_counts[daily_counts['direction'] == direction]
                 avg_flights = direction_data['flight_count'].mean()
                 fig.add_hline(y=avg_flights, line_dash="dash",
-                             annotation_text=f"Avg {direction}: {avg_flights:.0f}")
+                             annotation_text=f"Avg {direction}: {avg_flights:.2f}")
         else:
             avg_flights = self.get_average_daily_flights(hub, destination)
             fig.add_hline(y=avg_flights, line_dash="dash", line_color="red",
-                         annotation_text=f"Average: {avg_flights:.0f}")
+                         annotation_text=f"Average: {avg_flights:.2f}")
+        
+        return fig
+    
+    def get_weekday_analysis(self, hub=None, destination=None):
+        """Analyze flights by weekday with different logic based on filtering"""
+        filtered_data = self.filter_data(hub, destination)
+        if filtered_data.empty:
+            return pd.DataFrame()
+        
+        # Add weekday information
+        filtered_data = filtered_data.copy()
+        filtered_data['weekday'] = filtered_data['collection_date'].dt.day_name()
+        filtered_data['weekday_num'] = filtered_data['collection_date'].dt.dayofweek
+        
+        if hub and destination:
+            # For hub+destination: Calculate percentage of days with flights for each direction
+            weekday_stats = []
+            
+            for direction in [f"{hub} → {destination}", f"{destination} → {hub}"]:
+                direction_data = filtered_data[filtered_data['direction'] == direction]
+                
+                for weekday_num, weekday_name in enumerate(['Monday', 'Tuesday', 'Wednesday', 
+                                                           'Thursday', 'Friday', 'Saturday', 'Sunday']):
+                    # Get all dates for this weekday in the data range
+                    all_dates = filtered_data['collection_date'].unique()
+                    weekday_dates = [d for d in all_dates if pd.to_datetime(d).dayofweek == weekday_num]
+                    total_possible_days = len(weekday_dates)
+                    
+                    # Count how many of those days had flights
+                    days_with_flights = len(direction_data[
+                        direction_data['weekday_num'] == weekday_num
+                    ]['collection_date'].unique())
+                    
+                    percentage = (days_with_flights / total_possible_days * 100) if total_possible_days > 0 else 0
+                    
+                    weekday_stats.append({
+                        'weekday': weekday_name,
+                        'weekday_num': weekday_num,
+                        'direction': direction,
+                        'percentage': percentage,
+                        'days_with_flights': days_with_flights,
+                        'total_days': total_possible_days
+                    })
+            
+            return pd.DataFrame(weekday_stats)
+        
+        else:
+            # For hub-only or no filtering: Calculate average flights per weekday
+            weekday_counts = filtered_data.groupby(['collection_date', 'weekday', 'weekday_num']).size().reset_index(name='flight_count')
+            weekday_avg = weekday_counts.groupby(['weekday', 'weekday_num'])['flight_count'].mean().reset_index()
+            weekday_avg = weekday_avg.sort_values('weekday_num')
+            
+            return weekday_avg
+    
+    def create_weekday_chart(self, hub=None, destination=None):
+        """Create a chart showing weekday flight analysis"""
+        weekday_data = self.get_weekday_analysis(hub, destination)
+        if weekday_data.empty:
+            return None
+        
+        if hub and destination:
+            # Create percentage chart with bars for each direction
+            title = f'Flight Availability by Weekday: {hub} ↔ {destination}'
+            fig = px.bar(weekday_data, x='weekday', y='percentage', color='direction',
+                        title=title, barmode='group',
+                        labels={'weekday': 'Day of Week', 'percentage': 'Percentage of Days with Flights (%)'})
+            
+            # Sort x-axis by weekday order
+            fig.update_xaxes(categoryorder='array', 
+                           categoryarray=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+            
+            # Add percentage labels on bars
+            fig.update_traces(texttemplate='%{y:.2f}%', textposition='outside', hovertemplate='%{x}: %{y:.2f}%<extra></extra>')
+            
+        else:
+            # Create average flights chart
+            if hub:
+                title = f'Average Flights by Weekday from {hub}'
+            elif destination:
+                title = f'Average Flights by Weekday to {destination}'
+            else:
+                title = 'Average Flights by Weekday'
+                
+            fig = px.bar(weekday_data, x='weekday', y='flight_count',
+                        title=title,
+                        labels={'weekday': 'Day of Week', 'flight_count': 'Average Number of Flights'})
+            
+            # Sort x-axis by weekday order
+            fig.update_xaxes(categoryorder='array', 
+                           categoryarray=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'])
+            
+            # Add value labels on bars
+            fig.update_traces(texttemplate='%{y:.2f}', textposition='outside', hovertemplate='%{x}: %{y:.2f}<extra></extra>')
+        
+        # Customize layout
+        fig.update_layout(
+            xaxis_title="Day of Week",
+            showlegend=bool(hub and destination),
+            height=400
+        )
         
         return fig
 
@@ -243,7 +343,7 @@ def main():
     
     with col1:
         avg_flights = analytics.get_average_daily_flights(hub, destination)
-        st.metric("Average Daily Flights", f"{avg_flights:.0f}")
+        st.metric("Average Daily Flights", f"{avg_flights:.2f}")
     
     with col2:
         start_date, end_date = analytics.get_data_collection_interval(hub, destination)
@@ -281,6 +381,15 @@ def main():
         st.plotly_chart(chart, config=config, use_container_width=True)
     else:
         st.warning("No data available for the selected filters.")
+    
+    # Weekday analysis chart
+    st.markdown("---")
+    weekday_chart = analytics.create_weekday_chart(hub, destination)
+    if weekday_chart:
+        config = {'displayModeBar': True, 'displaylogo': False}
+        st.plotly_chart(weekday_chart, config=config, use_container_width=True)
+    else:
+        st.warning("No weekday data available for the selected filters.")
     
     # Data preview (filtered)
     with st.expander("📋 Data Preview"):

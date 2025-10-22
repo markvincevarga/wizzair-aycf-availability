@@ -3,6 +3,55 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+from typing import Optional, Tuple, List, Union
+
+# Configuration constants
+APP_CONFIG = {
+    "page_title": "Wizz AYCF Analytics",
+    "page_icon": "✈️",
+    "layout": "wide",
+}
+
+# Chart configuration
+CHART_CONFIG = {
+    "displayModeBar": True,
+    "displaylogo": False,
+}
+
+# Map configuration
+MAP_CONFIG = {
+    "style": "open-street-map",
+    "zoom": 3,
+    "center": {"lat": 50, "lon": 10},
+}
+
+# Layout configuration for maps
+MAP_LAYOUT_CONFIG = {
+    "height": 500,
+    "margin": {"l": 0, "r": 0, "t": 30, "b": 50},
+}
+
+# Airport visualization constants
+AIRPORT_DOT_SIZE = 10
+AIRPORT_COLORS = {
+    "hub": "red",
+    "destination": "green",
+    "other": "blue",
+}
+
+# Weekday order for chart display
+WEEKDAY_ORDER = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+]
+
+# Data path search order
+DATA_PATHS = [Path("../data"), Path("data"), Path("./data")]
 
 # Airport coordinates dictionary - corrected coordinates for actual airports
 AIRPORT_COORDINATES = {
@@ -184,52 +233,170 @@ AIRPORT_COORDINATES = {
 
 
 class FlightAnalytics:
-    def __init__(self, data_path=None):
+    def __init__(self, data_path: Optional[Union[str, Path]] = None) -> None:
         if data_path is None:
             # Try different paths depending on where the script is run from
-            possible_paths = [Path("../data"), Path("data"), Path("./data")]
             self.data_path = None
-            for path in possible_paths:
+            for path in DATA_PATHS:
                 if path.exists() and list(path.glob("*.csv")):
                     self.data_path = path
                     break
             if self.data_path is None:
-                self.data_path = Path("../data")  # fallback
+                self.data_path = DATA_PATHS[0]  # fallback
         else:
             self.data_path = Path(data_path)
         self._load_data()
 
-    def _load_data(self):
+    def _load_data(self) -> None:
         """Load all CSV files from the data directory"""
         self.data = pd.DataFrame()  # Initialize data attribute
 
-        csv_files = list(self.data_path.glob("*.csv"))
+        try:
+            csv_files = list(self.data_path.glob("*.csv"))
+        except (OSError, PermissionError) as e:
+            st.error(f"Error accessing data directory {self.data_path}: {e}")
+            return
+
         if not csv_files:
             st.error(f"No CSV files found in {self.data_path}")
             return
 
         dfs = []
+        failed_files = []
+
         for file in csv_files:
             try:
                 df = pd.read_csv(file)
+
+                # Validate required columns
+                required_columns = [
+                    "departure_from",
+                    "departure_to",
+                    "availability_start",
+                    "availability_end",
+                ]
+                missing_columns = [
+                    col for col in required_columns if col not in df.columns
+                ]
+                if missing_columns:
+                    failed_files.append(
+                        f"{file.name}: Missing columns {missing_columns}"
+                    )
+                    continue
+
                 # Extract date from filename
-                date_str = file.stem.split("T")[0]
-                df["collection_date"] = pd.to_datetime(date_str)
+                try:
+                    date_str = file.stem.split("T")[0]
+                    pd.to_datetime(date_str)  # Validate date format
+                    df["collection_date"] = pd.to_datetime(date_str)
+                except (ValueError, IndexError):
+                    failed_files.append(f"{file.name}: Invalid date format in filename")
+                    continue
+
                 dfs.append(df)
+
+            except pd.errors.EmptyDataError:
+                failed_files.append(f"{file.name}: File is empty")
+            except pd.errors.ParserError as e:
+                failed_files.append(f"{file.name}: CSV parsing error - {e}")
             except Exception as e:
-                st.warning(f"Error loading {file}: {e}")
+                failed_files.append(f"{file.name}: Unexpected error - {e}")
+
+        # Report any failed files
+        if failed_files:
+            st.warning(
+                f"Failed to load {len(failed_files)} files:\n" + "\n".join(failed_files)
+            )
 
         if dfs:
-            self.data = pd.concat(dfs, ignore_index=True)
-            self.data["availability_start"] = pd.to_datetime(
-                self.data["availability_start"]
-            )
-            self.data["availability_end"] = pd.to_datetime(
-                self.data["availability_end"]
-            )
-            self.data["data_generated"] = pd.to_datetime(self.data["data_generated"])
+            try:
+                self.data = pd.concat(dfs, ignore_index=True)
 
-    def get_unique_locations(self):
+                # Convert date columns with validation
+                for date_col in [
+                    "availability_start",
+                    "availability_end",
+                    "data_generated",
+                ]:
+                    if date_col in self.data.columns:
+                        try:
+                            self.data[date_col] = pd.to_datetime(self.data[date_col])
+                        except Exception as e:
+                            st.warning(f"Error converting {date_col} to datetime: {e}")
+
+            except Exception as e:
+                st.error(f"Error combining data files: {e}")
+                self.data = pd.DataFrame()
+        else:
+            st.error("No valid data files could be loaded")
+
+    def _validate_data_integrity(self) -> bool:
+        """Validate the integrity of loaded data"""
+        if self.data.empty:
+            return False
+
+        issues = []
+
+        # Check for required columns
+        required_columns = [
+            "departure_from",
+            "departure_to",
+            "availability_start",
+            "availability_end",
+            "collection_date",
+        ]
+        missing_columns = [
+            col for col in required_columns if col not in self.data.columns
+        ]
+        if missing_columns:
+            issues.append(f"Missing required columns: {missing_columns}")
+
+        # Check for null values in critical columns
+        for col in ["departure_from", "departure_to"]:
+            if col in self.data.columns:
+                null_count = self.data[col].isnull().sum()
+                if null_count > 0:
+                    issues.append(f"Found {null_count} null values in {col}")
+
+        # Check date consistency
+        if (
+            "availability_start" in self.data.columns
+            and "availability_end" in self.data.columns
+        ):
+            invalid_dates = self.data[
+                self.data["availability_start"] > self.data["availability_end"]
+            ]
+            if len(invalid_dates) > 0:
+                issues.append(
+                    f"Found {len(invalid_dates)} records with start date after end date"
+                )
+
+        if issues:
+            st.warning("Data integrity issues found:\n" + "\n".join(issues))
+            return False
+
+        return True
+
+    def _validate_location_exists(
+        self, location: Optional[str], location_type: str = "location"
+    ) -> bool:
+        """Validate that a location exists in the data"""
+        if not location:
+            return True  # None/empty is valid
+
+        if self.data.empty:
+            return False
+
+        all_locations = set(self.data["departure_from"].unique()) | set(
+            self.data["departure_to"].unique()
+        )
+        if location not in all_locations:
+            st.error(f"Invalid {location_type}: '{location}' not found in data")
+            return False
+
+        return True
+
+    def get_unique_locations(self) -> Tuple[List[str], List[str]]:
         """Get unique departure and destination locations"""
         if self.data.empty:
             return [], []
@@ -238,47 +405,62 @@ class FlightAnalytics:
         destinations = sorted(self.data["departure_to"].unique())
         return departures, destinations
 
-    def filter_data(self, hub=None, destination=None):
-        """Filter data based on hub and/or destination"""
+    def filter_data(
+        self, hub: Optional[str] = None, destination: Optional[str] = None
+    ) -> pd.DataFrame:
+        """Filter data based on hub and/or destination with validation"""
         if self.data.empty:
             return pd.DataFrame()
 
-        filtered_data = self.data.copy()
+        # Validate locations exist
+        if not self._validate_location_exists(hub, "hub"):
+            return pd.DataFrame()
+        if not self._validate_location_exists(destination, "destination"):
+            return pd.DataFrame()
 
-        if hub and destination:
-            # Show flights both directions: hub->destination and destination->hub
-            filtered_data = filtered_data[
-                (
-                    (filtered_data["departure_from"] == hub)
-                    & (filtered_data["departure_to"] == destination)
-                )
-                | (
-                    (filtered_data["departure_from"] == destination)
-                    & (filtered_data["departure_to"] == hub)
-                )
-            ].copy()
-            # Add direction column for separate tracking
-            filtered_data["direction"] = filtered_data.apply(
-                lambda row: f"{hub} → {destination}"
-                if row["departure_from"] == hub
-                else f"{destination} → {hub}",
-                axis=1,
-            )
-        elif hub:
-            # Show all flights from the hub
-            filtered_data = filtered_data[filtered_data["departure_from"] == hub].copy()
-            filtered_data["direction"] = f"From {hub}"
-        elif destination:
-            # Show all flights to the destination
-            filtered_data = filtered_data[
-                filtered_data["departure_to"] == destination
-            ].copy()
-            filtered_data["direction"] = f"To {destination}"
-        else:
-            # No filtering
-            filtered_data["direction"] = "All Flights"
+        try:
+            filtered_data = self.data.copy()
 
-        return filtered_data
+            if hub and destination:
+                # Show flights both directions: hub->destination and destination->hub
+                filtered_data = filtered_data[
+                    (
+                        (filtered_data["departure_from"] == hub)
+                        & (filtered_data["departure_to"] == destination)
+                    )
+                    | (
+                        (filtered_data["departure_from"] == destination)
+                        & (filtered_data["departure_to"] == hub)
+                    )
+                ].copy()
+                # Add direction column for separate tracking
+                filtered_data["direction"] = filtered_data.apply(
+                    lambda row: f"{hub} → {destination}"
+                    if row["departure_from"] == hub
+                    else f"{destination} → {hub}",
+                    axis=1,
+                )
+            elif hub:
+                # Show all flights from the hub
+                filtered_data = filtered_data[
+                    filtered_data["departure_from"] == hub
+                ].copy()
+                filtered_data["direction"] = f"From {hub}"
+            elif destination:
+                # Show all flights to the destination
+                filtered_data = filtered_data[
+                    filtered_data["departure_to"] == destination
+                ].copy()
+                filtered_data["direction"] = f"To {destination}"
+            else:
+                # No filtering
+                filtered_data["direction"] = "All Flights"
+
+            return filtered_data
+
+        except Exception as e:
+            st.error(f"Error filtering data: {e}")
+            return pd.DataFrame()
 
     def get_daily_flight_counts(self, hub=None, destination=None):
         """Calculate daily flight counts with optional filtering"""
@@ -330,7 +512,8 @@ class FlightAnalytics:
         return daily_counts
 
     def get_average_daily_flights(self, hub=None, destination=None):
-        """Calculate average number of daily available flights with optional filtering"""
+        """Calculate average number of daily available flights with optional
+        filtering"""
         daily_counts = self.get_daily_flight_counts(hub, destination)
         if daily_counts.empty:
             return 0
@@ -396,393 +579,357 @@ class FlightAnalytics:
         max_date = filtered_data["collection_date"].max()
         return min_date, max_date
 
-    def create_daily_flights_chart(self, hub=None, destination=None):
+    def create_daily_flights_chart(
+        self, hub: Optional[str] = None, destination: Optional[str] = None
+    ) -> Optional[go.Figure]:
         """Create a chart showing daily flight counts with optional filtering"""
-        daily_counts = self.get_daily_flight_counts(hub, destination)
-        if daily_counts.empty:
-            return None
+        try:
+            daily_counts = self.get_daily_flight_counts(hub, destination)
+            if daily_counts.empty:
+                return None
 
-        # Create title based on filters
-        if hub and destination:
-            title = f"Daily Available Flights: {hub} ↔ {destination}"
-            # Create separate lines for each direction
-            fig = px.line(
-                daily_counts,
-                x="collection_date",
-                y="flight_count",
-                color="direction",
-                title=title,
-                labels={"collection_date": "Date", "flight_count": "Number of Flights"},
-            )
-        elif hub:
-            title = f"Daily Available Flights from {hub}"
-            fig = px.line(
-                daily_counts,
-                x="collection_date",
-                y="flight_count",
-                title=title,
-                labels={"collection_date": "Date", "flight_count": "Number of Flights"},
-            )
-        elif destination:
-            title = f"Daily Available Flights to {destination}"
-            fig = px.line(
-                daily_counts,
-                x="collection_date",
-                y="flight_count",
-                title=title,
-                labels={"collection_date": "Date", "flight_count": "Number of Flights"},
-            )
-        else:
-            title = "Daily Available Flights Over Time"
-            fig = px.line(
-                daily_counts,
-                x="collection_date",
-                y="flight_count",
-                title=title,
-                labels={"collection_date": "Date", "flight_count": "Number of Flights"},
+            # Create title based on filters
+            title = self._generate_chart_title(
+                "Daily Available Flights", hub, destination
             )
 
-        # Add average line(s)
-        if hub and destination:
-            # Add average lines for each direction
-            for direction in daily_counts["direction"].unique():
-                direction_data = daily_counts[daily_counts["direction"] == direction]
-                avg_flights = direction_data["flight_count"].mean()
+            # Create chart based on whether we have hub+destination filtering
+            if hub and destination:
+                # Create separate lines for each direction
+                fig = px.line(
+                    daily_counts,
+                    x="collection_date",
+                    y="flight_count",
+                    color="direction",
+                    title=title,
+                    labels={
+                        "collection_date": "Date",
+                        "flight_count": "Number of Flights",
+                    },
+                )
+            else:
+                fig = px.line(
+                    daily_counts,
+                    x="collection_date",
+                    y="flight_count",
+                    title=title,
+                    labels={
+                        "collection_date": "Date",
+                        "flight_count": "Number of Flights",
+                    },
+                )
+
+            # Add average line(s)
+            if hub and destination:
+                # Add average lines for each direction
+                for direction in daily_counts["direction"].unique():
+                    direction_data = daily_counts[
+                        daily_counts["direction"] == direction
+                    ]
+                    avg_flights = direction_data["flight_count"].mean()
+                    fig.add_hline(
+                        y=avg_flights,
+                        line_dash="dash",
+                        annotation_text=f"Avg {direction}: {avg_flights:.2f}",
+                    )
+            else:
+                avg_flights = self.get_average_daily_flights(hub, destination)
                 fig.add_hline(
                     y=avg_flights,
                     line_dash="dash",
-                    annotation_text=f"Avg {direction}: {avg_flights:.2f}",
+                    line_color="red",
+                    annotation_text=f"Average: {avg_flights:.2f}",
                 )
+
+            return fig
+
+        except Exception as e:
+            st.error(f"Error creating daily flights chart: {e}")
+            return None
+
+    def _calculate_flight_probabilities(self, flights, total_collection_days):
+        """Calculate flight availability probabilities for given flights"""
+        if len(flights) == 0:
+            return 0, 0
+
+        unique_days = len(flights["collection_date"].unique())
+        probability = (
+            (unique_days / total_collection_days * 100)
+            if total_collection_days > 0
+            else 0
+        )
+        return probability, unique_days
+
+    def _create_airport_data(self, name, coords, color, hover_text, size=None):
+        """Create airport data dictionary for map visualization"""
+        return {
+            "lat": coords[0],
+            "lon": coords[1],
+            "name": name,
+            "color": color,
+            "size": size or AIRPORT_DOT_SIZE,
+            "hover_text": hover_text,
+        }
+
+    def _format_destinations_text(self, destinations, max_display=10):
+        """Format destination list for hover text display"""
+        if len(destinations) <= max_display:
+            return ", ".join(destinations)
         else:
-            avg_flights = self.get_average_daily_flights(hub, destination)
-            fig.add_hline(
-                y=avg_flights,
-                line_dash="dash",
-                line_color="red",
-                annotation_text=f"Average: {avg_flights:.2f}",
+            return (
+                ", ".join(destinations[:max_display])
+                + f", ... (+{len(destinations) - max_display} more)"
             )
 
-        return fig
+    def _get_hub_airports_data(self, hub, filtered_data, total_collection_days):
+        """Get airport data when hub is selected"""
+        airports_data = []
+        hub_outbound = filtered_data[filtered_data["departure_from"] == hub]
+        hub_inbound = self.data[self.data["departure_to"] == hub]
+        destinations_from_hub = set(hub_outbound["departure_to"].unique())
 
-    def create_route_map(self, hub=None, destination=None):
+        # Add hub airport
+        if hub in AIRPORT_COORDINATES:
+            hub_destinations = sorted(set(hub_outbound["departure_to"].unique()))
+            coords = AIRPORT_COORDINATES[hub]
+            dest_text = self._format_destinations_text(hub_destinations)
+
+            hover_text = f"{hub} (Hub)<br>Available Destinations: {len(hub_destinations)}<br>{dest_text}"
+            airports_data.append(
+                self._create_airport_data(
+                    hub, coords, AIRPORT_COLORS["hub"], hover_text
+                )
+            )
+
+        # Add destinations reachable from hub
+        for dest in sorted(destinations_from_hub):
+            if dest in AIRPORT_COORDINATES:
+                outbound_flights = hub_outbound[hub_outbound["departure_to"] == dest]
+                inbound_flights = hub_inbound[hub_inbound["departure_from"] == dest]
+
+                outbound_prob, outbound_days = self._calculate_flight_probabilities(
+                    outbound_flights, total_collection_days
+                )
+                inbound_prob, inbound_days = self._calculate_flight_probabilities(
+                    inbound_flights, total_collection_days
+                )
+
+                coords = AIRPORT_COORDINATES[dest]
+                hover_parts = [f"{dest}"]
+                if outbound_prob > 0:
+                    hover_parts.append(
+                        f"From {hub}: {outbound_prob:.1f}% ({outbound_days}/{total_collection_days} days)"
+                    )
+                if inbound_prob > 0:
+                    hover_parts.append(
+                        f"To {hub}: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
+                    )
+
+                airports_data.append(
+                    self._create_airport_data(
+                        dest, coords, AIRPORT_COLORS["other"], "<br>".join(hover_parts)
+                    )
+                )
+
+        return airports_data
+
+    def _get_destination_airports_data(
+        self, destination, filtered_data, total_collection_days
+    ):
+        """Get airport data when destination is selected"""
+        airports_data = []
+        dest_inbound = filtered_data[filtered_data["departure_to"] == destination]
+        dest_outbound = self.data[self.data["departure_from"] == destination]
+        origins_to_dest = set(dest_inbound["departure_from"].unique())
+
+        # Add destination airport
+        if destination in AIRPORT_COORDINATES:
+            dest_origins = sorted(set(dest_inbound["departure_from"].unique()))
+            coords = AIRPORT_COORDINATES[destination]
+            origins_text = self._format_destinations_text(dest_origins)
+
+            hover_text = f"{destination} (Destination)<br>Available Origins: {len(dest_origins)}<br>{origins_text}"
+            airports_data.append(
+                self._create_airport_data(
+                    destination, coords, AIRPORT_COLORS["destination"], hover_text, 15
+                )
+            )
+
+        # Add origins that connect to destination
+        for origin in sorted(origins_to_dest):
+            if origin in AIRPORT_COORDINATES:
+                inbound_flights = dest_inbound[dest_inbound["departure_from"] == origin]
+                outbound_flights = dest_outbound[
+                    dest_outbound["departure_to"] == origin
+                ]
+
+                inbound_prob, inbound_days = self._calculate_flight_probabilities(
+                    inbound_flights, total_collection_days
+                )
+                outbound_prob, outbound_days = self._calculate_flight_probabilities(
+                    outbound_flights, total_collection_days
+                )
+
+                coords = AIRPORT_COORDINATES[origin]
+                hover_parts = [f"{origin}"]
+                if inbound_prob > 0:
+                    hover_parts.append(
+                        f"To {destination}: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
+                    )
+                if outbound_prob > 0:
+                    hover_parts.append(
+                        f"From {destination}: {outbound_prob:.1f}% ({outbound_days}/{total_collection_days} days)"
+                    )
+
+                airports_data.append(
+                    self._create_airport_data(
+                        origin,
+                        coords,
+                        AIRPORT_COLORS["other"],
+                        "<br>".join(hover_parts),
+                    )
+                )
+
+        return airports_data
+
+    def _get_hub_destination_airports_data(self, hub, destination, filtered_data):
+        """Get airport data when both hub and destination are selected"""
+        airports_data = []
+
+        # Add hub airport
+        if hub in AIRPORT_COORDINATES:
+            hub_to_dest = filtered_data[
+                (filtered_data["departure_from"] == hub)
+                & (filtered_data["departure_to"] == destination)
+            ]
+            dest_to_hub = filtered_data[
+                (filtered_data["departure_from"] == destination)
+                & (filtered_data["departure_to"] == hub)
+            ]
+
+            coords = AIRPORT_COORDINATES[hub]
+            hover_parts = [f"{hub}"]
+            if len(hub_to_dest) > 0:
+                hover_parts.append(f"To {destination}: {len(hub_to_dest)} flights")
+            if len(dest_to_hub) > 0:
+                hover_parts.append(f"From {destination}: {len(dest_to_hub)} flights")
+
+            airports_data.append(
+                self._create_airport_data(
+                    hub, coords, AIRPORT_COLORS["hub"], "<br>".join(hover_parts)
+                )
+            )
+
+        # Add destination airport
+        if destination in AIRPORT_COORDINATES:
+            hub_to_dest = filtered_data[
+                (filtered_data["departure_from"] == hub)
+                & (filtered_data["departure_to"] == destination)
+            ]
+            dest_to_hub = filtered_data[
+                (filtered_data["departure_from"] == destination)
+                & (filtered_data["departure_to"] == hub)
+            ]
+
+            coords = AIRPORT_COORDINATES[destination]
+            hover_parts = [f"{destination}"]
+            if len(dest_to_hub) > 0:
+                hover_parts.append(f"To {hub}: {len(dest_to_hub)} flights")
+            if len(hub_to_dest) > 0:
+                hover_parts.append(f"From {hub}: {len(hub_to_dest)} flights")
+
+            airports_data.append(
+                self._create_airport_data(
+                    destination,
+                    coords,
+                    AIRPORT_COLORS["destination"],
+                    "<br>".join(hover_parts),
+                )
+            )
+
+        return airports_data
+
+    def _get_all_airports_data(self, filtered_data, total_collection_days):
+        """Get airport data when no filters are applied"""
+        airports_data = []
+        routes = filtered_data[["departure_from", "departure_to"]].drop_duplicates()
+        all_airports = set(
+            routes["departure_from"].tolist() + routes["departure_to"].tolist()
+        )
+
+        for airport in sorted(all_airports):
+            if airport in AIRPORT_COORDINATES:
+                outbound_flights = filtered_data[
+                    filtered_data["departure_from"] == airport
+                ]
+                inbound_flights = filtered_data[
+                    filtered_data["departure_to"] == airport
+                ]
+
+                outbound_prob, outbound_days = self._calculate_flight_probabilities(
+                    outbound_flights, total_collection_days
+                )
+                inbound_prob, inbound_days = self._calculate_flight_probabilities(
+                    inbound_flights, total_collection_days
+                )
+
+                coords = AIRPORT_COORDINATES[airport]
+                hover_parts = [f"{airport}"]
+                if outbound_prob > 0:
+                    hover_parts.append(
+                        f"Outbound flights: {outbound_prob:.1f}% ({outbound_days}/{total_collection_days} days)"
+                    )
+                if inbound_prob > 0:
+                    hover_parts.append(
+                        f"Inbound flights: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
+                    )
+
+                airports_data.append(
+                    self._create_airport_data(
+                        airport,
+                        coords,
+                        AIRPORT_COLORS["other"],
+                        "<br>".join(hover_parts),
+                    )
+                )
+
+        return airports_data
+
+    def create_route_map(
+        self, hub: Optional[str] = None, destination: Optional[str] = None
+    ) -> Optional[go.Figure]:
         """Create a route map showing flight routes with optional filtering"""
         filtered_data = self.filter_data(hub, destination)
         if filtered_data.empty:
             return None
 
-        airport_dot_size = 15
-
-        # Get total collection days from the original unfiltered data for accurate percentages
+        # Get total collection days for accurate percentages
         total_collection_days = len(self.data["collection_date"].unique())
 
-        # Prepare data for map with flight statistics
-        airports_data = []
-
+        # Determine which airports to show based on filters
         if hub and not destination:
-            # Hub selected: show ONLY hub + destinations reachable from hub
-            hub_outbound = filtered_data[filtered_data["departure_from"] == hub]
-            hub_inbound = self.data[
-                self.data["departure_to"] == hub
-            ]  # Use unfiltered data for inbound
-            destinations_from_hub = set(hub_outbound["departure_to"].unique())
-
-            # Add hub airport with available destinations
-            if hub in AIRPORT_COORDINATES:
-                hub_destinations = sorted(set(hub_outbound["departure_to"].unique()))
-                coords = AIRPORT_COORDINATES[hub]
-
-                # Format destinations for hover text (limit to reasonable length)
-                if len(hub_destinations) <= 10:
-                    dest_text = ", ".join(hub_destinations)
-                else:
-                    dest_text = (
-                        ", ".join(hub_destinations[:10])
-                        + f", ... (+{len(hub_destinations) - 10} more)"
-                    )
-
-                airports_data.append(
-                    {
-                        "lat": coords[0],
-                        "lon": coords[1],
-                        "name": hub,
-                        "color": "red",
-                        "size": airport_dot_size,
-                        "hover_text": f"{hub} (Hub)<br>Available Destinations: {len(hub_destinations)}<br>{dest_text}",
-                    }
-                )
-
-            # Add ONLY destinations reachable from hub (sorted for consistency)
-            for dest in sorted(destinations_from_hub):
-                if dest in AIRPORT_COORDINATES:
-                    # Calculate bidirectional probabilities
-                    outbound_flights = hub_outbound[
-                        hub_outbound["departure_to"] == dest
-                    ]
-                    inbound_flights = hub_inbound[hub_inbound["departure_from"] == dest]
-
-                    outbound_days = (
-                        len(outbound_flights["collection_date"].unique())
-                        if len(outbound_flights) > 0
-                        else 0
-                    )
-                    inbound_days = (
-                        len(inbound_flights["collection_date"].unique())
-                        if len(inbound_flights) > 0
-                        else 0
-                    )
-
-                    outbound_prob = (
-                        (outbound_days / total_collection_days * 100)
-                        if total_collection_days > 0
-                        else 0
-                    )
-                    inbound_prob = (
-                        (inbound_days / total_collection_days * 100)
-                        if total_collection_days > 0
-                        else 0
-                    )
-
-                    coords = AIRPORT_COORDINATES[dest]
-                    hover_parts = [f"{dest}"]
-                    if outbound_prob > 0:
-                        hover_parts.append(
-                            f"From {hub}: {outbound_prob:.1f}% ({outbound_days}/{total_collection_days} days)"
-                        )
-                    if inbound_prob > 0:
-                        hover_parts.append(
-                            f"To {hub}: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
-                        )
-
-                    airports_data.append(
-                        {
-                            "lat": coords[0],
-                            "lon": coords[1],
-                            "name": dest,
-                            "color": "blue",
-                            "size": airport_dot_size,
-                            "hover_text": "<br>".join(hover_parts),
-                        }
-                    )
-
+            airports_data = self._get_hub_airports_data(
+                hub, filtered_data, total_collection_days
+            )
         elif destination and not hub:
-            # Destination selected: show ONLY destination + origins that fly to destination
-            dest_inbound = filtered_data[filtered_data["departure_to"] == destination]
-            dest_outbound = self.data[
-                self.data["departure_from"] == destination
-            ]  # Use unfiltered data for outbound
-            origins_to_dest = set(dest_inbound["departure_from"].unique())
-
-            # Add destination airport with available origins
-            if destination in AIRPORT_COORDINATES:
-                dest_origins = sorted(set(dest_inbound["departure_from"].unique()))
-                coords = AIRPORT_COORDINATES[destination]
-
-                # Format origins for hover text (limit to reasonable length)
-                if len(dest_origins) <= 10:
-                    origins_text = ", ".join(dest_origins)
-                else:
-                    origins_text = (
-                        ", ".join(dest_origins[:10])
-                        + f", ... (+{len(dest_origins) - 10} more)"
-                    )
-
-                airports_data.append(
-                    {
-                        "lat": coords[0],
-                        "lon": coords[1],
-                        "name": destination,
-                        "color": "green",
-                        "size": 15,
-                        "hover_text": f"{destination} (Destination)<br>Available Origins: {len(dest_origins)}<br>{origins_text}",
-                    }
-                )
-
-            # Add ONLY origins that connect to destination (sorted for consistency)
-            for origin in sorted(origins_to_dest):
-                if origin in AIRPORT_COORDINATES:
-                    # Calculate bidirectional probabilities
-                    inbound_flights = dest_inbound[
-                        dest_inbound["departure_from"] == origin
-                    ]
-                    outbound_flights = dest_outbound[
-                        dest_outbound["departure_to"] == origin
-                    ]
-
-                    inbound_days = (
-                        len(inbound_flights["collection_date"].unique())
-                        if len(inbound_flights) > 0
-                        else 0
-                    )
-                    outbound_days = (
-                        len(outbound_flights["collection_date"].unique())
-                        if len(outbound_flights) > 0
-                        else 0
-                    )
-
-                    inbound_prob = (
-                        (inbound_days / total_collection_days * 100)
-                        if total_collection_days > 0
-                        else 0
-                    )
-                    outbound_prob = (
-                        (outbound_days / total_collection_days * 100)
-                        if total_collection_days > 0
-                        else 0
-                    )
-
-                    coords = AIRPORT_COORDINATES[origin]
-                    hover_parts = [f"{origin}"]
-                    if inbound_prob > 0:
-                        hover_parts.append(
-                            f"To {destination}: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
-                        )
-                    if outbound_prob > 0:
-                        hover_parts.append(
-                            f"From {destination}: {outbound_prob:.1f}% ({outbound_days}/{total_collection_days} days)"
-                        )
-
-                    airports_data.append(
-                        {
-                            "lat": coords[0],
-                            "lon": coords[1],
-                            "name": origin,
-                            "color": "blue",
-                            "size": airport_dot_size,
-                            "hover_text": "<br>".join(hover_parts),
-                        }
-                    )
-
+            airports_data = self._get_destination_airports_data(
+                destination, filtered_data, total_collection_days
+            )
         elif hub and destination:
-            # Both selected: show just these two airports with bidirectional stats
-            if hub in AIRPORT_COORDINATES:
-                hub_to_dest = filtered_data[
-                    (filtered_data["departure_from"] == hub)
-                    & (filtered_data["departure_to"] == destination)
-                ]
-                dest_to_hub = filtered_data[
-                    (filtered_data["departure_from"] == destination)
-                    & (filtered_data["departure_to"] == hub)
-                ]
-
-                coords = AIRPORT_COORDINATES[hub]
-                hover_parts = [f"{hub}"]
-                if len(hub_to_dest) > 0:
-                    hover_parts.append(f"To {destination}: {len(hub_to_dest)} flights")
-                if len(dest_to_hub) > 0:
-                    hover_parts.append(
-                        f"From {destination}: {len(dest_to_hub)} flights"
-                    )
-
-                airports_data.append(
-                    {
-                        "lat": coords[0],
-                        "lon": coords[1],
-                        "name": hub,
-                        "color": "red",
-                        "size": airport_dot_size,
-                        "hover_text": "<br>".join(hover_parts),
-                    }
-                )
-
-            if destination in AIRPORT_COORDINATES:
-                hub_to_dest = filtered_data[
-                    (filtered_data["departure_from"] == hub)
-                    & (filtered_data["departure_to"] == destination)
-                ]
-                dest_to_hub = filtered_data[
-                    (filtered_data["departure_from"] == destination)
-                    & (filtered_data["departure_to"] == hub)
-                ]
-
-                coords = AIRPORT_COORDINATES[destination]
-                hover_parts = [f"{destination}"]
-                if len(dest_to_hub) > 0:
-                    hover_parts.append(f"To {hub}: {len(dest_to_hub)} flights")
-                if len(hub_to_dest) > 0:
-                    hover_parts.append(f"From {hub}: {len(hub_to_dest)} flights")
-
-                airports_data.append(
-                    {
-                        "lat": coords[0],
-                        "lon": coords[1],
-                        "name": destination,
-                        "color": "green",
-                        "size": airport_dot_size,
-                        "hover_text": "<br>".join(hover_parts),
-                    }
-                )
+            airports_data = self._get_hub_destination_airports_data(
+                hub, destination, filtered_data
+            )
         else:
-            # No filters: show all airports with flight data
-            routes = filtered_data[["departure_from", "departure_to"]].drop_duplicates()
-            all_airports = set(
-                routes["departure_from"].tolist() + routes["departure_to"].tolist()
+            airports_data = self._get_all_airports_data(
+                filtered_data, total_collection_days
             )
 
-            # Show all airports (no artificial limit) - sorted for consistency
-            for airport in sorted(all_airports):
-                if airport in AIRPORT_COORDINATES:
-                    # Calculate flight availability percentages
-                    outbound_flights = filtered_data[
-                        filtered_data["departure_from"] == airport
-                    ]
-                    inbound_flights = filtered_data[
-                        filtered_data["departure_to"] == airport
-                    ]
-
-                    outbound_days = (
-                        len(outbound_flights["collection_date"].unique())
-                        if len(outbound_flights) > 0
-                        else 0
-                    )
-                    inbound_days = (
-                        len(inbound_flights["collection_date"].unique())
-                        if len(inbound_flights) > 0
-                        else 0
-                    )
-
-                    outbound_prob = (
-                        (outbound_days / total_collection_days * 100)
-                        if total_collection_days > 0
-                        else 0
-                    )
-                    inbound_prob = (
-                        (inbound_days / total_collection_days * 100)
-                        if total_collection_days > 0
-                        else 0
-                    )
-
-                    coords = AIRPORT_COORDINATES[airport]
-                    hover_parts = [f"{airport}"]
-                    if outbound_prob > 0:
-                        hover_parts.append(
-                            f"Outbound flights: {outbound_prob:.1f}% ({outbound_days}/{total_collection_days} days)"
-                        )
-                    if inbound_prob > 0:
-                        hover_parts.append(
-                            f"Inbound flights: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
-                        )
-
-                    airports_data.append(
-                        {
-                            "lat": coords[0],
-                            "lon": coords[1],
-                            "name": airport,
-                            "color": "blue",
-                            "size": airport_dot_size,
-                            "hover_text": "<br>".join(hover_parts),
-                        }
-                    )
-
         airports_df = pd.DataFrame(airports_data)
-
         if airports_df.empty:
             return None
 
-        # Create scatter map with custom hover text using go.Scattermap for better control
-
+        # Create scatter map
         fig = go.Figure()
-
-        # Group airports by color for proper rendering
         color_groups = airports_df.groupby("color")
 
         for color, group in color_groups:
@@ -801,9 +948,8 @@ class FlightAnalytics:
         # Update layout for map
         fig.update_layout(
             title=self._get_map_title(hub, destination),
-            map=dict(style="open-street-map", zoom=3, center=dict(lat=50, lon=10)),
-            height=500,
-            margin=dict(l=0, r=0, t=30, b=50),
+            map=MAP_CONFIG,
+            **MAP_LAYOUT_CONFIG,
         )
 
         return fig
@@ -818,6 +964,42 @@ class FlightAnalytics:
             return f"Routes to {destination}"
         else:
             return "All Available Routes"
+
+    def _generate_chart_title(self, base_text, hub=None, destination=None):
+        """Helper to generate chart titles based on filters"""
+        if hub and destination:
+            return f"{base_text}: {hub} ↔ {destination}"
+        elif hub:
+            return f"{base_text} from {hub}"
+        elif destination:
+            return f"{base_text} to {destination}"
+        else:
+            return base_text
+
+    def _configure_chart_axes(self, fig, weekday_order=False):
+        """Helper to configure common chart settings"""
+        if weekday_order:
+            fig.update_xaxes(
+                categoryorder="array",
+                categoryarray=WEEKDAY_ORDER,
+            )
+        return fig
+
+    def _add_chart_labels(self, fig, percentage_mode=False):
+        """Helper to add labels to chart bars"""
+        if percentage_mode:
+            fig.update_traces(
+                texttemplate="%{y:.2f}%",
+                textposition="outside",
+                hovertemplate="%{x}: %{y:.2f}%<extra></extra>",
+            )
+        else:
+            fig.update_traces(
+                texttemplate="%{y:.2f}",
+                textposition="outside",
+                hovertemplate="%{x}: %{y:.2f}<extra></extra>",
+            )
+        return fig
 
     def get_weekday_analysis(self, hub=None, destination=None):
         """Analyze flights by weekday with different logic based on filtering"""
@@ -837,17 +1019,7 @@ class FlightAnalytics:
             for direction in [f"{hub} → {destination}", f"{destination} → {hub}"]:
                 direction_data = filtered_data[filtered_data["direction"] == direction]
 
-                for weekday_num, weekday_name in enumerate(
-                    [
-                        "Monday",
-                        "Tuesday",
-                        "Wednesday",
-                        "Thursday",
-                        "Friday",
-                        "Saturday",
-                        "Sunday",
-                    ]
-                ):
+                for weekday_num, weekday_name in enumerate(WEEKDAY_ORDER):
                     # Get all dates for this weekday in the data range
                     all_dates = filtered_data["collection_date"].unique()
                     weekday_dates = [
@@ -907,7 +1079,9 @@ class FlightAnalytics:
 
         if hub and destination:
             # Create percentage chart with bars for each direction
-            title = f"Flight Availability by Weekday: {hub} ↔ {destination}"
+            title = self._generate_chart_title(
+                "Flight Availability by Weekday", hub, destination
+            )
             fig = px.bar(
                 weekday_data,
                 x="weekday",
@@ -921,36 +1095,15 @@ class FlightAnalytics:
                 },
             )
 
-            # Sort x-axis by weekday order
-            fig.update_xaxes(
-                categoryorder="array",
-                categoryarray=[
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday",
-                ],
-            )
-
-            # Add percentage labels on bars
-            fig.update_traces(
-                texttemplate="%{y:.2f}%",
-                textposition="outside",
-                hovertemplate="%{x}: %{y:.2f}%<extra></extra>",
-            )
+            # Configure chart and add labels
+            self._configure_chart_axes(fig, weekday_order=True)
+            self._add_chart_labels(fig, percentage_mode=True)
 
         else:
             # Create average flights chart
-            if hub:
-                title = f"Average Flights by Weekday from {hub}"
-            elif destination:
-                title = f"Average Flights by Weekday to {destination}"
-            else:
-                title = "Average Flights by Weekday"
-
+            title = self._generate_chart_title(
+                "Average Flights by Weekday", hub, destination
+            )
             fig = px.bar(
                 weekday_data,
                 x="weekday",
@@ -962,26 +1115,9 @@ class FlightAnalytics:
                 },
             )
 
-            # Sort x-axis by weekday order
-            fig.update_xaxes(
-                categoryorder="array",
-                categoryarray=[
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday",
-                ],
-            )
-
-            # Add value labels on bars
-            fig.update_traces(
-                texttemplate="%{y:.2f}",
-                textposition="outside",
-                hovertemplate="%{x}: %{y:.2f}<extra></extra>",
-            )
+            # Configure chart and add labels
+            self._configure_chart_axes(fig, weekday_order=True)
+            self._add_chart_labels(fig, percentage_mode=False)
 
         # Customize layout
         fig.update_layout(
@@ -991,9 +1127,11 @@ class FlightAnalytics:
         return fig
 
 
-def main():
-    title = "Wizz AYCF Analytics"
-    st.set_page_config(page_title=title, page_icon="✈️", layout="wide")
+def main() -> None:
+    title = APP_CONFIG["page_title"]
+    st.set_page_config(
+        page_title=title, page_icon=APP_CONFIG["page_icon"], layout=APP_CONFIG["layout"]
+    )
 
     st.title(f"✈️ {title}")
 
@@ -1101,8 +1239,7 @@ def main():
     # Daily flights chart (filtered)
     chart = analytics.create_daily_flights_chart(hub, destination)
     if chart:
-        config = {"displayModeBar": True, "displaylogo": False}
-        st.plotly_chart(chart, config=config, use_container_width=True)
+        st.plotly_chart(chart, config=CHART_CONFIG, use_container_width=True)
     else:
         st.warning("No data available for the selected filters.")
 
@@ -1110,8 +1247,7 @@ def main():
     st.markdown("---")
     weekday_chart = analytics.create_weekday_chart(hub, destination)
     if weekday_chart:
-        config = {"displayModeBar": True, "displaylogo": False}
-        st.plotly_chart(weekday_chart, config=config, use_container_width=True)
+        st.plotly_chart(weekday_chart, config=CHART_CONFIG, use_container_width=True)
     else:
         st.warning("No weekday data available for the selected filters.")
 
@@ -1122,11 +1258,10 @@ def main():
         st.subheader("🗺️ Airport Map")
         route_map = analytics.create_route_map(hub, destination)
         if route_map:
-            config = {"displayModeBar": True, "displaylogo": False}
-            st.plotly_chart(route_map, config=config, use_container_width=True)
+            st.plotly_chart(route_map, config=CHART_CONFIG, use_container_width=True)
 
             # Add legend information
-            st.info("🔴 Hub airport | 🟢 Destination airport | 🔵 Other airports")
+            st.info("🔴 Hub airport | 🔵 Other airports")
         else:
             st.warning("No airport data available for the selected filters.")
 

@@ -312,9 +312,31 @@ class FlightAnalytics:
             return 0
         
         if hub and destination:
-            # Return total average across both directions (sum per day, then average)
-            daily_totals = daily_counts.groupby('collection_date')['flight_count'].sum()
-            return daily_totals.mean()
+            # Return separate averages for both directions
+            filtered_data = self.filter_data(hub, destination)
+            
+            # Calculate for each direction
+            hub_to_dest = filtered_data[(filtered_data['departure_from'] == hub) & (filtered_data['departure_to'] == destination)]
+            dest_to_hub = filtered_data[(filtered_data['departure_from'] == destination) & (filtered_data['departure_to'] == hub)]
+            
+            # Get daily counts for each direction
+            hub_to_dest_daily = hub_to_dest.groupby('collection_date').size() if len(hub_to_dest) > 0 else pd.Series()
+            dest_to_hub_daily = dest_to_hub.groupby('collection_date').size() if len(dest_to_hub) > 0 else pd.Series()
+            
+            # Calculate percentages of days with flights
+            total_days = len(filtered_data['collection_date'].unique())
+            hub_to_dest_days = len(hub_to_dest_daily) if len(hub_to_dest_daily) > 0 else 0
+            dest_to_hub_days = len(dest_to_hub_daily) if len(dest_to_hub_daily) > 0 else 0
+            
+            hub_to_dest_pct = (hub_to_dest_days / total_days * 100) if total_days > 0 else 0
+            dest_to_hub_pct = (dest_to_hub_days / total_days * 100) if total_days > 0 else 0
+            
+            return {
+                'hub_to_dest': hub_to_dest_pct,
+                'dest_to_hub': dest_to_hub_pct,
+                'hub': hub,
+                'destination': destination
+            }
         else:
             return daily_counts['flight_count'].mean()
     
@@ -775,7 +797,12 @@ def main():
     
     with col1:
         avg_flights = analytics.get_average_daily_flights(hub, destination)
-        st.metric("Average Daily Flights", f"{avg_flights:.2f}")
+        if isinstance(avg_flights, dict):
+            # Both hub and destination selected - show both directions
+            st.metric(f"{avg_flights['hub']} → {avg_flights['destination']}", f"{avg_flights['hub_to_dest']:.1f}%")
+            st.metric(f"{avg_flights['destination']} → {avg_flights['hub']}", f"{avg_flights['dest_to_hub']:.1f}%")
+        else:
+            st.metric("Average Daily Flights", f"{avg_flights:.2f}")
     
     with col2:
         start_date, end_date = analytics.get_data_collection_interval(hub, destination)
@@ -825,16 +852,18 @@ def main():
     
     # Route map
     st.markdown("---")
-    st.subheader("🗺️ Airport Map")
-    route_map = analytics.create_route_map(hub, destination)
-    if route_map:
-        config = {'displayModeBar': True, 'displaylogo': False}
-        st.plotly_chart(route_map, config=config, use_container_width=True)
-        
-        # Add legend information
-        st.info("🔴 Hub airport | 🟢 Destination airport | 🔵 Other airports")
-    else:
-        st.warning("No airport data available for the selected filters.")
+    # Only show map if not both hub and destination are selected (not useful for single route)
+    if not (hub and destination):
+        st.subheader("🗺️ Airport Map")
+        route_map = analytics.create_route_map(hub, destination)
+        if route_map:
+            config = {'displayModeBar': True, 'displaylogo': False}
+            st.plotly_chart(route_map, config=config, use_container_width=True)
+            
+            # Add legend information
+            st.info("🔴 Hub airport | 🟢 Destination airport | 🔵 Other airports")
+        else:
+            st.warning("No airport data available for the selected filters.")
     
     # Data preview (filtered)
     with st.expander("📋 Data Preview"):

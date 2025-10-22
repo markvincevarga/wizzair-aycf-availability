@@ -762,8 +762,6 @@ class FlightAnalytics:
                             f"Inbound flights: {inbound_prob:.1f}% ({inbound_days}/{total_collection_days} days)"
                         )
 
-                    total_flights = len(outbound_flights) + len(inbound_flights)
-
                     airports_data.append(
                         {
                             "lat": coords[0],
@@ -780,8 +778,7 @@ class FlightAnalytics:
         if airports_df.empty:
             return None
 
-        # Create scatter map with custom hover text using go.Scattermapbox for better control
-        import plotly.graph_objects as go
+        # Create scatter map with custom hover text using go.Scattermap for better control
 
         fig = go.Figure()
 

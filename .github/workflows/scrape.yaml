@@ -40,7 +40,7 @@ jobs:
           uv run --link-mode=copy main.py parse --data-dir data artifacts/availability.pdf
           echo Doing self-check: only one file must exist
           if [ $(git ls-files data --others --exclude-standard | wc -l) = 1 ]; then
-              echo "Success" 
+              echo "Success"
           else
               echo "Failure"
               git ls-files data --others --exclude-standard
@@ -52,18 +52,12 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
-       - name: Generate Dashboard Data
-         run: |
-           uv run --link-mode=copy docs/generate_data.py
-           echo "Dashboard data generated successfully"
-
-       - name: Commit New Files and Push
-         run: |
-           # Stage the CSV file and generated JSON, commit and push
-           file_path=$(git ls-files data --others --exclude-standard)
-           timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
-           git add ${file_path}
-           git add docs/dashboard_data.json
-           git commit -m "add availabilities for ${timestamp} and update dashboard data"
-           git --no-pager log -n 1
-           git push origin main
+      - name: Commit New File and Push
+        run: |
+          # Stage the file, commit and push
+          file_path=$(git ls-files data --others --exclude-standard)
+          timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
+          git add ${file_path}
+          git commit -m "add availabilities for ${timestamp}"
+          git --no-pager log -n 1
+          git push origin main

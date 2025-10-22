@@ -768,18 +768,6 @@ def main():
         )
         destination = None if selected_destination == "All" else selected_destination
     
-    # Show filter status
-    if hub or destination:
-        filter_text = []
-        if hub and destination:
-            filter_text.append(f"Showing flights between **{hub}** and **{destination}** (both directions)")
-        elif hub:
-            filter_text.append(f"Showing flights from **{hub}**")
-        elif destination:
-            filter_text.append(f"Showing flights to **{destination}**")
-        
-        st.info(" • ".join(filter_text))
-    
     st.markdown("---")
     
     # Main statistics (filtered)

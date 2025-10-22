@@ -749,13 +749,24 @@ class FlightAnalytics:
         return fig
 
 def main():
+    title = "Wizz AYCF Analytics"
     st.set_page_config(
-        page_title="Wizz Air Flight Analytics",
+        page_title=title,
         page_icon="✈️",
         layout="wide"
     )
     
-    st.title("✈️ Wizz Air Flight Analytics")
+    st.title(f"✈️ {title}")
+    
+    # Disclaimer
+    st.markdown(
+        "".join(("[Wizz Air All You Can Fly](https://www.wizzair.com/en-gb/information-and-services/memberships/all-you-can-fly) (AYCF)",
+                " allows unlimited cheap (10 EUR) flights between select destinations, with the caveat of availability.",
+                " Only select flights are available, and tickets may only be booked 72 hours in advance.",
+                " Availability on this site means that on the given day, the pass holder may book a flight on that route",
+                " for some time in the next 72 hours.")))
+    st.markdown("The raw data is available on [GitHub](https://github.com/markvincevarga/wizzair-aycf-availability) and is updated daily.")
+    st.markdown("This site is not affiliated with Wizz Air in any way. It simply analyzes the availability of AYCF tickets based on data collected from the public WizzAir website.")
     st.markdown("---")
     
     # Initialize analytics

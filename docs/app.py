@@ -1140,18 +1140,17 @@ def main() -> None:
         "".join(
             (
                 "[Wizz Air All You Can Fly](https://www.wizzair.com/en-gb/information-and-services/memberships/all-you-can-fly) (AYCF)",
-                " allows unlimited cheap (10 EUR) flights between select destinations, with the caveat of availability.",
-                " Only select flights are available, and tickets may only be booked 72 hours in advance.",
-                " Availability on this site means that on the given day, the pass holder may book a flight on that route",
-                " for some time in the next 72 hours.",
+                " allows unlimited cheap (10 EUR) flights between select destinations, with the caveat of limited availability.",
+                " A flight being available in this dataset means that on that day, at least one flight in that direction is bookable",
+                " within the next 72 hours using the AYCF membership.",
             )
         )
     )
     st.markdown(
-        "The raw data is available on [GitHub](https://github.com/markvincevarga/wizzair-aycf-availability) and is updated daily."
+        "The raw data can be downloaded from [GitHub](https://github.com/markvincevarga/wizzair-aycf-availability) and is updated daily."
     )
     st.markdown(
-        "This site is not affiliated with Wizz Air in any way. It simply analyzes the availability of AYCF tickets based on data collected from the public WizzAir website."
+        "This site is in no way affiliated with Wizz Air. It simply analyzes the publicly available data provided by the company."
     )
     st.markdown("---")
 

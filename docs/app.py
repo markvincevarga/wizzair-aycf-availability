@@ -511,6 +511,97 @@ class FlightAnalytics:
 
         return daily_counts
 
+    def get_monthly_flight_counts(self, hub=None, destination=None):
+        """Calculate monthly flight counts with optional filtering"""
+        filtered_data = self.filter_data(hub, destination)
+        if filtered_data.empty:
+            return pd.DataFrame()
+
+        # Create a monthly period column for grouping
+        filtered_data = filtered_data.copy()
+        # Use first day of month as timestamp for plotting
+        filtered_data["month"] = (
+            filtered_data["collection_date"]
+            .dt.to_period("M")
+            .dt.to_timestamp()
+        )
+
+        if hub and destination:
+            # Create a complete month range
+            min_date = filtered_data["collection_date"].min()
+            max_date = filtered_data["collection_date"].max()
+            # Start from the first of the month of min_date
+            start_month = min_date.replace(day=1)
+            # End at the first of the month of max_date
+            end_month = max_date.replace(day=1)
+            
+            all_months = pd.date_range(
+                start=start_month,
+                end=end_month,
+                freq="MS",  # Month Start
+            )
+
+            # Get all possible directions
+            directions = [f"{hub} → {destination}", f"{destination} → {hub}"]
+
+            # Create a complete grid of months and directions
+            month_direction_grid = pd.MultiIndex.from_product(
+                [all_months, directions], names=["month", "direction"]
+            ).to_frame(index=False)
+
+            # Group actual data by month and direction
+            actual_counts = (
+                filtered_data.groupby(["month", "direction"])
+                .size()
+                .reset_index(name="flight_count")
+            )
+
+            # Merge with complete grid to include zero counts
+            monthly_counts = month_direction_grid.merge(
+                actual_counts, on=["month", "direction"], how="left"
+            ).fillna(0)
+            monthly_counts["flight_count"] = monthly_counts["flight_count"].astype(int)
+        else:
+            # Create a complete month range for the filtered data
+            if not filtered_data.empty:
+                min_date = filtered_data["collection_date"].min()
+                max_date = filtered_data["collection_date"].max()
+                start_month = min_date.replace(day=1)
+                end_month = max_date.replace(day=1)
+
+                all_months = pd.date_range(
+                    start=start_month,
+                    end=end_month,
+                    freq="MS",
+                )
+                
+                # Create grid for single direction/aggregated
+                month_grid = pd.DataFrame({"month": all_months})
+
+                # Group actual data
+                actual_counts = (
+                    filtered_data.groupby("month")
+                    .size()
+                    .reset_index(name="flight_count")
+                )
+
+                # Merge to include zeros
+                monthly_counts = month_grid.merge(
+                    actual_counts, on="month", how="left"
+                ).fillna(0)
+                
+                monthly_counts["flight_count"] = monthly_counts["flight_count"].astype(int)
+                
+                monthly_counts["direction"] = (
+                    filtered_data["direction"].iloc[0]
+                    if not filtered_data.empty
+                    else "All Flights"
+                )
+            else:
+                 return pd.DataFrame()
+
+        return monthly_counts
+
     def get_average_daily_flights(self, hub=None, destination=None):
         """Calculate average number of daily available flights with optional
         filtering"""
@@ -645,6 +736,78 @@ class FlightAnalytics:
 
         except Exception as e:
             st.error(f"Error creating daily flights chart: {e}")
+            return None
+
+    def create_monthly_flights_chart(
+        self, hub: Optional[str] = None, destination: Optional[str] = None
+    ) -> Optional[go.Figure]:
+        """Create a chart showing average monthly flight counts with optional filtering"""
+        try:
+            monthly_counts = self.get_monthly_flight_counts(hub, destination)
+            if monthly_counts.empty:
+                return None
+
+            # Add month metadata for averaging and sorting
+            monthly_counts["month_name"] = monthly_counts["month"].dt.strftime("%B")
+            monthly_counts["month_num"] = monthly_counts["month"].dt.month
+
+            # Calculate average flights per month (aggregating across years)
+            avg_monthly_counts = (
+                monthly_counts.groupby(["month_num", "month_name", "direction"])["flight_count"]
+                .mean()
+                .reset_index()
+                .sort_values("month_num")
+            )
+
+            # Round to nearest integer for display
+            avg_monthly_counts["flight_count"] = (
+                avg_monthly_counts["flight_count"].round().astype(int)
+            )
+            # Format with space as thousands separator
+            avg_monthly_counts["formatted_count"] = avg_monthly_counts[
+                "flight_count"
+            ].apply(lambda x: "{:,}".format(x).replace(",", " "))
+
+            # Create title based on filters
+            title = self._generate_chart_title(
+                "Average Monthly Available Flights", hub, destination
+            )
+
+            # Create chart based on whether we have hub+destination filtering
+            if hub and destination:
+                fig = px.bar(
+                    avg_monthly_counts,
+                    x="month_name",
+                    y="flight_count",
+                    color="direction",
+                    text="formatted_count",
+                    title=title,
+                    barmode="group",
+                    labels={
+                        "month_name": "Month",
+                        "flight_count": "Average Number of Flights",
+                    },
+                )
+            else:
+                fig = px.bar(
+                    avg_monthly_counts,
+                    x="month_name",
+                    y="flight_count",
+                    text="formatted_count",
+                    title=title,
+                    labels={
+                        "month_name": "Month",
+                        "flight_count": "Average Number of Flights",
+                    },
+                )
+
+            # Add labels with custom text
+            self._add_chart_labels(fig, percentage_mode=False, text_format="%{text}")
+
+            return fig
+
+        except Exception as e:
+            st.error(f"Error creating monthly flights chart: {e}")
             return None
 
     def _calculate_flight_probabilities(self, flights, total_collection_days):
@@ -985,20 +1148,20 @@ class FlightAnalytics:
             )
         return fig
 
-    def _add_chart_labels(self, fig, percentage_mode=False):
+    def _add_chart_labels(self, fig, percentage_mode=False, text_format=None):
         """Helper to add labels to chart bars"""
-        if percentage_mode:
-            fig.update_traces(
-                texttemplate="%{y:.2f}%",
-                textposition="outside",
-                hovertemplate="%{x}: %{y:.2f}%<extra></extra>",
-            )
+        if text_format:
+            template = text_format
+        elif percentage_mode:
+            template = "%{y:.2f}%"
         else:
-            fig.update_traces(
-                texttemplate="%{y:.2f}",
-                textposition="outside",
-                hovertemplate="%{x}: %{y:.2f}<extra></extra>",
-            )
+            template = "%{y:.2f}"
+
+        fig.update_traces(
+            texttemplate=template,
+            textposition="outside",
+            hovertemplate=f"%{{x}}: {template}<extra></extra>",
+        )
         return fig
 
     def get_weekday_analysis(self, hub=None, destination=None):
@@ -1241,6 +1404,14 @@ def main() -> None:
         st.plotly_chart(chart, config=CHART_CONFIG, use_container_width=True)
     else:
         st.warning("No data available for the selected filters.")
+
+    # Monthly flights chart
+    st.markdown("---")
+    monthly_chart = analytics.create_monthly_flights_chart(hub, destination)
+    if monthly_chart:
+        st.plotly_chart(monthly_chart, config=CHART_CONFIG, use_container_width=True)
+    else:
+        st.warning("No monthly data available for the selected filters.")
 
     # Weekday analysis chart
     st.markdown("---")

@@ -636,7 +636,7 @@ class FlightAnalytics:
             )
 
             # Calculate percentages of days with flights
-            total_days = len(filtered_data["collection_date"].unique())
+            total_days = len(self.data["collection_date"].unique())
             hub_to_dest_days = (
                 len(hub_to_dest_daily) if len(hub_to_dest_daily) > 0 else 0
             )
@@ -1184,7 +1184,7 @@ class FlightAnalytics:
 
                 for weekday_num, weekday_name in enumerate(WEEKDAY_ORDER):
                     # Get all dates for this weekday in the data range
-                    all_dates = filtered_data["collection_date"].unique()
+                    all_dates = self.data["collection_date"].unique()
                     weekday_dates = [
                         d
                         for d in all_dates

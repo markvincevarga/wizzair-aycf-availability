@@ -324,9 +324,16 @@ class FlightAnalytics:
                         except Exception as e:
                             st.warning(f"Error converting {date_col} to datetime: {e}")
 
+                # Store all unique collection dates (days with any data)
+                if "collection_date" in self.data.columns:
+                    self.available_dates = sorted(self.data["collection_date"].unique())
+                else:
+                    self.available_dates = []
+
             except Exception as e:
                 st.error(f"Error combining data files: {e}")
                 self.data = pd.DataFrame()
+                self.available_dates = []
         else:
             st.error("No valid data files could be loaded")
 
@@ -468,20 +475,25 @@ class FlightAnalytics:
         if filtered_data.empty:
             return pd.DataFrame()
 
-        if hub and destination:
-            # Create a complete date range
-            all_dates = pd.date_range(
-                start=filtered_data["collection_date"].min(),
-                end=filtered_data["collection_date"].max(),
-                freq="D",
-            )
+        # Use available dates from the dataset instead of a full date range
+        # This ensures we only show days where data was actually collected
+        available_dates = pd.to_datetime(self.available_dates)
+        
+        # Filter available dates to be within the range of the filtered data
+        # to avoid showing empty dates far outside the relevant period
+        if not filtered_data.empty:
+            min_date = filtered_data["collection_date"].min()
+            max_date = filtered_data["collection_date"].max()
+            available_dates = [d for d in available_dates if min_date <= d <= max_date]
+            available_dates = pd.DatetimeIndex(available_dates)
 
+        if hub and destination:
             # Get all possible directions
             directions = [f"{hub} → {destination}", f"{destination} → {hub}"]
 
-            # Create a complete grid of dates and directions
+            # Create a grid of available dates and directions
             date_direction_grid = pd.MultiIndex.from_product(
-                [all_dates, directions], names=["collection_date", "direction"]
+                [available_dates, directions], names=["collection_date", "direction"]
             ).to_frame(index=False)
 
             # Group actual data by date and direction
@@ -491,18 +503,28 @@ class FlightAnalytics:
                 .reset_index(name="flight_count")
             )
 
-            # Merge with complete grid to include zero counts
+            # Merge with grid to include zero counts for available days
             daily_counts = date_direction_grid.merge(
                 actual_counts, on=["collection_date", "direction"], how="left"
             ).fillna(0)
             daily_counts["flight_count"] = daily_counts["flight_count"].astype(int)
         else:
-            # Group by date only
-            daily_counts = (
+            # Create grid of available dates
+            date_grid = pd.DataFrame({"collection_date": available_dates})
+            
+            # Group by date
+            actual_counts = (
                 filtered_data.groupby("collection_date")
                 .size()
                 .reset_index(name="flight_count")
             )
+            
+            # Merge with grid
+            daily_counts = date_grid.merge(
+                actual_counts, on="collection_date", how="left"
+            ).fillna(0)
+            
+            daily_counts["flight_count"] = daily_counts["flight_count"].astype(int)
             daily_counts["direction"] = (
                 filtered_data["direction"].iloc[0]
                 if not filtered_data.empty
@@ -512,14 +534,24 @@ class FlightAnalytics:
         return daily_counts
 
     def get_monthly_flight_counts(self, hub=None, destination=None):
-        """Calculate monthly flight counts with optional filtering"""
+        """Calculate monthly average daily flight counts with optional filtering"""
         filtered_data = self.filter_data(hub, destination)
         if filtered_data.empty:
             return pd.DataFrame()
 
-        # Create a monthly period column for grouping
+        # Use available dates to determine days with data per month
+        available_df = pd.DataFrame({"date": pd.to_datetime(self.available_dates)})
+        available_df["month"] = available_df["date"].dt.to_period("M").dt.to_timestamp()
+        
+        # Count days with data for each month
+        days_per_month = (
+            available_df.groupby("month")
+            .size()
+            .reset_index(name="days_with_data")
+        )
+
+        # Create a monthly period column for grouping filtered data
         filtered_data = filtered_data.copy()
-        # Use first day of month as timestamp for plotting
         filtered_data["month"] = (
             filtered_data["collection_date"]
             .dt.to_period("M")
@@ -527,22 +559,11 @@ class FlightAnalytics:
         )
 
         if hub and destination:
-            # Create a complete month range
-            min_date = filtered_data["collection_date"].min()
-            max_date = filtered_data["collection_date"].max()
-            # Start from the first of the month of min_date
-            start_month = min_date.replace(day=1)
-            # End at the first of the month of max_date
-            end_month = max_date.replace(day=1)
-            
-            all_months = pd.date_range(
-                start=start_month,
-                end=end_month,
-                freq="MS",  # Month Start
-            )
-
             # Get all possible directions
             directions = [f"{hub} → {destination}", f"{destination} → {hub}"]
+            
+            # Get months that have any data
+            all_months = days_per_month["month"].unique()
 
             # Create a complete grid of months and directions
             month_direction_grid = pd.MultiIndex.from_product(
@@ -553,52 +574,52 @@ class FlightAnalytics:
             actual_counts = (
                 filtered_data.groupby(["month", "direction"])
                 .size()
-                .reset_index(name="flight_count")
+                .reset_index(name="total_flights")
             )
 
-            # Merge with complete grid to include zero counts
+            # Merge with complete grid
             monthly_counts = month_direction_grid.merge(
                 actual_counts, on=["month", "direction"], how="left"
             ).fillna(0)
-            monthly_counts["flight_count"] = monthly_counts["flight_count"].astype(int)
+            
+            # Merge with days_per_month
+            monthly_counts = monthly_counts.merge(
+                days_per_month, on="month", how="left"
+            )
+            
+            # Calculate average daily flights
+            # Avoid division by zero (though days_with_data should be > 0 if month is in list)
+            monthly_counts["flight_count"] = monthly_counts.apply(
+                lambda x: x["total_flights"] / x["days_with_data"] if x["days_with_data"] > 0 else 0,
+                axis=1
+            )
+            
         else:
-            # Create a complete month range for the filtered data
-            if not filtered_data.empty:
-                min_date = filtered_data["collection_date"].min()
-                max_date = filtered_data["collection_date"].max()
-                start_month = min_date.replace(day=1)
-                end_month = max_date.replace(day=1)
+            # Group actual data
+            actual_counts = (
+                filtered_data.groupby("month")
+                .size()
+                .reset_index(name="total_flights")
+            )
 
-                all_months = pd.date_range(
-                    start=start_month,
-                    end=end_month,
-                    freq="MS",
-                )
-                
-                # Create grid for single direction/aggregated
-                month_grid = pd.DataFrame({"month": all_months})
+            # Merge with days_per_month (this acts as the grid)
+            monthly_counts = days_per_month.merge(
+                actual_counts, on="month", how="left"
+            ).fillna(0)
+            
+            # Set direction
+            monthly_counts["direction"] = (
+                filtered_data["direction"].iloc[0]
+                if not filtered_data.empty
+                else "All Flights"
+            )
+            
+            # Calculate average daily flights
+            # For non-route specific views (hub only or no filter), we show total monthly flights
+            # For route specific views (hub + dest), we'll calculate probability later, so we keep daily average here
+            # which represents the fraction of days having flights
+            monthly_counts["flight_count"] = monthly_counts["total_flights"]
 
-                # Group actual data
-                actual_counts = (
-                    filtered_data.groupby("month")
-                    .size()
-                    .reset_index(name="flight_count")
-                )
-
-                # Merge to include zeros
-                monthly_counts = month_grid.merge(
-                    actual_counts, on="month", how="left"
-                ).fillna(0)
-                
-                monthly_counts["flight_count"] = monthly_counts["flight_count"].astype(int)
-                
-                monthly_counts["direction"] = (
-                    filtered_data["direction"].iloc[0]
-                    if not filtered_data.empty
-                    else "All Flights"
-                )
-            else:
-                 return pd.DataFrame()
 
         return monthly_counts
 
@@ -635,8 +656,8 @@ class FlightAnalytics:
                 else pd.Series()
             )
 
-            # Calculate percentages of days with flights
-            total_days = len(self.data["collection_date"].unique())
+            # Calculate percentages of days with flights based on available days
+            total_days = len(self.available_dates)
             hub_to_dest_days = (
                 len(hub_to_dest_daily) if len(hub_to_dest_daily) > 0 else 0
             )
@@ -658,6 +679,9 @@ class FlightAnalytics:
                 "destination": destination,
             }
         else:
+            # For average count, we want Total Flights / Total Available Days
+            # get_daily_flight_counts returns counts for all available days (including 0s)
+            # so .mean() works correctly
             return daily_counts["flight_count"].mean()
 
     def get_data_collection_interval(self, hub=None, destination=None):
@@ -759,22 +783,16 @@ class FlightAnalytics:
                 .sort_values("month_num")
             )
 
-            # Round to nearest integer for display
-            avg_monthly_counts["flight_count"] = (
-                avg_monthly_counts["flight_count"].round().astype(int)
-            )
-            # Format with space as thousands separator
-            avg_monthly_counts["formatted_count"] = avg_monthly_counts[
-                "flight_count"
-            ].apply(lambda x: "{:,}".format(x).replace(",", " "))
-
-            # Create title based on filters
-            title = self._generate_chart_title(
-                "Average Monthly Available Flights", hub, destination
-            )
-
             # Create chart based on whether we have hub+destination filtering
             if hub and destination:
+                # Convert to percentage for specific route
+                avg_monthly_counts["flight_count"] = (avg_monthly_counts["flight_count"] * 100).round(1)
+                avg_monthly_counts["formatted_count"] = avg_monthly_counts["flight_count"].apply(lambda x: "{:.1f}%".format(x))
+                
+                title = self._generate_chart_title(
+                    "Monthly Flight Availability Probability", hub, destination
+                )
+
                 fig = px.bar(
                     avg_monthly_counts,
                     x="month_name",
@@ -785,10 +803,25 @@ class FlightAnalytics:
                     barmode="group",
                     labels={
                         "month_name": "Month",
-                        "flight_count": "Average Number of Flights",
+                        "flight_count": "Availability Probability (%)",
                     },
                 )
+                # Set y-axis to 0-100 range for consistency in percentages
+                fig.update_yaxes(range=[0, 100])
             else:
+                # Round to 0 decimal places for monthly total display (integers)
+                avg_monthly_counts["flight_count"] = (
+                    avg_monthly_counts["flight_count"].round(0)
+                )
+                # Format as integer
+                avg_monthly_counts["formatted_count"] = avg_monthly_counts[
+                    "flight_count"
+                ].apply(lambda x: "{:.0f}".format(x))
+
+                title = self._generate_chart_title(
+                    "Average Monthly Available Flights", hub, destination
+                )
+
                 fig = px.bar(
                     avg_monthly_counts,
                     x="month_name",
@@ -797,7 +830,7 @@ class FlightAnalytics:
                     title=title,
                     labels={
                         "month_name": "Month",
-                        "flight_count": "Average Number of Flights",
+                        "flight_count": "Average Monthly Flights",
                     },
                 )
 

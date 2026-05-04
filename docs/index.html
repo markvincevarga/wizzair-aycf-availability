@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AYCF Almanac — Wizz Air All You Can Fly availability</title>
+  <meta name="description" content="A daily inventory of Wizz Air's All You Can Fly routes — 399 days of scraped availability, charted.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@300..600&display=swap">
+  <link rel="preconnect" href="https://cdn.plot.ly">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">AYCF Almanac</span>
+      <span class="brand-meta">Updated <time id="pub-date">—</time></span>
+    </div>
+    <h1>The All You Can Fly Almanac.</h1>
+    <p class="lead">
+      A daily inventory of every route Wizz Air offers under its
+      <a href="https://www.wizzair.com/en-gb/information-and-services/memberships/all-you-can-fly" target="_blank" rel="noopener">All You Can Fly</a>
+      pass — €10 flights bookable within 72 hours.
+    </p>
+  </header>
+
+  <section class="filters" aria-label="Filters">
+    <div class="combobox" id="hub-combo">
+      <label for="hub-input">Departing</label>
+      <div class="combo-input-wrap">
+        <input type="text" id="hub-input" placeholder="Any airport" autocomplete="off" spellcheck="false">
+        <button type="button" class="combo-clear" data-target="hub" aria-label="Clear">×</button>
+      </div>
+      <ul class="combo-list" id="hub-list" role="listbox" hidden></ul>
+    </div>
+
+    <div class="combobox" id="dest-combo">
+      <label for="dest-input">Arriving</label>
+      <div class="combo-input-wrap">
+        <input type="text" id="dest-input" placeholder="Any airport" autocomplete="off" spellcheck="false">
+        <button type="button" class="combo-clear" data-target="dest" aria-label="Clear">×</button>
+      </div>
+      <ul class="combo-list" id="dest-list" role="listbox" hidden></ul>
+    </div>
+
+    <p class="filter-status" id="filter-hint">All routes shown.</p>
+  </section>
+
+  <main>
+    <section class="headline" id="metrics"></section>
+
+    <section class="section">
+      <header class="section-head">
+        <h2>Daily traffic</h2>
+        <p class="section-desc">Available routes recorded each morning. Gaps mean the scrape was missed that day. The dotted line marks the period mean.</p>
+      </header>
+      <div id="daily-chart" class="chart"></div>
+      <p class="legend" id="daily-legend">
+        <span class="legend-item"><span class="legend-swatch on"></span>Flight available</span>
+        <span class="legend-item"><span class="legend-swatch off"></span>No flight</span>
+        <span class="legend-item"><span class="legend-swatch nodata"></span>No data collected</span>
+      </p>
+    </section>
+
+    <section class="section">
+      <header class="section-head">
+        <h2>Monthly cadence</h2>
+        <p class="section-desc">Average flights per day, by calendar month — partial months normalized to a daily rate.</p>
+      </header>
+      <div id="monthly-chart" class="chart"></div>
+    </section>
+
+    <section class="section">
+      <header class="section-head">
+        <h2>By day of week</h2>
+        <p class="section-desc">The same set, broken out by weekday.</p>
+      </header>
+      <div id="weekday-chart" class="chart"></div>
+    </section>
+
+    <section class="section" id="map-section">
+      <header class="section-head">
+        <h2>Network</h2>
+        <p class="section-desc">Each marker is one airport. Hover for availability.</p>
+      </header>
+      <div id="map-chart" class="chart map-chart"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="coverage-line" id="coverage-line">—</p>
+    <p class="colophon">
+      Compiled from <a href="https://github.com/markvincevarga/wizzair-aycf-availability" target="_blank" rel="noopener">publicly published</a> Wizz Air availability PDFs. Not affiliated with the airline.
+    </p>
+  </footer>
+
+  <div id="loading" class="loading"><span>Loading…</span></div>
+
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -401,7 +401,7 @@ function renderDailyLine(wrap, dc) {
   const layout = {
     ...BASE_LAYOUT,
     margin: { l: 48, r: 16, t: 16, b: 44 },
-    height: 360,
+    height: 300,
     xaxis: { ...AXIS_BASE, title: undefined },
     yaxis: { ...AXIS_BASE, title: undefined, rangemode: 'tozero', gridcolor: COLORS.border },
     shapes: [{
@@ -452,7 +452,11 @@ function renderRouteTimeline(wrap, hub, dest) {
     return `<b>${esc(label)}</b><br>${date} (${wd})<br>${state}`;
   };
 
-  const yLabels = ['Both', `${hub} → ${dest}`, `${dest} → ${hub}`];
+  const narrow = window.innerWidth < 720;
+  const abbr = (s) => s.replace(/[\/\s].*$/, '').slice(0, 3).toUpperCase();
+  const yLabels = narrow
+    ? ['Both', `${abbr(hub)} → ${abbr(dest)}`, `${abbr(dest)} → ${abbr(hub)}`]
+    : ['Both', `${hub} → ${dest}`, `${dest} → ${hub}`];
   const z = [bothRow, abRow, baRow];
   const customdata = [
     bothRow.map(hover('Both directions')),
@@ -468,12 +472,13 @@ function renderRouteTimeline(wrap, hub, dest) {
     colorscale: [[0, '#f0f0f0'], [1, COLORS.accent]],
     zmin: 0, zmax: 1,
     showscale: false,
-    xgap: 1, ygap: 6,
+    xgap: narrow ? 0 : 1,
+    ygap: narrow ? 3 : 6,
   }];
   const layout = {
     ...BASE_LAYOUT,
-    margin: { l: 180, r: 16, t: 12, b: 40 },
-    height: 220,
+    margin: { l: narrow ? 90 : 180, r: 16, t: 12, b: 40 },
+    height: narrow ? 180 : 220,
     xaxis: { ...AXIS_BASE, showgrid: false, title: undefined },
     yaxis: {
       ...AXIS_BASE,
@@ -481,7 +486,7 @@ function renderRouteTimeline(wrap, hub, dest) {
       showgrid: false,
       showline: false,
       ticks: '',
-      tickfont: { family: FONT_SANS, size: 13, color: COLORS.text },
+      tickfont: { family: FONT_SANS, size: narrow ? 11 : 13, color: COLORS.text },
     },
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -507,7 +512,7 @@ function renderMonthlyChart(dc) {
       xaxis: { ...AXIS_BASE, title: undefined },
       yaxis: { ...AXIS_BASE, title: undefined, range: [0, 108], ticksuffix: '%' },
       margin: { l: 48, r: 16, t: 16, b: 56 },
-      height: 360,
+      height: 300,
       legend: legendCfg(),
     };
     Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -520,7 +525,7 @@ function renderMonthlyChart(dc) {
       xaxis: { ...AXIS_BASE, title: undefined },
       yaxis: { ...AXIS_BASE, title: undefined, rangemode: 'tozero' },
       margin: { l: 56, r: 16, t: 16, b: 40 },
-      height: 360,
+      height: 300,
       showlegend: false,
     };
     Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -606,7 +611,7 @@ function renderWeekdayChart(dc) {
       xaxis: { ...AXIS_BASE, title: undefined },
       yaxis: { ...AXIS_BASE, title: undefined, range: [0, 108], ticksuffix: '%' },
       margin: { l: 48, r: 16, t: 16, b: 56 },
-      height: 320,
+      height: 280,
       legend: legendCfg(),
     };
     Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -625,7 +630,7 @@ function renderWeekdayChart(dc) {
       xaxis: { ...AXIS_BASE, title: undefined },
       yaxis: { ...AXIS_BASE, title: undefined, rangemode: 'tozero' },
       margin: { l: 56, r: 16, t: 16, b: 40 },
-      height: 320,
+      height: 280,
       showlegend: false,
     };
     Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -687,7 +692,7 @@ function renderMap() {
     ...BASE_LAYOUT,
     map: { style: 'carto-positron', center, zoom: center.zoom },
     margin: { l: 0, r: 0, t: 0, b: 0 },
-    height: 540,
+    height: 440,
   };
   Plotly.react(wrap, traces, layout, PLOT_CONFIG);
 }
@@ -816,3 +821,9 @@ function esc(s) {
 }
 
 window.addEventListener('DOMContentLoaded', init);
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => { if (DATA) render(); }, 200);
+});

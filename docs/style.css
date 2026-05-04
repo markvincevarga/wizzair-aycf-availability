@@ -54,14 +54,14 @@ button { font-family: inherit; }
 .page-header {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 56px 32px 40px;
+  padding: 24px 32px 12px;
 }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 56px;
+  margin-bottom: 20px;
   font-family: var(--mono);
   font-size: 13px;
   color: var(--text-muted);
@@ -87,19 +87,19 @@ button { font-family: inherit; }
 }
 
 .page-header h1 {
-  font-size: clamp(36px, 5.4vw, 56px);
+  font-size: clamp(28px, 4.2vw, 42px);
   font-weight: 500;
   letter-spacing: -0.025em;
   line-height: 1.05;
-  margin-bottom: 20px;
-  max-width: 18ch;
+  margin-bottom: 10px;
+  max-width: 22ch;
 }
 
 .lead {
-  font-size: clamp(17px, 1.6vw, 20px);
+  font-size: clamp(15px, 1.3vw, 17px);
   color: var(--text-soft);
   max-width: 60ch;
-  margin-bottom: 40px;
+  margin-bottom: 12px;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -112,12 +112,12 @@ button { font-family: inherit; }
 .filters {
   max-width: var(--measure);
   margin: 0 auto;
-  padding: 16px 32px 8px;
+  padding: 8px 32px 4px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "hub dest" "status status";
   column-gap: 20px;
-  row-gap: 12px;
+  row-gap: 10px;
 }
 
 #hub-combo { grid-area: hub; }
@@ -237,23 +237,23 @@ main {
 /* ─── HEADLINE FIGURE ───────────────────────────────────────────────────── */
 
 .headline {
-  padding: 56px 0 64px;
+  padding: 24px 0 28px;
   text-align: center;
   border-top: 1px solid var(--border);
-  margin-top: 24px;
+  margin-top: 8px;
 }
 
 .headline-label {
   font-family: var(--mono);
   font-size: 12px;
   color: var(--text-muted);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
 
 .headline-figure {
   font-family: var(--mono);
-  font-size: clamp(72px, 13vw, 156px);
+  font-size: clamp(56px, 9vw, 104px);
   font-weight: 350;
   line-height: 1;
   letter-spacing: -0.045em;
@@ -308,19 +308,19 @@ main {
 /* ─── SECTIONS ──────────────────────────────────────────────────────────── */
 
 .section {
-  padding: 40px 0;
+  padding: 18px 0 16px;
   border-top: 1px solid var(--border);
 }
 
 .section-head {
-  margin-bottom: 28px;
+  margin-bottom: 12px;
 }
 
 .section-head h2 {
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .section-desc {
@@ -331,11 +331,11 @@ main {
 
 .chart {
   width: 100%;
-  min-height: 380px;
+  min-height: 280px;
 }
 
 .map-chart {
-  min-height: 520px;
+  min-height: 440px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -380,10 +380,9 @@ main {
 
 footer {
   max-width: var(--measure);
-  margin: 0 auto;
-  padding: 56px 32px 64px;
+  margin: 16px auto 0;
+  padding: 18px 32px 28px;
   border-top: 1px solid var(--border);
-  margin-top: 48px;
   text-align: center;
 }
 

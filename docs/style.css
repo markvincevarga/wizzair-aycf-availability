@@ -110,31 +110,35 @@ button { font-family: inherit; }
 /* ─── FILTERS ───────────────────────────────────────────────────────────── */
 
 .filters {
-  max-width: var(--measure);
-  margin: 0 auto;
-  padding: 8px 32px 4px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "hub dest" "status status";
-  column-gap: 20px;
-  row-gap: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s, border-bottom-color 0.2s, box-shadow 0.2s;
 }
 
-#hub-combo { grid-area: hub; }
-#dest-combo { grid-area: dest; }
+.filters.is-stuck {
+  background: rgba(250, 250, 250, 0.82);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: var(--border);
+  box-shadow: 0 4px 16px rgba(10, 10, 10, 0.04);
+}
 
-.filter-status {
-  grid-area: status;
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--text-muted);
-  margin: 0;
+.filters-inner {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 12px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
 }
 
 @media (max-width: 640px) {
-  .filters {
+  .filters-inner {
     grid-template-columns: 1fr;
-    grid-template-areas: "hub" "dest" "status";
+    row-gap: 10px;
   }
 }
 
@@ -434,11 +438,10 @@ footer {
 /* ─── ENTRY ─────────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: no-preference) {
-  .page-header, .filters, main > section, footer {
+  .page-header, main > section, footer {
     animation: rise 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
   }
   .page-header { animation-delay: 0.05s; }
-  .filters { animation-delay: 0.12s; }
   main > section:nth-of-type(1) { animation-delay: 0.18s; }
   main > section:nth-of-type(2) { animation-delay: 0.22s; }
   main > section:nth-of-type(3) { animation-delay: 0.26s; }
@@ -462,5 +465,5 @@ footer {
 }
 
 @media (max-width: 720px) {
-  .page-header, .filters, main, footer { padding-left: 22px; padding-right: 22px; }
+  .page-header, .filters-inner, main, footer { padding-left: 22px; padding-right: 22px; }
 }

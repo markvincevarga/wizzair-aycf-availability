@@ -27,25 +27,25 @@
   </header>
 
   <section class="filters" aria-label="Filters">
-    <div class="combobox" id="hub-combo">
-      <label for="hub-input">Departing</label>
-      <div class="combo-input-wrap">
-        <input type="text" id="hub-input" placeholder="Any airport" autocomplete="off" spellcheck="false">
-        <button type="button" class="combo-clear" data-target="hub" aria-label="Clear">×</button>
+    <div class="filters-inner">
+      <div class="combobox" id="hub-combo">
+        <label for="hub-input">Departing</label>
+        <div class="combo-input-wrap">
+          <input type="text" id="hub-input" placeholder="Any airport" autocomplete="off" spellcheck="false">
+          <button type="button" class="combo-clear" data-target="hub" aria-label="Clear">×</button>
+        </div>
+        <ul class="combo-list" id="hub-list" role="listbox" hidden></ul>
       </div>
-      <ul class="combo-list" id="hub-list" role="listbox" hidden></ul>
-    </div>
 
-    <div class="combobox" id="dest-combo">
-      <label for="dest-input">Arriving</label>
-      <div class="combo-input-wrap">
-        <input type="text" id="dest-input" placeholder="Any airport" autocomplete="off" spellcheck="false">
-        <button type="button" class="combo-clear" data-target="dest" aria-label="Clear">×</button>
+      <div class="combobox" id="dest-combo">
+        <label for="dest-input">Arriving</label>
+        <div class="combo-input-wrap">
+          <input type="text" id="dest-input" placeholder="Any airport" autocomplete="off" spellcheck="false">
+          <button type="button" class="combo-clear" data-target="dest" aria-label="Clear">×</button>
+        </div>
+        <ul class="combo-list" id="dest-list" role="listbox" hidden></ul>
       </div>
-      <ul class="combo-list" id="dest-list" role="listbox" hidden></ul>
     </div>
-
-    <p class="filter-status" id="filter-hint">All routes shown.</p>
   </section>
 
   <main>

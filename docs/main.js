@@ -252,21 +252,11 @@ function getRouteIdx(originIdx, destIdx) {
 
 function render() {
   const dc = dailyMatchCounts();
-  updateFilterHint();
   renderMetrics(dc);
   renderDailyChart(dc);
   renderMonthlyChart(dc);
   renderWeekdayChart(dc);
   renderMap();
-}
-
-function updateFilterHint() {
-  const { hub, destination } = STATE;
-  const el = document.getElementById('filter-hint');
-  if (hub && destination) el.textContent = `${hub} ↔ ${destination} — both directions.`;
-  else if (hub) el.textContent = `Departures from ${hub}.`;
-  else if (destination) el.textContent = `Arrivals in ${destination}.`;
-  else el.textContent = `All ${DATA.routes.length.toLocaleString()} routes shown.`;
 }
 
 function dailyMatchCounts() {
@@ -821,6 +811,20 @@ function esc(s) {
 }
 
 window.addEventListener('DOMContentLoaded', init);
+window.addEventListener('DOMContentLoaded', setupStickyFilters);
+
+function setupStickyFilters() {
+  const filters = document.querySelector('.filters');
+  if (!filters) return;
+  const sentinel = document.createElement('div');
+  sentinel.setAttribute('aria-hidden', 'true');
+  sentinel.style.cssText = 'height:1px;';
+  filters.parentNode.insertBefore(sentinel, filters);
+  const obs = new IntersectionObserver(([entry]) => {
+    filters.classList.toggle('is-stuck', !entry.isIntersecting);
+  }, { threshold: 0 });
+  obs.observe(sentinel);
+}
 
 let resizeTimer;
 window.addEventListener('resize', () => {

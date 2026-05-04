@@ -100,9 +100,9 @@ function baseLayout() {
   return {
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
-    font: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
+    font: { family: FONT_MONO, size: 13, color: COLORS.textMuted },
     hoverlabel: {
-      font: { family: FONT_SANS, size: 13, color: COLORS.text },
+      font: { family: FONT_SANS, size: 14, color: COLORS.text },
       bgcolor: COLORS.surface,
       bordercolor: COLORS.border,
     },
@@ -118,10 +118,10 @@ function axisBase() {
     ticks: 'outside',
     tickcolor: COLORS.border,
     ticklen: 4,
-    tickfont: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
+    tickfont: { family: FONT_MONO, size: 13, color: COLORS.textMuted },
     gridcolor: COLORS.border,
     zeroline: false,
-    title: { font: { family: FONT_MONO, size: 11, color: COLORS.textMuted }, standoff: 12 },
+    title: { font: { family: FONT_MONO, size: 13, color: COLORS.textMuted }, standoff: 12 },
   };
 }
 
@@ -379,12 +379,15 @@ function renderDailyChart(dc) {
   const { hub, destination } = STATE;
   const wrap = document.getElementById('daily-chart');
   const legend = document.getElementById('daily-legend');
+  const desc = document.getElementById('daily-desc');
 
   if (hub && destination) {
     legend.classList.add('is-visible');
+    if (desc) desc.textContent = 'Availability for this route, recorded each morning. Gaps mean the scrape was missed that day.';
     renderRouteTimeline(wrap, hub, destination);
   } else {
     legend.classList.remove('is-visible');
+    if (desc) desc.textContent = 'Available routes recorded each morning. Gaps mean the scrape was missed that day. The dotted line marks the period mean.';
     renderDailyLine(wrap, dc);
   }
 }
@@ -422,7 +425,7 @@ function renderDailyLine(wrap, dc) {
       y: avg, yanchor: 'bottom',
       text: `mean ${avg.toFixed(1)}`,
       showarrow: false,
-      font: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
+      font: { family: FONT_MONO, size: 13, color: COLORS.textMuted },
       bgcolor: COLORS.bg,
       borderpad: 4,
     }],
@@ -494,7 +497,7 @@ function renderRouteTimeline(wrap, hub, dest) {
       showgrid: false,
       showline: false,
       ticks: '',
-      tickfont: { family: FONT_SANS, size: narrow ? 11 : 13, color: COLORS.text },
+      tickfont: { family: FONT_SANS, size: narrow ? 13 : 15, color: COLORS.text },
     },
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -545,7 +548,7 @@ function legendCfg() {
     orientation: 'h',
     y: -0.18, x: 0, xanchor: 'left',
     bgcolor: 'rgba(0,0,0,0)',
-    font: { family: FONT_MONO, size: 12, color: COLORS.textSoft },
+    font: { family: FONT_MONO, size: 13, color: COLORS.textSoft },
     itemsizing: 'constant',
   };
 }
@@ -690,7 +693,7 @@ function renderMap() {
       hovertext: group.map(p => p.hover),
       hovertemplate: '%{hovertext}<extra></extra>',
       textposition: 'top center',
-      textfont: { family: FONT_SANS, size: 12, color: COLORS.text },
+      textfont: { family: FONT_SANS, size: 13, color: COLORS.text },
       showlegend: false,
     });
   }

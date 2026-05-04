@@ -61,7 +61,7 @@ html, body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -99,7 +99,7 @@ button { font-family: inherit; }
   gap: 12px;
   margin-bottom: 20px;
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
 }
 
@@ -167,7 +167,7 @@ button { font-family: inherit; }
 }
 
 .lead {
-  font-size: clamp(15px, 1.3vw, 17px);
+  font-size: clamp(17px, 1.4vw, 19px);
   color: var(--text-soft);
   max-width: 60ch;
   margin-bottom: 12px;
@@ -218,7 +218,7 @@ button { font-family: inherit; }
 .combobox label {
   display: block;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
   margin-bottom: 6px;
 }
@@ -243,7 +243,7 @@ button { font-family: inherit; }
   border: 0;
   outline: none;
   font-family: var(--sans);
-  font-size: 16px;
+  font-size: 17px;
   color: var(--text);
 }
 
@@ -284,7 +284,7 @@ button { font-family: inherit; }
 .combo-list li {
   padding: 8px 12px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: 8px;
   transition: background 0.1s;
 }
@@ -320,7 +320,7 @@ main {
 
 .headline-label {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
   margin-bottom: 8px;
   letter-spacing: -0.01em;
@@ -370,7 +370,7 @@ main {
 .headline-dual .label {
   margin-top: 14px;
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-soft);
   letter-spacing: -0.01em;
 }
@@ -392,14 +392,14 @@ main {
 }
 
 .section-head h2 {
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 500;
   letter-spacing: -0.02em;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
 }
 
 .section-desc {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-muted);
   max-width: 60ch;
 }
@@ -426,7 +426,7 @@ main {
   padding: 14px 0 0;
   border-top: 1px solid var(--border);
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
 }
 
@@ -463,14 +463,14 @@ footer {
 
 .coverage-line {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13px;
   color: var(--text-muted);
   margin-bottom: 16px;
   letter-spacing: -0.005em;
 }
 
 .colophon {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
 }
 .colophon a { color: var(--text-soft); }
@@ -485,7 +485,7 @@ footer {
   background: var(--bg);
   z-index: 100;
   font-family: var(--mono);
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
 }
 .loading.hidden { display: none; }

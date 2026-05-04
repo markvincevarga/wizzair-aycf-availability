@@ -1428,6 +1428,34 @@ def main() -> None:
 
     st.title(f"✈️ {title}")
 
+    st.markdown(
+        """
+        <a href="https://aycf.mvarga.dev" style="text-decoration: none;">
+          <div style="
+              background: linear-gradient(135deg, #e6007e 0%, #ff2891 100%);
+              color: #ffffff;
+              padding: 28px 32px;
+              border-radius: 16px;
+              margin: 8px 0 24px 0;
+              box-shadow: 0 8px 32px rgba(230, 0, 126, 0.25);
+              text-align: center;
+          ">
+            <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.85; margin-bottom: 10px;">
+              ✈ &nbsp;This site has moved
+            </div>
+            <div style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 10px; color: #ffffff;">
+              aycf.mvarga.dev
+            </div>
+            <div style="font-size: 16px; opacity: 0.92; line-height: 1.5;">
+              Faster, prettier, mobile-friendly, dark mode. Same data. No Streamlit cold start.<br>
+              <strong>Click anywhere on this banner to go there now &rarr;</strong>
+            </div>
+          </div>
+        </a>
+        """,
+        unsafe_allow_html=True,
+    )
+
     # Disclaimer
     st.markdown(
         "".join(

@@ -1,6 +1,9 @@
-:root {
+:root,
+:root[data-theme="light"] {
   --bg: #fafafa;
+  --bg-translucent: rgba(250, 250, 250, 0.82);
   --surface: #ffffff;
+  --surface-soft: #f0f0f0;
   --text: #0a0a0a;
   --text-soft: #525252;
   --text-muted: #737373;
@@ -10,13 +13,45 @@
   --accent: #e6007e;
   --accent-deep: #b8005f;
   --accent-soft: #fbe4ef;
+  --accent-fill: rgba(230, 0, 126, 0.06);
   --slate: #404040;
+  --map-other: #1f2937;
+  --map-style: 'carto-positron';
+  --shadow-stuck: 0 4px 16px rgba(10, 10, 10, 0.04);
+  --shadow-pop: 0 12px 32px rgba(10, 10, 10, 0.08), 0 2px 6px rgba(10, 10, 10, 0.04);
+  --shadow-toggle: 0 1px 2px rgba(10, 10, 10, 0.06);
+}
 
+:root[data-theme="dark"] {
+  --bg: #0a0a0a;
+  --bg-translucent: rgba(10, 10, 10, 0.78);
+  --surface: #171717;
+  --surface-soft: #262626;
+  --text: #fafafa;
+  --text-soft: #d4d4d4;
+  --text-muted: #a3a3a3;
+  --text-faint: #737373;
+  --border: #262626;
+  --border-strong: #404040;
+  --accent: #ff2891;
+  --accent-deep: #ff58a8;
+  --accent-soft: rgba(255, 40, 145, 0.16);
+  --accent-fill: rgba(255, 40, 145, 0.10);
+  --slate: #d4d4d4;
+  --map-other: #d4d4d4;
+  --map-style: 'carto-darkmatter';
+  --shadow-stuck: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-toggle: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+:root {
   --sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
   --measure: 1080px;
   --radius: 12px;
+  color-scheme: light dark;
 }
 
 * { box-sizing: border-box; }
@@ -31,6 +66,7 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "ss01", "cv11";
+  transition: background 0.2s, color 0.2s;
 }
 
 a {
@@ -86,6 +122,41 @@ button { font-family: inherit; }
   color: var(--text-muted);
 }
 
+.theme-toggle {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.theme-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: var(--text-muted);
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.theme-toggle button:hover { color: var(--text); }
+
+.theme-toggle button.is-active {
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: var(--shadow-toggle);
+}
+
+.theme-toggle button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 .page-header h1 {
   font-size: clamp(28px, 4.2vw, 42px);
   font-weight: 500;
@@ -119,11 +190,11 @@ button { font-family: inherit; }
 }
 
 .filters.is-stuck {
-  background: rgba(250, 250, 250, 0.82);
+  background: var(--bg-translucent);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom-color: var(--border);
-  box-shadow: 0 4px 16px rgba(10, 10, 10, 0.04);
+  box-shadow: var(--shadow-stuck);
 }
 
 .filters-inner {
@@ -193,7 +264,7 @@ button { font-family: inherit; }
   border-radius: 6px;
   transition: color 0.15s, background 0.15s;
 }
-.combo-clear:hover { color: var(--text); background: #f3f3f3; }
+.combo-clear:hover { color: var(--text); background: var(--surface-soft); }
 
 .combo-list {
   position: absolute;
@@ -205,7 +276,7 @@ button { font-family: inherit; }
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  box-shadow: 0 12px 32px rgba(10, 10, 10, 0.08), 0 2px 6px rgba(10, 10, 10, 0.04);
+  box-shadow: var(--shadow-pop);
   max-height: 320px;
   overflow-y: auto;
 }
@@ -377,7 +448,7 @@ main {
 }
 
 .legend-swatch.on { background: var(--accent); }
-.legend-swatch.off { background: #f0f0f0; }
+.legend-swatch.off { background: var(--surface-soft); }
 .legend-swatch.nodata { background: transparent; border: 1px dashed var(--border-strong); }
 
 /* ─── FOOTER ────────────────────────────────────────────────────────────── */

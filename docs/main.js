@@ -68,45 +68,62 @@ const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Satur
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const PLOT_CONFIG = { displaylogo: false, displayModeBar: false, responsive: true };
-const COLORS = {
-  text: '#0a0a0a',
-  textSoft: '#525252',
-  textMuted: '#737373',
-  textFaint: '#a3a3a3',
-  border: '#e7e7e7',
-  surface: '#ffffff',
-  accent: '#e6007e',
-  slate: '#404040',
-  hub: '#e6007e',
-  dest: '#404040',
-  other: '#1f2937',
-};
 const FONT_SANS = "'Geist', -apple-system, BlinkMacSystemFont, sans-serif";
 const FONT_MONO = "'Geist Mono', ui-monospace, monospace";
-const FONT = { family: FONT_MONO, size: 11, color: COLORS.textMuted };
-const BASE_LAYOUT = {
-  paper_bgcolor: 'rgba(0,0,0,0)',
-  plot_bgcolor: 'rgba(0,0,0,0)',
-  font: FONT,
-  hoverlabel: {
-    font: { family: FONT_SANS, size: 13, color: COLORS.text },
-    bgcolor: COLORS.surface,
-    bordercolor: COLORS.border,
-  },
-  margin: { l: 56, r: 16, t: 12, b: 48 },
-};
-const AXIS_BASE = {
-  showline: false,
-  linecolor: COLORS.border,
-  linewidth: 1,
-  ticks: 'outside',
-  tickcolor: COLORS.border,
-  ticklen: 4,
-  tickfont: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
-  gridcolor: COLORS.border,
-  zeroline: false,
-  title: { font: { family: FONT_MONO, size: 11, color: COLORS.textMuted }, standoff: 12 },
-};
+
+const COLORS = {};
+
+function refreshColors() {
+  const cs = getComputedStyle(document.documentElement);
+  const v = (n, fallback) => {
+    const x = cs.getPropertyValue(n).trim();
+    return x || fallback;
+  };
+  COLORS.text = v('--text', '#0a0a0a');
+  COLORS.textSoft = v('--text-soft', '#525252');
+  COLORS.textMuted = v('--text-muted', '#737373');
+  COLORS.textFaint = v('--text-faint', '#a3a3a3');
+  COLORS.border = v('--border', '#e7e7e7');
+  COLORS.surface = v('--surface', '#ffffff');
+  COLORS.surfaceSoft = v('--surface-soft', '#f0f0f0');
+  COLORS.accent = v('--accent', '#e6007e');
+  COLORS.slate = v('--slate', '#404040');
+  COLORS.bg = v('--bg', '#fafafa');
+  COLORS.accentFill = v('--accent-fill', 'rgba(230, 0, 126, 0.06)');
+  COLORS.mapStyle = v('--map-style', "'carto-positron'").replace(/['"]/g, '');
+  COLORS.hub = COLORS.accent;
+  COLORS.dest = COLORS.slate;
+  COLORS.other = v('--map-other', '#1f2937');
+}
+
+function baseLayout() {
+  return {
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
+    hoverlabel: {
+      font: { family: FONT_SANS, size: 13, color: COLORS.text },
+      bgcolor: COLORS.surface,
+      bordercolor: COLORS.border,
+    },
+    margin: { l: 56, r: 16, t: 12, b: 48 },
+  };
+}
+
+function axisBase() {
+  return {
+    showline: false,
+    linecolor: COLORS.border,
+    linewidth: 1,
+    ticks: 'outside',
+    tickcolor: COLORS.border,
+    ticklen: 4,
+    tickfont: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
+    gridcolor: COLORS.border,
+    zeroline: false,
+    title: { font: { family: FONT_MONO, size: 11, color: COLORS.textMuted }, standoff: 12 },
+  };
+}
 
 let DATA = null;
 const STATE = { hub: null, destination: null };
@@ -251,6 +268,7 @@ function getRouteIdx(originIdx, destIdx) {
 }
 
 function render() {
+  refreshColors();
   const dc = dailyMatchCounts();
   renderMetrics(dc);
   renderDailyChart(dc);
@@ -383,17 +401,17 @@ function renderDailyLine(wrap, dc) {
     line: { color: COLORS.accent, width: 1.6 },
     connectgaps: false,
     fill: 'tozeroy',
-    fillcolor: 'rgba(230, 0, 126, 0.06)',
+    fillcolor: COLORS.accentFill,
     name: 'Flights',
     hovertemplate: '<b>%{x|%a, %d %b %Y}</b><br>%{y} flights<extra></extra>',
   }];
 
   const layout = {
-    ...BASE_LAYOUT,
+    ...baseLayout(),
     margin: { l: 48, r: 16, t: 16, b: 44 },
     height: 300,
-    xaxis: { ...AXIS_BASE, title: undefined },
-    yaxis: { ...AXIS_BASE, title: undefined, rangemode: 'tozero', gridcolor: COLORS.border },
+    xaxis: { ...axisBase(), title: undefined },
+    yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', gridcolor: COLORS.border },
     shapes: [{
       type: 'line', xref: 'paper', x0: 0, x1: 1,
       y0: avg, y1: avg,
@@ -405,7 +423,7 @@ function renderDailyLine(wrap, dc) {
       text: `mean ${avg.toFixed(1)}`,
       showarrow: false,
       font: { family: FONT_MONO, size: 11, color: COLORS.textMuted },
-      bgcolor: '#fafafa',
+      bgcolor: COLORS.bg,
       borderpad: 4,
     }],
     hovermode: 'x unified',
@@ -459,19 +477,19 @@ function renderRouteTimeline(wrap, hub, dest) {
     x: dates, y: yLabels, z,
     customdata,
     hovertemplate: '%{customdata}<extra></extra>',
-    colorscale: [[0, '#f0f0f0'], [1, COLORS.accent]],
+    colorscale: [[0, COLORS.surfaceSoft], [1, COLORS.accent]],
     zmin: 0, zmax: 1,
     showscale: false,
     xgap: narrow ? 0 : 1,
     ygap: narrow ? 3 : 6,
   }];
   const layout = {
-    ...BASE_LAYOUT,
+    ...baseLayout(),
     margin: { l: narrow ? 90 : 180, r: 16, t: 12, b: 40 },
     height: narrow ? 180 : 220,
-    xaxis: { ...AXIS_BASE, showgrid: false, title: undefined },
+    xaxis: { ...axisBase(), showgrid: false, title: undefined },
     yaxis: {
-      ...AXIS_BASE,
+      ...axisBase(),
       autorange: 'reversed',
       showgrid: false,
       showline: false,
@@ -496,11 +514,11 @@ function renderMonthlyChart(dc) {
       bar(months, ba, `${destination} → ${hub}`, COLORS.slate, true),
     ];
     const layout = {
-      ...BASE_LAYOUT,
+      ...baseLayout(),
       barmode: 'group',
       bargap: 0.4,
-      xaxis: { ...AXIS_BASE, title: undefined },
-      yaxis: { ...AXIS_BASE, title: undefined, range: [0, 108], ticksuffix: '%' },
+      xaxis: { ...axisBase(), title: undefined },
+      yaxis: { ...axisBase(), title: undefined, range: [0, 108], ticksuffix: '%' },
       margin: { l: 48, r: 16, t: 16, b: 56 },
       height: 300,
       legend: legendCfg(),
@@ -510,10 +528,10 @@ function renderMonthlyChart(dc) {
     const vals = monthlyDailyAvg(dc);
     const data = [bar(months, vals, 'Avg flights / day', COLORS.text, false)];
     const layout = {
-      ...BASE_LAYOUT,
+      ...baseLayout(),
       bargap: 0.5,
-      xaxis: { ...AXIS_BASE, title: undefined },
-      yaxis: { ...AXIS_BASE, title: undefined, rangemode: 'tozero' },
+      xaxis: { ...axisBase(), title: undefined },
+      yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero' },
       margin: { l: 56, r: 16, t: 16, b: 40 },
       height: 300,
       showlegend: false,
@@ -595,11 +613,11 @@ function renderWeekdayChart(dc) {
       bar(wdShort, ba, `${destination} → ${hub}`, COLORS.slate, true),
     ];
     const layout = {
-      ...BASE_LAYOUT,
+      ...baseLayout(),
       barmode: 'group',
       bargap: 0.4,
-      xaxis: { ...AXIS_BASE, title: undefined },
-      yaxis: { ...AXIS_BASE, title: undefined, range: [0, 108], ticksuffix: '%' },
+      xaxis: { ...axisBase(), title: undefined },
+      yaxis: { ...axisBase(), title: undefined, range: [0, 108], ticksuffix: '%' },
       margin: { l: 48, r: 16, t: 16, b: 56 },
       height: 280,
       legend: legendCfg(),
@@ -615,10 +633,10 @@ function renderWeekdayChart(dc) {
     const vals = totalsByWd.map(x => x.n ? x.sum / x.n : 0);
     const data = [bar(wdShort, vals, 'Avg flights', COLORS.text, false)];
     const layout = {
-      ...BASE_LAYOUT,
+      ...baseLayout(),
       bargap: 0.5,
-      xaxis: { ...AXIS_BASE, title: undefined },
-      yaxis: { ...AXIS_BASE, title: undefined, rangemode: 'tozero' },
+      xaxis: { ...axisBase(), title: undefined },
+      yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero' },
       margin: { l: 56, r: 16, t: 16, b: 40 },
       height: 280,
       showlegend: false,
@@ -679,8 +697,8 @@ function renderMap() {
 
   const center = mapCenter(hub, destination);
   const layout = {
-    ...BASE_LAYOUT,
-    map: { style: 'carto-positron', center, zoom: center.zoom },
+    ...baseLayout(),
+    map: { style: COLORS.mapStyle, center, zoom: center.zoom },
     margin: { l: 0, r: 0, t: 0, b: 0 },
     height: 440,
   };
@@ -812,6 +830,44 @@ function esc(s) {
 
 window.addEventListener('DOMContentLoaded', init);
 window.addEventListener('DOMContentLoaded', setupStickyFilters);
+window.addEventListener('DOMContentLoaded', setupThemeToggle);
+
+const THEME_KEY = 'aycf-theme';
+
+function setupThemeToggle() {
+  const buttons = document.querySelectorAll('[data-theme-set]');
+  const mq = window.matchMedia('(prefers-color-scheme: dark)');
+
+  const readPref = () => {
+    try { return localStorage.getItem(THEME_KEY) || 'auto'; } catch { return 'auto'; }
+  };
+
+  const apply = (pref, persist) => {
+    const resolved = pref === 'auto'
+      ? (mq.matches ? 'dark' : 'light')
+      : pref;
+    document.documentElement.setAttribute('data-theme', resolved);
+    document.documentElement.setAttribute('data-theme-pref', pref);
+    if (persist) {
+      try { localStorage.setItem(THEME_KEY, pref); } catch {}
+    }
+    buttons.forEach(b => {
+      b.classList.toggle('is-active', b.dataset.themeSet === pref);
+      b.setAttribute('aria-pressed', String(b.dataset.themeSet === pref));
+    });
+    if (DATA) render();
+  };
+
+  apply(readPref());
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => apply(btn.dataset.themeSet, true));
+  });
+
+  const onSystemChange = () => { if (readPref() === 'auto') apply('auto'); };
+  if (mq.addEventListener) mq.addEventListener('change', onSystemChange);
+  else if (mq.addListener) mq.addListener(onSystemChange);
+}
 
 function setupStickyFilters() {
   const filters = document.querySelector('.filters');

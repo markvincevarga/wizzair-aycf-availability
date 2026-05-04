@@ -9,6 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@300..600&display=swap">
   <link rel="preconnect" href="https://cdn.plot.ly">
+  <script>
+    (function() {
+      try {
+        var t = localStorage.getItem('aycf-theme') || 'auto';
+        var r = t === 'auto'
+          ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          : t;
+        document.documentElement.setAttribute('data-theme', r);
+        document.documentElement.setAttribute('data-theme-pref', t);
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +29,25 @@
       <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">AYCF Almanac</span>
       <span class="brand-meta">Updated <time id="pub-date">—</time></span>
+      <div class="theme-toggle" role="radiogroup" aria-label="Theme">
+        <button type="button" data-theme-set="light" aria-label="Light theme" title="Light">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+        </button>
+        <button type="button" data-theme-set="auto" aria-label="Match system" title="Auto">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+            <path d="M12 3a9 9 0 0 0 0 18Z" fill="currentColor"/>
+          </svg>
+        </button>
+        <button type="button" data-theme-set="dark" aria-label="Dark theme" title="Dark">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
     </div>
     <h1>The All You Can Fly Almanac.</h1>
     <p class="lead">

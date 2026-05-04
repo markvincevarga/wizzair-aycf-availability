@@ -762,6 +762,103 @@ class FlightAnalytics:
             st.error(f"Error creating daily flights chart: {e}")
             return None
 
+    def create_route_timeline_chart(
+        self, hub: str, destination: str
+    ) -> Optional[go.Figure]:
+        """Two-row binary timeline (heatmap) of daily flight availability per
+        direction, with a 'Both' summary row on top. Each cell = one day."""
+        try:
+            filtered_data = self.filter_data(hub, destination)
+            if filtered_data.empty:
+                return None
+
+            ab = f"{hub} → {destination}"
+            ba = f"{destination} → {hub}"
+
+            counts = (
+                filtered_data.groupby(["collection_date", "direction"])
+                .size()
+                .unstack(fill_value=0)
+            )
+
+            available_set = {pd.Timestamp(d) for d in self.available_dates}
+            if not available_set:
+                return None
+            full_dates = pd.date_range(
+                min(available_set), max(available_set), freq="D"
+            )
+
+            ab_set = (
+                set(counts.index[counts[ab] > 0]) if ab in counts.columns else set()
+            )
+            ba_set = (
+                set(counts.index[counts[ba] > 0]) if ba in counts.columns else set()
+            )
+
+            def cell(d, has_set):
+                if d not in available_set:
+                    return None
+                return 1 if d in has_set else 0
+
+            ab_row = [cell(d, ab_set) for d in full_dates]
+            ba_row = [cell(d, ba_set) for d in full_dates]
+            both_row = [
+                None if (a is None or b is None) else (1 if a == 1 and b == 1 else 0)
+                for a, b in zip(ab_row, ba_row)
+            ]
+
+            def hover(d, val, label):
+                date_str = d.strftime("%Y-%m-%d (%a)")
+                if val is None:
+                    state = "No data collected"
+                elif val == 1:
+                    state = "✈️ Flight available"
+                else:
+                    state = "No flight"
+                return f"<b>{label}</b><br>{date_str}<br>{state}"
+
+            both_hover = [hover(d, v, "Both directions") for d, v in zip(full_dates, both_row)]
+            ab_hover = [hover(d, v, ab) for d, v in zip(full_dates, ab_row)]
+            ba_hover = [hover(d, v, ba) for d, v in zip(full_dates, ba_row)]
+
+            y_labels = ["Both", ab, ba]
+            z = [both_row, ab_row, ba_row]
+            customdata = [both_hover, ab_hover, ba_hover]
+
+            fig = go.Figure(
+                data=go.Heatmap(
+                    z=z,
+                    x=full_dates,
+                    y=y_labels,
+                    customdata=customdata,
+                    hovertemplate="%{customdata}<extra></extra>",
+                    colorscale=[[0.0, "#e8e8e8"], [1.0, "#1f77b4"]],
+                    zmin=0,
+                    zmax=1,
+                    showscale=False,
+                    xgap=1,
+                    ygap=4,
+                )
+            )
+
+            fig.update_layout(
+                title=self._generate_chart_title(
+                    "Daily Flight Availability", hub, destination
+                ),
+                xaxis_title="Date",
+                yaxis=dict(autorange="reversed", title=None),
+                height=240,
+                plot_bgcolor="white",
+                margin=dict(l=120, r=20, t=60, b=40),
+            )
+            fig.update_xaxes(showgrid=False, ticks="outside")
+            fig.update_yaxes(showgrid=False)
+
+            return fig
+        except Exception as e:
+            st.error(f"Error creating route timeline chart: {e}")
+            return None
+
     def create_monthly_flights_chart(
         self, hub: Optional[str] = None, destination: Optional[str] = None
     ) -> Optional[go.Figure]:
@@ -1432,11 +1529,25 @@ def main() -> None:
     st.subheader("📊 Flight Analytics")
 
     # Daily flights chart (filtered)
-    chart = analytics.create_daily_flights_chart(hub, destination)
-    if chart:
-        st.plotly_chart(chart, config=CHART_CONFIG, use_container_width=True)
+    # Two-city special case: render a binary timeline heatmap instead of a line chart.
+    if hub and destination:
+        chart = analytics.create_route_timeline_chart(hub, destination)
+        if chart:
+            st.plotly_chart(chart, config=CHART_CONFIG, use_container_width=True)
+            st.markdown(
+                "**Each cell = one day.**\n"
+                "- 🟦 **Flight available**\n"
+                "- ⬜ **No flight**\n"
+                "- ◽ **No data collected**"
+            )
+        else:
+            st.warning("No data available for the selected filters.")
     else:
-        st.warning("No data available for the selected filters.")
+        chart = analytics.create_daily_flights_chart(hub, destination)
+        if chart:
+            st.plotly_chart(chart, config=CHART_CONFIG, use_container_width=True)
+        else:
+            st.warning("No data available for the selected filters.")
 
     # Monthly flights chart
     st.markdown("---")

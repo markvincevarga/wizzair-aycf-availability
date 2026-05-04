@@ -79,7 +79,7 @@ const COLORS = {
   slate: '#404040',
   hub: '#e6007e',
   dest: '#404040',
-  other: '#a3a3a3',
+  other: '#1f2937',
 };
 const FONT_SANS = "'Geist', -apple-system, BlinkMacSystemFont, sans-serif";
 const FONT_MONO = "'Geist Mono', ui-monospace, monospace";
@@ -666,7 +666,7 @@ function renderMap() {
       marker: {
         size: group.map(p => isFocus ? p.size + 4 : p.size),
         color,
-        opacity: isFocus ? 1 : 0.7,
+        opacity: 1,
       },
       text: group.map(p => p.name),
       hovertext: group.map(p => p.hover),

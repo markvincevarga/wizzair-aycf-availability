@@ -47,6 +47,10 @@ jobs:
               exit 1
           fi
 
+      - name: Aggregate Data
+        run: |
+          uv run --link-mode=copy aggregate.py --out docs/aggregated-data.json
+
       - name: Setup Git Config
         run: |
           git config user.name 'github-actions[bot]'
@@ -57,7 +61,7 @@ jobs:
           # Stage the file, commit and push
           file_path=$(git ls-files data --others --exclude-standard)
           timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
-          git add ${file_path}
+          git add ${file_path} docs/aggregated-data.json
           git commit -m "add availabilities for ${timestamp}"
           git --no-pager log -n 1
           git push origin main

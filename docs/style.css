@@ -518,6 +518,16 @@ footer {
 }
 .colophon a { color: var(--text-soft); }
 
+.disclaimer {
+  margin-top: 12px;
+  max-width: 56ch;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.01em;
+}
+
 /* ─── LOADING ───────────────────────────────────────────────────────────── */
 
 .loading {

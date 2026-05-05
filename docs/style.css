@@ -398,6 +398,50 @@ main {
   margin-bottom: 4px;
 }
 
+.section[id] {
+  scroll-margin-top: 80px;
+}
+
+.anchor-link,
+.anchor-link:hover,
+.anchor-link:focus,
+.anchor-link:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.anchor-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.anchor-link::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background-color: var(--text-faint);
+  -webkit-mask: var(--anchor-icon) no-repeat center / contain;
+          mask: var(--anchor-icon) no-repeat center / contain;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.anchor-link:hover::after,
+.anchor-link:focus-visible::after {
+  opacity: 1;
+}
+
+.anchor-link.is-copied::after {
+  background-color: var(--accent);
+  opacity: 1;
+}
+
+:root {
+  --anchor-icon: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5'/><path d='M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5'/></svg>");
+}
+
 .section-desc {
   font-size: 16px;
   color: var(--text-muted);

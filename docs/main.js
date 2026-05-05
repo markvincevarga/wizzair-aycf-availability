@@ -690,7 +690,7 @@ function weekdayDirectionPct(originName, destName) {
 
 function renderMap() {
   const { hub, destination } = STATE;
-  const card = document.getElementById('map-section');
+  const card = document.getElementById('network');
   if (hub && destination) { card.classList.add('is-hidden'); return; }
   card.classList.remove('is-hidden');
 
@@ -861,6 +861,27 @@ function esc(s) {
 window.addEventListener('DOMContentLoaded', init);
 window.addEventListener('DOMContentLoaded', setupStickyFilters);
 window.addEventListener('DOMContentLoaded', setupThemeToggle);
+window.addEventListener('DOMContentLoaded', setupAnchorLinks);
+
+function setupAnchorLinks() {
+  document.querySelectorAll('.anchor-link').forEach(link => {
+    link.addEventListener('click', async (e) => {
+      const hash = link.getAttribute('href');
+      if (!hash || !hash.startsWith('#')) return;
+      e.preventDefault();
+      const id = hash.slice(1);
+      const target = document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const url = window.location.origin + window.location.pathname + window.location.search + hash;
+      window.history.replaceState(null, '', window.location.pathname + window.location.search + hash);
+      try {
+        await navigator.clipboard.writeText(url);
+        link.classList.add('is-copied');
+        setTimeout(() => link.classList.remove('is-copied'), 1200);
+      } catch {}
+    });
+  });
+}
 
 const THEME_KEY = 'aycf-theme';
 

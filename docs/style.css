@@ -610,6 +610,128 @@ main {
   overflow: hidden;
 }
 
+/* ─── DAILY RANGE SLIDER ────────────────────────────────────────────────── */
+
+.daily-range-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 0 6px;
+}
+
+.range-slider-inner {
+  position: relative;
+  flex: 1;
+  height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.range-track-bg,
+.range-track-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.range-track-bg { background: var(--border-strong); }
+
+.range-track-fill {
+  top: 0;
+  bottom: 0;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+
+.range-track-fill::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 8px;
+  border-radius: 4px;
+  background: var(--accent);
+  pointer-events: none;
+}
+
+.range-track-fill::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 5px;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: -5px 0 0 1px rgba(255, 255, 255, 0.65), 5px 0 0 1px rgba(255, 255, 255, 0.65);
+  pointer-events: none;
+}
+
+.range-track-fill:active { cursor: grabbing; }
+
+.range-input {
+  position: absolute;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: grab;
+  pointer-events: all;
+  transition: box-shadow 0.15s;
+}
+
+.range-input:active::-webkit-slider-thumb {
+  cursor: grabbing;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent), transparent 82%);
+}
+
+.range-input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 0;
+  cursor: grab;
+  pointer-events: all;
+}
+
+.range-input:active::-moz-range-thumb { cursor: grabbing; }
+
+.range-input::-moz-range-track { background: transparent; }
+
+.daily-range-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  width: 140px;
+  flex-shrink: 0;
+  text-align: right;
+  white-space: nowrap;
+}
+
 /* ─── LEGEND ────────────────────────────────────────────────────────────── */
 
 .legend {

@@ -98,6 +98,15 @@
         <p class="section-desc" id="daily-desc">Available routes recorded each morning. Gaps mean the scrape was missed that day. The dotted line marks the period mean.</p>
       </header>
       <div id="daily-chart" class="chart"></div>
+      <div class="daily-range-wrap" id="daily-range-wrap">
+        <span id="daily-range-label" class="daily-range-label">all</span>
+        <div class="range-slider-inner">
+          <div class="range-track-bg"></div>
+          <div class="range-track-fill" id="daily-range-fill"></div>
+          <input type="range" id="daily-range-lo" class="range-input" min="0" value="0" step="1">
+          <input type="range" id="daily-range-hi" class="range-input" min="0" value="100" step="1">
+        </div>
+      </div>
       <p class="legend" id="daily-legend">
         <span class="legend-item"><span class="legend-swatch on"></span>Flight available</span>
         <span class="legend-item"><span class="legend-swatch off"></span>No flight</span>

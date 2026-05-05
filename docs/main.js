@@ -467,7 +467,7 @@ function renderDailyLine(wrap, dc) {
     dragmode: false,
     margin: { l: 48, r: 16, t: 16, b: 44 },
     height: 300,
-    xaxis: { ...axisBase(), title: undefined, rangeslider: { visible: true } },
+    xaxis: { ...axisBase(), title: undefined },
     yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', gridcolor: COLORS.border, fixedrange: true },
     shapes: [
       {
@@ -504,6 +504,7 @@ function renderDailyLine(wrap, dc) {
     hovermode: 'x unified',
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
+  setupDailySlider(wrap, DATA.continuousDates);
 }
 
 function renderRouteTimeline(wrap, hub, dest) {
@@ -563,7 +564,7 @@ function renderRouteTimeline(wrap, hub, dest) {
     dragmode: false,
     margin: { l: narrow ? 90 : 180, r: 16, t: 12, b: 40 },
     height: narrow ? 240 : 300,
-    xaxis: { ...axisBase(), showgrid: false, title: undefined, rangeslider: { visible: true } },
+    xaxis: { ...axisBase(), showgrid: false, title: undefined },
     yaxis: {
       ...axisBase(),
       autorange: 'reversed',
@@ -575,6 +576,98 @@ function renderRouteTimeline(wrap, hub, dest) {
     },
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
+  setupDailySlider(wrap, dates);
+}
+
+let cleanupDragListener = null;
+
+function setupDailySlider(chartEl, dates) {
+  const loInput = document.getElementById('daily-range-lo');
+  const hiInput = document.getElementById('daily-range-hi');
+  const fill = document.getElementById('daily-range-fill');
+  const label = document.getElementById('daily-range-label');
+  if (!loInput || !hiInput || !fill || !label) return;
+
+  const max = dates.length - 1;
+  loInput.min = hiInput.min = 0;
+  loInput.max = hiInput.max = max;
+  loInput.value = 0;
+  hiInput.value = max;
+
+  const fmtDate = iso => {
+    const d = new Date(iso + 'T00:00:00Z');
+    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
+  };
+
+  const sync = () => {
+    let lo = parseInt(loInput.value);
+    let hi = parseInt(hiInput.value);
+    if (lo > hi) { loInput.value = hi; lo = hi; }
+    if (hi < lo) { hiInput.value = lo; hi = lo; }
+
+    fill.style.left = `${(lo / max) * 100}%`;
+    fill.style.width = `${((hi - lo) / max) * 100}%`;
+
+    loInput.style.zIndex = lo >= max - 1 ? 3 : 1;
+
+    if (lo === 0 && hi === max) {
+      Plotly.relayout(chartEl, { 'xaxis.autorange': true });
+      label.textContent = 'all';
+    } else {
+      Plotly.relayout(chartEl, { 'xaxis.range': [dates[lo], dates[hi]] });
+      label.textContent = `${fmtDate(dates[lo])} – ${fmtDate(dates[hi])}`;
+    }
+  };
+
+  loInput.oninput = sync;
+  hiInput.oninput = sync;
+  sync();
+
+  if (cleanupDragListener) { cleanupDragListener(); cleanupDragListener = null; }
+
+  const inner = fill.parentElement;
+  let dragging = false, dragStartX = 0, dragStartLo = 0, dragStartHi = 0;
+
+  const startDrag = (clientX) => {
+    dragging = true;
+    dragStartX = clientX;
+    dragStartLo = parseInt(loInput.value);
+    dragStartHi = parseInt(hiInput.value);
+  };
+
+  const moveDrag = (clientX) => {
+    if (!dragging) return;
+    const trackWidth = inner.getBoundingClientRect().width;
+    const delta = Math.round(((clientX - dragStartX) / trackWidth) * max);
+    const span = dragStartHi - dragStartLo;
+    const newLo = Math.max(0, Math.min(max - span, dragStartLo + delta));
+    loInput.value = newLo;
+    hiInput.value = newLo + span;
+    sync();
+  };
+
+  const endDrag = () => { dragging = false; };
+
+  const onMouseDown = e => { e.preventDefault(); startDrag(e.clientX); };
+  const onMouseMove = e => moveDrag(e.clientX);
+  const onTouchStart = e => { e.preventDefault(); startDrag(e.touches[0].clientX); };
+  const onTouchMove = e => { if (dragging) { e.preventDefault(); moveDrag(e.touches[0].clientX); } };
+
+  fill.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mouseup', endDrag);
+  fill.addEventListener('touchstart', onTouchStart, { passive: false });
+  window.addEventListener('touchmove', onTouchMove, { passive: false });
+  window.addEventListener('touchend', endDrag);
+
+  cleanupDragListener = () => {
+    fill.removeEventListener('mousedown', onMouseDown);
+    window.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('mouseup', endDrag);
+    fill.removeEventListener('touchstart', onTouchStart);
+    window.removeEventListener('touchmove', onTouchMove);
+    window.removeEventListener('touchend', endDrag);
+  };
 }
 
 function renderMonthlyChart(dc) {

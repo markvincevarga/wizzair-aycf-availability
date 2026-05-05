@@ -134,6 +134,7 @@ async function init() {
     if (!r.ok) throw new Error(`HTTP ${r.status}`);
     DATA = await r.json();
     preprocess(DATA);
+    applyQueryParams();
     setupCombos();
     setupMeta();
     render();
@@ -142,6 +143,26 @@ async function init() {
     document.getElementById('loading').textContent = 'Failed to load data: ' + e.message;
     console.error(e);
   }
+}
+
+function applyQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  const resolve = (raw) => {
+    if (!raw) return null;
+    const lc = raw.toLowerCase();
+    return DATA.airports.find(a => a.toLowerCase() === lc) || null;
+  };
+  STATE.hub = resolve(params.get('from'));
+  STATE.destination = resolve(params.get('to'));
+}
+
+function updateQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  if (STATE.hub) params.set('from', STATE.hub); else params.delete('from');
+  if (STATE.destination) params.set('to', STATE.destination); else params.delete('to');
+  const qs = params.toString();
+  const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
+  window.history.replaceState(null, '', url);
 }
 
 function preprocess(d) {
@@ -185,8 +206,13 @@ function setupMeta() {
 }
 
 function setupCombos() {
-  setupCombo('hub-input', 'hub-list', () => STATE.hub, v => { STATE.hub = v; render(); });
-  setupCombo('dest-input', 'dest-list', () => STATE.destination, v => { STATE.destination = v; render(); });
+  const hubInput = document.getElementById('hub-input');
+  const destInput = document.getElementById('dest-input');
+  if (STATE.hub) hubInput.value = STATE.hub;
+  if (STATE.destination) destInput.value = STATE.destination;
+
+  setupCombo('hub-input', 'hub-list', () => STATE.hub, v => { STATE.hub = v; updateQueryParams(); render(); });
+  setupCombo('dest-input', 'dest-list', () => STATE.destination, v => { STATE.destination = v; updateQueryParams(); render(); });
   document.querySelectorAll('.combo-clear').forEach(btn => {
     btn.addEventListener('mousedown', e => e.preventDefault());
     btn.addEventListener('click', () => {
@@ -194,6 +220,7 @@ function setupCombos() {
       const inp = document.getElementById(`${t}-input`);
       inp.value = '';
       if (t === 'hub') STATE.hub = null; else STATE.destination = null;
+      updateQueryParams();
       render();
     });
   });

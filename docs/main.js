@@ -372,14 +372,19 @@ function renderMetrics(dc) {
     `;
   } else {
     const counts = dc.map(d => d.count);
-    const avg = counts.length ? counts.reduce((a, b) => a + b, 0) / counts.length : 0;
+    const stats = summarize(counts);
     let label;
     if (hub) label = `Average flights per day departing ${esc(hub)}`;
     else if (destination) label = `Average flights per day arriving in ${esc(destination)}`;
     else label = 'Average flights bookable on a typical day';
     el.innerHTML = `
       <p class="headline-label">${label}</p>
-      <p class="headline-figure" data-key="avg">${avg.toFixed(2)}</p>
+      <p class="headline-figure" data-key="avg">${stats.mean.toFixed(2)}</p>
+      <ul class="headline-stats">
+        <li><span class="k">median</span><span class="v" data-key="median">${formatStat(stats.median)}</span></li>
+        <li><span class="k">min</span><span class="v" data-key="min">${formatStat(stats.min)}</span></li>
+        <li><span class="k">max</span><span class="v" data-key="max">${formatStat(stats.max)}</span></li>
+      </ul>
     `;
   }
 
@@ -433,7 +438,7 @@ function renderDailyChart(dc) {
     renderRouteTimeline(wrap, hub, destination);
   } else {
     legend.classList.remove('is-visible');
-    if (desc) desc.textContent = 'Available routes recorded each morning. Gaps mean the scrape was missed that day. The dotted line marks the period mean.';
+    if (desc) desc.textContent = 'Available routes recorded each morning. Gaps mean the scrape was missed that day. The dotted line marks the period mean; the dashed line the median.';
     renderDailyLine(wrap, dc);
   }
 }
@@ -444,6 +449,8 @@ function renderDailyLine(wrap, dc) {
   const y = x.map(d => DATA.dateSet.has(d) ? observed[d] : null);
   const observedY = dc.map(d => d.count);
   const avg = observedY.length ? observedY.reduce((a, b) => a + b, 0) / observedY.length : 0;
+  const med = median(observedY);
+  const showMedian = observedY.length > 0 && Math.abs(med - avg) > 0.05;
 
   const data = [{
     x, y, type: 'scatter', mode: 'lines',
@@ -461,20 +468,38 @@ function renderDailyLine(wrap, dc) {
     height: 300,
     xaxis: { ...axisBase(), title: undefined },
     yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', gridcolor: COLORS.border },
-    shapes: [{
-      type: 'line', xref: 'paper', x0: 0, x1: 1,
-      y0: avg, y1: avg,
-      line: { color: COLORS.textFaint, dash: 'dot', width: 1 },
-    }],
-    annotations: [{
-      xref: 'paper', x: 1, xanchor: 'right',
-      y: avg, yanchor: 'bottom',
-      text: `mean ${avg.toFixed(1)}`,
-      showarrow: false,
-      font: { family: FONT_MONO, size: 13, color: COLORS.textMuted },
-      bgcolor: COLORS.bg,
-      borderpad: 4,
-    }],
+    shapes: [
+      {
+        type: 'line', xref: 'paper', x0: 0, x1: 1,
+        y0: avg, y1: avg,
+        line: { color: COLORS.textFaint, dash: 'dot', width: 1 },
+      },
+      ...(showMedian ? [{
+        type: 'line', xref: 'paper', x0: 0, x1: 1,
+        y0: med, y1: med,
+        line: { color: COLORS.textFaint, dash: 'dash', width: 1 },
+      }] : []),
+    ],
+    annotations: [
+      {
+        xref: 'paper', x: 1, xanchor: 'right',
+        y: avg, yanchor: 'bottom',
+        text: `mean ${avg.toFixed(1)}`,
+        showarrow: false,
+        font: { family: FONT_MONO, size: 13, color: COLORS.textMuted },
+        bgcolor: COLORS.bg,
+        borderpad: 4,
+      },
+      ...(showMedian ? [{
+        xref: 'paper', x: 1, xanchor: 'right',
+        y: med, yanchor: med < avg ? 'top' : 'bottom',
+        text: `median ${med.toFixed(1)}`,
+        showarrow: false,
+        font: { family: FONT_MONO, size: 13, color: COLORS.textMuted },
+        bgcolor: COLORS.bg,
+        borderpad: 4,
+      }] : []),
+    ],
     hovermode: 'x unified',
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -987,6 +1012,29 @@ function computeAllAirportStats() {
     for (const a of seenAll) get(a).activeDays++;
   }
   return stats;
+}
+
+function summarize(arr) {
+  if (!arr.length) return { mean: 0, median: 0, min: 0, max: 0 };
+  let sum = 0, mn = Infinity, mx = -Infinity;
+  for (const v of arr) {
+    sum += v;
+    if (v < mn) mn = v;
+    if (v > mx) mx = v;
+  }
+  return { mean: sum / arr.length, median: median(arr), min: mn, max: mx };
+}
+
+function median(arr) {
+  if (!arr.length) return 0;
+  const s = [...arr].sort((a, b) => a - b);
+  const m = s.length >> 1;
+  return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+}
+
+function formatStat(v) {
+  if (!isFinite(v)) return '—';
+  return Number.isInteger(v) ? String(v) : v.toFixed(1);
 }
 
 function groupBy(items, fn) {

@@ -613,15 +613,11 @@ main {
 /* ─── DAILY RANGE SLIDER ────────────────────────────────────────────────── */
 
 .daily-range-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
   margin: 2px 0 6px;
 }
 
 .range-slider-inner {
   position: relative;
-  flex: 1;
   height: 28px;
   display: flex;
   align-items: center;
@@ -669,11 +665,10 @@ main {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 2px;
-  height: 5px;
-  border-radius: 1px;
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: -5px 0 0 1px rgba(255, 255, 255, 0.65), 5px 0 0 1px rgba(255, 255, 255, 0.65);
+  width: 1px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: -3px 0 0 rgba(255, 255, 255, 0.7), 3px 0 0 rgba(255, 255, 255, 0.7);
   pointer-events: none;
 }
 
@@ -722,15 +717,6 @@ main {
 
 .range-input::-moz-range-track { background: transparent; }
 
-.daily-range-label {
-  font-family: var(--mono);
-  font-size: 12px;
-  color: var(--text-faint);
-  width: 140px;
-  flex-shrink: 0;
-  text-align: right;
-  white-space: nowrap;
-}
 
 /* ─── LEGEND ────────────────────────────────────────────────────────────── */
 

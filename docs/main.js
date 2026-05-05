@@ -480,7 +480,7 @@ function renderDailyLine(wrap, dc) {
     hovermode: 'x unified',
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
-  setupDailySlider(wrap, DATA.continuousDates);
+  setupDailySlider(wrap, DATA.continuousDates, 48, 16);
 }
 
 function renderRouteTimeline(wrap, hub, dest) {
@@ -552,28 +552,26 @@ function renderRouteTimeline(wrap, hub, dest) {
     },
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
-  setupDailySlider(wrap, dates);
+  setupDailySlider(wrap, dates, narrow ? 90 : 180, 16);
 }
 
 let cleanupDragListener = null;
 
-function setupDailySlider(chartEl, dates) {
+function setupDailySlider(chartEl, dates, marginL, marginR) {
   const loInput = document.getElementById('daily-range-lo');
   const hiInput = document.getElementById('daily-range-hi');
   const fill = document.getElementById('daily-range-fill');
-  const label = document.getElementById('daily-range-label');
-  if (!loInput || !hiInput || !fill || !label) return;
+  const wrap = document.getElementById('daily-range-wrap');
+  if (!loInput || !hiInput || !fill || !wrap) return;
+
+  wrap.style.paddingLeft = `${marginL}px`;
+  wrap.style.paddingRight = `${marginR}px`;
 
   const max = dates.length - 1;
   loInput.min = hiInput.min = 0;
   loInput.max = hiInput.max = max;
   loInput.value = 0;
   hiInput.value = max;
-
-  const fmtDate = iso => {
-    const d = new Date(iso + 'T00:00:00Z');
-    return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' });
-  };
 
   const sync = () => {
     let lo = parseInt(loInput.value);
@@ -588,10 +586,8 @@ function setupDailySlider(chartEl, dates) {
 
     if (lo === 0 && hi === max) {
       Plotly.relayout(chartEl, { 'xaxis.autorange': true });
-      label.textContent = 'all';
     } else {
       Plotly.relayout(chartEl, { 'xaxis.range': [dates[lo], dates[hi]] });
-      label.textContent = `${fmtDate(dates[lo])} – ${fmtDate(dates[hi])}`;
     }
   };
 

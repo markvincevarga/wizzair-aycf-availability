@@ -516,7 +516,7 @@ function renderRouteTimeline(wrap, hub, dest) {
   const layout = {
     ...baseLayout(),
     margin: { l: narrow ? 90 : 180, r: 16, t: 12, b: 40 },
-    height: narrow ? 180 : 220,
+    height: narrow ? 240 : 300,
     xaxis: { ...axisBase(), showgrid: false, title: undefined },
     yaxis: {
       ...axisBase(),

@@ -699,7 +699,16 @@ function renderMap() {
   const points = collectMapPoints(hub, destination, totalDays);
 
   const grouped = groupBy(points, p => p.color);
-  const traces = [];
+  const traces = [{
+    type: 'scattermap',
+    mode: 'lines',
+    lat: [],
+    lon: [],
+    line: { width: 1.2, color: COLORS.accent },
+    opacity: 0.55,
+    hoverinfo: 'skip',
+    showlegend: false,
+  }];
   const orderedColors = [COLORS.other, COLORS.dest, COLORS.hub];
   const showLabel = !!(hub || destination);
   for (const color of orderedColors) {
@@ -733,6 +742,90 @@ function renderMap() {
     height: 440,
   };
   Plotly.react(wrap, traces, layout, PLOT_CONFIG);
+  setupMapArcs(wrap, !hub && !destination);
+}
+
+let MAP_ARCS_BOUND = false;
+let MAP_ARCS_ACTIVE = false;
+const ARC_TRACE_INDEX = 0;
+
+function setupMapArcs(wrap, active) {
+  MAP_ARCS_ACTIVE = active;
+  if (!active) {
+    Plotly.restyle(wrap, { lat: [[]], lon: [[]] }, [ARC_TRACE_INDEX]);
+  }
+  if (MAP_ARCS_BOUND) return;
+  MAP_ARCS_BOUND = true;
+
+  const show = (name) => {
+    if (!MAP_ARCS_ACTIVE) return;
+    const arcs = computeArcs(name);
+    Plotly.restyle(wrap, { lat: [arcs.lat], lon: [arcs.lon] }, [ARC_TRACE_INDEX]);
+  };
+  const hide = () => {
+    Plotly.restyle(wrap, { lat: [[]], lon: [[]] }, [ARC_TRACE_INDEX]);
+  };
+
+  wrap.on('plotly_hover', (e) => {
+    const pt = e.points && e.points[0];
+    if (!pt || pt.curveNumber === ARC_TRACE_INDEX) return;
+    if (pt.text) show(pt.text);
+  });
+  wrap.on('plotly_unhover', hide);
+  wrap.on('plotly_click', (e) => {
+    const pt = e.points && e.points[0];
+    if (!pt || pt.curveNumber === ARC_TRACE_INDEX) return;
+    if (pt.text) show(pt.text);
+  });
+}
+
+function computeArcs(name) {
+  const ai = DATA.airportIdx[name];
+  const origin = AIRPORT_COORDS[name];
+  if (ai == null || !origin) return { lat: [], lon: [] };
+  const partners = new Set();
+  for (const date of DATA.dates) {
+    for (const rid of DATA.availability[date]) {
+      const [o, d] = DATA.routes[rid];
+      if (o === ai) partners.add(d);
+      else if (d === ai) partners.add(o);
+    }
+  }
+  const lat = [], lon = [];
+  for (const pi of partners) {
+    const c = AIRPORT_COORDS[DATA.airports[pi]];
+    if (!c) continue;
+    const gc = greatCircle(origin[0], origin[1], c[0], c[1]);
+    if (lat.length) { lat.push(NaN); lon.push(NaN); }
+    for (let i = 0; i < gc.lat.length; i++) { lat.push(gc.lat[i]); lon.push(gc.lon[i]); }
+  }
+  return { lat, lon };
+}
+
+function greatCircle(lat1, lon1, lat2, lon2, n = 64) {
+  const f1 = lat1 * Math.PI / 180, l1 = lon1 * Math.PI / 180;
+  const f2 = lat2 * Math.PI / 180, l2 = lon2 * Math.PI / 180;
+  const a = Math.sin((f2 - f1) / 2) ** 2 + Math.cos(f1) * Math.cos(f2) * Math.sin((l2 - l1) / 2) ** 2;
+  const d = 2 * Math.asin(Math.min(1, Math.sqrt(a)));
+  if (!isFinite(d) || d === 0) return { lat: [lat1, lat2], lon: [lon1, lon2] };
+  const lats = [], lons = [];
+  let prevLon = null;
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    const A = Math.sin((1 - t) * d) / Math.sin(d);
+    const B = Math.sin(t * d) / Math.sin(d);
+    const x = A * Math.cos(f1) * Math.cos(l1) + B * Math.cos(f2) * Math.cos(l2);
+    const y = A * Math.cos(f1) * Math.sin(l1) + B * Math.cos(f2) * Math.sin(l2);
+    const z = A * Math.sin(f1) + B * Math.sin(f2);
+    const newLat = Math.atan2(z, Math.sqrt(x * x + y * y)) * 180 / Math.PI;
+    const newLon = Math.atan2(y, x) * 180 / Math.PI;
+    if (prevLon != null && Math.abs(newLon - prevLon) > 180) {
+      lats.push(NaN); lons.push(NaN);
+    }
+    lats.push(newLat); lons.push(newLon);
+    prevLon = newLon;
+  }
+  return { lat: lats, lon: lons };
 }
 
 function mapCenter(hub, destination) {
@@ -865,20 +958,31 @@ window.addEventListener('DOMContentLoaded', setupAnchorLinks);
 
 function setupAnchorLinks() {
   document.querySelectorAll('.anchor-link').forEach(link => {
-    link.addEventListener('click', async (e) => {
+    link.addEventListener('click', (e) => {
       const hash = link.getAttribute('href');
       if (!hash || !hash.startsWith('#')) return;
       e.preventDefault();
       const id = hash.slice(1);
       const target = document.getElementById(id);
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      const url = window.location.origin + window.location.pathname + window.location.search + hash;
       window.history.replaceState(null, '', window.location.pathname + window.location.search + hash);
+    });
+  });
+
+  const copiedTimers = new WeakMap();
+  document.querySelectorAll('.anchor-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const hash = btn.dataset.anchor;
+      if (!hash) return;
+      const url = window.location.origin + window.location.pathname + window.location.search + hash;
       try {
         await navigator.clipboard.writeText(url);
-        link.classList.add('is-copied');
-        setTimeout(() => link.classList.remove('is-copied'), 1200);
-      } catch {}
+      } catch {
+        return;
+      }
+      btn.classList.add('is-copied');
+      clearTimeout(copiedTimers.get(btn));
+      copiedTimers.set(btn, setTimeout(() => btn.classList.remove('is-copied'), 1500));
     });
   });
 }

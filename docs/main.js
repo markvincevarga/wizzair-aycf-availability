@@ -856,6 +856,7 @@ function mapCenter(hub, destination) {
 
 function collectMapPoints(hub, destination, totalDays) {
   const out = [];
+  const lastDateIdx = totalDays - 1;
   if (hub && !destination) {
     const hi = DATA.airportIdx[hub];
     const dests = new Set();
@@ -863,15 +864,12 @@ function collectMapPoints(hub, destination, totalDays) {
       const [o, d] = DATA.routes[rid];
       if (o === hi) dests.add(d);
     }
-    pushAirport(out, hub, COLORS.hub, hubHover(hub, [...dests].map(i => DATA.airports[i]).sort()), 12);
+    pushAirport(out, hub, COLORS.hub, anchorHover(hub, hi, dests, totalDays, true), 12);
     for (const di of dests) {
       const name = DATA.airports[di];
-      const ob = routeProb(hi, di, totalDays);
-      const ib = routeProb(di, hi, totalDays);
-      const lines = [`<b>${esc(name)}</b>`];
-      if (ob) lines.push(`From ${esc(hub)}: ${ob.pct.toFixed(1)}% (${ob.days}/${totalDays} days)`);
-      if (ib) lines.push(`To ${esc(hub)}: ${ib.pct.toFixed(1)}% (${ib.days}/${totalDays} days)`);
-      pushAirport(out, name, COLORS.other, lines.join('<br>'));
+      const outRid = getRouteIdx(hi, di);
+      const retRid = getRouteIdx(di, hi);
+      pushAirport(out, name, COLORS.other, routeHover(name, outRid, name, retRid, hub, totalDays, lastDateIdx));
     }
   } else if (destination && !hub) {
     const di = DATA.airportIdx[destination];
@@ -880,24 +878,25 @@ function collectMapPoints(hub, destination, totalDays) {
       const [o, d] = DATA.routes[rid];
       if (d === di) origins.add(o);
     }
-    pushAirport(out, destination, COLORS.dest, destHover(destination, [...origins].map(i => DATA.airports[i]).sort()), 13);
+    pushAirport(out, destination, COLORS.dest, anchorHover(destination, di, origins, totalDays, false), 13);
     for (const oi of origins) {
       const name = DATA.airports[oi];
-      const ib = routeProb(oi, di, totalDays);
-      const ob = routeProb(di, oi, totalDays);
-      const lines = [`<b>${esc(name)}</b>`];
-      if (ib) lines.push(`To ${esc(destination)}: ${ib.pct.toFixed(1)}% (${ib.days}/${totalDays} days)`);
-      if (ob) lines.push(`From ${esc(destination)}: ${ob.pct.toFixed(1)}% (${ob.days}/${totalDays} days)`);
-      pushAirport(out, name, COLORS.other, lines.join('<br>'));
+      const outRid = getRouteIdx(oi, di);
+      const retRid = getRouteIdx(di, oi);
+      pushAirport(out, name, COLORS.other, routeHover(name, outRid, destination, retRid, name, totalDays, lastDateIdx));
     }
   } else {
     const stats = computeAllAirportStats();
+    const ranked = [...stats.entries()].sort(
+      (a, b) => (b[1].totalFlights) - (a[1].totalFlights)
+    );
+    const rankMap = new Map();
+    ranked.forEach(([ai], idx) => rankMap.set(ai, idx + 1));
     for (const [ai, s] of stats) {
       const name = DATA.airports[ai];
-      const lines = [`<b>${esc(name)}</b>`];
-      if (s.outDays) lines.push(`Outbound: ${(s.outDays / totalDays * 100).toFixed(1)}% of days (${s.outRoutes.size} routes)`);
-      if (s.inDays) lines.push(`Inbound: ${(s.inDays / totalDays * 100).toFixed(1)}% of days (${s.inRoutes.size} routes)`);
-      pushAirport(out, name, COLORS.other, lines.join('<br>'));
+      const routes = s.outRoutes.size + s.inRoutes.size;
+      const hover = `<b>${esc(name)}</b><br>${routes} routes<br>#${rankMap.get(ai)} busiest`;
+      pushAirport(out, name, COLORS.other, hover);
     }
   }
   return out;
@@ -909,35 +908,63 @@ function pushAirport(out, name, color, hover, size = 9) {
   out.push({ name, lat: c[0], lon: c[1], color, hover, size });
 }
 
-function hubHover(hub, destinations) {
-  const dl = formatList(destinations.map(esc), 12);
-  return `<b>${esc(hub)}</b> (Hub)<br>Destinations: ${destinations.length}<br>${dl}`;
+function anchorHover(name, ai, partnerSet, totalDays, isHub) {
+  let totalFlights = 0;
+  let bestPi = null;
+  let bestDays = 0;
+  for (const pi of partnerSet) {
+    const rid = isHub ? getRouteIdx(ai, pi) : getRouteIdx(pi, ai);
+    if (rid < 0) continue;
+    let days = 0;
+    for (const date of DATA.dates) if (DATA.dateAvailSet[date].has(rid)) days++;
+    totalFlights += days;
+    if (days > bestDays) { bestDays = days; bestPi = pi; }
+  }
+  const perDay = (totalFlights / totalDays).toFixed(1);
+  const best = bestPi != null ? esc(DATA.airports[bestPi]) : '—';
+  const role = isHub ? 'hub' : 'arrival';
+  const label = isHub ? 'destinations' : 'origins';
+  return `<b>${esc(name)}</b> (${role})<br>${partnerSet.size} ${label}<br>${perDay} flights/day<br>top: ${best}`;
 }
 
-function destHover(dest, origins) {
-  const dl = formatList(origins.map(esc), 12);
-  return `<b>${esc(dest)}</b> (Destination)<br>Origins: ${origins.length}<br>${dl}`;
+function routeHover(name, outRid, outDest, retRid, retDest, totalDays, lastDateIdx) {
+  let outDays = 0, retDays = 0;
+  if (outRid >= 0) for (const date of DATA.dates) if (DATA.dateAvailSet[date].has(outRid)) outDays++;
+  if (retRid >= 0) for (const date of DATA.dates) if (DATA.dateAvailSet[date].has(retRid)) retDays++;
+  const last = lastSeenStr([outRid, retRid], lastDateIdx);
+  const lines = [`<b>${esc(name)}</b>`];
+  if (outDays) lines.push(`→ ${esc(outDest)} ${freqWk(outDays, totalDays)}`);
+  if (retDays) lines.push(`→ ${esc(retDest)} ${freqWk(retDays, totalDays)}`);
+  lines.push(`last ${last}`);
+  return lines.join('<br>');
 }
 
-function formatList(items, max) {
-  if (items.length <= max) return items.join(', ');
-  return items.slice(0, max).join(', ') + `, … (+${items.length - max} more)`;
+function freqWk(days, totalDays) {
+  const v = days / totalDays * 7;
+  const r = Math.round(v * 10) / 10;
+  if (r < 0.1) return '<0.1/wk';
+  return (r % 1 === 0 ? r.toFixed(0) : r.toFixed(1)) + '/wk';
 }
 
-function routeProb(originIdx, destIdx, totalDays) {
-  const rid = getRouteIdx(originIdx, destIdx);
-  if (rid < 0) return null;
-  let days = 0;
-  for (const date of DATA.dates) if (DATA.dateAvailSet[date].has(rid)) days++;
-  if (!days) return null;
-  return { days, pct: (days / totalDays) * 100 };
+function lastSeenStr(rids, lastDateIdx) {
+  for (let i = lastDateIdx; i >= 0; i--) {
+    const set = DATA.dateAvailSet[DATA.dates[i]];
+    for (const rid of rids) if (rid >= 0 && set.has(rid)) {
+      const off = lastDateIdx - i;
+      if (off === 0) return 'today';
+      if (off < 7) return `${off}d`;
+      if (off < 30) return `${Math.floor(off / 7)}w`;
+      return `${Math.floor(off / 30)}mo`;
+    }
+  }
+  return '—';
 }
 
 function computeAllAirportStats() {
   const stats = new Map();
   const get = (ai) => {
     let s = stats.get(ai);
-    if (!s) { s = { outDays: 0, inDays: 0, outRoutes: new Set(), inRoutes: new Set() }; stats.set(ai, s); }
+    if (!s) { s = { outDays: 0, inDays: 0, activeDays: 0, totalFlights: 0, outRoutes: new Set(), inRoutes: new Set() }; stats.set(ai, s); }
     return s;
   };
   for (const date of DATA.dates) {
@@ -945,13 +972,19 @@ function computeAllAirportStats() {
     const seenIn = new Set();
     for (const rid of DATA.availability[date]) {
       const [o, d] = DATA.routes[rid];
-      get(o).outRoutes.add(rid);
-      get(d).inRoutes.add(rid);
+      const so = get(o);
+      const sd = get(d);
+      so.outRoutes.add(rid);
+      sd.inRoutes.add(rid);
+      so.totalFlights++;
+      sd.totalFlights++;
       seenOut.add(o);
       seenIn.add(d);
     }
     for (const o of seenOut) get(o).outDays++;
     for (const d of seenIn) get(d).inDays++;
+    const seenAll = new Set([...seenOut, ...seenIn]);
+    for (const a of seenAll) get(a).activeDays++;
   }
   return stats;
 }

@@ -464,10 +464,11 @@ function renderDailyLine(wrap, dc) {
 
   const layout = {
     ...baseLayout(),
+    dragmode: false,
     margin: { l: 48, r: 16, t: 16, b: 44 },
     height: 300,
-    xaxis: { ...axisBase(), title: undefined },
-    yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', gridcolor: COLORS.border },
+    xaxis: { ...axisBase(), title: undefined, rangeslider: { visible: true } },
+    yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', gridcolor: COLORS.border, fixedrange: true },
     shapes: [
       {
         type: 'line', xref: 'paper', x0: 0, x1: 1,
@@ -559,9 +560,10 @@ function renderRouteTimeline(wrap, hub, dest) {
   }];
   const layout = {
     ...baseLayout(),
+    dragmode: false,
     margin: { l: narrow ? 90 : 180, r: 16, t: 12, b: 40 },
     height: narrow ? 240 : 300,
-    xaxis: { ...axisBase(), showgrid: false, title: undefined },
+    xaxis: { ...axisBase(), showgrid: false, title: undefined, rangeslider: { visible: true } },
     yaxis: {
       ...axisBase(),
       autorange: 'reversed',
@@ -569,6 +571,7 @@ function renderRouteTimeline(wrap, hub, dest) {
       showline: false,
       ticks: '',
       tickfont: { family: FONT_SANS, size: narrow ? 13 : 15, color: COLORS.text },
+      fixedrange: true,
     },
   };
   Plotly.react(wrap, data, layout, PLOT_CONFIG);
@@ -589,10 +592,11 @@ function renderMonthlyChart(dc) {
     ];
     const layout = {
       ...baseLayout(),
+      dragmode: false,
       barmode: 'group',
       bargap: 0.4,
-      xaxis: { ...axisBase(), title: undefined },
-      yaxis: { ...axisBase(), title: undefined, range: [0, 108], ticksuffix: '%' },
+      xaxis: { ...axisBase(), title: undefined, fixedrange: true },
+      yaxis: { ...axisBase(), title: undefined, range: [0, 108], ticksuffix: '%', fixedrange: true },
       margin: { l: 48, r: 16, t: 16, b: 56 },
       height: 300,
       legend: legendCfg(),
@@ -603,9 +607,10 @@ function renderMonthlyChart(dc) {
     const data = [bar(months, vals, 'Avg flights / day', COLORS.text, false)];
     const layout = {
       ...baseLayout(),
+      dragmode: false,
       bargap: 0.5,
-      xaxis: { ...axisBase(), title: undefined },
-      yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero' },
+      xaxis: { ...axisBase(), title: undefined, fixedrange: true },
+      yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', fixedrange: true },
       margin: { l: 56, r: 16, t: 16, b: 40 },
       height: 300,
       showlegend: false,
@@ -688,10 +693,11 @@ function renderWeekdayChart(dc) {
     ];
     const layout = {
       ...baseLayout(),
+      dragmode: false,
       barmode: 'group',
       bargap: 0.4,
-      xaxis: { ...axisBase(), title: undefined },
-      yaxis: { ...axisBase(), title: undefined, range: [0, 108], ticksuffix: '%' },
+      xaxis: { ...axisBase(), title: undefined, fixedrange: true },
+      yaxis: { ...axisBase(), title: undefined, range: [0, 108], ticksuffix: '%', fixedrange: true },
       margin: { l: 48, r: 16, t: 16, b: 56 },
       height: 280,
       legend: legendCfg(),
@@ -708,9 +714,10 @@ function renderWeekdayChart(dc) {
     const data = [bar(wdShort, vals, 'Avg flights', COLORS.text, false)];
     const layout = {
       ...baseLayout(),
+      dragmode: false,
       bargap: 0.5,
-      xaxis: { ...axisBase(), title: undefined },
-      yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero' },
+      xaxis: { ...axisBase(), title: undefined, fixedrange: true },
+      yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', fixedrange: true },
       margin: { l: 56, r: 16, t: 16, b: 40 },
       height: 280,
       showlegend: false,

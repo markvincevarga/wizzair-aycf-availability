@@ -16,6 +16,7 @@ APP_CONFIG = {
 CHART_CONFIG = {
     "displayModeBar": True,
     "displaylogo": False,
+    "scrollZoom": False,
 }
 
 # Map configuration
@@ -756,6 +757,9 @@ class FlightAnalytics:
                     annotation_text=f"Average: {avg_flights:.2f}",
                 )
 
+            fig.update_xaxes(rangeslider_visible=True)
+            fig.update_yaxes(fixedrange=True)
+
             return fig
 
         except Exception as e:
@@ -851,8 +855,8 @@ class FlightAnalytics:
                 plot_bgcolor="white",
                 margin=dict(l=120, r=20, t=60, b=40),
             )
-            fig.update_xaxes(showgrid=False, ticks="outside")
-            fig.update_yaxes(showgrid=False)
+            fig.update_xaxes(showgrid=False, ticks="outside", rangeslider_visible=True)
+            fig.update_yaxes(showgrid=False, fixedrange=True)
 
             return fig
         except Exception as e:
@@ -931,8 +935,10 @@ class FlightAnalytics:
                     },
                 )
 
-            # Add labels with custom text
             self._add_chart_labels(fig, percentage_mode=False, text_format="%{text}")
+
+            fig.update_xaxes(fixedrange=True)
+            fig.update_yaxes(fixedrange=True)
 
             return fig
 
@@ -1412,10 +1418,12 @@ class FlightAnalytics:
             self._configure_chart_axes(fig, weekday_order=True)
             self._add_chart_labels(fig, percentage_mode=False)
 
-        # Customize layout
         fig.update_layout(
             xaxis_title="Day of Week", showlegend=bool(hub and destination), height=400
         )
+
+        fig.update_xaxes(fixedrange=True)
+        fig.update_yaxes(fixedrange=True)
 
         return fig
 

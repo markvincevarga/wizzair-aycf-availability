@@ -224,6 +224,25 @@ function setupCombos() {
       render();
     });
   });
+
+  const swapBtn = document.getElementById('swap-btn');
+  if (swapBtn) {
+    let spin = 0;
+    swapBtn.addEventListener('mousedown', e => e.preventDefault());
+    swapBtn.addEventListener('click', () => {
+      const a = STATE.hub;
+      const b = STATE.destination;
+      if (!a && !b) return;
+      STATE.hub = b;
+      STATE.destination = a;
+      hubInput.value = STATE.hub || '';
+      destInput.value = STATE.destination || '';
+      spin += 180;
+      swapBtn.style.setProperty('--swap-spin', `${spin}deg`);
+      updateQueryParams();
+      render();
+    });
+  }
 }
 
 function setupCombo(inputId, listId, getValue, setValue) {

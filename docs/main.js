@@ -256,7 +256,7 @@ function setupCombo(inputId, listId, getValue, setValue) {
     const el = list.children[activeIdx];
     if (el && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' });
   };
-  const select = (v) => { inp.value = v; setValue(v); close(); };
+  const select = (v) => { inp.value = v; setValue(v); close(); inp.blur(); };
 
   inp.addEventListener('focus', open);
   inp.addEventListener('input', () => { activeIdx = -1; renderList(inp.value); list.hidden = false; });

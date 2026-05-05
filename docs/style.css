@@ -776,14 +776,6 @@ footer {
   text-align: center;
 }
 
-.coverage-line {
-  font-family: var(--mono);
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-  letter-spacing: -0.005em;
-}
-
 .colophon {
   font-size: 15px;
   color: var(--text-muted);

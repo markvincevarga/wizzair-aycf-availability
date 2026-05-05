@@ -396,30 +396,6 @@ function renderMetrics(dc) {
     }
   });
 
-  updateCoverageLine(dc);
-}
-
-function updateCoverageLine(dc) {
-  const el = document.getElementById('coverage-line');
-  if (!el) return;
-  const { hub, destination } = STATE;
-  const matched = dc.filter(d => (d.count || 0) > 0 || d.ab > 0 || d.ba > 0).map(d => d.date);
-  if (!matched.length) {
-    el.textContent = '— no observations match the current filter —';
-    return;
-  }
-  const first = matched[0];
-  const last = matched[matched.length - 1];
-  const span = `${longDate(first)} → ${longDate(last)}`;
-  const daysWith = matched.length;
-  const totalDays = DATA.dates.length;
-  if (hub && destination) {
-    el.textContent = `${hub} ↔ ${destination} · observed on ${daysWith.toLocaleString()} of ${totalDays.toLocaleString()} days · ${span}`;
-  } else if (hub || destination) {
-    el.textContent = `Coverage · ${daysWith.toLocaleString()} of ${totalDays.toLocaleString()} days · ${span}`;
-  } else {
-    el.textContent = `Coverage · ${totalDays.toLocaleString()} days collected · ${span}`;
-  }
 }
 
 function longDate(iso) {

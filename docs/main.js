@@ -592,6 +592,17 @@ function setupDailySlider(chartEl, dates, marginL, marginR) {
     hiInput.value = max;
   }
 
+  const PRESET_DAYS = { '1m': 30, '6m': 182, '1y': 365, 'max': Infinity };
+
+  const syncPresets = (lo, hi) => {
+    document.querySelectorAll('.range-preset').forEach(btn => {
+      const days = PRESET_DAYS[btn.dataset.preset];
+      if (days == null) return;
+      const expectedLo = isFinite(days) ? Math.max(0, max - days) : 0;
+      btn.classList.toggle('is-active', lo === expectedLo && hi === max);
+    });
+  };
+
   const sync = () => {
     let lo = parseInt(loInput.value);
     let hi = parseInt(hiInput.value);
@@ -608,10 +619,23 @@ function setupDailySlider(chartEl, dates, marginL, marginR) {
     } else {
       Plotly.relayout(chartEl, { 'xaxis.range': [dates[lo], dates[hi]] });
     }
+
+    syncPresets(lo, hi);
   };
 
   loInput.oninput = sync;
   hiInput.oninput = sync;
+
+  document.querySelectorAll('.range-preset').forEach(btn => {
+    btn.onclick = () => {
+      const days = PRESET_DAYS[btn.dataset.preset];
+      if (days == null) return;
+      loInput.value = isFinite(days) ? Math.max(0, max - days) : 0;
+      hiInput.value = max;
+      sync();
+    };
+  });
+
   sync();
 
   if (cleanupDragListener) { cleanupDragListener(); cleanupDragListener = null; }

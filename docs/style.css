@@ -616,6 +616,35 @@ main {
   margin: 2px 0 6px;
 }
 
+.range-presets {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+  margin-top: 6px;
+  padding-right: 16px;
+}
+
+.range-preset {
+  font: 11px/1 var(--font-mono);
+  color: var(--text-muted);
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.range-preset:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+}
+
+.range-preset.is-active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .range-slider-inner {
   position: relative;
   height: 28px;

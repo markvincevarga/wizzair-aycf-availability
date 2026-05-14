@@ -67,7 +67,9 @@ const AIRPORT_COORDS = {
 const WEEKDAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+const TOUCH = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 const PLOT_CONFIG = { displaylogo: false, displayModeBar: false, responsive: true };
+const PLOT_CONFIG_STATIC = { ...PLOT_CONFIG, staticPlot: TOUCH };
 const FONT_SANS = "'Geist', -apple-system, BlinkMacSystemFont, sans-serif";
 const FONT_MONO = "'Geist Mono', ui-monospace, monospace";
 
@@ -480,7 +482,7 @@ function renderDailyLine(wrap, dc) {
     ],
     hovermode: 'x unified',
   };
-  Plotly.react(wrap, data, layout, PLOT_CONFIG);
+  Plotly.react(wrap, data, layout, PLOT_CONFIG_STATIC);
   setupDailySlider(wrap, DATA.continuousDates, 48, 16);
 }
 
@@ -559,7 +561,7 @@ function renderRouteTimeline(wrap, hub, dest) {
       fixedrange: true,
     },
   };
-  Plotly.react(wrap, data, layout, PLOT_CONFIG);
+  Plotly.react(wrap, data, layout, PLOT_CONFIG_STATIC);
   setupDailySlider(wrap, dates, narrow ? 90 : 180, 16);
 }
 

@@ -443,7 +443,7 @@ function renderDailyLine(wrap, dc) {
     dragmode: false,
     margin: { l: 48, r: 16, t: 16, b: 44 },
     height: 300,
-    xaxis: { ...axisBase(), title: undefined },
+    xaxis: { ...axisBase(), title: undefined, fixedrange: true },
     yaxis: { ...axisBase(), title: undefined, rangemode: 'tozero', gridcolor: COLORS.border, fixedrange: true },
     shapes: [
       {
@@ -547,7 +547,7 @@ function renderRouteTimeline(wrap, hub, dest) {
     dragmode: false,
     margin: { l: narrow ? 90 : 180, r: 16, t: 12, b: 40 },
     height: narrow ? 240 : 300,
-    xaxis: { ...axisBase(), showgrid: false, title: undefined },
+    xaxis: { ...axisBase(), showgrid: false, title: undefined, fixedrange: true },
     yaxis: {
       ...axisBase(),
       autorange: 'reversed',

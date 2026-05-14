@@ -569,9 +569,12 @@ function setupDailySlider(chartEl, dates, marginL, marginR) {
 
   const max = dates.length - 1;
   loInput.min = hiInput.min = 0;
+  const prevMax = parseInt(loInput.max);
   loInput.max = hiInput.max = max;
-  loInput.value = 0;
-  hiInput.value = max;
+  if (prevMax !== max) {
+    loInput.value = 0;
+    hiInput.value = max;
+  }
 
   const sync = () => {
     let lo = parseInt(loInput.value);

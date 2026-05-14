@@ -107,6 +107,7 @@ function baseLayout() {
       bordercolor: COLORS.border,
     },
     margin: { l: 56, r: 16, t: 12, b: 48 },
+    doubleclick: false,
   };
 }
 

@@ -517,11 +517,27 @@ function renderRouteTimeline(wrap, hub, dest) {
   const yLabels = narrow
     ? ['Both', `${abbr(hub)} → ${abbr(dest)}`, `${abbr(dest)} → ${abbr(hub)}`]
     : ['Both', `${hub} → ${dest}`, `${dest} → ${hub}`];
-  const z = [bothRow, abRow, baRow];
+  const encodeRow = (row, hitValue) => row.map(v => v == null ? null : v === 1 ? hitValue : 0);
+  const z = [
+    encodeRow(bothRow, 1),
+    encodeRow(abRow, 2),
+    encodeRow(baRow, 3),
+  ];
   const customdata = [
     bothRow.map(hover('Both directions')),
     abRow.map(hover(`${hub} → ${dest}`)),
     baRow.map(hover(`${dest} → ${hub}`)),
+  ];
+
+  const eps = 0.001;
+  const colorscale = [
+    [0,           COLORS.surfaceSoft],
+    [1/3 - eps,   COLORS.surfaceSoft],
+    [1/3,         '#0ea5e9'],
+    [2/3 - eps,   '#0ea5e9'],
+    [2/3,         COLORS.accent],
+    [1 - eps,     COLORS.accent],
+    [1,           COLORS.slate],
   ];
 
   const data = [{
@@ -529,8 +545,8 @@ function renderRouteTimeline(wrap, hub, dest) {
     x: dates, y: yLabels, z,
     customdata,
     hovertemplate: '%{customdata}<extra></extra>',
-    colorscale: [[0, COLORS.surfaceSoft], [1, COLORS.accent]],
-    zmin: 0, zmax: 1,
+    colorscale,
+    zmin: 0, zmax: 3,
     showscale: false,
     xgap: narrow ? 0 : 1,
     ygap: narrow ? 3 : 6,

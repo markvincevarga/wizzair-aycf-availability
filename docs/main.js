@@ -319,11 +319,109 @@ function getRouteIdx(originIdx, destIdx) {
 function render() {
   refreshColors();
   const dc = dailyMatchCounts();
+  renderToday();
   renderMetrics(dc);
   renderDailyChart(dc);
   renderMonthlyChart(dc);
   renderWeekdayChart(dc);
   renderMap();
+}
+
+function latestDataRelative() {
+  const iso = DATA.dates[DATA.dates.length - 1];
+  const target = new Date(iso + 'T00:00:00');
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const days = Math.max(0, Math.round((today.getTime() - target.getTime()) / 86400000));
+  let title, short;
+  if (days === 0) { title = 'Today'; short = 'today'; }
+  else if (days === 1) { title = 'Yesterday'; short = 'yesterday'; }
+  else { title = `${days} days ago`; short = `${days}d ago`; }
+  return { iso, days, title, short };
+}
+
+function renderToday() {
+  const { hub, destination } = STATE;
+  const section = document.getElementById('today');
+  if (!section) return;
+
+  if ((!hub && !destination) || (hub && destination)) {
+    section.classList.add('is-hidden');
+    return;
+  }
+  section.classList.remove('is-hidden');
+
+  const rel = latestDataRelative();
+  const titleEl = document.getElementById('today-title');
+  if (titleEl) titleEl.textContent = rel.title;
+  section.classList.toggle('is-stale', rel.days > 0);
+
+  const dateEl = document.getElementById('today-date');
+  const fmt = new Date(rel.iso + 'T00:00:00Z').toLocaleDateString('en-GB', {
+    weekday: 'short', day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC',
+  });
+  dateEl.textContent = fmt;
+  dateEl.setAttribute('datetime', rel.iso);
+
+  const body = document.getElementById('today-body');
+  const anchor = hub || destination;
+  const ai = DATA.airportIdx[anchor];
+  const isHub = !!hub;
+
+  const names = [];
+  for (const rid of DATA.availability[rel.iso]) {
+    const [o, d] = DATA.routes[rid];
+    if (isHub && o === ai) names.push(DATA.airports[d]);
+    else if (!isHub && d === ai) names.push(DATA.airports[o]);
+  }
+  names.sort((a, b) => a.localeCompare(b));
+
+  const direction = isHub ? `from ${anchor}` : `to ${anchor}`;
+
+  body.innerHTML = `
+    <div class="today-list-wrap">
+      <div class="today-meta">
+        <span>${names.length} ${names.length === 1 ? 'city' : 'cities'} ${esc(direction)}</span>
+      </div>
+      <div class="today-list-scroll" id="today-list-scroll">
+        <ul class="today-list" id="today-list" role="listbox"></ul>
+      </div>
+    </div>
+  `;
+
+  const list = document.getElementById('today-list');
+  const scrollEl = document.getElementById('today-list-scroll');
+
+  if (!names.length) {
+    list.innerHTML = `<li class="today-empty">No flights ${rel.short} ${esc(direction)}</li>`;
+  } else {
+    list.innerHTML = names.map(n =>
+      `<li role="option" data-name="${esc(n)}"><span class="today-city">${esc(n)}</span><span class="today-arrow" aria-hidden="true">›</span></li>`
+    ).join('');
+    if (scrollEl.scrollHeight > scrollEl.clientHeight + 1) {
+      scrollEl.classList.add('has-overflow');
+    }
+  }
+
+  list.addEventListener('click', (e) => {
+    const li = e.target.closest('li[data-name]');
+    if (!li) return;
+    const name = li.dataset.name;
+    if (isHub) {
+      STATE.destination = name;
+      document.getElementById('dest-input').value = name;
+    } else {
+      STATE.hub = name;
+      document.getElementById('hub-input').value = name;
+    }
+    updateQueryParams();
+    render();
+  });
+
+  scrollEl.addEventListener('scroll', () => {
+    const nearBottom = scrollEl.scrollTop + scrollEl.clientHeight >= scrollEl.scrollHeight - 8;
+    scrollEl.classList.toggle('at-bottom', nearBottom);
+  });
 }
 
 function dailyMatchCounts() {
@@ -363,14 +461,25 @@ function renderMetrics(dc) {
     const ab = dc.filter(x => x.ab).length;
     const ba = dc.filter(x => x.ba).length;
     const pct = (n) => total ? (n / total * 100).toFixed(1) : '—';
+
+    const rel = latestDataRelative();
+    const set = DATA.dateAvailSet[rel.iso];
+    const hi = DATA.airportIdx[hub];
+    const di = DATA.airportIdx[destination];
+    const abRid = getRouteIdx(hi, di);
+    const baRid = getRouteIdx(di, hi);
+    const abYes = abRid >= 0 && set.has(abRid);
+    const baYes = baRid >= 0 && set.has(baRid);
+    const tag = (yes) => `<span class="label-today ${yes ? 'is-yes' : 'is-no'}"><span class="label-today-mark" aria-hidden="true">${yes ? '✓' : '✗'}</span><span class="label-today-text">${rel.short}</span></span>`;
+
     el.innerHTML = `
       <div class="col">
         <p class="pct" data-key="ab">${pct(ab)}<span class="unit">%</span></p>
-        <p class="label">${esc(hub)} → ${esc(destination)}</p>
+        <p class="label"><span class="label-route ${abYes ? 'is-yes' : 'is-no'}">${esc(hub)} → ${esc(destination)}</span>${tag(abYes)}</p>
       </div>
       <div class="col">
         <p class="pct" data-key="ba">${pct(ba)}<span class="unit">%</span></p>
-        <p class="label">${esc(destination)} → ${esc(hub)}</p>
+        <p class="label"><span class="label-route ${baYes ? 'is-yes' : 'is-no'}">${esc(destination)} → ${esc(hub)}</span>${tag(baYes)}</p>
       </div>
     `;
   } else {

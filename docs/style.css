@@ -20,6 +20,7 @@
   --shadow-stuck: 0 4px 16px rgba(10, 10, 10, 0.04);
   --shadow-pop: 0 12px 32px rgba(10, 10, 10, 0.08), 0 2px 6px rgba(10, 10, 10, 0.04);
   --shadow-toggle: 0 1px 2px rgba(10, 10, 10, 0.06);
+  --shadow-scroll: rgba(10, 10, 10, 0.14);
 }
 
 :root[data-theme="dark"] {
@@ -43,6 +44,7 @@
   --shadow-stuck: 0 4px 16px rgba(0, 0, 0, 0.5);
   --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);
   --shadow-toggle: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-scroll: rgba(0, 0, 0, 0.55);
 }
 
 :root {
@@ -376,6 +378,139 @@ main {
   padding: 0 32px;
 }
 
+/* ─── TODAY ─────────────────────────────────────────────────────────────── */
+
+.today {
+  padding: 20px 0 24px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+.today-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.today-title {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.today-date {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-faint);
+}
+
+.today-list-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.today-meta {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  padding: 0 4px;
+}
+
+.today-list-scroll {
+  --row-h: 44px;
+  position: relative;
+  max-height: calc(var(--row-h) * 6.5 + 8px);
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  scrollbar-gutter: stable;
+  transition: box-shadow 0.18s;
+}
+
+.today-list-scroll.has-overflow {
+  box-shadow: inset 0 -28px 24px -16px var(--shadow-scroll);
+}
+
+.today-list-scroll.has-overflow.at-bottom {
+  box-shadow: none;
+}
+
+.today-list-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.today-list-scroll::-webkit-scrollbar-track {
+  background: var(--surface-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.today-list-scroll::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+  border: 2px solid var(--surface-soft);
+  background-clip: padding-box;
+  min-height: 32px;
+}
+
+.today-list-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+  background-clip: padding-box;
+  border: 2px solid var(--surface-soft);
+}
+
+.today-list {
+  padding: 4px;
+}
+
+.today-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: var(--row-h);
+  padding: 0 12px;
+  font-size: 15px;
+  color: var(--text);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s;
+}
+
+.today-list li:hover {
+  background: var(--accent-soft);
+  color: var(--accent-deep);
+}
+
+.today-list li:hover .today-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.today-list li.today-empty {
+  color: var(--text-muted);
+  cursor: default;
+  background: transparent;
+  padding: 12px;
+  height: auto;
+}
+
+.today-city { flex: 1; min-width: 0; }
+
+.today-arrow {
+  color: var(--text-faint);
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.12s, transform 0.12s;
+}
+
+
 /* ─── HEADLINE FIGURE ───────────────────────────────────────────────────── */
 
 .headline {
@@ -482,6 +617,58 @@ main {
   font-size: 14px;
   color: var(--text-soft);
   letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.label-route.is-yes {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.label-route.is-no {
+  color: var(--text-faint);
+  text-decoration: line-through;
+  text-decoration-color: var(--text-faint);
+  text-decoration-thickness: 1px;
+}
+
+.label-today {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.label-today.is-yes {
+  background: var(--accent);
+  color: #fff;
+}
+
+.label-today.is-no {
+  background: var(--surface-soft);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.label-today-mark {
+  font-size: 14px;
+  line-height: 1;
+}
+
+:root[data-theme="dark"] .label-today.is-yes {
+  color: #0a0a0a;
 }
 
 @media (max-width: 720px) {

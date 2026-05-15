@@ -183,6 +183,15 @@ function preprocess(d) {
   d.dateSet = new Set(d.dates);
   d.weekdayOfDate = {};
   for (const dt of d.continuousDates) d.weekdayOfDate[dt] = (new Date(dt + 'T00:00:00Z').getUTCDay() + 6) % 7;
+  d.partnersOf = {};
+  for (const name of d.airports) d.partnersOf[name] = new Set();
+  for (const date of d.dates) {
+    for (const rid of d.availability[date]) {
+      const [o, dst] = d.routes[rid];
+      d.partnersOf[d.airports[o]].add(d.airports[dst]);
+      d.partnersOf[d.airports[dst]].add(d.airports[o]);
+    }
+  }
 }
 
 function fillRange(start, end) {
@@ -214,8 +223,12 @@ function setupCombos() {
   if (STATE.hub) hubInput.value = STATE.hub;
   if (STATE.destination) destInput.value = STATE.destination;
 
-  setupCombo('hub-input', 'hub-list', () => STATE.hub, v => { STATE.hub = v; updateQueryParams(); render(); });
-  setupCombo('dest-input', 'dest-list', () => STATE.destination, v => { STATE.destination = v; updateQueryParams(); render(); });
+  const allowedFor = (otherKey) => () => {
+    const other = otherKey === 'hub' ? STATE.hub : STATE.destination;
+    return other ? DATA.partnersOf[other] : null;
+  };
+  setupCombo('hub-input', 'hub-list', () => STATE.hub, v => { STATE.hub = v; updateQueryParams(); render(); }, allowedFor('destination'));
+  setupCombo('dest-input', 'dest-list', () => STATE.destination, v => { STATE.destination = v; updateQueryParams(); render(); }, allowedFor('hub'));
   document.querySelectorAll('.combo-clear').forEach(btn => {
     btn.addEventListener('mousedown', e => e.preventDefault());
     btn.addEventListener('click', () => {
@@ -248,7 +261,7 @@ function setupCombos() {
   }
 }
 
-function setupCombo(inputId, listId, getValue, setValue) {
+function setupCombo(inputId, listId, getValue, setValue, getAllowed) {
   const inp = document.getElementById(inputId);
   const list = document.getElementById(listId);
   let activeIdx = -1;
@@ -261,9 +274,10 @@ function setupCombo(inputId, listId, getValue, setValue) {
 
   const renderList = (filter) => {
     const f = filter.trim().toLowerCase();
-    visible = DATA.airports.filter(a => a.toLowerCase().includes(f));
+    const allowed = getAllowed ? getAllowed() : null;
+    visible = DATA.airports.filter(a => (!allowed || allowed.has(a)) && a.toLowerCase().includes(f));
     if (!visible.length) {
-      list.innerHTML = '<li class="empty">No airports match</li>';
+      list.innerHTML = `<li class="empty">${allowed ? 'No connected airports match' : 'No airports match'}</li>`;
       return;
     }
     list.innerHTML = visible.map((a, i) => `<li role="option" data-idx="${i}">${esc(a)}</li>`).join('');

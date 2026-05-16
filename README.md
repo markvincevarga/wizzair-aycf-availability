@@ -57,13 +57,3 @@ OR use the provided container to run wizz-aycf-data. The following command will 
 docker build . -f Containerfile -t wizz-aycf-data
 docker run -v "${PWD}:/app" wizz-aycf-data
 ```
-
-## Goals
-
-- [x] Create Containerfile to execute using a container runtime (use `uv` + install `camelot` prerequisites)
-- Refactor code
-  - [x] Availability PDF URL should be a parameter
-  - [x] Separate functionality of downloading and parsing
-  - [ ] Make parsing more bulletproof: handle different timezones in string, clear occasional possible leading/trailing whitespace
-- [x] Automatically execute every day (GitHub Actions?)
-- [x] Choose license(s), possibly different license for the data

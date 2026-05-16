@@ -1,0 +1,9 @@
+name = "wizz-aycf-trigger"
+main = "src/index.ts"
+compatibility_date = "2025-05-01"
+
+[triggers]
+crons = ["1-15 6 * * *", "1-15 5 * * *"]
+
+[vars]
+GITHUB_REPO = "markvincevarga/wizzair-aycf-availability"

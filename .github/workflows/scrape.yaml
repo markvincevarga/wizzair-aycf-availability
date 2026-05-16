@@ -16,13 +16,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Skip if today's data already present
+        id: check
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          if compgen -G "data/${TODAY}T*.csv" > /dev/null; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "Today's CSV (${TODAY}) already present — exiting cleanly."
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "No CSV for ${TODAY} yet — will scrape."
+          fi
+
       - name: Set Up Dependencies
+        if: steps.check.outputs.skip != 'true'
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends curl ghostscript ca-certificates
           curl -LsSf https://astral.sh/uv/install.sh | sh
 
       - name: Run Scrape
+        if: steps.check.outputs.skip != 'true'
         run: |
           uv run --link-mode=copy main.py fetch --pdf-dir pdfs
           echo Done fetching
@@ -32,11 +46,13 @@ jobs:
           cp pdfs/$(ls pdfs) artifacts/availability.pdf
 
       - uses: actions/upload-artifact@v4
+        if: steps.check.outputs.skip != 'true'
         with:
           name: availability-pdf
           path: artifacts/availability.pdf
 
       - name: Run Parse
+        if: steps.check.outputs.skip != 'true'
         run: |
           uv run --link-mode=copy main.py parse --data-dir data artifacts/availability.pdf
           echo Doing self-check: only one file must exist
@@ -49,17 +65,19 @@ jobs:
           fi
 
       - name: Aggregate Data
+        if: steps.check.outputs.skip != 'true'
         run: |
           uv run --link-mode=copy aggregate.py --out docs/aggregated-data.json
 
       - name: Setup Git Config
+        if: steps.check.outputs.skip != 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
 
       - name: Commit New File and Push
+        if: steps.check.outputs.skip != 'true'
         run: |
-          # Stage the file, commit and push
           file_path=$(git ls-files data --others --exclude-standard)
           timestamp=$(echo "${file_path##*/}" | cut -d '.' -f 1)
           git add ${file_path} docs/aggregated-data.json
@@ -68,6 +86,7 @@ jobs:
           git push origin main
 
       - name: Trigger Deploy Pages
+        if: steps.check.outputs.skip != 'true'
         run: gh workflow run deploy-pages.yaml
         env:
           GH_TOKEN: ${{ github.token }}

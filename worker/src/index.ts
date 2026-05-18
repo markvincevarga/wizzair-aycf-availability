@@ -5,36 +5,14 @@ export interface Env {
 }
 
 const CET_TZ = "Europe/Vienna";
-const WIZZ_PDF_URL = "https://multipass.wizzair.com/aycf-availability.pdf";
 
-function dateInCET(d: Date): string {
+function todayInCET(now = new Date()): string {
   return new Intl.DateTimeFormat("en-CA", {
     timeZone: CET_TZ,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(d);
-}
-
-function todayInCET(now = new Date()): string {
-  return dateInCET(now);
-}
-
-async function wizzPdfLastModifiedCET(): Promise<string | null> {
-  const r = await fetch(WIZZ_PDF_URL, {
-    method: "GET",
-    headers: {
-      Range: "bytes=0-0",
-      "User-Agent": "wizz-aycf-cf-trigger",
-      Accept: "*/*",
-    },
-  });
-  const lm = r.headers.get("last-modified");
-  console.log(`wizz check: status=${r.status} last-modified=${lm ?? "(none)"}`);
-  if (!lm) return null;
-  const d = new Date(lm);
-  if (Number.isNaN(d.getTime())) return null;
-  return dateInCET(d);
+  }).format(now);
 }
 
 function ghHeaders(env: Env): HeadersInit {
@@ -73,12 +51,8 @@ async function tick(env: Env, todayOverride?: string, dryRun = false): Promise<s
   if (await isTodayAlreadyCommitted(env, today)) {
     return `today=${today} already in repo — skipping`;
   }
-  const pdfDate = await wizzPdfLastModifiedCET();
-  if (pdfDate !== today) {
-    return `wizz pdf last-modified=${pdfDate ?? "unknown"} != today=${today} — skipping`;
-  }
   if (dryRun) {
-    return `today=${today} not in repo, wizz pdf is fresh — would dispatch (dry run)`;
+    return `today=${today} not in repo — would dispatch (dry run)`;
   }
   await dispatchWorkflow(env);
   return `dispatched scrape.yaml for ${today}`;

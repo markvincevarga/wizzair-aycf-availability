@@ -15,6 +15,18 @@ function todayInCET(now = new Date()): string {
   }).format(now);
 }
 
+function cetHHMM(now: Date): number {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: CET_TZ,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).formatToParts(now);
+  const h = parseInt(parts.find((p) => p.type === "hour")!.value, 10);
+  const m = parseInt(parts.find((p) => p.type === "minute")!.value, 10);
+  return h * 100 + m;
+}
+
 function ghHeaders(env: Env): HeadersInit {
   return {
     Authorization: `Bearer ${env.GITHUB_TOKEN}`,
@@ -47,7 +59,11 @@ async function dispatchWorkflow(env: Env): Promise<void> {
 }
 
 async function tick(env: Env, todayOverride?: string, dryRun = false): Promise<string> {
-  const today = todayOverride ?? todayInCET();
+  const now = new Date();
+  const today = todayOverride ?? todayInCET(now);
+  if (!todayOverride && cetHHMM(now) >= 830) {
+    return `today=${today} past 08:30 CET — not dispatching`;
+  }
   if (await isTodayAlreadyCommitted(env, today)) {
     return `today=${today} already in repo — skipping`;
   }

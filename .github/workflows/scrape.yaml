@@ -64,8 +64,13 @@ jobs:
               echo "Success: one new CSV produced"
               ;;
             0)
+              HHMM=$(TZ="Europe/Vienna" date +%H%M)
+              if [ $((10#$HHMM)) -ge 830 ]; then
+                echo "Hard fail: PDF still stale at ${HHMM} CET/CEST (past 08:30 cutoff)."
+                exit 1
+              fi
               echo "stale=true" >> "$GITHUB_OUTPUT"
-              echo "Soft-exit: PDF appears stale (data_generated matches an already-committed timestamp). Wizz likely hasn't published today's PDF yet."
+              echo "Soft-exit: PDF still stale at ${HHMM} CET/CEST — Wizz likely hasn't published yet."
               ;;
             *)
               echo "Unexpected: $new_files new files"

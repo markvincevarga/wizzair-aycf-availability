@@ -94,8 +94,9 @@ function refreshColors() {
   COLORS.accentFill = v('--accent-fill', 'rgba(230, 0, 126, 0.06)');
   COLORS.mapStyle = v('--map-style', "'carto-positron'").replace(/['"]/g, '');
   COLORS.hub = COLORS.accent;
-  COLORS.dest = COLORS.slate;
+  COLORS.dest = COLORS.accent;
   COLORS.other = v('--map-other', '#1f2937');
+  COLORS.partner = v('--map-partner', '#00a35c');
 }
 
 function baseLayout() {
@@ -985,7 +986,7 @@ function renderMap() {
     hoverinfo: 'skip',
     showlegend: false,
   }];
-  const orderedColors = [COLORS.other, COLORS.dest, COLORS.hub];
+  const orderedColors = [...new Set([COLORS.other, COLORS.partner, COLORS.dest, COLORS.hub])];
   const showLabel = !!(hub || destination);
   for (const color of orderedColors) {
     const group = grouped.get(color);
@@ -1121,12 +1122,14 @@ function collectMapPoints(hub, destination, totalDays) {
       const [o, d] = DATA.routes[rid];
       if (o === hi) dests.add(d);
     }
+    const current = currentPartners(hi, true);
     pushAirport(out, hub, COLORS.hub, anchorHover(hub, hi, dests, totalDays, true), 12);
     for (const di of dests) {
       const name = DATA.airports[di];
       const outRid = getRouteIdx(hi, di);
       const retRid = getRouteIdx(di, hi);
-      pushAirport(out, name, COLORS.other, routeHover(name, outRid, name, retRid, hub, totalDays, lastDateIdx));
+      const color = current.has(di) ? COLORS.partner : COLORS.other;
+      pushAirport(out, name, color, routeHover(name, outRid, name, retRid, hub, totalDays, lastDateIdx));
     }
   } else if (destination && !hub) {
     const di = DATA.airportIdx[destination];
@@ -1135,12 +1138,14 @@ function collectMapPoints(hub, destination, totalDays) {
       const [o, d] = DATA.routes[rid];
       if (d === di) origins.add(o);
     }
+    const current = currentPartners(di, false);
     pushAirport(out, destination, COLORS.dest, anchorHover(destination, di, origins, totalDays, false), 13);
     for (const oi of origins) {
       const name = DATA.airports[oi];
       const outRid = getRouteIdx(oi, di);
       const retRid = getRouteIdx(di, oi);
-      pushAirport(out, name, COLORS.other, routeHover(name, outRid, destination, retRid, name, totalDays, lastDateIdx));
+      const color = current.has(oi) ? COLORS.partner : COLORS.other;
+      pushAirport(out, name, color, routeHover(name, outRid, destination, retRid, name, totalDays, lastDateIdx));
     }
   } else {
     const stats = computeAllAirportStats();
@@ -1157,6 +1162,17 @@ function collectMapPoints(hub, destination, totalDays) {
     }
   }
   return out;
+}
+
+function currentPartners(ai, isHub) {
+  const iso = DATA.dates[DATA.dates.length - 1];
+  const partners = new Set();
+  for (const rid of DATA.availability[iso]) {
+    const [o, d] = DATA.routes[rid];
+    if (isHub && o === ai) partners.add(d);
+    else if (!isHub && d === ai) partners.add(o);
+  }
+  return partners;
 }
 
 function pushAirport(out, name, color, hover, size = 9) {

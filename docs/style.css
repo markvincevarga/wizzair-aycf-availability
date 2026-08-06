@@ -16,6 +16,7 @@
   --accent-fill: rgba(230, 0, 126, 0.06);
   --slate: #404040;
   --map-other: #1f2937;
+  --map-partner: #00a35c;
   --map-style: 'carto-positron';
   --shadow-stuck: 0 4px 16px rgba(10, 10, 10, 0.04);
   --shadow-pop: 0 12px 32px rgba(10, 10, 10, 0.08), 0 2px 6px rgba(10, 10, 10, 0.04);
@@ -40,6 +41,7 @@
   --accent-fill: rgba(255, 40, 145, 0.10);
   --slate: #d4d4d4;
   --map-other: #d4d4d4;
+  --map-partner: #1fd881;
   --map-style: 'carto-darkmatter';
   --shadow-stuck: 0 4px 16px rgba(0, 0, 0, 0.5);
   --shadow-pop: 0 12px 32px rgba(0, 0, 0, 0.55), 0 2px 6px rgba(0, 0, 0, 0.35);

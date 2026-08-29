@@ -976,6 +976,8 @@ main {
 .legend-swatch.on { background: var(--accent); }
 .legend-swatch.off { background: var(--surface-soft); }
 .legend-swatch.nodata { background: transparent; border: 1px dashed var(--border-strong); }
+.legend-swatch.map-partner { background: var(--map-partner); border-radius: 50%; }
+.legend-swatch.map-other { background: var(--map-other); border-radius: 50%; }
 
 /* ─── FOOTER ────────────────────────────────────────────────────────────── */
 

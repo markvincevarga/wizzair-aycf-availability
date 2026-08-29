@@ -968,8 +968,10 @@ function weekdayDirectionPct(originName, destName) {
 function renderMap() {
   const { hub, destination } = STATE;
   const card = document.getElementById('network');
+  const legend = document.getElementById('map-legend');
   if (hub && destination) { card.classList.add('is-hidden'); return; }
   card.classList.remove('is-hidden');
+  legend.classList.toggle('is-visible', !!(hub || destination));
 
   const wrap = document.getElementById('map-chart');
   const totalDays = DATA.dates.length;

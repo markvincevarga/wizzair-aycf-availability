@@ -71,3 +71,5 @@ Deploy to production: `npm run deploy`
 Deploy a preview of the current branch: `npx cf previews deploy`
 
 Delete a preview: `npx cf previews delete <branch-name> --worker aycf --force`
+
+The daily scrape workflow commits fresh data and triggers `.github/workflows/deploy.yaml`, which deploys automatically. It needs the repository secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID`.

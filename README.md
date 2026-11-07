@@ -57,3 +57,17 @@ OR use the provided container to run wizz-aycf-data. The following command will 
 docker build . -f Containerfile -t wizz-aycf-data
 docker run -v "${PWD}:/app" wizz-aycf-data
 ```
+
+## Deployment
+
+Hosted on Cloudflare Workers (static assets) at https://aycf.mvarga.dev. Worker name: `aycf`.
+
+Setup: `npm install` and `npx cf auth login`.
+
+Local preview: `npm run dev`
+
+Deploy to production: `npm run deploy`
+
+Deploy a preview of the current branch: `npx cf previews deploy`
+
+Delete a preview: `npx cf previews delete <branch-name> --worker aycf --force`

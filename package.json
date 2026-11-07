@@ -1,0 +1,13 @@
+{
+  "name": "aycf",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cf dev",
+    "deploy": "cf deploy"
+  },
+  "devDependencies": {
+    "cf": "^1.0.0-beta.28",
+    "wrangler": "^4.158.0"
+  }
+}

@@ -99,9 +99,3 @@ jobs:
           git commit -m "add availabilities for ${timestamp}"
           git --no-pager log -n 1
           git push origin main
-
-      - name: Trigger Deploy Pages
-        if: steps.check.outputs.skip != 'true' && steps.parse.outputs.stale != 'true'
-        run: gh workflow run deploy-pages.yaml
-        env:
-          GH_TOKEN: ${{ github.token }}
